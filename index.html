@@ -279,7 +279,7 @@ button{font:inherit;color:inherit}
 @media (max-width:1180px){.core .disc small{font-size:9.5px;letter-spacing:.1em}.eco{grid-template-columns:minmax(0,1fr) 320px minmax(0,1fr)}.orbit{width:250px;height:250px}.core .disc{width:170px;height:170px}.col.l .tile:nth-child(odd){margin-left:28px}.col.l .tile:nth-child(2){margin-right:28px}.col.r .tile:nth-child(odd){margin-right:28px}.col.r .tile:nth-child(2){margin-left:28px}}
 @media (max-width:920px){.eco{grid-template-columns:1fr 1fr;gap:14px}.eco-links{display:none}.eco .core{grid-column:1/-1;order:-1;margin-bottom:12px}.eco .col{display:contents}.eco .tile{margin:0!important}.col.l .tile .go svg{transform:none}}
 @media (max-width:600px){.eco{grid-template-columns:1fr}.tile{min-height:76px;padding:14px 14px 14px 16px}}
-.detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);margin-top:44px;border-top:2px solid var(--gold);border-radius:14px;overflow:hidden}
+.detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);margin-top:44px;scroll-margin-top:96px;border-top:2px solid var(--gold);border-radius:14px;overflow:hidden}
 @media (max-width:920px){.detail{grid-template-columns:1fr}}
 .detail .copy{padding:36px;display:flex;flex-direction:column;gap:14px;min-width:0}
 .detail .logo{min-height:56px;display:flex;align-items:center}
@@ -1440,7 +1440,11 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     var sub=el('span','sub',SUB[d.id]); if(d.isNew) sub.appendChild(el('em','new','NEW'));
     id.appendChild(lg); id.appendChild(sub); b.appendChild(id);
     var go=el('span','go'); go.innerHTML=CHEV; b.appendChild(go);
-    b.addEventListener('click', function(){ pick(d.id, true); });
+    b.addEventListener('click', function(){
+      pick(d.id, true);
+      var det=document.querySelector('#ecosystem .detail');   // bring the division's summary into view
+      if(det) det.scrollIntoView({behavior: reduce?'auto':'smooth', block:'start'});
+    });
     bindTilt(b, 6);
     return b;
   }
