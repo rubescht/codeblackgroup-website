@@ -1157,7 +1157,8 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     function pt(a){ var x=rx*Math.cos(a), y=ry*Math.sin(a); return [cx+x*ct-y*st, cy+x*st+y*ct]; }
     var STOPS=[[0,[255,250,228]],[.15,[255,224,150]],[.4,[240,180,78]],[.72,[214,118,42]],[1,[120,42,12]]];
     function col(p){ for(var i=1;i<STOPS.length;i++){ if(p<=STOPS[i][0]){ var A=STOPS[i-1],B=STOPS[i],k=(p-A[0])/(B[0]-A[0]); return Math.round(A[1][0]+(B[1][0]-A[1][0])*k)+','+Math.round(A[1][1]+(B[1][1]-A[1][1])*k)+','+Math.round(A[1][2]+(B[1][2]-A[1][2])*k); } } return '120,42,12'; }
-    var embers=[], t0=null, visible=true, speed=o.speed||1.4, trail=o.trail||2.4;
+    var embers=[], visible=true, period=o.period||4.8, trail=o.trail||2.4;
+    var phase=Math.PI/2 + TAU*(o.sync||.605);   // flame crosses the front of the planet as the shine sweeps over the icon
     function ctxFor(a){ return Math.sin(a)>=0 ? xf : xb; }      // lower half of the ellipse is in front of the planet
     function depth(a){ return .55+.45*(Math.sin(a)*.5+.5); }     // nearer = brighter and thicker
     function ring(c, from, to){
@@ -1176,9 +1177,9 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
       xb.globalCompositeOperation=xf.globalCompositeOperation='source-over';
       ring(xb, Math.PI, TAU); ring(xf, 0, Math.PI);
       xb.globalCompositeOperation=xf.globalCompositeOperation='lighter';
-      var head=t*speed, n=56;
+      var head=phase-TAU*t/period, n=56;   // runs left-to-right across the front, same direction as the shine
       for(var k=n;k>=0;k--){
-        var p=k/n, a=head-trail*p, c=ctxFor(a), d=depth(a), f2=Math.sin(t*23+k*1.37)*.55+Math.sin(t*11.3+k*.61)*.45;
+        var p=k/n, a=head+trail*p, c=ctxFor(a), d=depth(a), f2=Math.sin(t*23+k*1.37)*.55+Math.sin(t*11.3+k*.61)*.45;
         var P=pt(a), w=w0*(1-p*.75)*(1.1+f2*.2)*d, cc=col(p), al=Math.pow(1-p,1.5)*d;
         var lift=(f2*.5+.4)*w0*p*1.6;                              // flames lick upward off the ring
         c.fillStyle='rgba('+cc+','+(al*.16).toFixed(3)+')'; c.beginPath(); c.arc(P[0],P[1]-lift,w*3,0,TAU); c.fill();
@@ -1204,14 +1205,17 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
         xf.fillStyle='rgba('+col(1-m.life*.9)+','+(m.life*.85).toFixed(3)+')'; xf.beginPath(); xf.arc(m.x,m.y,m.r*(.5+m.life*.5),0,TAU); xf.fill();
       }
     }
-    function loop(now){ if(t0===null) t0=now; if(visible && !document.hidden) draw(Math.max(0,(now-t0)/1000)); requestAnimationFrame(loop); }
+    function loop(now){ if(visible && !document.hidden) draw(now/1000); requestAnimationFrame(loop); }   // same clock as the CSS shine
     if(reduce){ draw(1.2); return; }
     if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ visible=es[0].isIntersecting; }).observe(cb); }
     window.addEventListener('resize', size);
     requestAnimationFrame(loop);
   }
-  saturnRing(document.getElementById('sat-head-b'), document.getElementById('sat-head-f'), {speed:1.5, trail:2.4, streak:.3});
-  saturnRing(document.getElementById('sat-foot-b'), document.getElementById('sat-foot-f'), {speed:1.2, trail:2.4, streak:.3});
+  // lock the logo shine and glow to the document clock so the ring and the shine stay in step
+  (function(){ function lock(){ document.querySelectorAll('.cbglogo,.whitewrap').forEach(function(el){ if(el.getAnimations) el.getAnimations().forEach(function(a){ a.startTime=0; }); }); }
+    lock(); window.addEventListener('load', lock); })();
+  saturnRing(document.getElementById('sat-head-b'), document.getElementById('sat-head-f'), {period:4.8, sync:.605, trail:2.4, streak:.3});
+  saturnRing(document.getElementById('sat-foot-b'), document.getElementById('sat-foot-f'), {period:4.8, sync:.603, trail:2.4, streak:.3});
 
   /* ================= first-visit logo reveal: the original CBG logo reveal video ================= */
   (function(){
