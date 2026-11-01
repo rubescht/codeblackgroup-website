@@ -4,12 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Code Black Group brings cyber security, A.I., managed IT, digital, surveillance and connectivity together under one accountable group. One Code. One Strategy. One Outcome.">
-<meta property="og:title" content="Code Black Group - All Angles Covered">
-<meta property="og:description" content="Six specialist divisions. One accountable group.">
-<meta property="og:image" content="img/hero-city-grid.jpg">
+<link rel="canonical" href="https://codeblackgroup-website.onrender.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Code Black Group">
+<meta property="og:url" content="https://codeblackgroup-website.onrender.com/">
+<meta property="og:title" content="Code Black Group | All Angles Covered">
+<meta property="og:description" content="Cyber, A.I., IT, digital, surveillance and connectivity. Six specialist divisions, one accountable group.">
+<meta property="og:image" content="https://codeblackgroup-website.onrender.com/img/share-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Code Black Group: All angles covered">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Code Black Group | All Angles Covered">
+<meta name="twitter:description" content="Six specialist divisions. One accountable group.">
+<meta name="twitter:image" content="https://codeblackgroup-website.onrender.com/img/share-card.jpg">
 <meta name="theme-color" content="#0b0b0c">
 <link rel="icon" href="logos/cbg-mark-white.svg" type="image/svg+xml">
-<title>Code Black Group</title>
+<title>Code Black Group | All Angles Covered</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
@@ -241,6 +252,20 @@ button{font:inherit;color:inherit}
 .watchnext button:hover{border-color:var(--gold)}
 .watchnext em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px}
 .copied{font-size:14px;color:var(--muted)}
+.sendmap{display:flex;flex-direction:column;gap:12px;margin-top:6px;padding-top:14px;border-top:1px solid var(--line)}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:520px){.fgrid{grid-template-columns:1fr}}
+.fgrid label{display:flex;flex-direction:column;gap:6px;font-family:var(--display);font-size:12px;font-weight:500;letter-spacing:.03em;color:var(--soft)}
+.fgrid label.full{grid-column:1/-1}
+.fgrid input,.fgrid textarea{width:100%;min-height:44px;padding:10px 12px;background:rgba(0,0,0,.55);border:1px solid var(--line);color:var(--ivory);font:15px/1.45 var(--text);border-radius:0}
+.fgrid textarea{min-height:120px;resize:vertical;font-size:14px;color:var(--soft)}
+.fgrid input:focus,.fgrid textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,74,.2)}
+.sendmap .acts{display:flex;flex-wrap:wrap;gap:10px}
+.sendmap .btn[disabled]{opacity:.75;cursor:default;transform:none}
+.formmsg{font-size:15px;min-height:0}
+.formmsg.err{color:#f0b38a}
+.formmsg.ok{color:var(--gold-hi);font-weight:600}
+.fine{font-size:13px;color:var(--muted)}
 textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory);border:1px solid var(--line);font:14px/1.5 var(--text);padding:10px}
 
 /* ---------- steps ---------- */
@@ -526,12 +551,24 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
             <span class="label">Your next step</span>
             <div class="big" id="r-next"></div>
             <p id="r-team"></p>
-            <div class="acts">
-              <button class="btn" type="button" id="copy-map">Copy my map</button>
-              <a class="btn ghost" href="#contact">Talk to us</a>
-            </div>
-            <p class="copied" id="copy-msg" hidden></p>
-            <p class="contactline">Send it to vip@codeblackgroup.com.au or call 1300 737 562.</p>
+            <form class="sendmap" id="map-form" novalidate>
+              <span class="label">Send your map to an account manager</span>
+              <div class="fgrid">
+                <label for="f-first">First name<input id="f-first" name="firstname" autocomplete="given-name" required></label>
+                <label for="f-last">Last name<input id="f-last" name="lastname" autocomplete="family-name"></label>
+                <label for="f-email">Work email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+                <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+                <label for="f-company" class="full">Organisation<input id="f-company" name="company" autocomplete="organization"></label>
+                <label for="f-message" class="full">Your coverage map, plus anything you'd like to add<textarea id="f-message" name="message" rows="5"></textarea></label>
+              </div>
+              <div class="acts">
+                <button class="btn" type="submit" id="send-map">Send my map</button>
+                <button class="btn ghost" type="button" id="copy-map">Copy it instead</button>
+              </div>
+              <p class="formmsg" id="form-msg" role="status" aria-live="polite"></p>
+              <p class="copied" id="copy-msg" hidden></p>
+              <p class="fine">We use these details only to respond to your enquiry. Prefer to talk? Call 1300 737 562 or email vip@codeblackgroup.com.au.</p>
+            </form>
           </div>
           <div>
             <span class="label">Watch next</span>
@@ -1092,12 +1129,32 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
       +'On our mind: '+(chosen.length?chosen.join('; '):'nothing selected yet')+'\n\nCoverage map:\n'+lines.join('\n')
       +'\n\nNext step: '+next+'\n'+team;
     $('copy-msg').hidden=true;
+    if(!msgEdited) $('f-message').value=lastText;
   }
-  $('copy-map').addEventListener('click', function(){ copyText(lastText, $('copy-msg'), 'Copied. Paste it into an email to vip@codeblackgroup.com.au.'); });
+  var msgEdited=false;
+  $('f-message').addEventListener('input', function(){ msgEdited=true; });
+  $('copy-map').addEventListener('click', function(){ copyText($('f-message').value||lastText, $('copy-msg'), 'Copied. Paste it into an email to vip@codeblackgroup.com.au.'); });
+  $('map-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var msg=$('form-msg'), first=$('f-first'), email=$('f-email');
+    msg.className='formmsg';
+    if(!first.value.trim()){ msg.textContent='Add your first name so we know who to ask for.'; msg.className='formmsg err'; first.focus(); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){ msg.textContent='Add a work email we can reply to, for example name@company.com.au.'; msg.className='formmsg err'; email.focus(); return; }
+    try{
+      var _hsq=window._hsq=window._hsq||[];
+      _hsq.push(['identify',{email:email.value.trim(), firstname:first.value.trim(), lastname:$('f-last').value.trim(), phone:$('f-phone').value.trim(), company:$('f-company').value.trim()}]);
+      _hsq.push(['trackPageView']);
+    }catch(err){}
+    msg.textContent='Thanks, '+first.value.trim()+'. Your map has been sent and your account manager will be in touch.';
+    msg.className='formmsg ok';
+    $('send-map').disabled=true; $('send-map').textContent='Sent';
+  });
   $('ai-disc').addEventListener('click', function(){ S.ch.ai=true; update(); });
   update();
 })();
 </script>
 
+<!-- HubSpot tracking code: analytics + collected forms (portal 443786770) -->
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js-ap1.hs-scripts.com/443786770.js"></script>
 </body>
 </html>
