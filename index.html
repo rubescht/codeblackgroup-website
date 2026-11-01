@@ -227,37 +227,59 @@ button{font:inherit;color:inherit}
 .textlink{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border:0;background:none;padding:0 0 4px;border-bottom:1.5px solid var(--gold);color:var(--gold);cursor:pointer;text-decoration:none}
 .textlink:hover{color:var(--gold-hi);border-color:var(--gold-hi)}
 
-/* ---------- ecosystem ---------- */
-.eco{display:grid;grid-template-columns:minmax(0,1fr) 300px minmax(0,1fr);align-items:center}
-@media (max-width:920px){.eco{grid-template-columns:1fr 1fr;gap:10px}.eco .core{grid-column:1/-1;order:-1;margin-bottom:16px}.eco .col{display:contents}.eco .tile{margin:0!important}.eco .tile::before{display:none}}
-.eco .col{display:flex;flex-direction:column;gap:12px;perspective:900px}
-.tile{display:block;width:100%;text-align:left;padding:16px 18px;min-height:72px;cursor:pointer;color:var(--ivory)}
-.tile b{display:block;font-family:var(--display);font-size:17px;line-height:1.2}
-.tile span{display:block;font-family:var(--display);font-size:11px;letter-spacing:.07em;color:var(--muted);margin-top:4px}
-.tile:hover{border-color:var(--gold)}
-.tile[aria-pressed="true"]{background:var(--metal-flat);border-color:transparent;color:var(--on-gold);box-shadow:0 18px 36px -12px rgba(201,162,74,.55)}
-.tile[aria-pressed="true"] span{color:#3a3020}
-.tile .new{position:absolute;top:10px;right:10px;font-family:var(--display);font-size:10px;font-style:normal;letter-spacing:.06em;border:1px solid currentColor;border-radius:999px;padding:2px 8px;color:var(--gold)}
-.tile[aria-pressed="true"] .new{color:var(--on-gold)}
-.col.l .tile{margin-right:40px}.col.r .tile{margin-left:40px}
-.col.l .tile::before,.col.r .tile::before{content:"";position:absolute;top:50%;width:40px;height:1.5px;background:linear-gradient(90deg,var(--gold-dim),var(--gold))}
-.col.l .tile::before{right:-41.5px}.col.r .tile::before{left:-41.5px;transform:scaleX(-1)}
-.core{display:flex;flex-direction:column;align-items:center;text-align:center}
-.core .you{border:1.5px solid var(--ivory);padding:8px 14px;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.06em;background:rgba(0,0,0,.5)}
-.orbit{position:relative;width:240px;height:240px;display:grid;place-items:center;perspective:700px}
-.orbit .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(201,162,74,.55);transform-style:preserve-3d}
+/* ---------- ecosystem: hub-and-spoke ---------- */
+.eco{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 380px minmax(0,1fr);align-items:center;padding-block:8px}
+.eco-links{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
+.eco-links path{fill:none;stroke:rgba(201,162,74,.22);stroke-width:1.2}
+.eco-links path.live{stroke:var(--gold-hi);stroke-width:1.6;stroke-dasharray:5 9;animation:flow 1.1s linear infinite;filter:drop-shadow(0 0 4px rgba(232,205,135,.7))}
+.eco-links circle{fill:#1a1813;stroke:rgba(201,162,74,.5);stroke-width:1.2}
+.eco-links circle.live{fill:var(--gold-hi);stroke:var(--gold-hi);filter:drop-shadow(0 0 6px rgba(232,205,135,.9))}
+@keyframes flow{to{stroke-dashoffset:-28}}
+.eco .col{position:relative;z-index:1;display:flex;flex-direction:column;gap:18px;perspective:900px}
+.col.l .tile:nth-child(odd){margin-left:52px}.col.l .tile:nth-child(2){margin-right:52px}
+.col.r .tile:nth-child(odd){margin-right:52px}.col.r .tile:nth-child(2){margin-left:52px}
+.tile{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:16px;width:auto;text-align:left;padding:18px 18px 18px 20px;min-height:88px;cursor:pointer;color:var(--ivory);border-radius:12px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(34,32,27,.9),rgba(15,14,12,.92));box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 18px 34px -20px rgba(0,0,0,.9);transition:border-color .25s,box-shadow .25s,background .25s}
+.tile .num{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--gold-dim);transition:color .25s}
+.tile .id{display:flex;flex-direction:column;gap:9px;min-width:0}
+.tile .lg{height:26px;display:flex;align-items:center}
+.tile .lg img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:left center;opacity:.82;transition:opacity .25s}
+.tile[data-id=midnight] .lg img{height:17px}.tile[data-id='3eyes'] .lg img{height:24px}.tile[data-id=rendr] .lg img{height:20px}.tile[data-id=wize] .lg img{height:23px}
+.tile .lg .wm{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.14em;opacity:.85}
+.tile .sub{display:flex;align-items:center;gap:8px;font-family:var(--body,inherit);font-size:13px;color:var(--muted);letter-spacing:.01em}
+.tile .new{font-family:var(--display);font-size:9.5px;font-style:normal;font-weight:700;letter-spacing:.08em;border:1px solid var(--gold);border-radius:999px;padding:1px 7px;color:var(--gold)}
+.tile .go{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:all .25s}
+.tile .go svg{width:14px;height:14px}
+.col.l .tile .go svg{transform:scaleX(-1)}
+.tile:hover{border-color:var(--gold-dim)}
+.tile:hover .lg img{opacity:1}
+.tile[aria-pressed="true"]{border-color:var(--gold);background:linear-gradient(180deg,rgba(52,44,26,.92),rgba(20,17,11,.94));box-shadow:inset 0 1px 0 rgba(255,236,190,.18),0 0 0 1px rgba(201,162,74,.25),0 22px 44px -20px rgba(201,162,74,.55)}
+.tile[aria-pressed="true"] .num{color:var(--gold-hi)}
+.tile[aria-pressed="true"] .lg img,.tile[aria-pressed="true"] .lg .wm{opacity:1}
+.tile[aria-pressed="true"] .sub{color:var(--soft)}
+.tile[aria-pressed="true"] .go{background:var(--metal-flat);border-color:transparent;color:var(--on-gold)}
+.core{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center}
+.core .you,.core .cm{border:1px solid rgba(201,162,74,.45);border-radius:999px;padding:8px 16px;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--ivory);background:rgba(10,10,9,.75);backdrop-filter:blur(6px)}
+.core .cm{color:var(--soft);font-size:10.5px;white-space:nowrap}
+@media (max-width:420px){.core .cm{white-space:normal;max-width:300px}}
+.core .vline{height:30px;width:1px;background:linear-gradient(var(--gold-dim),var(--gold))}
+.core .vline:last-of-type{background:linear-gradient(var(--gold),var(--gold-dim))}
+.orbit{position:relative;width:290px;height:290px;display:grid;place-items:center;perspective:700px}
+.orbit .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(201,162,74,.5);transform-style:preserve-3d}
 .orbit .ring.a{animation:spinA 14s linear infinite}
-.orbit .ring.b{inset:10px;border-color:rgba(201,162,74,.35);animation:spinB 20s linear infinite}
-.orbit .ring.c{inset:-8px;border-style:dashed;border-color:rgba(201,162,74,.25);animation:spinC 30s linear infinite}
+.orbit .ring.b{inset:12px;border-color:rgba(201,162,74,.32);animation:spinB 20s linear infinite}
+.orbit .ring.c{inset:-10px;border-style:dashed;border-color:rgba(201,162,74,.22);animation:spinC 30s linear infinite}
 .orbit .ring::after{content:"";position:absolute;top:-5px;left:50%;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 14px 3px rgba(232,205,135,.7)}
+.orbit::before{content:"";position:absolute;inset:-40px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,74,.16) 0%,rgba(201,162,74,0) 62%);pointer-events:none}
 @keyframes spinA{from{transform:rotateX(68deg) rotateZ(0)}to{transform:rotateX(68deg) rotateZ(360deg)}}
 @keyframes spinB{from{transform:rotateY(64deg) rotateZ(0)}to{transform:rotateY(64deg) rotateZ(-360deg)}}
 @keyframes spinC{from{transform:rotateX(-58deg) rotateY(24deg) rotateZ(0)}to{transform:rotateX(-58deg) rotateY(24deg) rotateZ(360deg)}}
-.core .disc{position:relative;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2a2620 0%,#0a0a0a 65%);color:var(--ivory);border:2px solid var(--gold);box-shadow:0 0 0 8px rgba(201,162,74,.07),0 30px 60px -10px rgba(0,0,0,.9),0 0 60px rgba(201,162,74,.25),inset 0 2px 0 rgba(255,255,255,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;z-index:1}
-.core .disc .goldwrap{margin-top:4px}
-.core .disc small{font-size:13px;color:var(--gold)}
-.core .cm{border:1.5px solid var(--gold-dim);padding:7px 12px;font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.05em;max-width:230px;color:var(--soft);background:rgba(0,0,0,.5)}
-.detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);margin-top:36px;border-top:3px solid var(--gold)}
+.core .disc{position:relative;width:196px;height:196px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#2e2a22 0%,#0c0c0b 62%);color:var(--ivory);border:1.5px solid var(--gold);box-shadow:0 0 0 10px rgba(201,162,74,.06),0 0 0 11px rgba(201,162,74,.18),0 30px 60px -10px rgba(0,0,0,.9),0 0 70px rgba(201,162,74,.22),inset 0 2px 0 rgba(255,255,255,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:1}
+.core .disc .cbglogo.icon{background:var(--shine) no-repeat,var(--silver-icon);background-size:300% 100%,100% 100%;background-repeat:no-repeat}
+.core .disc small{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+@media (max-width:1180px){.core .disc small{font-size:9.5px;letter-spacing:.1em}.eco{grid-template-columns:minmax(0,1fr) 320px minmax(0,1fr)}.orbit{width:250px;height:250px}.core .disc{width:170px;height:170px}.col.l .tile:nth-child(odd){margin-left:28px}.col.l .tile:nth-child(2){margin-right:28px}.col.r .tile:nth-child(odd){margin-right:28px}.col.r .tile:nth-child(2){margin-left:28px}}
+@media (max-width:920px){.eco{grid-template-columns:1fr 1fr;gap:14px}.eco-links{display:none}.eco .core{grid-column:1/-1;order:-1;margin-bottom:12px}.eco .col{display:contents}.eco .tile{margin:0!important}.col.l .tile .go svg{transform:none}}
+@media (max-width:600px){.eco{grid-template-columns:1fr}.tile{min-height:76px;padding:14px 14px 14px 16px}}
+.detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);margin-top:44px;border-top:2px solid var(--gold);border-radius:14px;overflow:hidden}
 @media (max-width:920px){.detail{grid-template-columns:1fr}}
 .detail .copy{padding:36px;display:flex;flex-direction:column;gap:14px;min-width:0}
 .detail .logo{min-height:56px;display:flex;align-items:center}
@@ -266,7 +288,7 @@ button{font:inherit;color:inherit}
 .detail h3{font-size:26px}
 .detail .copy p{color:var(--soft);font-size:18px}
 .detail .copy .conn{color:var(--muted);font-size:16px}
-.detail .copy a.site{align-self:flex-start;font-family:var(--display);font-size:13px;font-weight:700;border:1.5px solid var(--gold);color:var(--gold);padding:8px 14px;text-decoration:none}
+.detail .copy a.site{align-self:flex-start;border-radius:8px;font-family:var(--display);font-size:13px;font-weight:700;border:1px solid var(--gold);color:var(--gold);padding:8px 14px;text-decoration:none}
 .detail .copy a.site:hover{background:var(--gold);color:var(--on-gold)}
 .detail .vidcol{padding:32px;min-width:0;display:flex;flex-direction:column;justify-content:center}
 .detail .screen{--ry:-6deg;--rx:2deg}
@@ -605,14 +627,15 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
         <h2 id="eco-h">One connected ecosystem</h2>
         <p>Choose a division to see what it does, how it works with the rest of the group, and its short film.</p>
       </div>
-      <div class="eco">
+      <div class="eco" id="eco">
+        <svg class="eco-links" id="eco-links" aria-hidden="true"></svg>
         <div class="col l" id="eco-l"></div>
         <div class="core" aria-hidden="true">
           <div class="you">YOUR ORGANISATION</div>
           <div class="vline"></div>
           <div class="orbit">
             <div class="ring c"></div><div class="ring b"></div>
-            <div class="disc"><span class="whitewrap"><span class="cbglogo icon" style="width:76px;height:76px"></span></span><small>One plan · one team</small></div>
+            <div class="disc"><span class="whitewrap"><span class="cbglogo icon" style="width:84px;height:84px"></span></span><small>One plan · one team</small></div>
           </div>
           <div class="vline"></div>
           <div class="cm">CHANGE MANAGEMENT ON EVERY ENGAGEMENT</div>
@@ -1408,20 +1431,47 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   var SEG={strike:4, midnight:13, rendr:22, '3eyes':31, wize:40, aidome:49}, SEGLEN=9;
   var ecoP=byId['eco-screen'], ev=ecoP.v, segEnd=null, sel='strike';
   ecoP.restartAt=function(){ segEnd=SEG[sel]+SEGLEN-.15; return SEG[sel]; };
-  function tile(d){
-    var b=el('button','tile glass tilt'); b.type='button'; b.setAttribute('aria-pressed','false'); b.dataset.id=d.id;
-    b.appendChild(el('b',null,d.name)); b.appendChild(el('span',null,d.desc));
-    if(d.isNew) b.appendChild(el('em','new','NEW'));
+  var CHEV='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg>';
+  function tile(d, i){
+    var b=el('button','tile tilt'); b.type='button'; b.setAttribute('aria-pressed','false'); b.dataset.id=d.id; b.setAttribute('aria-label', d.name+', '+SUB[d.id]);
+    b.appendChild(el('span','num',('0'+(i+1)).slice(-2)));
+    var id=el('span','id'), lg=el('span','lg');
+    if(d.logo){ var im=el('img'); im.src=d.logo; im.alt=''; im.loading='lazy'; lg.appendChild(im); } else { lg.appendChild(el('span','wm','AI DOME')); }
+    var sub=el('span','sub',SUB[d.id]); if(d.isNew) sub.appendChild(el('em','new','NEW'));
+    id.appendChild(lg); id.appendChild(sub); b.appendChild(id);
+    var go=el('span','go'); go.innerHTML=CHEV; b.appendChild(go);
     b.addEventListener('click', function(){ pick(d.id, true); });
-    bindTilt(b, 8);
+    bindTilt(b, 6);
     return b;
   }
-  DIVS.slice(0,3).forEach(function(d){ $('eco-l').appendChild(tile(d)); });
-  DIVS.slice(3).forEach(function(d){ $('eco-r').appendChild(tile(d)); });
+  DIVS.slice(0,3).forEach(function(d,i){ $('eco-l').appendChild(tile(d,i)); });
+  DIVS.slice(3).forEach(function(d,i){ $('eco-r').appendChild(tile(d,i+3)); });
+  // gold spokes from each division to the hub; the chosen one carries a flowing current
+  var NS='http://www.w3.org/2000/svg';
+  function drawLinks(){
+    var svg=$('eco-links'), box=$('eco'); if(!svg||!box) return;
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    if(getComputedStyle(svg).display==='none') return;
+    var B=box.getBoundingClientRect(), D=document.querySelector('.core .disc').getBoundingClientRect();
+    var cx=D.left+D.width/2-B.left, cy=D.top+D.height/2-B.top, R=D.width/2+16;
+    svg.setAttribute('viewBox','0 0 '+B.width+' '+B.height);
+    document.querySelectorAll('.eco .tile').forEach(function(t){
+      var r=t.getBoundingClientRect(), left=r.left+r.width/2-B.left<cx;
+      var x1=left? r.right-B.left : r.left-B.left, y1=r.top+r.height/2-B.top;
+      var ang=Math.atan2(y1-cy, x1-cx), x2=cx+Math.cos(ang)*R, y2=cy+Math.sin(ang)*R, mx=(x1+x2)/2;
+      var p=document.createElementNS(NS,'path'); p.setAttribute('d','M'+x1+','+y1+' C'+mx+','+y1+' '+mx+','+y2+' '+x2+','+y2); p.dataset.id=t.dataset.id;
+      var c=document.createElementNS(NS,'circle'); c.setAttribute('cx',x1); c.setAttribute('cy',y1); c.setAttribute('r',3.5); c.dataset.id=t.dataset.id;
+      if(t.dataset.id===sel){ p.classList.add('live'); c.classList.add('live'); }
+      svg.appendChild(p); svg.appendChild(c);
+    });
+  }
+  window.addEventListener('resize', drawLinks); window.addEventListener('load', drawLinks);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(drawLinks);
   function pick(id, play){
     sel=id;
     var d=DIVS.filter(function(x){return x.id===id})[0];
     document.querySelectorAll('.tile').forEach(function(t){ t.setAttribute('aria-pressed', t.dataset.id===id); });
+    document.querySelectorAll('#eco-links path,#eco-links circle').forEach(function(n){ n.classList.toggle('live', n.dataset.id===id); });
     $('d-name').textContent=d.name; $('d-desc').textContent=d.desc;
     $('d-what').textContent=d.what; $('d-conn').textContent=d.conn;
     var a=$('d-site'); a.textContent=d.site; a.href='https://'+d.site;
@@ -1437,6 +1487,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   }
   ev.addEventListener('timeupdate', function(){ if(segEnd!=null && ev.currentTime>=segEnd){ ev.pause(); segEnd=null; } });
   pick('strike', false);
+  drawLinks();
 
   /* ================= how we work: steps drive the film ================= */
   var STEPS=[
