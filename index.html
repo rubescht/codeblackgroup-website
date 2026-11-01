@@ -69,6 +69,7 @@ button{font:inherit;color:inherit}
 /* exact original CBG logo (white), with the shine passing through it */
 .cbglogo{display:block;background:var(--shine) no-repeat,#ffffff;background-size:300% 100%,100% 100%;background-position:170% 0,0 0;-webkit-mask:var(--src) center/contain no-repeat;mask:var(--src) center/contain no-repeat;animation:shine 4.8s cubic-bezier(.45,.05,.35,1) infinite}
 .cbglogo.icon{--src:url("logos/cbg-icon-white.png")}
+.cbglogo.oneline{--src:url("logos/cbg-lockup-oneline-white.png");background:var(--shine) no-repeat,linear-gradient(#fff,#fff) no-repeat,var(--silver);background-size:300% 100%,13.9% 100%,100% 100%;background-position:170% 0,0 0,0 0;background-repeat:no-repeat}
 .cbglogo.stacked{--src:url("logos/cbg-logo-stacked-white.png");background:var(--shine) no-repeat,linear-gradient(180deg,#fff 0%,#fff 71.2%,#ffffff 72%,#eef1f4 74.6%,#cdd2d8 79.3%,#939aa2 83.9%,#5e646b 85.6%,#8a9199 87.3%,#d8dde2 91.9%,#aeb4bb 96%,#70767d 100%) no-repeat;background-size:300% 100%,100% 100%;background-position:170% 0,0 0}
 /* header: original icon (white) + CODE BLACK GROUP in metallic silver; one shine crosses the whole logo */
 .cbglogo.lockup{--src:url("logos/cbg-lockup-horizontal-white.png");background:var(--shine) no-repeat,linear-gradient(#fff,#fff) no-repeat,var(--silver);background-size:300% 100%,20.5% 100%,100% 100%;background-position:170% 0,0 0,0 0;background-repeat:no-repeat}
@@ -437,7 +438,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .foot-grid{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:40px 48px;align-items:start;padding-block:64px 44px}
 @media (max-width:920px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-brand{grid-column:1/-1}}
 @media (max-width:480px){.foot-grid{grid-template-columns:1fr 1fr;gap:36px 20px}.foot-grid>.foot-col:last-child{grid-column:1/-1}.foot-brand .foot-tag{white-space:normal}}
-.foot-brand{display:flex;flex-direction:column;gap:16px;align-items:flex-start}.foot-logo{display:block;line-height:0;margin-top:-14px}
+.foot-brand{display:flex;flex-direction:column;gap:16px;align-items:flex-start}.foot-logo{display:block;line-height:0;margin-top:-11px;max-width:100%}
 .foot-brand p{color:var(--muted);font-size:14.5px;max-width:34ch}
 .foot-brand .foot-tag{white-space:nowrap;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .foot-col{display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-size:15px;line-height:1.4;color:var(--soft);min-width:0}
@@ -903,7 +904,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 <footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-brand">
-      <a href="#top" class="foot-logo" aria-label="Code Black Group, back to top"><span class="whitewrap"><span class="cbglogo lockup" role="img" aria-label="Code Black Group" style="width:245px;height:50px"></span></span></a>
+      <a href="#top" class="foot-logo" aria-label="Code Black Group, back to top"><span class="whitewrap"><span class="cbglogo oneline" role="img" aria-label="Code Black Group" style="width:318px;height:44px"></span></span></a>
       <p class="foot-tag">One Code. One Strategy. One Outcome.</p>
       <p>Integrated technology, security and digital solutions. Six specialist divisions, one accountable group.</p>
     </div>
