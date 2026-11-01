@@ -69,7 +69,9 @@ button{font:inherit;color:inherit}
 /* exact original CBG logo (white), with the shine passing through it */
 .cbglogo{display:block;background:var(--shine) no-repeat,#ffffff;background-size:300% 100%,100% 100%;background-position:170% 0,0 0;-webkit-mask:var(--src) center/contain no-repeat;mask:var(--src) center/contain no-repeat;animation:shine 4.8s cubic-bezier(.45,.05,.35,1) infinite}
 .cbglogo.icon{--src:url("logos/cbg-icon-white.png")}
-.cbglogo.stacked{--src:url("logos/cbg-logo-stacked-white.png")}
+.cbglogo.stacked{--src:url("logos/cbg-logo-stacked-white.png");background:var(--shine) no-repeat,linear-gradient(180deg,#fff 0%,#fff 71.2%,#ffffff 72%,#eef1f4 74.6%,#cdd2d8 79.3%,#939aa2 83.9%,#5e646b 85.6%,#8a9199 87.3%,#d8dde2 91.9%,#aeb4bb 96%,#70767d 100%) no-repeat;background-size:300% 100%,100% 100%;background-position:170% 0,0 0}
+/* header: original icon (white) + CODE BLACK GROUP in metallic silver; one shine crosses the whole logo */
+.cbglogo.lockup{--src:url("logos/cbg-lockup-horizontal-white.png");background:var(--shine) no-repeat,linear-gradient(#fff,#fff) no-repeat,var(--silver);background-size:300% 100%,20.5% 100%,100% 100%;background-position:170% 0,0 0,0 0;background-repeat:no-repeat}
 .whitewrap{display:inline-block;line-height:0;filter:drop-shadow(0 2px 2px rgba(0,0,0,.7)) drop-shadow(0 0 10px rgba(255,236,200,.18));animation:glintw 4.8s cubic-bezier(.45,.05,.35,1) infinite}
 @keyframes glintw{0%,52%,82%,100%{filter:drop-shadow(0 2px 2px rgba(0,0,0,.7)) drop-shadow(0 0 10px rgba(255,236,200,.18))}64%{filter:drop-shadow(0 2px 2px rgba(0,0,0,.7)) drop-shadow(0 0 20px rgba(255,236,200,.55))}}
 .person .mono.metal::after{display:grid;place-items:center}
@@ -441,7 +443,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Code Black Group home">
-      <span class="whitewrap"><span class="cbglogo icon" role="img" aria-label="Code Black Group" style="width:44px;height:44px"></span></span>
+      <span class="whitewrap"><span class="cbglogo lockup" role="img" aria-label="Code Black Group" style="width:216px;height:44px"></span></span>
       <canvas class="flame" id="flame-head" aria-hidden="true"></canvas>
     </a>
     <nav class="nav" aria-label="Main">
