@@ -316,6 +316,29 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .use .divs span{background:rgba(0,0,0,.45);border:1px solid var(--line);padding:4px 10px;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--soft)}
 
 /* ---------- leadership + finance ---------- */
+/* ---------- team ---------- */
+.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;perspective:1200px}
+@media (max-width:1000px){.team{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.team{grid-template-columns:1fr}}
+.person{display:flex;flex-direction:column;overflow:hidden}
+.person .ph{position:relative;aspect-ratio:4/5;max-width:100%;background:radial-gradient(circle at 50% 35%,#2a2620 0%,#0a0a0a 70%);border-bottom:3px solid var(--gold);overflow:hidden}
+.person .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.05) brightness(.95);transition:filter .4s,transform .6s}
+.person:hover .ph img{filter:grayscale(.2) sepia(.25) contrast(1.05);transform:scale(1.04)}
+.person .mono{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:56px;letter-spacing:.02em}
+.person .txt{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px}
+.person h3{font-size:18px;line-height:1.2}
+.person .role{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--gold)}
+.person p{color:var(--muted);font-size:14.5px;line-height:1.5;margin-top:4px}
+.person.lead{grid-column:span 2}
+.person.lead .ph{aspect-ratio:auto;min-height:100%}
+.person.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+.person.lead .ph{border-bottom:0;border-right:3px solid var(--gold);min-height:320px}
+.person.lead .txt{justify-content:center;padding:28px}
+.person.lead h3{font-size:26px}
+.person.lead p{font-size:16px}
+@media (max-width:760px){.person.lead{grid-template-columns:1fr}.person.lead .ph{border-right:0;border-bottom:3px solid var(--gold);min-height:0;aspect-ratio:4/3}}
+@media (max-width:420px){.person.lead{grid-column:auto}}
 .lead-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 @media (max-width:920px){.lead-card{grid-template-columns:1fr}}
 .lead-card .ph{min-height:300px;background:url("img/cyber-operator.jpg") center 30%/cover}
@@ -366,6 +389,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
       <a href="#how">How we work</a>
       <a href="#ai">A.I.</a>
       <a href="#watch">Watch</a>
+      <a href="#team">Team</a>
       <a href="#contact">Contact</a>
     </nav>
     <a class="btn" href="#discover">Start discovery</a>
@@ -678,6 +702,66 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     </div>
   </section>
 
+  <!-- TEAM -->
+  <section class="section" id="team" aria-labelledby="team-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="team-h">Led by specialists</h2>
+        <p>Each part of the group is headed by an experienced specialist who owns their discipline, their team and the outcomes they deliver.</p>
+      </div>
+      <div class="team">
+        <article class="person glass tilt">
+          <div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Rubesch-Thananjeyan.png" alt="Rubesch Thananjeyan" loading="lazy" referrerpolicy="no-referrer" data-mono="RT"></div>
+          <div class="txt"><span class="role">Group CEO</span><h3>Rubesch Thananjeyan</h3><p>Has led Code Black Group for over a decade, guiding its growth into an integrated technology, security and digital group, and stays hands-on across every division.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Phonz-Silvany.png" alt="Phonz Silvany" loading="lazy" referrerpolicy="no-referrer" data-mono="PS"></div>
+          <div class="txt"><span class="role">Head of Commercial</span><h3>Phonz Silvany</h3><p>Drives commercial strategy while staying hands-on, stepping into technology, delivery and solution design wherever the business needs it most.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><span class="mono metal" aria-hidden="true">CJ</span></div>
+          <div class="txt"><span class="role">Head of Strategy</span><h3>Chetan Jha</h3><p>Leads strategy across the group, including A.I. strategy for AI Dome, and heads up business development as the group grows into new markets.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><span class="mono metal" aria-hidden="true">WB</span></div>
+          <div class="txt"><span class="role">Head of Change Management</span><h3>Winitha Bonny OAM</h3><p>Leads the change management built into every engagement, so new technology lands smoothly with people, processes and teams.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Daniel-Cocco.png" alt="Daniel Cocco" loading="lazy" referrerpolicy="no-referrer" data-mono="DC"></div>
+          <div class="txt"><span class="role">Head of Cyber Security</span><h3>Daniel Cocco</h3><p>Leads cyber security with deep technical expertise, planning, integrating and supporting secure systems that protect organisations while enabling controlled innovation.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Anthony-Fonti.png" alt="Anthony Fonti" loading="lazy" referrerpolicy="no-referrer" data-mono="AF"></div>
+          <div class="txt"><span class="role">Head of Support</span><h3>Anthony Fonti</h3><p>Leads support with a people-first mindset, keeping service reliable and responsive and stepping into escalation and delivery when needed.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/06/Josh-Wallace.png" alt="Josh Wallace" loading="lazy" referrerpolicy="no-referrer" data-mono="JW"></div>
+          <div class="txt"><span class="role">Head of Design + Digital</span><h3>Josh Wallace</h3><p>Brings branding, websites, software and integrated systems together into cohesive, scalable platforms that look professional and work hard.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Khaled-Shaheen.png" alt="Khaled Shaheen" loading="lazy" referrerpolicy="no-referrer" data-mono="KS"></div>
+          <div class="txt"><span class="role">Head of Development</span><h3>Khaled Shaheen</h3><p>Turns complex requirements into scalable, secure systems, and supports architecture decisions and problem-solving across teams.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Trish-Kamboj.png" alt="Trish Kamboj" loading="lazy" referrerpolicy="no-referrer" data-mono="TK"></div>
+          <div class="txt"><span class="role">Head of Marketing</span><h3>Trish Kamboj</h3><p>Leads marketing strategy and brand credibility, unifying messaging across divisions as the group moves into new markets.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Iresha-Dulanjali.png" alt="Iresha Dulanjali" loading="lazy" referrerpolicy="no-referrer" data-mono="ID"></div>
+          <div class="txt"><span class="role">Head of Accounts + HR</span><h3>Iresha Dulanjali</h3><p>Leads accounts and HR with precision and a people-first mindset, keeping finance, operations and workforce aligned.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Ajit-Kumar.png" alt="Ajit Kumar" loading="lazy" referrerpolicy="no-referrer" data-mono="AK"></div>
+          <div class="txt"><span class="role">Business Development Manager</span><h3>Ajit Kumar</h3><p>Drives growth through relationships, working closely with technical and delivery teams so every solution is commercially sound.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Sharon-Scheffer.png" alt="Sharon Scheffer" loading="lazy" referrerpolicy="no-referrer" data-mono="SS"></div>
+          <div class="txt"><span class="role">Executive Assistant</span><h3>Sharon Scheffer</h3><p>The operational backbone of the business, keeping leadership, teams and priorities aligned and quietly managing complexity.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- LEADERSHIP -->
   <section class="section" aria-labelledby="lead-h">
     <div class="wrap">
@@ -848,6 +932,10 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     scr.addEventListener('pointerleave', function(){ scr.style.transform=''; });
   }
 
+  /* team photo fallback */
+  document.querySelectorAll('.person img[data-mono]').forEach(function(im){
+    im.addEventListener('error', function(){ var m=el('span','mono metal',im.getAttribute('data-mono')); m.setAttribute('aria-hidden','true'); im.replaceWith(m); });
+  });
   /* ================= films ================= */
   var VIDEOS = {
     brand:{title:'One call. Every angle.', src:'media/brand-film.mp4', poster:'media/brand-film.jpg', len:'62 SEC', body:'Why one accountable group beats a stack of vendors.'},
