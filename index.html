@@ -87,12 +87,15 @@ button{font:inherit;color:inherit}
 .chev li{padding-left:22px;position:relative;color:var(--soft);font-weight:600}
 .chev li::before{content:"\00bb";position:absolute;left:0;font-weight:700;color:var(--gold)}
 .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:7px 16px;font-family:var(--display);font-size:13px;letter-spacing:.03em;background:rgba(0,0,0,.4);backdrop-filter:blur(6px)}
-.btn{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:1px solid #7a5718;background:var(--metal-flat);color:var(--on-gold);cursor:pointer;text-shadow:0 1px 0 rgba(255,240,200,.45);box-shadow:0 1px 0 rgba(255,250,225,.75) inset,0 -2px 0 rgba(90,60,10,.45) inset,0 0 0 1px rgba(255,230,160,.18) inset,0 2px 0 #4a3510,0 12px 26px -8px rgba(201,162,74,.6);transition:transform .15s,box-shadow .15s}
+.btn{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:13px 24px 13px 26px;font-family:var(--display);font-size:13.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(122,87,24,.9);border-radius:8px;background:linear-gradient(180deg,#f7e4a8 0%,#e3c271 38%,#c99e45 62%,#b48a35 100%);color:#16110a;cursor:pointer;text-shadow:0 1px 0 rgba(255,240,200,.5);box-shadow:inset 0 1px 0 rgba(255,251,232,.85),inset 0 -1px 0 rgba(110,76,18,.35),0 10px 24px -10px rgba(201,162,74,.65),0 2px 6px rgba(0,0,0,.45);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
 .btn::after{content:"";position:absolute;inset:0;z-index:-1;background:var(--sheen) no-repeat;background-size:260% 100%;background-position:160% 0;transition:background-position .9s ease}
+.btn:not(.ghost)::before{content:"";order:2;flex:none;width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 8h11M9 3.5 13.5 8 9 12.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 8h11M9 3.5 13.5 8 9 12.5'/%3E%3C/svg%3E") center/contain no-repeat;transition:transform .25s ease}
 .btn:hover::after{background-position:-60% 0}
-.btn:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,250,225,.75) inset,0 -2px 0 rgba(90,60,10,.45) inset,0 0 0 1px rgba(255,230,160,.18) inset,0 4px 0 #4a3510,0 18px 34px -8px rgba(201,162,74,.75)}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:inset 0 1px 0 rgba(255,251,232,.9),inset 0 -1px 0 rgba(110,76,18,.35),0 16px 32px -12px rgba(201,162,74,.8),0 3px 8px rgba(0,0,0,.5)}
+.btn:not(.ghost):hover::before{transform:translateX(4px)}
+.btn:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
 .btn:active{transform:translateY(0)}
-.btn.ghost{background:rgba(0,0,0,.35);color:var(--ivory);border:1.5px solid rgba(243,239,230,.7);box-shadow:none;backdrop-filter:blur(6px)}
+.btn.ghost{background:rgba(0,0,0,.35);color:var(--ivory);border:1px solid rgba(243,239,230,.55);box-shadow:none;text-shadow:none;backdrop-filter:blur(6px);padding-inline:24px}
 .btn.ghost:hover{background:var(--ivory);color:var(--on-gold)}
 .play-ico{width:16px;height:16px;flex:none}
 
@@ -132,7 +135,7 @@ button{font:inherit;color:inherit}
 .nav{display:flex;gap:4px 22px;margin-left:auto;font-family:var(--display);font-size:13px;font-weight:500;letter-spacing:.05em;flex-wrap:wrap;color:var(--soft)}
 .nav a{text-decoration:none;padding:6px 0;border-bottom:1.5px solid transparent}
 .nav a:hover{border-bottom-color:var(--gold);color:var(--ivory)}
-.site-head .btn{min-height:42px;padding:10px 18px;font-size:13px}
+.site-head .btn{min-height:42px;padding:10px 18px;font-size:12.5px;gap:10px;flex:none;white-space:nowrap}.site-head .btn::before{display:none}
 .head-phone{display:none;align-items:center;gap:8px;font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--soft);text-decoration:none;white-space:nowrap}
 .head-phone svg{color:var(--gold)}
 .head-phone:hover{color:var(--gold-hi)}
@@ -431,14 +434,14 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .cbox .ln button:hover{border-color:var(--gold)}
 
 .site-foot{margin-top:96px;border-top:1px solid var(--gold-dim);background:linear-gradient(180deg,rgba(14,13,11,.94),rgba(6,6,6,.97))}
-.foot-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:40px;padding-block:56px 40px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:40px 48px;align-items:start;padding-block:64px 44px}
 @media (max-width:920px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-brand{grid-column:1/-1}}
-@media (max-width:480px){.foot-grid{grid-template-columns:1fr}}
-.foot-brand{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+@media (max-width:480px){.foot-grid{grid-template-columns:1fr 1fr;gap:36px 20px}.foot-grid>.foot-col:last-child{grid-column:1/-1}.foot-brand .foot-tag{white-space:normal}}
+.foot-brand{display:flex;flex-direction:column;gap:16px;align-items:flex-start}.foot-logo{display:block;line-height:0;margin-top:-14px}
 .foot-brand p{color:var(--muted);font-size:14.5px;max-width:34ch}
-.foot-brand .foot-tag{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-.foot-col{display:flex;flex-direction:column;gap:10px;font-size:15px;color:var(--soft);min-width:0}
-.foot-col h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.foot-brand .foot-tag{white-space:nowrap;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.foot-col{display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-size:15px;line-height:1.4;color:var(--soft);min-width:0}
+.foot-col h4{font-size:12px;line-height:22px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0 0 6px}
 .foot-col a:not(.btn){text-decoration:none;color:var(--soft)}
 .foot-col a:not(.btn):hover{color:var(--gold-hi)}
 .foot-col .sel{user-select:all;overflow-wrap:anywhere}
@@ -900,7 +903,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 <footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-brand">
-      <span class="whitewrap"><span class="cbglogo stacked" role="img" aria-label="Code Black Group" style="width:121px;height:100px"></span></span>
+      <a href="#top" class="foot-logo" aria-label="Code Black Group, back to top"><span class="whitewrap"><span class="cbglogo lockup" role="img" aria-label="Code Black Group" style="width:245px;height:50px"></span></span></a>
       <p class="foot-tag">One Code. One Strategy. One Outcome.</p>
       <p>Integrated technology, security and digital solutions. Six specialist divisions, one accountable group.</p>
     </div>
@@ -927,7 +930,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
       <span class="sel">1300 737 562</span>
       <span class="sel">vip@codeblackgroup.com.au</span>
       <span>codeblackgroup.com.au</span>
-      <a class="btn" href="#discover" style="margin-top:10px;align-self:flex-start">Start discovery</a>
+      <a class="btn" href="#discover" style="margin-top:10px">Start discovery</a>
     </div>
   </div>
   <div class="wrap foot-bar">
