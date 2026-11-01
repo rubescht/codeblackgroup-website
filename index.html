@@ -346,6 +346,12 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .orbit .flame{position:absolute;width:260px;height:260px;left:-10px;top:-10px;pointer-events:none;z-index:2}
 #intro{position:fixed;inset:0;z-index:200;background:#060606;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;cursor:pointer;transition:opacity .6s ease}
 #intro.out{opacity:0;pointer-events:none}
+#intro{background:#000}
+#intro video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+@media (orientation:portrait){#intro video{object-fit:contain}}
+#intro.video .im,#intro.video .wm,#intro.video .tg{display:none}
+#intro:not(.video) video{display:none}
+#intro .skip{z-index:2}
 #intro .im{position:relative;width:150px;height:150px}
 #intro .im .goldwrap{opacity:.18;filter:brightness(.45);transition:opacity 1.1s ease,filter 1.1s ease}
 #intro.lit .goldlogo{animation:shine 1.6s cubic-bezier(.45,.05,.35,1) .35s 1 both}
@@ -415,6 +421,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 </head>
 <body>
 <div id="intro" hidden aria-hidden="true">
+  <video id="intro-video" muted playsinline preload="auto" poster="media/cbg-logo-reveal-first.jpg"><source src="media/cbg-logo-reveal.webm" type="video/webm"><source src="media/cbg-logo-reveal.mp4" type="video/mp4"></video>
   <div class="im"><span class="goldwrap"><span class="goldlogo mark" style="width:150px;height:150px"></span></span><canvas class="flame" id="flame-intro"></canvas></div>
   <div class="wm"><span class="metal silver">CODE BLACK GROUP</span></div>
   <div class="tg">One Code. One Strategy. One Outcome.</div>
@@ -1068,22 +1075,35 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   flameRing(document.getElementById('flame-head'), {r:.21, w:.024, speed:1.6, trail:1.6, embers:1, streak:.42, calm:true});
   flameRing(document.getElementById('flame-eco'), {r:.328, w:.019, speed:1.05, trail:2.2, embers:2, streak:.5});
 
-  /* ================= first-visit logo reveal (after the original CBG reveal) ================= */
+  /* ================= first-visit logo reveal: the original CBG logo reveal video ================= */
   (function(){
     var intro=document.getElementById('intro'); if(!intro) return;
     var seen=false; try{ seen=sessionStorage.getItem('cbg-intro')==='1'; }catch(e){}
     if(seen || reduce) return;
     try{ sessionStorage.setItem('cbg-intro','1'); }catch(e){}
     intro.hidden=false; document.documentElement.style.overflow='hidden';
-    var closed=false, ring=null;
-    function close(){ if(closed) return; closed=true; intro.classList.add('out'); document.documentElement.style.overflow=''; setTimeout(function(){ intro.hidden=true; if(ring) ring.stop(); }, 650); }
+    var closed=false, ring=null, vid=document.getElementById('intro-video'), fellBack=false;
+    function close(){ if(closed) return; closed=true; intro.classList.add('out'); document.documentElement.style.overflow=''; setTimeout(function(){ intro.hidden=true; if(ring) ring.stop(); try{ vid.pause(); }catch(e){} }, 650); }
     intro.addEventListener('click', close);
     document.addEventListener('keydown', function(e){ if(e.key==='Escape'||e.key==='Enter'||e.key===' ') close(); }, {once:true});
-    var SPEED=3.4, LAP=Math.PI*2/SPEED;
-    ring=flameRing(document.getElementById('flame-intro'), {r:.1835, w:.016, speed:SPEED, trail:1.8, embers:3, streak:.55, reveal:true});
-    setTimeout(function(){ intro.classList.add('lit'); }, LAP*1000);
-    setTimeout(function(){ intro.classList.add('words'); }, LAP*1000+250);
-    setTimeout(close, LAP*1000+1900);
+    function drawnReveal(){
+      if(fellBack || closed) return; fellBack=true;
+      intro.classList.remove('video');
+      var SPEED=3.4, LAP=Math.PI*2/SPEED;
+      ring=flameRing(document.getElementById('flame-intro'), {r:.1835, w:.016, speed:SPEED, trail:1.8, embers:3, streak:.55, reveal:true});
+      setTimeout(function(){ intro.classList.add('lit'); }, LAP*1000);
+      setTimeout(function(){ intro.classList.add('words'); }, LAP*1000+250);
+      setTimeout(close, LAP*1000+1900);
+    }
+    if(vid && vid.canPlayType && (vid.canPlayType('video/webm')||vid.canPlayType('video/mp4'))){
+      intro.classList.add('video');
+      vid.addEventListener('ended', function(){ setTimeout(close, 350); });
+      vid.addEventListener('error', drawnReveal, true);
+      vid.querySelectorAll('source').forEach(function(sc,i,all){ if(i===all.length-1) sc.addEventListener('error', drawnReveal); });
+      var pr=vid.play(); if(pr && pr.catch) pr.catch(drawnReveal);
+      setTimeout(function(){ if(!fellBack && vid.currentTime<0.2) drawnReveal(); }, 2500);
+      setTimeout(close, 11000);
+    } else { drawnReveal(); }
   })();
 
   /* ================= 3D tilt ================= */
