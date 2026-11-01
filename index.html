@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Code Black Group brings cyber security, A.I., managed IT, digital, surveillance and connectivity together under one accountable group. One Code. One Strategy. One Outcome.">
+<meta property="og:title" content="Code Black Group - All Angles Covered">
+<meta property="og:description" content="Six specialist divisions. One accountable group.">
+<meta property="og:image" content="img/hero-city-grid.jpg">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="logos/cbg-mark-white.svg" type="image/svg+xml">
+<title>Code Black Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: black + gold toolkit grammar with depth. A live gold light-grid sits behind glass panels; films play in place on tilted screens. */
+:root{
+  --ground:#0b0b0c; --glass:rgba(18,18,17,.74); --glass-strong:rgba(14,14,13,.9); --tile:rgba(28,27,23,.82); --line:#2e2b25;
+  --ivory:#f3efe6; --muted:#b4ad9f; --soft:#ddd6c7;
+  --gold:#c9a24a; --gold-hi:#e8cd87; --gold-dim:#7d6630; --gold-deep:#8a6b24;
+  --on-gold:#0b0b0c;
+  --metal:linear-gradient(180deg,#f3dc9a 0%,#d7b25c 38%,#a7802f 62%,#e1c27a 100%);
+  --display:"Poppins",system-ui,"Segoe UI",sans-serif;
+  --text:"Source Sans 3","Source Sans Pro",system-ui,"Segoe UI",sans-serif;
+  --wrap:1240px;
+  --depth:0 1px 0 rgba(255,255,255,.04) inset,0 30px 60px -20px rgba(0,0,0,.85),0 12px 24px -12px rgba(0,0,0,.7);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--ground);color:var(--ivory);font-family:var(--text);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ground)}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+.page{position:relative;z-index:1}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:-0.005em}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.metal{text-shadow:none;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 rgba(0,0,0,.6)) drop-shadow(0 10px 24px rgba(201,162,74,.25))}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:720px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+.label{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.muted{color:var(--muted)}
+.chev{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.chev li{padding-left:22px;position:relative;color:var(--soft);font-weight:600}
+.chev li::before{content:"\00bb";position:absolute;left:0;font-weight:700;color:var(--gold)}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:7px 16px;font-family:var(--display);font-size:13px;letter-spacing:.03em;background:rgba(0,0,0,.4);backdrop-filter:blur(6px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:0;background:var(--metal);color:var(--on-gold);cursor:pointer;box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 -2px 0 rgba(0,0,0,.25) inset,0 10px 24px -8px rgba(201,162,74,.55);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 -2px 0 rgba(0,0,0,.25) inset,0 16px 30px -8px rgba(201,162,74,.7)}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:rgba(0,0,0,.35);color:var(--ivory);border:1.5px solid rgba(243,239,230,.7);box-shadow:none;backdrop-filter:blur(6px)}
+.btn.ghost:hover{background:var(--ivory);color:var(--on-gold)}
+.play-ico{width:16px;height:16px;flex:none}
+
+/* ---------- glass + depth ---------- */
+.glass{background:var(--glass);backdrop-filter:blur(10px) saturate(120%);-webkit-backdrop-filter:blur(10px) saturate(120%);border:1px solid var(--line);box-shadow:var(--depth)}
+.tilt{transform-style:preserve-3d;transition:transform .25s ease-out,box-shadow .25s;will-change:transform;position:relative}
+.tilt::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),rgba(232,205,135,.14),transparent 45%);opacity:0;transition:opacity .25s}
+.tilt.on::after{opacity:1}
+
+/* ---------- screens (embedded films) ---------- */
+.stage{perspective:1600px;perspective-origin:50% 40%}
+.screen{position:relative;transform-style:preserve-3d;transform:rotateY(var(--ry,-10deg)) rotateX(var(--rx,4deg));transition:transform .4s cubic-bezier(.2,.7,.2,1);border-radius:6px}
+.screen.flat{--ry:0deg;--rx:0deg}
+.screen .frame{position:relative;border-radius:6px;overflow:hidden;background:#000;box-shadow:0 0 0 1px rgba(201,162,74,.55),0 0 0 6px rgba(10,10,10,.95),0 0 0 7px rgba(201,162,74,.25),0 40px 80px -20px rgba(0,0,0,.95),0 0 90px -10px rgba(201,162,74,.22)}
+.screen video{display:block;width:100%;aspect-ratio:16/9;background:#000;object-fit:cover}
+.screen .glare{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,0) 32%,rgba(255,255,255,0) 70%,rgba(255,255,255,.04) 100%)}
+.screen .reflect{position:absolute;left:4%;right:4%;top:100%;height:60px;margin-top:14px;background:radial-gradient(ellipse at 50% 0%,rgba(201,162,74,.28),transparent 70%);filter:blur(8px);transform:rotateX(70deg);pointer-events:none}
+.vbar{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:8px;padding:10px 12px;background:linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,0));opacity:0;transition:opacity .2s}
+.screen:hover .vbar,.screen:focus-within .vbar,.screen.muted-hint .vbar{opacity:1}
+@media (hover:none){.vbar{opacity:1}}
+.vbar button{min-height:36px;min-width:36px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 10px;border:1px solid rgba(201,162,74,.6);background:rgba(0,0,0,.55);color:var(--gold);font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.06em;cursor:pointer}
+.vbar button:hover{background:var(--gold);color:var(--on-gold)}
+.vbar .t{margin-left:auto;font-family:var(--display);font-size:12px;color:var(--soft);letter-spacing:.04em;text-shadow:0 1px 2px #000}
+.vprog{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08)}
+.vprog i{display:block;height:100%;width:0;background:var(--gold)}
+.vcap{display:flex;justify-content:space-between;gap:12px;margin-top:16px;font-size:14px;color:var(--muted)}
+.vcap b{font-family:var(--display);font-size:12px;letter-spacing:.07em;color:var(--gold)}
+@media (max-width:920px){.screen{--ry:0deg!important;--rx:0deg!important}}
+
+/* ---------- header ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(9,9,10,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--gold-dim)}
+.site-head .wrap{display:flex;align-items:center;gap:20px;min-height:68px;flex-wrap:wrap;padding-block:10px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand img{height:30px;width:auto}
+.nav{display:flex;gap:4px 22px;margin-left:auto;font-family:var(--display);font-size:13px;font-weight:500;letter-spacing:.05em;flex-wrap:wrap;color:var(--soft)}
+.nav a{text-decoration:none;padding:6px 0;border-bottom:1.5px solid transparent}
+.nav a:hover{border-bottom-color:var(--gold);color:var(--ivory)}
+.site-head .btn{min-height:42px;padding:10px 18px;font-size:13px}
+@media (max-width:820px){.nav{order:3;width:100%;margin-left:0;overflow-x:auto;flex-wrap:nowrap;gap:18px;padding-bottom:2px}.nav a{white-space:nowrap}.site-head .btn{margin-left:auto}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-1;background:url("img/hero-city-grid.jpg") center 30%/cover no-repeat;opacity:.38;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,6,6,.9) 0%,rgba(6,6,6,.45) 60%,rgba(6,6,6,.6) 100%)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center;padding-block:84px 96px}
+@media (max-width:920px){.hero .wrap{grid-template-columns:1fr;padding-block:48px 64px;gap:40px}}
+.hero h1{font-size:clamp(52px,8vw,106px);line-height:.92;letter-spacing:-.015em;margin-top:22px;text-shadow:0 2px 0 #000,0 18px 40px rgba(0,0,0,.6)}
+.hero .lead{font-family:var(--display);font-weight:700;font-size:clamp(18px,1.6vw,21px);line-height:1.4;margin-top:24px;max-width:34ch}
+.hero .sub{color:var(--muted);margin-top:14px;max-width:46ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .screen{--ry:-14deg;--rx:5deg}
+
+/* ---------- proof strip ---------- */
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;perspective:1200px}
+@media (max-width:760px){.proof{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{padding:26px 24px}
+.stat b{display:block;font-family:var(--display);font-size:clamp(34px,4vw,48px);line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:10px;color:var(--muted);font-size:15px;line-height:1.4}
+.stat.gold{background:var(--metal);border:0;color:var(--on-gold)}
+.stat.gold b{color:var(--on-gold)}
+.stat.gold span{color:#2a2416}
+
+/* ---------- sections ---------- */
+.section{padding-block:112px 0}
+@media (max-width:720px){.section{padding-block:72px 0}}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 40px;border-bottom:1px solid var(--gold-dim);padding-bottom:18px;margin-bottom:40px;position:relative}
+.sec-head::after{content:"";position:absolute;left:0;bottom:-1px;width:96px;height:3px;background:var(--metal)}
+.sec-head h2{font-size:clamp(34px,4.6vw,54px);line-height:1;text-transform:uppercase;flex:1 1 420px;text-shadow:0 2px 0 #000,0 14px 30px rgba(0,0,0,.6)}
+.sec-head p{flex:1 1 300px;color:var(--muted);max-width:48ch}
+.eyebrow{display:block;margin-bottom:12px}
+
+/* ---------- difference ---------- */
+.toggle{display:inline-flex;border:1.5px solid var(--gold);background:rgba(0,0,0,.4)}
+.toggle button{min-height:44px;padding:10px 18px;border:0;background:transparent;color:var(--gold);font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.04em;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--metal);color:var(--on-gold)}
+.diff{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:40px;align-items:start}
+.diff>div{min-width:0}
+@media (max-width:920px){.diff{grid-template-columns:1fr}}
+.diag{padding:28px}
+.tree{display:flex;flex-direction:column;align-items:center;overflow-x:auto;padding-bottom:6px}
+.node{border:1.5px solid var(--ivory);padding:12px 24px;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.05em;text-align:center;background:rgba(0,0,0,.5)}
+.node.solid{background:var(--metal);border:0;color:var(--on-gold);box-shadow:0 10px 24px -8px rgba(201,162,74,.5)}
+.node.soft{border-color:var(--gold-dim);font-size:12px;padding:10px 14px;color:var(--soft)}
+.vline{width:1.5px;height:26px;background:var(--gold)}
+.vline.soft{background:#5a564d}
+.vrow{display:grid;grid-template-columns:repeat(6,minmax(92px,1fr));gap:8px;width:100%;min-width:600px;position:relative;padding-top:26px}
+.vrow::before{content:"";position:absolute;top:0;left:8.33%;right:8.33%;height:1.5px;background:#5a564d}
+.vrow>div{position:relative;border:1.5px dashed #5a564d;padding:12px 8px;text-align:center;background:rgba(0,0,0,.35)}
+.vrow>div::before{content:"";position:absolute;left:50%;top:-27px;width:1.5px;height:26px;background:#5a564d}
+.vrow b{display:block;font-family:var(--display);font-size:12px;letter-spacing:.03em;line-height:1.25}
+.vrow small{display:block;margin-top:8px;color:var(--muted);font-size:13px;line-height:1.35}
+.alert{display:flex;align-items:center;gap:12px;margin-top:22px;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.03em}
+.alert i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--metal);color:var(--on-gold);display:grid;place-items:center;font-style:normal;font-size:18px}
+.grp{width:100%;border:1.5px solid var(--gold-dim);padding:14px;background:rgba(0,0,0,.35)}
+.grp .label{text-align:center;margin-bottom:12px}
+.grp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+@media (max-width:520px){.grp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.grp-grid div{background:rgba(28,27,23,.95);border-top:3px solid var(--gold);color:var(--ivory);padding:12px 8px;text-align:center;font-family:var(--display);font-weight:700;font-size:13px;line-height:1.25}
+.grp-grid small{display:block;font-weight:400;font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.04em}
+.pair{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.diff-side{display:flex;flex-direction:column;gap:28px}
+.diff-side h3{font-size:18px;text-transform:uppercase;margin-bottom:16px;color:var(--gold)}
+.diff-side .chev{font-size:18px}
+.diff-side .screen{--ry:-8deg;--rx:3deg}
+.textlink{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border:0;background:none;padding:0 0 4px;border-bottom:1.5px solid var(--gold);color:var(--gold);cursor:pointer;text-decoration:none}
+.textlink:hover{color:var(--gold-hi);border-color:var(--gold-hi)}
+
+/* ---------- ecosystem ---------- */
+.eco{display:grid;grid-template-columns:minmax(0,1fr) 300px minmax(0,1fr);align-items:center}
+@media (max-width:920px){.eco{grid-template-columns:1fr 1fr;gap:10px}.eco .core{grid-column:1/-1;order:-1;margin-bottom:16px}.eco .col{display:contents}.eco .tile{margin:0!important}.eco .tile::before{display:none}}
+.eco .col{display:flex;flex-direction:column;gap:12px;perspective:900px}
+.tile{display:block;width:100%;text-align:left;padding:16px 18px;min-height:72px;cursor:pointer;color:var(--ivory)}
+.tile b{display:block;font-family:var(--display);font-size:17px;line-height:1.2}
+.tile span{display:block;font-family:var(--display);font-size:11px;letter-spacing:.07em;color:var(--muted);margin-top:4px}
+.tile:hover{border-color:var(--gold)}
+.tile[aria-pressed="true"]{background:var(--metal);border-color:transparent;color:var(--on-gold);box-shadow:0 18px 36px -12px rgba(201,162,74,.55)}
+.tile[aria-pressed="true"] span{color:#3a3020}
+.tile .new{position:absolute;top:10px;right:10px;font-family:var(--display);font-size:10px;font-style:normal;letter-spacing:.06em;border:1px solid currentColor;border-radius:999px;padding:2px 8px;color:var(--gold)}
+.tile[aria-pressed="true"] .new{color:var(--on-gold)}
+.col.l .tile{margin-right:40px}.col.r .tile{margin-left:40px}
+.col.l .tile::before,.col.r .tile::before{content:"";position:absolute;top:50%;width:40px;height:1.5px;background:linear-gradient(90deg,var(--gold-dim),var(--gold))}
+.col.l .tile::before{right:-41.5px}.col.r .tile::before{left:-41.5px;transform:scaleX(-1)}
+.core{display:flex;flex-direction:column;align-items:center;text-align:center}
+.core .you{border:1.5px solid var(--ivory);padding:8px 14px;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.06em;background:rgba(0,0,0,.5)}
+.orbit{position:relative;width:240px;height:240px;display:grid;place-items:center;perspective:700px}
+.orbit .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(201,162,74,.55);transform-style:preserve-3d}
+.orbit .ring.a{animation:spinA 14s linear infinite}
+.orbit .ring.b{inset:10px;border-color:rgba(201,162,74,.35);animation:spinB 20s linear infinite}
+.orbit .ring.c{inset:-8px;border-style:dashed;border-color:rgba(201,162,74,.25);animation:spinC 30s linear infinite}
+.orbit .ring::after{content:"";position:absolute;top:-5px;left:50%;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 14px 3px rgba(232,205,135,.7)}
+@keyframes spinA{from{transform:rotateX(68deg) rotateZ(0)}to{transform:rotateX(68deg) rotateZ(360deg)}}
+@keyframes spinB{from{transform:rotateY(64deg) rotateZ(0)}to{transform:rotateY(64deg) rotateZ(-360deg)}}
+@keyframes spinC{from{transform:rotateX(-58deg) rotateY(24deg) rotateZ(0)}to{transform:rotateX(-58deg) rotateY(24deg) rotateZ(360deg)}}
+.core .disc{position:relative;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2a2620 0%,#0a0a0a 65%);color:var(--ivory);border:2px solid var(--gold);box-shadow:0 0 0 8px rgba(201,162,74,.07),0 30px 60px -10px rgba(0,0,0,.9),0 0 60px rgba(201,162,74,.25),inset 0 2px 0 rgba(255,255,255,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;z-index:1}
+.core .disc img{width:70px}
+.core .disc small{font-size:13px;color:var(--gold)}
+.core .cm{border:1.5px solid var(--gold-dim);padding:7px 12px;font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.05em;max-width:230px;color:var(--soft);background:rgba(0,0,0,.5)}
+.detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);margin-top:36px;border-top:3px solid var(--gold)}
+@media (max-width:920px){.detail{grid-template-columns:1fr}}
+.detail .copy{padding:36px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.detail .logo{min-height:56px;display:flex;align-items:center}
+.detail .logo img{max-height:52px;width:auto;max-width:260px}
+.detail .logo .wm{font-family:var(--display);font-weight:900;font-size:34px;letter-spacing:.02em}
+.detail h3{font-size:26px}
+.detail .copy p{color:var(--soft);font-size:18px}
+.detail .copy .conn{color:var(--muted);font-size:16px}
+.detail .copy a.site{align-self:flex-start;font-family:var(--display);font-size:13px;font-weight:700;border:1.5px solid var(--gold);color:var(--gold);padding:8px 14px;text-decoration:none}
+.detail .copy a.site:hover{background:var(--gold);color:var(--on-gold)}
+.detail .vidcol{padding:32px;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.detail .screen{--ry:-6deg;--rx:2deg}
+
+/* ---------- discovery ---------- */
+.lab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1.5px solid var(--gold-dim);box-shadow:var(--depth)}
+@media (max-width:920px){.lab{grid-template-columns:1fr}}
+.lab .qs{padding:36px;display:flex;flex-direction:column;gap:30px;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.lab fieldset{border:0;margin:0;padding:0;min-width:0}
+.lab legend{font-family:var(--display);font-weight:700;font-size:18px;padding:0;margin-bottom:12px;text-transform:uppercase}
+.lab legend small{display:block;font-family:var(--text);font-weight:400;font-size:14px;color:var(--muted);text-transform:none;margin-top:2px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{min-height:44px;padding:10px 16px;border:1.5px solid var(--line);background:rgba(0,0,0,.5);color:var(--ivory);font-family:var(--display);font-size:13px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s,transform .15s}
+.opt:hover{border-color:var(--gold);transform:translateY(-1px)}
+.opt[aria-pressed="true"]{background:var(--metal);border-color:transparent;color:var(--on-gold);box-shadow:0 8px 18px -8px rgba(201,162,74,.6)}
+.lab .res{background:var(--glass-strong);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--ivory);padding:36px;display:flex;flex-direction:column;gap:22px;min-width:0;border-left:1px solid var(--gold-dim)}
+@media (max-width:920px){.lab .res{border-left:0;border-top:1px solid var(--gold-dim)}}
+.res h3{font-size:24px;text-transform:uppercase}
+.res .summary{color:var(--muted);margin-top:4px}
+.covbar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+.covbar i{height:12px;background:transparent;border:1px solid #4a463d;transition:background .3s}
+.covbar i.lv-check{background:#6e6758;border-color:#6e6758}
+.covbar i.lv-priority{background:var(--metal);border-color:transparent;box-shadow:0 0 12px rgba(201,162,74,.5)}
+.rows{display:flex;flex-direction:column;gap:6px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--line);background:rgba(0,0,0,.35)}
+.row b{display:block;font-family:var(--display);font-size:15px}
+.row small{color:var(--muted);font-size:13px}
+.row.lv-priority{border-color:var(--gold);background:rgba(201,162,74,.12)}
+.st{flex:none;font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.06em;border-radius:999px;padding:5px 11px;border:1px solid #4a463d;color:var(--muted);white-space:nowrap}
+.row.lv-priority .st{background:var(--metal);color:var(--on-gold);border-color:transparent}
+.row.lv-check .st{border-color:var(--soft);color:var(--soft)}
+.next{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:10px}
+.next .big{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.3}
+.next p{color:var(--muted)}
+.next .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.contactline{font-family:var(--display);font-size:14px;color:var(--soft)}
+.watchnext{display:flex;flex-direction:column;gap:6px}
+.watchnext button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:rgba(0,0,0,.45);border:1px solid var(--line);color:var(--ivory);padding:10px 14px;cursor:pointer;min-height:44px}
+.watchnext button svg{color:var(--gold);flex:none}
+.watchnext button:hover{border-color:var(--gold)}
+.watchnext em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px}
+.copied{font-size:14px;color:var(--muted)}
+textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory);border:1px solid var(--line);font:14px/1.5 var(--text);padding:10px}
+
+/* ---------- steps ---------- */
+.how{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:center}
+@media (max-width:920px){.how{grid-template-columns:1fr}}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;counter-reset:s}
+.step{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;align-items:start;padding:16px 18px;border:1px solid transparent;cursor:pointer;transition:background .2s,border-color .2s;text-align:left;width:100%;background:none;color:inherit}
+.step:hover{border-color:var(--line);background:rgba(0,0,0,.35)}
+.step[aria-current="true"]{border-color:var(--gold-dim);background:var(--glass);box-shadow:var(--depth)}
+.step .n{font-family:var(--display);font-weight:700;font-size:44px;line-height:1}
+.step h3{font-size:16px;text-transform:uppercase;line-height:1.25}
+.step p{color:var(--muted);font-size:15px;margin-top:4px}
+.how .screen{--ry:10deg;--rx:3deg}
+
+/* ---------- AI band ---------- */
+.ai-band{border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--gold-dim);background:radial-gradient(ellipse at 75% 40%,rgba(201,162,74,.14),transparent 60%),rgba(6,6,6,.78);backdrop-filter:blur(4px)}
+.ai{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center;padding-block:96px}
+@media (max-width:920px){.ai{grid-template-columns:1fr;padding-block:56px}}
+.ai h2{font-size:clamp(36px,5vw,62px);line-height:.98;text-transform:uppercase;text-shadow:0 2px 0 #000}
+.ai .lead{margin-top:20px;color:var(--muted);font-size:18px;max-width:44ch}
+.layers{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.layers span{border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:6px 14px;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.04em;background:rgba(0,0,0,.4)}
+.ai .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.ai .screen{--ry:-12deg;--rx:4deg}
+
+/* ---------- cinema ---------- */
+.cinema{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:36px;align-items:start}
+@media (max-width:920px){.cinema{grid-template-columns:1fr}}
+.cinema .screen{--ry:0deg;--rx:0deg}
+.playlist{display:flex;flex-direction:column;gap:8px;list-style:none;margin:0;padding:0}
+.playlist button{display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;width:100%;text-align:left;padding:8px;cursor:pointer;color:var(--ivory)}
+.playlist img{width:112px;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line)}
+.playlist b{display:block;font-family:var(--display);font-size:14px;line-height:1.25;text-transform:uppercase}
+.playlist small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.playlist button[aria-current="true"]{border-color:var(--gold);background:rgba(201,162,74,.12)}
+.playlist button[aria-current="true"] b{color:var(--gold)}
+.playlist a{display:block;padding:14px;text-decoration:none}
+.playlist a b{color:var(--gold)}
+
+/* ---------- uses ---------- */
+.uses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;perspective:1200px}
+@media (max-width:1000px){.uses{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.uses{grid-template-columns:1fr}}
+.use{border-top:3px solid var(--gold);padding:24px;display:flex;flex-direction:column;gap:12px}
+.use h3{font-size:19px;line-height:1.25}
+.use p{color:var(--muted);font-size:15px}
+.use .divs{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
+.use .divs span{background:rgba(0,0,0,.45);border:1px solid var(--line);padding:4px 10px;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--soft)}
+
+/* ---------- leadership + finance ---------- */
+.lead-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:920px){.lead-card{grid-template-columns:1fr}}
+.lead-card .ph{min-height:300px;background:url("img/cyber-operator.jpg") center 30%/cover}
+.lead-card .txt{padding:40px;display:flex;flex-direction:column;gap:14px;justify-content:center;align-items:flex-start}
+.lead-card h3{font-size:clamp(24px,2.6vw,32px);text-transform:uppercase;line-height:1.1}
+.lead-card p{color:var(--muted)}
+.finance{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;padding:24px 28px;margin-top:56px}
+.finance b{font-family:var(--display);font-size:18px;text-transform:uppercase;color:var(--gold)}
+.finance p{color:var(--muted);flex:1 1 320px}
+
+/* ---------- contact ---------- */
+.contact{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px;padding:48px;margin-block:112px 0;background:linear-gradient(135deg,rgba(40,33,16,.9) 0%,rgba(6,6,6,.92) 55%);border:1px solid var(--gold-dim);border-top:3px solid var(--gold);box-shadow:var(--depth),0 0 120px -30px rgba(201,162,74,.35);backdrop-filter:blur(8px)}
+@media (max-width:920px){.contact{grid-template-columns:1fr;padding:32px 20px}}
+.contact h2{font-size:clamp(36px,5vw,56px);line-height:1;text-transform:uppercase}
+.contact .lead{color:var(--muted);margin-top:16px;max-width:48ch}
+.contact .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.cbox{border:1px solid var(--gold-dim);padding:24px;display:flex;flex-direction:column;gap:14px;background:rgba(0,0,0,.45)}
+.cbox .ln{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cbox .ln span{font-family:var(--display);font-size:17px;user-select:all}
+.cbox .ln button{background:transparent;border:1px solid var(--gold-dim);color:var(--gold);font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.06em;padding:6px 10px;cursor:pointer;min-height:32px}
+.cbox .ln button:hover{border-color:var(--gold)}
+
+.site-foot{margin-top:64px;border-top:1px solid var(--gold-dim);background:rgba(6,6,6,.85)}
+.site-foot .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;padding-block:24px 32px;font-size:14px;color:var(--muted)}
+.site-foot img{height:26px;width:auto}
+.site-foot .divs{margin-left:auto;display:flex;flex-wrap:wrap;gap:6px 16px}
+.site-foot .divs a{text-decoration:none}
+.site-foot .divs a:hover{color:var(--gold)}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.screen{--ry:0deg!important;--rx:0deg!important}}
+</style>
+
+<style>html,body{margin:0}</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<div class="page">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Code Black Group home">
+      <img src="logos/cbg-header-lockup-white.svg" alt="Code Black Group" width="210" height="30">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#difference">Why us</a>
+      <a href="#ecosystem">Ecosystem</a>
+      <a href="#discover">Discovery</a>
+      <a href="#how">How we work</a>
+      <a href="#ai">A.I.</a>
+      <a href="#watch">Watch</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="#discover">Start discovery</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <span class="pill">Six specialist divisions. One accountable group.</span>
+        <h1 id="hero-h">ALL ANGLES<br><span class="metal">COVERED.</span></h1>
+        <p class="lead">Cyber, A.I., IT, digital, surveillance and connectivity, run by one team with one point of accountability.</p>
+        <p class="sub">Most organisations juggle a different vendor for every part of their technology. We bring the specialists together so you don't have to.</p>
+        <div class="ctas">
+          <a class="btn" href="#discover">Find your path in 60 seconds</a>
+          <a class="btn ghost" href="#watch">Watch all films</a>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="screen" data-video="brand" data-autoplay data-loop>
+          <div class="frame">
+            <video muted playsinline loop preload="metadata" poster="media/brand-film.jpg" aria-label="Brand film: One call. Every angle."></video>
+            <div class="glare"></div>
+            <div class="vprog"><i></i></div>
+          </div>
+          <div class="reflect"></div>
+        </div>
+        <div class="vcap"><span><b>BRAND FILM · 62 SEC</b></span><span>One call. Every angle.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="proof" aria-label="At a glance">
+      <div class="stat glass tilt"><b class="metal">2005</b><span>Supporting Australian organisations since Midnight IT began</span></div>
+      <div class="stat glass tilt"><b class="metal">24/7</b><span>Support and monitoring around the clock</span></div>
+      <div class="stat glass tilt"><b class="metal">6</b><span>Specialist divisions under one group</span></div>
+      <div class="stat gold tilt"><b>1</b><span>Point of contact and one escalation path</span></div>
+    </div>
+  </div>
+
+  <!-- DIFFERENCE -->
+  <section class="section" id="difference" aria-labelledby="diff-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="diff-h">Why we're different</h2>
+        <div class="toggle" role="group" aria-label="Compare">
+          <button type="button" id="t-usual" aria-pressed="false">The usual way</button>
+          <button type="button" id="t-cbg" aria-pressed="true">The Code Black way</button>
+        </div>
+      </div>
+      <div class="diff">
+        <div class="diag glass">
+          <div class="tree" id="tree-usual" hidden>
+            <div class="node">YOU</div>
+            <div class="vline soft"></div>
+            <div class="vrow">
+              <div><b>IT PROVIDER</b><small>Own contract<br>Own invoice<br>Own helpdesk</small></div>
+              <div><b>SECURITY FIRM</b><small>Own contract<br>Own invoice<br>Own helpdesk</small></div>
+              <div><b>WEB AGENCY</b><small>Own contract<br>Own invoice<br>Own helpdesk</small></div>
+              <div><b>CCTV INSTALLER</b><small>Own contract<br>Own invoice<br>Own helpdesk</small></div>
+              <div><b>TELCO</b><small>Own contract<br>Own invoice<br>Own helpdesk</small></div>
+              <div><b>A.I. CONSULTANT</b><small>Own contract<br>Own invoice<br>Own helpdesk</small></div>
+            </div>
+            <div class="alert"><i aria-hidden="true">!</i>WHEN SOMETHING BREAKS BETWEEN VENDORS, YOU BECOME THE PROJECT MANAGER.</div>
+          </div>
+          <div class="tree" id="tree-cbg">
+            <div class="node">YOU</div>
+            <div class="vline"></div>
+            <div class="node solid">ONE ACCOUNT MANAGER</div>
+            <div class="vline"></div>
+            <div class="pair"><div class="node soft">PROJECT MANAGER</div><div class="node soft">CHANGE MANAGER</div></div>
+            <div class="vline"></div>
+            <div class="grp">
+              <div class="label">Code Black Group · specialist heads as one team</div>
+              <div class="grp-grid">
+                <div>STRIKEFORCE CYBER<small>A.I. CYBER DEFENCE</small></div>
+                <div>MIDNIGHT IT<small>24/7 IT SUPPORT</small></div>
+                <div>REND'R<small>WEBSITES + DIGITAL</small></div>
+                <div>3EYES<small>CCTV + SURVEILLANCE</small></div>
+                <div>WIZE SOLUTIONS<small>BROADBAND + FIBRE</small></div>
+                <div>AI DOME<small>A.I. ADOPTION + CONTROL</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="diff-side">
+          <div>
+            <h3 id="diff-side-h">What you get instead</h3>
+            <ul class="chev" id="diff-points"></ul>
+          </div>
+          <div class="stage">
+            <div class="screen" data-video="usual" data-autoplay data-loop>
+              <div class="frame">
+                <video muted playsinline loop preload="none" poster="media/usual-vs-ours.jpg" aria-label="Film: the usual way vs ours"></video>
+                <div class="glare"></div>
+                <div class="vprog"><i></i></div>
+              </div>
+              <div class="reflect"></div>
+            </div>
+            <div class="vcap"><span><b>THE USUAL WAY VS OURS · 45 SEC</b></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM -->
+  <section class="section" id="ecosystem" aria-labelledby="eco-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="eco-h">One connected ecosystem</h2>
+        <p>Choose a division to see what it does, how it works with the rest of the group, and its short film.</p>
+      </div>
+      <div class="eco">
+        <div class="col l" id="eco-l"></div>
+        <div class="core" aria-hidden="true">
+          <div class="you">YOUR ORGANISATION</div>
+          <div class="vline"></div>
+          <div class="orbit">
+            <div class="ring c"></div><div class="ring a"></div><div class="ring b"></div>
+            <div class="disc"><img src="logos/cbg-mark-white.svg" alt=""><small>One plan · one team</small></div>
+          </div>
+          <div class="vline"></div>
+          <div class="cm">CHANGE MANAGEMENT ON EVERY ENGAGEMENT</div>
+        </div>
+        <div class="col r" id="eco-r"></div>
+      </div>
+      <div class="detail glass" aria-live="polite">
+        <div class="copy">
+          <div class="logo" id="d-logo"></div>
+          <div>
+            <span class="label eyebrow" id="d-desc"></span>
+            <h3 id="d-name"></h3>
+          </div>
+          <p id="d-what"></p>
+          <div>
+            <span class="label">How it connects</span>
+            <p class="conn" id="d-conn" style="margin-top:6px"></p>
+          </div>
+          <a class="site" id="d-site" href="#" target="_blank" rel="noopener"></a>
+        </div>
+        <div class="vidcol stage">
+          <div class="screen" id="eco-screen" data-video="eco">
+            <div class="frame">
+              <video id="eco-video" muted playsinline preload="metadata" poster="media/eco-strike.jpg" aria-label="Division short film"></video>
+              <div class="glare"></div>
+              <div class="vprog"><i></i></div>
+            </div>
+            <div class="reflect"></div>
+          </div>
+          <div class="vcap"><span><b id="d-vlabel">DIVISION SHORT · 9 SEC</b></span><span>Plays when you choose a division</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOVERY -->
+  <section class="section" id="discover" aria-labelledby="disc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="disc-h">Discovery lab</h2>
+        <p>Four quick questions. Your coverage map builds as you answer, showing which specialists matter most and what happens next.</p>
+      </div>
+      <div class="lab">
+        <div class="qs">
+          <fieldset><legend>1 · How big is your team?</legend><div class="opts" id="q-size"></div></fieldset>
+          <fieldset><legend>2 · What industry are you in?</legend><div class="opts" id="q-ind"></div></fieldset>
+          <fieldset><legend>3 · What's on your mind?<small>Choose all that apply.</small></legend><div class="opts" id="q-ch"></div></fieldset>
+          <fieldset><legend>4 · How soon?</legend><div class="opts" id="q-urg"></div></fieldset>
+        </div>
+        <div class="res" aria-live="polite">
+          <div>
+            <h3 class="metal">Your coverage map</h3>
+            <p class="summary" id="r-sum"></p>
+          </div>
+          <div class="covbar" id="r-bar" aria-hidden="true"></div>
+          <div class="rows" id="r-rows"></div>
+          <div class="next">
+            <span class="label">Your next step</span>
+            <div class="big" id="r-next"></div>
+            <p id="r-team"></p>
+            <div class="acts">
+              <button class="btn" type="button" id="copy-map">Copy my map</button>
+              <a class="btn ghost" href="#contact">Talk to us</a>
+            </div>
+            <p class="copied" id="copy-msg" hidden></p>
+            <p class="contactline">Send it to vip@codeblackgroup.com.au or call 1300 737 562.</p>
+          </div>
+          <div>
+            <span class="label">Watch next</span>
+            <div class="watchnext" id="r-watch" style="margin-top:8px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="section" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="how-h">What happens after you call</h2>
+        <p>Instead of weeks writing an RFP and lining up vendors, bring us the problem and what success looks like. Choose a step to jump to it in the film.</p>
+      </div>
+      <div class="how">
+        <ol class="steps" id="steps"></ol>
+        <div class="stage">
+          <div class="screen" id="how-screen" data-video="after" data-autoplay data-loop>
+            <div class="frame">
+              <video id="how-video" muted playsinline loop preload="none" poster="media/after-you-call.jpg" aria-label="Film: what happens after you call"></video>
+              <div class="glare"></div>
+              <div class="vprog"><i></i></div>
+            </div>
+            <div class="reflect"></div>
+          </div>
+          <div class="vcap"><span><b>WALKTHROUGH · 49 SEC</b></span><span>No pressure. No obligation. Just clarity.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI -->
+  <section class="section" id="ai" aria-labelledby="ai-h">
+    <div class="ai-band">
+      <div class="wrap ai">
+        <div>
+          <span class="label eyebrow">AI Dome · backed by Strikeforce Cyber</span>
+          <h2 id="ai-h">Adopt A.I. fast.<br><span class="metal">Stay in control.</span></h2>
+          <p class="lead">A.I. is already in your business. AI Dome helps you adopt it properly, with the security and guardrails built by Strikeforce Cyber around every rollout.</p>
+          <div class="layers"><span>GOVERNANCE + FRAMEWORKS</span><span>CUSTOM A.I. AGENTS</span><span>STAFF TRAINING</span><span>CHANGE MANAGEMENT</span></div>
+          <div class="ctas">
+            <a class="btn" href="#discover" id="ai-disc">Check your A.I. risk</a>
+            <a class="btn ghost" href="https://aidome.com.au" target="_blank" rel="noopener">aidome.com.au</a>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="screen" data-video="ai" data-autoplay data-loop>
+            <div class="frame">
+              <video muted playsinline loop preload="none" poster="media/securing-ai.jpg" aria-label="Film: securing A.I. adoption"></video>
+              <div class="glare"></div>
+              <div class="vprog"><i></i></div>
+            </div>
+            <div class="reflect"></div>
+          </div>
+          <div class="vcap"><span><b>SECURING A.I. ADOPTION · 49 SEC</b></span><span>Adopt fast, stay in control.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCH -->
+  <section class="section" id="watch" aria-labelledby="watch-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="watch-h">Watch how we work</h2>
+        <p>Every film in one place. Captions are on screen, so they work with the sound off.</p>
+      </div>
+      <div class="cinema">
+        <div class="stage">
+          <div class="screen flat" id="cinema-screen" data-video="cinema">
+            <div class="frame">
+              <video id="cinema-video" muted playsinline preload="none" poster="media/brand-film.jpg" aria-label="Film player"></video>
+              <div class="glare"></div>
+              <div class="vprog"><i></i></div>
+            </div>
+            <div class="reflect"></div>
+          </div>
+          <div class="vcap"><span><b id="cinema-title">ONE CALL. EVERY ANGLE.</b></span><span id="cinema-len">62 SEC</span></div>
+        </div>
+        <ul class="playlist" id="playlist"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- USES -->
+  <section class="section" id="clients" aria-labelledby="uses-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="uses-h">How clients use the group</h2>
+        <p>The kinds of work we take on across divisions. We don't name clients publicly.</p>
+      </div>
+      <div class="uses">
+        <article class="use glass tilt"><span class="label">Hospitality · multi-site</span><h3>Regional venues under one IT plan</h3><p>IT takeover, managed services, cyber uplift and connectivity upgrades across several sites, run as one phased program.</p><div class="divs"><span>MIDNIGHT IT</span><span>STRIKEFORCE</span><span>WIZE</span></div></article>
+        <article class="use glass tilt"><span class="label">Financial services</span><h3>Managed services with an integrated security stack</h3><p>Day-to-day support moved onto a group retainer, with monitoring and email security built in rather than bolted on.</p><div class="divs"><span>MIDNIGHT IT</span><span>STRIKEFORCE</span></div></article>
+        <article class="use glass tilt"><span class="label">Trade · two countries</span><h3>Offices in two countries, one agreement</h3><p>Melbourne and overseas offices supported and secured under a single managed services agreement.</p><div class="divs"><span>MIDNIGHT IT</span><span>STRIKEFORCE</span></div></article>
+        <article class="use glass tilt"><span class="label">Government · public safety</span><h3>Body-worn camera evidence, hosted in Australia</h3><p>Cloud evidence management for frontline officers, with the hosting and security handled across the group.</p><div class="divs"><span>3EYES</span><span>STRIKEFORCE</span></div></article>
+      </div>
+
+      <div class="finance glass">
+        <b>Flexible payment plans</b>
+        <p>Spread the cost of any service across the group through our finance partner, grenke. Existing Midnight IT clients receive discounted pricing on other Code Black Group services.</p>
+        <a class="btn ghost" href="#contact">Ask about payment plans</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section class="section" aria-labelledby="lead-h">
+    <div class="wrap">
+      <div class="lead-card glass">
+        <div class="ph" role="img" aria-label="Security operator at work in front of monitoring screens"></div>
+        <div class="txt">
+          <span class="label">At the front of emerging technology</span>
+          <h3 id="lead-h">Why A.I. security has to start at the operating system</h3>
+          <p>Group CEO Rubesch Thananjeyan spoke at DATE With Tech 2025 in Dubai about uncontrolled A.I. growth, and how Strikeforce Cyber is addressing the risk.</p>
+          <a class="textlink" href="https://www.youtube.com/watch?v=TgLYnMVFpSE" target="_blank" rel="noopener">Watch the interview on YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2 id="contact-h">Bring us <span class="metal">the problem.</span></h2>
+          <p class="lead">Skip the RFP. Tell us what success looks like and your account manager will come back with a clear plan, options and phases. No pressure and no obligation.</p>
+          <div class="ctas">
+            <a class="btn" href="#discover">Start discovery</a>
+            <a class="btn ghost" href="#how">See how it works</a>
+          </div>
+        </div>
+        <div class="cbox">
+          <span class="label">Get in touch</span>
+          <div class="ln"><span>1300 737 562</span><button type="button" data-copy="1300 737 562">COPY</button></div>
+          <div class="ln"><span>vip@codeblackgroup.com.au</span><button type="button" data-copy="vip@codeblackgroup.com.au">COPY</button></div>
+          <div class="ln"><span>codeblackgroup.com.au</span></div>
+          <p class="copied" id="c-msg" hidden></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <img src="logos/cbg-header-lockup-white.svg" alt="Code Black Group" width="180" height="26">
+    <span>© 2026 Code Black Group Global Pty Ltd · ABN 62 315 213 466</span>
+    <div class="divs">
+      <a href="https://strikeforcecyber.com" target="_blank" rel="noopener">Strikeforce Cyber</a>
+      <a href="https://midnightit.com.au" target="_blank" rel="noopener">Midnight IT</a>
+      <a href="https://rendr.com.au" target="_blank" rel="noopener">REND'R</a>
+      <a href="https://3eyes.com.au" target="_blank" rel="noopener">3Eyes</a>
+      <a href="https://wizesolutions.com.au" target="_blank" rel="noopener">Wize Solutions</a>
+      <a href="https://aidome.com.au" target="_blank" rel="noopener">AI Dome</a>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
+  function $(id){return document.getElementById(id)}
+  function el(tag, cls, txt){var e=document.createElement(tag); if(cls) e.className=cls; if(txt!=null) e.textContent=txt; return e}
+  var PLAY='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7,4 20,12 7,20"/></svg>';
+  var PAUSE='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+
+  /* ================= motion background ================= */
+  (function(){
+    var c=$('bg'), ctx=c.getContext('2d'); if(!ctx) return;
+    var W=0,H=0,dpr=1, mx=0, my=0, tmx=0, tmy=0, scrollY=0, running=true, t0=performance.now();
+    var parts=[];
+    function size(){
+      dpr=Math.min(window.devicePixelRatio||1,1.5);
+      W=window.innerWidth; H=window.innerHeight;
+      c.width=Math.round(W*dpr); c.height=Math.round(H*dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      var n=Math.round(Math.min(90, W*H/16000));
+      parts=[];
+      for(var i=0;i<n;i++) parts.push({x:Math.random()*W, y:Math.random()*H, z:.25+Math.random()*.75, vx:(Math.random()-.5)*.12, vy:-(.05+Math.random()*.2), tw:Math.random()*6.28});
+    }
+    function draw(now){
+      var t=Math.max(0,(now-t0)/1000);
+      mx+= (tmx-mx)*.05; my+=(tmy-my)*.05;
+      ctx.clearRect(0,0,W,H);
+      // horizon glow
+      var hy=H*.58 + my*12 - Math.min(scrollY*.04,60);
+      var vx=W/2 + mx*40;
+      var g=ctx.createRadialGradient(vx,hy,0,vx,hy,Math.max(W,H)*.7);
+      g.addColorStop(0,'rgba(201,162,74,0.16)'); g.addColorStop(.35,'rgba(201,162,74,0.05)'); g.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+      // perspective floor grid
+      ctx.lineWidth=1;
+      var rows=22, speed=reduce?0:(t*.18)%1;
+      for(var r=0;r<rows;r++){
+        var p=(r+speed)/rows;                 // 0 near horizon -> 1 near viewer
+        var y=hy + Math.pow(p,2.2)*(H-hy+80);
+        if(y>H+2) continue;
+        var a=Math.min(.32, p*.4);
+        ctx.strokeStyle='rgba(201,162,74,'+a.toFixed(3)+')';
+        ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+      }
+      var cols=28;
+      for(var k=-cols;k<=cols;k++){
+        var xb=vx + k*(W/cols)*2.2;
+        var a2=.20*(1-Math.abs(k)/cols);
+        ctx.strokeStyle='rgba(201,162,74,'+a2.toFixed(3)+')';
+        ctx.beginPath(); ctx.moveTo(vx + k*2, hy); ctx.lineTo(xb, H+80); ctx.stroke();
+      }
+      // light streaks along the floor
+      for(var s=0;s<5;s++){
+        var ph=((t*.22 + s*.2)%1); if(reduce) ph=.4+s*.1;
+        var kk=(s*7%11)-5; var xb2=vx + kk*(W/cols)*2.2;
+        var pp=Math.pow(ph,2.2), x=vx+(xb2-vx)*pp, y2=hy+pp*(H-hy+80);
+        var lg=ctx.createRadialGradient(x,y2,0,x,y2,30+pp*40);
+        lg.addColorStop(0,'rgba(232,205,135,'+(0.5*ph).toFixed(3)+')'); lg.addColorStop(1,'rgba(232,205,135,0)');
+        ctx.fillStyle=lg; ctx.beginPath(); ctx.arc(x,y2,30+pp*40,0,6.283); ctx.fill();
+      }
+      // fade the top so text stays clean
+      var fade=ctx.createLinearGradient(0,0,0,hy);
+      fade.addColorStop(0,'rgba(11,11,12,0.0)'); fade.addColorStop(1,'rgba(11,11,12,0.0)');
+      // particles + constellation lines
+      for(var i=0;i<parts.length;i++){
+        var q=parts[i];
+        if(!reduce){ q.x+=q.vx*q.z; q.y+=q.vy*q.z; q.tw+=.02; if(q.y<-10){q.y=H+10;q.x=Math.random()*W} if(q.x<-10)q.x=W+10; if(q.x>W+10)q.x=-10; }
+        var px=q.x + mx*30*q.z, py=q.y + my*20*q.z - (scrollY*.08*q.z)%H;
+        if(py<-10) py+=H+20;
+        q.px=px; q.py=py;
+        var al=(.25+.45*q.z)*(.6+.4*Math.sin(q.tw));
+        ctx.fillStyle='rgba(232,205,135,'+al.toFixed(3)+')';
+        ctx.beginPath(); ctx.arc(px,py,.6+1.6*q.z,0,6.283); ctx.fill();
+      }
+      ctx.lineWidth=.6;
+      for(var a1=0;a1<parts.length;a1++){
+        for(var b1=a1+1;b1<parts.length;b1++){
+          var A=parts[a1],B=parts[b1],dx=A.px-B.px,dy=A.py-B.py,d2=dx*dx+dy*dy;
+          if(d2<12000){ ctx.strokeStyle='rgba(201,162,74,'+(0.16*(1-d2/12000)).toFixed(3)+')'; ctx.beginPath(); ctx.moveTo(A.px,A.py); ctx.lineTo(B.px,B.py); ctx.stroke(); }
+        }
+      }
+      if(running && !reduce) requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize', function(){ size(); if(reduce) draw(performance.now()); });
+    window.addEventListener('scroll', function(){ scrollY=window.scrollY||0; }, {passive:true});
+    window.addEventListener('pointermove', function(e){ tmx=(e.clientX/W-.5)*2; tmy=(e.clientY/H-.5)*2; }, {passive:true});
+    document.addEventListener('visibilitychange', function(){ var was=running; running=!document.hidden; if(running && !was && !reduce) requestAnimationFrame(draw); });
+    size(); requestAnimationFrame(draw);
+  })();
+
+  /* ================= 3D tilt ================= */
+  function bindTilt(node, max){
+    if(!finePointer || reduce) return;
+    max=max||6;
+    node.addEventListener('pointermove', function(e){
+      var r=node.getBoundingClientRect(), x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+      node.style.transform='perspective(900px) rotateX('+((.5-y)*max).toFixed(2)+'deg) rotateY('+((x-.5)*max).toFixed(2)+'deg) translateZ(6px)';
+      node.style.setProperty('--mx',(x*100).toFixed(1)+'%'); node.style.setProperty('--my',(y*100).toFixed(1)+'%');
+      node.classList.add('on');
+    });
+    node.addEventListener('pointerleave', function(){ node.style.transform=''; node.classList.remove('on'); });
+  }
+  document.querySelectorAll('.tilt').forEach(function(n){ bindTilt(n, 7); });
+
+  // screens follow the cursor a little
+  function bindScreen(scr){
+    if(!finePointer || reduce) return;
+    var base=getComputedStyle(scr);
+    scr.addEventListener('pointermove', function(e){
+      var r=scr.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      scr.style.transform='rotateY('+(x*10).toFixed(2)+'deg) rotateX('+(-y*7).toFixed(2)+'deg) translateZ(10px)';
+    });
+    scr.addEventListener('pointerleave', function(){ scr.style.transform=''; });
+  }
+
+  /* ================= films ================= */
+  var VIDEOS = {
+    brand:{title:'One call. Every angle.', src:'media/brand-film.mp4', poster:'media/brand-film.jpg', len:'62 SEC', body:'Why one accountable group beats a stack of vendors.'},
+    usual:{title:'The usual way vs ours', src:'media/usual-vs-ours.mp4', poster:'media/usual-vs-ours.jpg', len:'45 SEC', body:'Six vendors against one account manager and one team.'},
+    eco:{title:'Inside the ecosystem', src:'media/ecosystem.mp4', poster:'media/ecosystem.jpg', len:'58 SEC', body:'All six divisions and how they connect.'},
+    after:{title:'What happens after you call', src:'media/after-you-call.mp4', poster:'media/after-you-call.jpg', len:'49 SEC', body:'Five steps from first call to one team delivering.'},
+    ai:{title:'Securing A.I. adoption', src:'media/securing-ai.mp4', poster:'media/securing-ai.jpg', len:'49 SEC', body:'AI Dome and Strikeforce Cyber on adopting A.I. with control.'}
+  };
+  var players=[];
+  function makePlayer(scr){
+    var v=scr.querySelector('video'), key=scr.getAttribute('data-video');
+    var bar=el('div','vbar');
+    var bPlay=el('button'); bPlay.type='button'; bPlay.setAttribute('aria-label','Pause'); bPlay.innerHTML=PAUSE;
+    var bRe=el('button',null,'RESTART'); bRe.type='button';
+    var bSnd=el('button',null,'SOUND OFF'); bSnd.type='button'; bSnd.setAttribute('aria-pressed','false');
+    var bFs=el('button',null,'FULL SCREEN'); bFs.type='button';
+    var tl=el('span','t','');
+    bar.appendChild(bPlay); bar.appendChild(bRe); bar.appendChild(bSnd);
+    if(document.fullscreenEnabled || v.webkitEnterFullscreen) bar.appendChild(bFs);
+    bar.appendChild(tl);
+    scr.querySelector('.frame').appendChild(bar);
+    var prog=scr.querySelector('.vprog i');
+    var P={scr:scr, v:v, key:key, userPaused:false, inView:false,
+      ensure:function(){ if(!v.getAttribute('src') && VIDEOS[key]) v.src=VIDEOS[key].src; },
+      play:function(){ P.ensure(); var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){}); },
+      sync:function(){ bPlay.innerHTML=v.paused?PLAY:PAUSE; bPlay.setAttribute('aria-label', v.paused?'Play':'Pause'); bSnd.textContent=v.muted?'SOUND OFF':'SOUND ON'; bSnd.setAttribute('aria-pressed', String(!v.muted)); }
+    };
+    bPlay.addEventListener('click', function(){ if(v.paused){ P.userPaused=false; P.play(); } else { P.userPaused=true; v.pause(); } });
+    bRe.addEventListener('click', function(){ P.ensure(); try{ v.currentTime=P.restartAt?P.restartAt():0; }catch(e){} P.userPaused=false; P.play(); });
+    bSnd.addEventListener('click', function(){
+      var on=v.muted; players.forEach(function(o){ if(o!==P){ o.v.muted=true; o.sync(); } });
+      v.muted=!on; if(on){ P.userPaused=false; P.play(); } P.sync();
+    });
+    bFs.addEventListener('click', function(){
+      try{ if(v.requestFullscreen){ v.requestFullscreen().catch(function(){}); } else if(v.webkitEnterFullscreen){ v.webkitEnterFullscreen(); } }catch(e){}
+    });
+    v.addEventListener('click', function(){ bPlay.click(); });
+    v.addEventListener('play', P.sync); v.addEventListener('pause', P.sync); v.addEventListener('volumechange', P.sync);
+    v.addEventListener('timeupdate', function(){
+      if(!v.duration) return;
+      prog.style.width=(v.currentTime/v.duration*100).toFixed(2)+'%';
+      var s=Math.floor(v.currentTime), d=Math.floor(v.duration);
+      tl.textContent=Math.floor(s/60)+':'+('0'+s%60).slice(-2)+' / '+Math.floor(d/60)+':'+('0'+d%60).slice(-2);
+    });
+    bindScreen(scr);
+    players.push(P);
+    return P;
+  }
+  var byId={};
+  document.querySelectorAll('.screen').forEach(function(s){ var P=makePlayer(s); byId[s.id||s.getAttribute('data-video')]=P; });
+
+  // autoplay in view, pause out of view
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var P=players.filter(function(o){return o.scr===en.target})[0]; if(!P) return;
+        P.inView=en.isIntersecting && en.intersectionRatio>=.45;
+        if(P.inView){ if(P.scr.hasAttribute('data-autoplay') && !P.userPaused && !reduce) P.play(); }
+        else if(!P.v.paused){ P.v.pause(); }
+      });
+    },{threshold:[0,.45,.8]});
+    players.forEach(function(P){ io.observe(P.scr); });
+  }
+
+  /* ================= copy helpers ================= */
+  function copyText(text, msgEl, okMsg){
+    function fallback(){
+      msgEl.hidden=false; msgEl.textContent='Select the text below and copy it:';
+      var ta=msgEl.nextElementSibling;
+      if(!ta || !ta.classList || !ta.classList.contains('fallback')){ ta=el('textarea','fallback'); ta.readOnly=true; msgEl.after(ta); }
+      ta.value=text; ta.focus(); ta.select();
+    }
+    try{ navigator.clipboard.writeText(text).then(function(){ msgEl.hidden=false; msgEl.textContent=okMsg; }, fallback); }catch(err){ fallback(); }
+  }
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click', function(){ copyText(b.getAttribute('data-copy'), $('c-msg'), 'Copied: '+b.getAttribute('data-copy')); });
+  });
+
+  /* ================= difference toggle ================= */
+  var POINTS={
+    usual:['Six contracts, six invoices, six helpdesks','Nobody owns the whole picture','Problems fall between vendors','You coordinate every project','Change lands on your people unmanaged'],
+    cbg:['One point of contact','One escalation path','One plan with options and phases','Change management included','Specialists who already work together']
+  };
+  function setMode(m){
+    $('t-usual').setAttribute('aria-pressed', m==='usual');
+    $('t-cbg').setAttribute('aria-pressed', m==='cbg');
+    $('tree-usual').hidden=m!=='usual'; $('tree-cbg').hidden=m!=='cbg';
+    $('diff-side-h').textContent= m==='usual' ? 'What it costs you' : 'What you get instead';
+    var ul=$('diff-points'); ul.textContent='';
+    POINTS[m].forEach(function(t){ ul.appendChild(el('li',null,t)); });
+  }
+  $('t-usual').addEventListener('click', function(){ setMode('usual'); });
+  $('t-cbg').addEventListener('click', function(){ setMode('cbg'); });
+  setMode('cbg');
+
+  /* ================= ecosystem ================= */
+  var DIVS=[
+    {id:'strike', name:'Strikeforce Cyber', desc:'A.I. CYBER DEFENCE', site:'strikeforcecyber.com', logo:'logos/strikeforce-cyber-white.svg',
+     what:'AI and cyber protection, monitoring and compliance for modern organisations, combining MDR, AI SecOps and offensive security into one integrated security layer.',
+     conn:'Secures the environments every other division builds and runs, and builds the security and guardrails behind AI Dome.'},
+    {id:'midnight', name:'Midnight IT', desc:'24/7 IT SUPPORT', site:'midnightit.com.au', logo:'logos/midnight-it-white.svg',
+     what:'Managed IT, cloud and workplace technology, keeping your systems stable, secure and supported around the clock.',
+     conn:'Runs your day-to-day IT, escalating security events to Strikeforce and connectivity faults to Wize, so you never make those calls.'},
+    {id:'rendr', name:"REND'R", desc:'WEBSITES + DIGITAL', site:'rendr.com.au', logo:'logos/rendr-white.png',
+     what:'UX-led websites and platforms, multimedia design, copywriting and custom software, bridging creativity and engineering.',
+     conn:'Builds the client-facing layer, from websites and portals to A.I. front ends, hosted and secured with the rest of the group.'},
+    {id:'3eyes', name:'3Eyes', desc:'CCTV + SURVEILLANCE', site:'3eyes.com.au', logo:'logos/3eyes-white.svg',
+     what:'Surveillance, CCTV, access control and physical security technologies that protect people, assets and environments.',
+     conn:'Cameras and access control run over Wize links, with devices and networks maintained and secured alongside your IT.'},
+    {id:'wize', name:'Wize Solutions', desc:'BROADBAND + FIBRE', site:'wizesolutions.com.au', logo:'logos/wize-white.svg',
+     what:'Business-grade internet, fibre and network connectivity, plus A.I. phone agents that replace traditional IVR menus.',
+     conn:'The link everything else depends on: cloud services, cameras, phones and A.I. agents.'},
+    {id:'aidome', name:'AI Dome', desc:'A.I. ADOPTION + CONTROL', site:'aidome.com.au', logo:null, isNew:true,
+     what:'Helps organisations adopt A.I.: custom agents, governance and frameworks, staff training and change management.',
+     conn:'Backed by Strikeforce Cyber, which builds the security and guardrails around every AI Dome rollout.'}
+  ];
+  var SEG={strike:4, midnight:13, rendr:22, '3eyes':31, wize:40, aidome:49}, SEGLEN=9;
+  var ecoP=byId['eco-screen'], ev=ecoP.v, segEnd=null, sel='strike';
+  ecoP.restartAt=function(){ segEnd=SEG[sel]+SEGLEN-.15; return SEG[sel]; };
+  function tile(d){
+    var b=el('button','tile glass tilt'); b.type='button'; b.setAttribute('aria-pressed','false'); b.dataset.id=d.id;
+    b.appendChild(el('b',null,d.name)); b.appendChild(el('span',null,d.desc));
+    if(d.isNew) b.appendChild(el('em','new','NEW'));
+    b.addEventListener('click', function(){ pick(d.id, true); });
+    bindTilt(b, 8);
+    return b;
+  }
+  DIVS.slice(0,3).forEach(function(d){ $('eco-l').appendChild(tile(d)); });
+  DIVS.slice(3).forEach(function(d){ $('eco-r').appendChild(tile(d)); });
+  function pick(id, play){
+    sel=id;
+    var d=DIVS.filter(function(x){return x.id===id})[0];
+    document.querySelectorAll('.tile').forEach(function(t){ t.setAttribute('aria-pressed', t.dataset.id===id); });
+    $('d-name').textContent=d.name; $('d-desc').textContent=d.desc;
+    $('d-what').textContent=d.what; $('d-conn').textContent=d.conn;
+    var a=$('d-site'); a.textContent=d.site; a.href='https://'+d.site;
+    var lb=$('d-logo'); lb.textContent='';
+    if(d.logo){ var im=el('img'); im.src=d.logo; im.alt=d.name+' logo'; lb.appendChild(im); } else { lb.appendChild(el('span','wm','AI DOME')); }
+    $('d-vlabel').textContent=d.name.toUpperCase()+' · 9 SEC';
+    ev.poster='media/eco-'+id+'.jpg';
+    if(play){
+      ecoP.ensure();
+      var go=function(){ try{ ev.currentTime=SEG[id]; }catch(e){} segEnd=SEG[id]+SEGLEN-.15; ecoP.userPaused=false; ecoP.play(); };
+      if(ev.readyState>=1) go(); else ev.addEventListener('loadedmetadata', go, {once:true});
+    }
+  }
+  ev.addEventListener('timeupdate', function(){ if(segEnd!=null && ev.currentTime>=segEnd){ ev.pause(); segEnd=null; } });
+  pick('strike', false);
+
+  /* ================= how we work: steps drive the film ================= */
+  var STEPS=[
+    {t:'Tell us the problem', b:'What is happening and what success looks like. No RFP needed.', at:5},
+    {t:'We assemble the specialists', b:'Your account manager brings in the division heads your situation needs.', at:12.5},
+    {t:'A change manager joins', b:'Adoption across people, process and technology is planned from day one.', at:20},
+    {t:'You get a clear plan', b:'Scope pressure-tested, returned with options, phases and next steps.', at:27.5},
+    {t:'One team delivers', b:'One point of accountability through rollout and ongoing support.', at:35}
+  ];
+  var howP=byId['how-screen'], hv=howP.v, stepBtns=[];
+  STEPS.forEach(function(s,i){
+    var li=el('li'), b=el('button','step'); b.type='button';
+    b.appendChild(el('span','n metal',String(i+1)));
+    var tx=el('span'); tx.appendChild(el('h3',null,s.t)); tx.appendChild(el('p',null,s.b)); b.appendChild(tx);
+    b.addEventListener('click', function(){ howP.ensure(); var go=function(){ try{ hv.currentTime=s.at; }catch(e){} howP.userPaused=false; howP.play(); }; if(hv.readyState>=1) go(); else hv.addEventListener('loadedmetadata', go, {once:true}); });
+    li.appendChild(b); $('steps').appendChild(li); stepBtns.push(b);
+  });
+  function markStep(){
+    var t=hv.currentTime||0, idx=-1;
+    STEPS.forEach(function(s,i){ if(t>=s.at-0.01) idx=i; });
+    if(t>=42.5) idx=-1;
+    stepBtns.forEach(function(b,i){ if(i===idx) b.setAttribute('aria-current','true'); else b.removeAttribute('aria-current'); });
+  }
+  hv.addEventListener('timeupdate', markStep);
+
+  /* ================= cinema ================= */
+  var cinP=byId['cinema-screen'], cv=cinP.v, current='brand', plBtns={};
+  function loadCinema(key, autoplay){
+    current=key; var v=VIDEOS[key];
+    cv.src=v.src; cv.poster=v.poster;
+    $('cinema-title').textContent=v.title.toUpperCase(); $('cinema-len').textContent=v.len;
+    Object.keys(plBtns).forEach(function(k){ if(k===key) plBtns[k].setAttribute('aria-current','true'); else plBtns[k].removeAttribute('aria-current'); });
+    if(autoplay){ cinP.userPaused=false; cinP.play(); }
+  }
+  cinP.ensure=function(){ if(!cv.getAttribute('src')) cv.src=VIDEOS[current].src; };
+  ['brand','usual','eco','after','ai'].forEach(function(k){
+    var v=VIDEOS[k], li=el('li'), b=el('button','glass'); b.type='button';
+    var im=el('img'); im.src=v.poster; im.alt=''; im.loading='lazy'; b.appendChild(im);
+    var tx=el('span'); tx.appendChild(el('b',null,v.title)); tx.appendChild(el('small',null,v.len.toLowerCase()+' · '+v.body)); b.appendChild(tx);
+    b.addEventListener('click', function(){ loadCinema(k, true); });
+    plBtns[k]=b; li.appendChild(b); $('playlist').appendChild(li);
+  });
+  cv.addEventListener('ended', function(){
+    var order=['brand','usual','eco','after','ai'], n=order[(order.indexOf(current)+1)%order.length];
+    loadCinema(n, true);
+  });
+  var ext=el('li'), ea=el('a','glass'); ea.href='https://www.youtube.com/watch?v=TgLYnMVFpSE'; ea.target='_blank'; ea.rel='noopener';
+  ea.appendChild(el('b',null,'CEO INTERVIEW · DATE WITH TECH 2025')); ea.appendChild(el('small',null,'Opens on YouTube'));
+  ext.appendChild(ea); $('playlist').appendChild(ext);
+  loadCinema('brand', false); cv.removeAttribute('src'); cv.load();
+
+  function playInCinema(key){
+    loadCinema(key, true);
+    var target=$('watch'); if(target) target.scrollIntoView({behavior: reduce?'auto':'smooth', block:'start'});
+  }
+
+  /* ================= discovery lab ================= */
+  var CH=[
+    {id:'ai', label:'Staff using A.I. with no rules', divs:['aidome','strike']},
+    {id:'cyber', label:'Cyber risk or compliance', divs:['strike']},
+    {id:'it', label:'IT issues slowing us down', divs:['midnight']},
+    {id:'site', label:'Protecting a site or people', divs:['3eyes']},
+    {id:'net', label:'Internet or phones unreliable', divs:['wize']},
+    {id:'web', label:'Website or digital underperforming', divs:['rendr']},
+    {id:'grow', label:'Opening a new office or site', divs:['midnight','wize','3eyes']},
+    {id:'unsure', label:'Not sure, I want a health check', divs:[]}
+  ];
+  var S={size:'21–100', ind:'Professional services', urg:'Soon (1–3 months)', ch:{ai:true, it:true}};
+  try{ var ld=JSON.parse(localStorage.getItem('cbg-discovery')||'null'); if(ld && ld.ch) S=ld; }catch(e){}
+  function single(container, list, key){
+    var box=$(container); box.textContent='';
+    list.forEach(function(lbl){
+      var b=el('button','opt',lbl); b.type='button'; b.setAttribute('aria-pressed', S[key]===lbl);
+      b.addEventListener('click', function(){ S[key]=lbl; update(); });
+      box.appendChild(b);
+    });
+  }
+  function multi(){
+    var box=$('q-ch'); box.textContent='';
+    CH.forEach(function(c){
+      var b=el('button','opt',c.label); b.type='button'; b.setAttribute('aria-pressed', !!S.ch[c.id]);
+      b.addEventListener('click', function(){ if(S.ch[c.id]) delete S.ch[c.id]; else S.ch[c.id]=true; update(); });
+      box.appendChild(b);
+    });
+  }
+  var lastText='';
+  function update(){
+    try{ localStorage.setItem('cbg-discovery', JSON.stringify(S)); }catch(e){}
+    single('q-size',['1–20','21–100','101–500','500+'],'size');
+    single('q-ind',['Hospitality','Financial services','Health + aged care','Government','Not-for-profit','Professional services','Other'],'ind');
+    single('q-urg',['Just exploring','Soon (1–3 months)','Urgent (now)'],'urg');
+    multi();
+    var wanted={}, any=false;
+    CH.forEach(function(c){ if(S.ch[c.id]){ any=true; c.divs.forEach(function(x){ wanted[x]=true; }); } });
+    var unsure=!!S.ch.unsure, prio=[], lines=[];
+    var bar=$('r-bar'), rows=$('r-rows'); bar.textContent=''; rows.textContent='';
+    DIVS.forEach(function(d){
+      var lv='later';
+      if(wanted[d.id]){ lv='priority'; prio.push(d.name); }
+      else if(unsure || (d.id==='strike' && any)) lv='check';
+      var st= lv==='priority' ? 'PRIORITY' : lv==='check' ? ((d.id==='strike' && !unsure) ? 'SECURITY REVIEW' : 'HEALTH CHECK') : 'LATER';
+      bar.appendChild(el('i','lv-'+lv));
+      var r=el('div','row lv-'+lv), l=el('div');
+      l.appendChild(el('b',null,d.name)); l.appendChild(el('small',null,d.desc.charAt(0)+d.desc.slice(1).toLowerCase()));
+      r.appendChild(l); r.appendChild(el('span','st',st)); rows.appendChild(r);
+      lines.push('- '+d.name+': '+st);
+    });
+    $('r-sum').textContent=S.ind+' · '+S.size+' people · '+(prio.length ? prio.length+' priority area'+(prio.length>1?'s':'') : 'no priorities yet');
+    var next='Choose what is on your mind to see your next step.';
+    if(any){
+      if(S.urg==='Urgent (now)') next='A priority callback from your account manager.';
+      else if(S.urg==='Just exploring') next='A tailored overview and films, with no call unless you ask.';
+      else next='A no-obligation scoping session with the right specialists.';
+    }
+    var team='Your account manager coordinates everything.';
+    if(prio.length) team='Your account manager, the heads of '+prio.join(', ')+', and a change manager.';
+    else if(unsure) team='Your account manager and our division heads review your whole environment.';
+    if(S.size==='500+') team+=' Larger organisations also get a governance workshop.';
+    $('r-next').textContent=next; $('r-team').textContent=team;
+    var w=$('r-watch'); w.textContent='';
+    var picks=[]; if(wanted.aidome) picks.push('ai'); picks.push('after'); picks.push('usual');
+    picks.slice(0,3).forEach(function(k){
+      var b=el('button'); b.type='button';
+      b.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>';
+      b.appendChild(el('span',null,VIDEOS[k].title)); b.appendChild(el('em',null,VIDEOS[k].len.toLowerCase()));
+      b.addEventListener('click', function(){ playInCinema(k); });
+      w.appendChild(b);
+    });
+    var chosen=CH.filter(function(c){return S.ch[c.id]}).map(function(c){return c.label});
+    lastText='Code Black Group discovery map\nOrganisation size: '+S.size+'\nIndustry: '+S.ind+'\nTimeframe: '+S.urg+'\n'
+      +'On our mind: '+(chosen.length?chosen.join('; '):'nothing selected yet')+'\n\nCoverage map:\n'+lines.join('\n')
+      +'\n\nNext step: '+next+'\n'+team;
+    $('copy-msg').hidden=true;
+  }
+  $('copy-map').addEventListener('click', function(){ copyText(lastText, $('copy-msg'), 'Copied. Paste it into an email to vip@codeblackgroup.com.au.'); });
+  $('ai-disc').addEventListener('click', function(){ S.ch.ai=true; update(); });
+  update();
+})();
+</script>
+
+</body>
+</html>
