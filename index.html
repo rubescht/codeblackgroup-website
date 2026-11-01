@@ -32,6 +32,7 @@
   --on-gold:#0b0b0c;
   --metal:linear-gradient(180deg,#fff5cf 0%,#f3d98f 12%,#d9b257 28%,#a87d27 44%,#6f4d14 50%,#9c7425 56%,#e5c472 72%,#c09335 86%,#7a5718 100%);
   --metal-flat:linear-gradient(180deg,#f6e2a2 0%,#dcb862 30%,#b38a33 55%,#d6b25f 78%,#f0d68f 100%);
+  --silver-icon:linear-gradient(140deg,#ffffff 0%,#eef1f4 16%,#b9c0c7 34%,#6b7178 48%,#8f969e 56%,#dfe3e7 72%,#f7f9fa 80%,#9aa1a8 100%);
   --silver:linear-gradient(180deg,#ffffff 0%,#eef1f4 12%,#cdd2d8 28%,#939aa2 44%,#5e646b 50%,#8a9199 56%,#d8dde2 72%,#aeb4bb 86%,#70767d 100%);
   --shine:linear-gradient(110deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 39%,rgba(255,246,220,.75) 44.5%,rgba(255,255,255,1) 48%,rgba(255,255,255,1) 52%,rgba(255,246,220,.75) 55.5%,rgba(255,255,255,0) 61%,rgba(255,255,255,0) 100%);
   --sheen:linear-gradient(105deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 40%,rgba(255,250,228,.95) 50%,rgba(255,255,255,0) 60%,rgba(255,255,255,0) 100%);
@@ -69,10 +70,10 @@ button{font:inherit;color:inherit}
 /* exact original CBG logo (white), with the shine passing through it */
 .cbglogo{display:block;background:var(--shine) no-repeat,#ffffff;background-size:300% 100%,100% 100%;background-position:170% 0,0 0;-webkit-mask:var(--src) center/contain no-repeat;mask:var(--src) center/contain no-repeat;animation:shine 4.8s cubic-bezier(.45,.05,.35,1) infinite}
 .cbglogo.icon{--src:url("logos/cbg-icon-white.png")}
-.cbglogo.oneline{--src:url("logos/cbg-lockup-oneline-white.png");background:var(--shine) no-repeat,linear-gradient(#fff,#fff) no-repeat,var(--silver);background-size:300% 100%,13.9% 100%,100% 100%;background-position:170% 0,0 0,0 0;background-repeat:no-repeat}
+.cbglogo.oneline{--src:url("logos/cbg-lockup-oneline-white.png");background:var(--shine) no-repeat,var(--silver-icon) no-repeat,var(--silver);background-size:300% 100%,13.9% 100%,100% 100%;background-position:170% 0,0 0,0 0;background-repeat:no-repeat}
 .cbglogo.stacked{--src:url("logos/cbg-logo-stacked-white.png");background:var(--shine) no-repeat,linear-gradient(180deg,#fff 0%,#fff 71.2%,#ffffff 72%,#eef1f4 74.6%,#cdd2d8 79.3%,#939aa2 83.9%,#5e646b 85.6%,#8a9199 87.3%,#d8dde2 91.9%,#aeb4bb 96%,#70767d 100%) no-repeat;background-size:300% 100%,100% 100%;background-position:170% 0,0 0}
 /* header: original icon (white) + CODE BLACK GROUP in metallic silver; one shine crosses the whole logo */
-.cbglogo.lockup{--src:url("logos/cbg-lockup-horizontal-white.png");background:var(--shine) no-repeat,linear-gradient(#fff,#fff) no-repeat,var(--silver);background-size:300% 100%,20.5% 100%,100% 100%;background-position:170% 0,0 0,0 0;background-repeat:no-repeat}
+.cbglogo.lockup{--src:url("logos/cbg-lockup-horizontal-white.png");background:var(--shine) no-repeat,var(--silver-icon) no-repeat,var(--silver);background-size:300% 100%,20.5% 100%,100% 100%;background-position:170% 0,0 0,0 0;background-repeat:no-repeat}
 .whitewrap{display:inline-block;line-height:0;filter:drop-shadow(0 2px 2px rgba(0,0,0,.7)) drop-shadow(0 0 10px rgba(255,236,200,.18));animation:glintw 4.8s cubic-bezier(.45,.05,.35,1) infinite}
 @keyframes glintw{0%,52%,82%,100%{filter:drop-shadow(0 2px 2px rgba(0,0,0,.7)) drop-shadow(0 0 10px rgba(255,236,200,.18))}64%{filter:drop-shadow(0 2px 2px rgba(0,0,0,.7)) drop-shadow(0 0 20px rgba(255,236,200,.55))}}
 .person .mono.metal::after{display:grid;place-items:center}
