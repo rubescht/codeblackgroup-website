@@ -372,7 +372,6 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 /* ---------- flame ring ---------- */
 .brand{position:relative}
 .brand .flame{position:absolute;width:88px;height:88px;left:-22px;top:-22px;pointer-events:none}
-.orbit .flame{position:absolute;width:260px;height:260px;left:-10px;top:-10px;pointer-events:none;z-index:2}
 #intro{position:fixed;inset:0;z-index:200;background:#060606;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;cursor:pointer;transition:opacity .6s ease}
 #intro.out{opacity:0;pointer-events:none}
 #intro{background:#000}
@@ -603,7 +602,6 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
           <div class="vline"></div>
           <div class="orbit">
             <div class="ring c"></div><div class="ring b"></div>
-            <canvas class="flame" id="flame-eco" aria-hidden="true"></canvas>
             <div class="disc"><span class="whitewrap"><span class="cbglogo icon" style="width:76px;height:76px"></span></span><small>One plan · one team</small></div>
           </div>
           <div class="vline"></div>
@@ -1140,7 +1138,6 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     return {stop:function(){ alive=false; }};
   }
   flameRing(document.getElementById('flame-head'), {r:.232, w:.02, speed:1.6, trail:1.6, embers:1, streak:.42, calm:true});
-  flameRing(document.getElementById('flame-eco'), {r:.328, w:.019, speed:1.05, trail:2.2, embers:2, streak:.5});
 
   /* ================= first-visit logo reveal: the original CBG logo reveal video ================= */
   (function(){
