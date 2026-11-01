@@ -375,7 +375,11 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 /* ---------- leadership + finance ---------- */
 /* ---------- flame ring ---------- */
 .brand{position:relative}
-.brand .flame{position:absolute;width:88px;height:88px;left:-22px;top:-22px;pointer-events:none}
+.brand,.foot-logo{--ic:44px;position:relative}
+.saturn{position:absolute;width:calc(var(--ic)*2.8);height:calc(var(--ic)*2.8);left:calc(var(--ic)*-0.9);top:calc(var(--ic)*-0.9);pointer-events:none}
+.saturn.back{z-index:0}.saturn.front{z-index:2}
+.brand .whitewrap,.foot-logo .whitewrap{position:relative;z-index:1}
+@media (max-width:520px){.brand{--ic:38px}}
 #intro{position:fixed;inset:0;z-index:200;background:#060606;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;cursor:pointer;transition:opacity .6s ease}
 #intro.out{opacity:0;pointer-events:none}
 #intro{background:#000}
@@ -438,7 +442,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .foot-grid{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:40px 48px;align-items:start;padding-block:64px 44px}
 @media (max-width:920px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-brand{grid-column:1/-1}}
 @media (max-width:480px){.foot-grid{grid-template-columns:1fr 1fr;gap:36px 20px}.foot-grid>.foot-col:last-child{grid-column:1/-1}.foot-brand .foot-tag{white-space:normal}}
-.foot-brand{display:flex;flex-direction:column;gap:16px;align-items:flex-start}.foot-logo{display:block;line-height:0;margin-top:-11px;max-width:100%}
+.foot-brand{display:flex;flex-direction:column;gap:16px;align-items:flex-start}.foot-logo{display:block;line-height:0;margin-top:-11px;max-width:100%;position:relative}
 .foot-brand p{color:var(--muted);font-size:14.5px;max-width:34ch}
 .foot-brand .foot-tag{white-space:nowrap;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .foot-col{display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-size:15px;line-height:1.4;color:var(--soft);min-width:0}
@@ -469,8 +473,9 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Code Black Group home">
+      <canvas class="saturn back" id="sat-head-b" aria-hidden="true"></canvas>
       <span class="whitewrap"><span class="cbglogo lockup" role="img" aria-label="Code Black Group" style="width:216px;height:44px"></span></span>
-      <canvas class="flame" id="flame-head" aria-hidden="true"></canvas>
+      <canvas class="saturn front" id="sat-head-f" aria-hidden="true"></canvas>
     </a>
     <nav class="nav" id="main-nav" aria-label="Main">
       <a href="#difference">Why us</a>
@@ -904,7 +909,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 <footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-brand">
-      <a href="#top" class="foot-logo" aria-label="Code Black Group, back to top"><span class="whitewrap"><span class="cbglogo oneline" role="img" aria-label="Code Black Group" style="width:318px;height:44px"></span></span></a>
+      <a href="#top" class="foot-logo" aria-label="Code Black Group, back to top"><canvas class="saturn back" id="sat-foot-b" aria-hidden="true"></canvas><span class="whitewrap"><span class="cbglogo oneline" role="img" aria-label="Code Black Group" style="width:318px;height:44px"></span></span><canvas class="saturn front" id="sat-foot-f" aria-hidden="true"></canvas></a>
       <p class="foot-tag">One Code. One Strategy. One Outcome.</p>
       <p>Integrated technology, security and digital solutions. Six specialist divisions, one accountable group.</p>
     </div>
@@ -1141,7 +1146,71 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     requestAnimationFrame(loop);
     return {stop:function(){ alive=false; }};
   }
-  flameRing(document.getElementById('flame-head'), {r:.232, w:.02, speed:1.6, trail:1.6, embers:1, streak:.42, calm:true});
+  /* ================= Saturn ring: flame orbiting the icon on a tilted ellipse, passing behind and in front ================= */
+  function saturnRing(cb, cf, o){
+    var xb=cb&&cb.getContext&&cb.getContext('2d'), xf=cf&&cf.getContext&&cf.getContext('2d'); if(!xb||!xf) return;
+    var dpr=Math.min(window.devicePixelRatio||1,2), S=0, cx=0, cy=0, rx=0, ry=0, w0=0, TAU=Math.PI*2;
+    var tilt=(o.tilt||-16)*Math.PI/180, ct=Math.cos(tilt), st=Math.sin(tilt);
+    function size(){ var r=cb.getBoundingClientRect(); S=r.width||120; [cb,cf].forEach(function(c){ c.width=Math.round(S*dpr); c.height=Math.round(S*dpr); }); xb.setTransform(dpr,0,0,dpr,0,0); xf.setTransform(dpr,0,0,dpr,0,0); cx=S/2; cy=S/2; rx=S*(o.rx||.25); ry=rx*(o.flat||.3); w0=Math.max(1,S*(o.w||.012)); }
+    size();
+    function pt(a){ var x=rx*Math.cos(a), y=ry*Math.sin(a); return [cx+x*ct-y*st, cy+x*st+y*ct]; }
+    var STOPS=[[0,[255,250,228]],[.15,[255,224,150]],[.4,[240,180,78]],[.72,[214,118,42]],[1,[120,42,12]]];
+    function col(p){ for(var i=1;i<STOPS.length;i++){ if(p<=STOPS[i][0]){ var A=STOPS[i-1],B=STOPS[i],k=(p-A[0])/(B[0]-A[0]); return Math.round(A[1][0]+(B[1][0]-A[1][0])*k)+','+Math.round(A[1][1]+(B[1][1]-A[1][1])*k)+','+Math.round(A[1][2]+(B[1][2]-A[1][2])*k); } } return '120,42,12'; }
+    var embers=[], t0=null, visible=true, speed=o.speed||1.4, trail=o.trail||2.4;
+    function ctxFor(a){ return Math.sin(a)>=0 ? xf : xb; }      // lower half of the ellipse is in front of the planet
+    function depth(a){ return .55+.45*(Math.sin(a)*.5+.5); }     // nearer = brighter and thicker
+    function ring(c, from, to){
+      var n=48; c.lineCap='round';
+      for(var pass=0;pass<2;pass++){
+        for(var i=0;i<n;i++){
+          var a=from+(to-from)*i/n, b=from+(to-from)*(i+1)/n, p=pt(a), q=pt(b), d=depth((a+b)/2);
+          if(pass===0){ c.strokeStyle='rgba(201,162,74,'+(.12*d).toFixed(3)+')'; c.lineWidth=w0*3*d; }
+          else { var sh=.5+.5*Math.cos(a-tilt-2.2); c.strokeStyle='rgba('+(170+Math.round(80*sh))+','+(128+Math.round(90*sh))+','+(52+Math.round(90*sh))+','+(.55+.4*d).toFixed(3)+')'; c.lineWidth=w0*.9*d; }
+          c.beginPath(); c.moveTo(p[0],p[1]); c.lineTo(q[0],q[1]); c.stroke();
+        }
+      }
+    }
+    function draw(t){
+      xb.clearRect(0,0,S,S); xf.clearRect(0,0,S,S);
+      xb.globalCompositeOperation=xf.globalCompositeOperation='source-over';
+      ring(xb, Math.PI, TAU); ring(xf, 0, Math.PI);
+      xb.globalCompositeOperation=xf.globalCompositeOperation='lighter';
+      var head=t*speed, n=56;
+      for(var k=n;k>=0;k--){
+        var p=k/n, a=head-trail*p, c=ctxFor(a), d=depth(a), f2=Math.sin(t*23+k*1.37)*.55+Math.sin(t*11.3+k*.61)*.45;
+        var P=pt(a), w=w0*(1-p*.75)*(1.1+f2*.2)*d, cc=col(p), al=Math.pow(1-p,1.5)*d;
+        var lift=(f2*.5+.4)*w0*p*1.6;                              // flames lick upward off the ring
+        c.fillStyle='rgba('+cc+','+(al*.16).toFixed(3)+')'; c.beginPath(); c.arc(P[0],P[1]-lift,w*3,0,TAU); c.fill();
+        c.fillStyle='rgba('+cc+','+(al*.9).toFixed(3)+')'; c.beginPath(); c.arc(P[0],P[1]-lift,Math.max(.45,w*.85),0,TAU); c.fill();
+      }
+      var H=pt(head), hc=ctxFor(head), hd=depth(head);
+      var core=hc.createRadialGradient(H[0],H[1],0,H[0],H[1],w0*5*hd);
+      core.addColorStop(0,'rgba(255,252,236,'+(.95*hd).toFixed(3)+')'); core.addColorStop(.35,'rgba(255,214,130,.45)'); core.addColorStop(1,'rgba(214,118,42,0)');
+      hc.fillStyle=core; hc.beginPath(); hc.arc(H[0],H[1],w0*5*hd,0,TAU); hc.fill();
+      if(o.streak && Math.sin(head)>0){
+        var sl=S*o.streak*hd, sg=xf.createLinearGradient(H[0]-sl,H[1],H[0]+sl,H[1]);
+        sg.addColorStop(0,'rgba(255,200,120,0)'); sg.addColorStop(.5,'rgba(255,236,190,.5)'); sg.addColorStop(1,'rgba(255,200,120,0)');
+        xf.fillStyle=sg; xf.fillRect(H[0]-sl,H[1]-w0*.2,sl*2,Math.max(1,w0*.4));
+      }
+      if(Math.sin(head)>0 && Math.random()<.6){
+        var sp=S*.003*(.4+Math.random());
+        embers.push({x:H[0],y:H[1],vx:(Math.random()-.5)*sp,vy:-sp*(.4+Math.random()*.6),life:1,decay:.02+Math.random()*.03,r:Math.max(.5,w0*(.2+Math.random()*.3))});
+      }
+      xb.globalCompositeOperation='destination-out'; xb.fillStyle='#000'; xb.beginPath(); xb.arc(cx,cy,S/2.8*.5,0,TAU); xb.fill();   // planet hides the far side
+      for(var j=embers.length-1;j>=0;j--){
+        var m=embers[j]; m.x+=m.vx; m.y+=m.vy; m.life-=m.decay;
+        if(m.life<=0){ embers.splice(j,1); continue; }
+        xf.fillStyle='rgba('+col(1-m.life*.9)+','+(m.life*.85).toFixed(3)+')'; xf.beginPath(); xf.arc(m.x,m.y,m.r*(.5+m.life*.5),0,TAU); xf.fill();
+      }
+    }
+    function loop(now){ if(t0===null) t0=now; if(visible && !document.hidden) draw(Math.max(0,(now-t0)/1000)); requestAnimationFrame(loop); }
+    if(reduce){ draw(1.2); return; }
+    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ visible=es[0].isIntersecting; }).observe(cb); }
+    window.addEventListener('resize', size);
+    requestAnimationFrame(loop);
+  }
+  saturnRing(document.getElementById('sat-head-b'), document.getElementById('sat-head-f'), {speed:1.5, trail:2.4, streak:.3});
+  saturnRing(document.getElementById('sat-foot-b'), document.getElementById('sat-foot-f'), {speed:1.2, trail:2.4, streak:.3});
 
   /* ================= first-visit logo reveal: the original CBG logo reveal video ================= */
   (function(){
