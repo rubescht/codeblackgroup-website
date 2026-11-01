@@ -66,6 +66,13 @@ button{font:inherit;color:inherit}
 @keyframes shine{0%,48%{background-position:170% 0,0 0,0 0}78%,100%{background-position:-70% 0,0 0,0 0}}
 @keyframes glint{0%,52%,82%,100%{filter:drop-shadow(0 -1px 0 rgba(255,244,205,.45)) drop-shadow(0 2px 1px rgba(0,0,0,.85)) drop-shadow(0 0 12px rgba(201,162,74,.35))}64%{filter:drop-shadow(0 -1px 0 rgba(255,250,230,.7)) drop-shadow(0 2px 1px rgba(0,0,0,.85)) drop-shadow(0 0 22px rgba(255,236,190,.7))}}
 .goldlogo.mark{--src:url("logos/cbg-mark-white.svg")}
+/* exact original CBG logo (white), with the shine passing through it */
+.cbglogo{display:block;background:var(--shine) no-repeat,#ffffff;background-size:300% 100%,100% 100%;background-position:170% 0,0 0;-webkit-mask:var(--src) center/contain no-repeat;mask:var(--src) center/contain no-repeat;animation:shine 4.8s cubic-bezier(.45,.05,.35,1) infinite}
+.cbglogo.icon{--src:url("logos/cbg-icon-white.png")}
+.cbglogo.stacked{--src:url("logos/cbg-logo-stacked-white.png")}
+.whitewrap{display:inline-block;line-height:0;filter:drop-shadow(0 2px 2px rgba(0,0,0,.7)) drop-shadow(0 0 10px rgba(255,236,200,.18));animation:glintw 4.8s cubic-bezier(.45,.05,.35,1) infinite}
+@keyframes glintw{0%,52%,82%,100%{filter:drop-shadow(0 2px 2px rgba(0,0,0,.7)) drop-shadow(0 0 10px rgba(255,236,200,.18))}64%{filter:drop-shadow(0 2px 2px rgba(0,0,0,.7)) drop-shadow(0 0 20px rgba(255,236,200,.55))}}
+.person .mono.metal::after{display:grid;place-items:center}
 .goldlogo.lockup{--src:url("logos/cbg-header-lockup-white.svg");background:var(--shine) no-repeat,var(--metal) no-repeat,var(--silver);background-size:300% 100%,14.7% 100%,100% 100%;background-position:170% 0,0 0,0 0}
 /* silver metallic text (the CODE BLACK GROUP wordmark) */
 .metal.silver{color:#2c3034;-webkit-text-fill-color:#2c3034;text-shadow:0 1px 0 #6b7178,0 2px 0 #5a5f65,0 3px 0 #4a4f54,0 4px 0 #3c4044,0 5px 1px rgba(0,0,0,.55),0 10px 18px rgba(0,0,0,.6),0 0 30px rgba(220,226,232,.12)}
@@ -342,7 +349,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 /* ---------- leadership + finance ---------- */
 /* ---------- flame ring ---------- */
 .brand{position:relative}
-.brand .flame{position:absolute;width:64px;height:64px;left:-18px;top:-17px;pointer-events:none}
+.brand .flame{position:absolute;width:88px;height:88px;left:-22px;top:-22px;pointer-events:none}
 .orbit .flame{position:absolute;width:260px;height:260px;left:-10px;top:-10px;pointer-events:none;z-index:2}
 #intro{position:fixed;inset:0;z-index:200;background:#060606;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;cursor:pointer;transition:opacity .6s ease}
 #intro.out{opacity:0;pointer-events:none}
@@ -363,10 +370,11 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 #intro.words .tg{opacity:1}
 #intro .skip{position:absolute;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));background:none;border:1px solid var(--gold-dim);color:var(--muted);font-family:var(--display);font-size:11px;letter-spacing:.1em;padding:8px 12px;cursor:pointer;min-height:36px}
 /* ---------- team ---------- */
-.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;perspective:1200px}
-@media (max-width:1000px){.team{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:760px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:420px){.team{grid-template-columns:1fr}}
+.team{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;perspective:1200px}
+.team>.person{flex:0 1 calc((100% - 42px)/4);min-width:0}
+@media (max-width:1000px){.team>.person{flex-basis:calc((100% - 28px)/3)}}
+@media (max-width:760px){.team>.person{flex-basis:calc((100% - 14px)/2)}}
+@media (max-width:420px){.team>.person{flex-basis:100%}}
 .person{display:flex;flex-direction:column;overflow:hidden}
 .person .ph{position:relative;aspect-ratio:4/5;max-width:100%;background:radial-gradient(circle at 50% 35%,#2a2620 0%,#0a0a0a 70%);border-bottom:3px solid var(--gold);overflow:hidden}
 .person .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.05) brightness(.95);transition:filter .4s,transform .6s}
@@ -433,7 +441,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Code Black Group home">
-      <span class="goldwrap"><span class="goldlogo lockup" role="img" aria-label="Code Black Group" style="width:210px;height:30px"></span></span>
+      <span class="whitewrap"><span class="cbglogo icon" role="img" aria-label="Code Black Group" style="width:44px;height:44px"></span></span>
       <canvas class="flame" id="flame-head" aria-hidden="true"></canvas>
     </a>
     <nav class="nav" aria-label="Main">
@@ -569,7 +577,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
           <div class="orbit">
             <div class="ring c"></div><div class="ring b"></div>
             <canvas class="flame" id="flame-eco" aria-hidden="true"></canvas>
-            <div class="disc"><span class="goldwrap"><span class="goldlogo mark" style="width:72px;height:72px"></span></span><small>One plan · one team</small></div>
+            <div class="disc"><span class="whitewrap"><span class="cbglogo icon" style="width:76px;height:76px"></span></span><small>One plan · one team</small></div>
           </div>
           <div class="vline"></div>
           <div class="cm">CHANGE MANAGEMENT ON EVERY ENGAGEMENT</div>
@@ -794,6 +802,14 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
           <div class="txt"><span class="role">Head of Design + Digital</span><h3>Josh Wallace</h3><p>Brings branding, websites, software and integrated systems together into cohesive, scalable platforms that look professional and work hard.</p></div>
         </article>
         <article class="person glass tilt">
+          <div class="ph"><span class="mono metal" aria-hidden="true">CW</span></div>
+          <div class="txt"><span class="role">Head of Account Services</span><h3>Chui Wong</h3><p>Leads account services, so every client has one clear point of contact and their services, requests and renewals are looked after across the group.</p></div>
+        </article>
+        <article class="person glass tilt">
+          <div class="ph"><span class="mono metal" aria-hidden="true">RS</span></div>
+          <div class="txt"><span class="role">Head of Government + Public Safety</span><h3>Rick Scarra</h3><p>Leads the group's work with councils and government agencies, drawing on his experience delivering public-safety technology such as body-worn camera and evidence programs.</p></div>
+        </article>
+        <article class="person glass tilt">
           <div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Khaled-Shaheen.png" alt="Khaled Shaheen" loading="lazy" referrerpolicy="no-referrer" data-mono="KS"></div>
           <div class="txt"><span class="role">Head of Development</span><h3>Khaled Shaheen</h3><p>Turns complex requirements into scalable, secure systems, and supports architecture decisions and problem-solving across teams.</p></div>
         </article>
@@ -858,7 +874,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 
 <footer class="site-foot">
   <div class="wrap">
-    <span class="goldwrap"><span class="goldlogo lockup" role="img" aria-label="Code Black Group" style="width:180px;height:26px"></span></span>
+    <span class="whitewrap"><span class="cbglogo stacked" role="img" aria-label="Code Black Group" style="width:97px;height:80px"></span></span>
     <span>© 2026 Code Black Group Global Pty Ltd · ABN 62 315 213 466</span>
     <div class="divs">
       <a href="https://strikeforcecyber.com" target="_blank" rel="noopener">Strikeforce Cyber</a>
@@ -1072,7 +1088,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     requestAnimationFrame(loop);
     return {stop:function(){ alive=false; }};
   }
-  flameRing(document.getElementById('flame-head'), {r:.21, w:.024, speed:1.6, trail:1.6, embers:1, streak:.42, calm:true});
+  flameRing(document.getElementById('flame-head'), {r:.232, w:.02, speed:1.6, trail:1.6, embers:1, streak:.42, calm:true});
   flameRing(document.getElementById('flame-eco'), {r:.328, w:.019, speed:1.05, trail:2.2, embers:2, streak:.5});
 
   /* ================= first-visit logo reveal: the original CBG logo reveal video ================= */
