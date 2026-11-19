@@ -1722,14 +1722,14 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     });
   }
   /* wizard: one question at a time */
-  var step=0, STEPS=5;
+  var step=0, QSTEPS=5;
   function go(n, focus){
-    step=Math.max(0,Math.min(STEPS-1,n));
+    step=Math.max(0,Math.min(QSTEPS-1,n));
     document.querySelectorAll('#lab .qstep').forEach(function(f){ f.hidden = +f.dataset.step!==step; });
     document.querySelectorAll('#wiz-steps li').forEach(function(li,i){ li.className = i<step?'done':i===step?'cur':''; });
-    var NAMES=['Team','Industry','Priorities','Timing']; $('wiz-count').textContent = step<STEPS-1 ? 'Step '+(step+1)+' of '+(STEPS-1)+' · '+NAMES[step] : 'Your map';
+    var NAMES=['Team','Industry','Priorities','Timing']; $('wiz-count').textContent = step<QSTEPS-1 ? 'Step '+(step+1)+' of '+(QSTEPS-1)+' · '+NAMES[step] : 'Your map';
     $('wiz-back').disabled = step===0;
-    var nx=$('wiz-next'); nx.hidden = step===STEPS-1; nx.textContent = step===STEPS-2 ? 'See my map' : 'Continue';
+    var nx=$('wiz-next'); nx.hidden = step===QSTEPS-1; nx.textContent = step===QSTEPS-2 ? 'See my map' : 'Continue';
     if(focus){ var h=document.querySelector('#lab .qstep:not([hidden]) legend, #lab .qstep:not([hidden]) .qstep-h'); if(h) h.focus({preventScroll:true}); }
   }
   $('wiz-next').addEventListener('click', function(){ go(step+1, true); });

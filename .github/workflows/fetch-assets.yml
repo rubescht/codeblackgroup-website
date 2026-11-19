@@ -1,0 +1,22 @@
+name: fetch-assets
+on: { push: { paths: ['.github/workflows/fetch-assets.yml'] } }
+permissions: { contents: write }
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          pip install -q pillow && mkdir -p img/team logos/color
+          B=https://cdn.creativeclaw.co/u/48eaa2c1/images
+          curl -fsSL $B/f8256cb8-f67b-4d02-b36d-f346854163b5.png -o /tmp/3e.png
+          python3 -c "from PIL import Image;i=Image.open('/tmp/3e.png').convert('RGBA');i=i.crop(i.getbbox());i.save('logos/color/3eyes.png')"
+          get(){ curl -fsSL "$B/$1.jpg" -o /tmp/x.jpg && python3 -c "import sys;from PIL import Image;i=Image.open('/tmp/x.jpg').convert('RGB');i.thumbnail((600,900));i.save(sys.argv[1],quality=85)" "img/team/$2.jpg"; }
+          get a070795e-0cdc-4966-84bf-2d6f7f89c163 jessica-harker
+          get 01c27111-75bf-4b7a-b640-243e5951cbe0 chui-wong
+          get ba3146be-82e6-40c9-bb5c-b4bcf20de0ad rick-scarra
+          get 95b811fc-1512-4281-afc6-657b6fdc5ca9 chetan-jha
+          get 49ee88db-2dfb-470a-be86-a66472e0a427 winitha-bonney
+          git rm -q .github/workflows/fetch-assets.yml
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -m "3Eyes colour logo; black-background headshots" && git push
