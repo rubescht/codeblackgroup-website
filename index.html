@@ -530,38 +530,73 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 }
 
 /* ---------- humble beginnings (founder story) ---------- */
-#story .hb{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:56px;align-items:start}
-.hb-side{display:flex;flex-direction:column;gap:22px;position:sticky;top:110px}
-.hb-photo{position:relative;aspect-ratio:2/3;overflow:hidden;border:1px solid var(--gold-dim);background:radial-gradient(120% 80% at 50% 20%,#2a2416 0%,#0b0b0c 70%);box-shadow:var(--depth)}
-.hb-photo::after{content:"";position:absolute;inset:8px;border:1px solid rgba(232,205,135,.35);pointer-events:none}
-.hb-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
-.hb-since{border-left:3px solid var(--gold);padding-left:16px}
-.hb-since b{display:block;font-family:var(--display);font-size:14px;letter-spacing:.14em;color:var(--gold)}
-.hb-since span{color:var(--muted);font-size:16px}
-.hb-copy h3{font-size:clamp(32px,4.2vw,52px);line-height:1.04;text-transform:none;margin-bottom:18px}
-.hb-copy h3 em{font-style:normal;background:var(--metal-flat);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hb-rule{width:96px;height:3px;background:var(--metal-flat);margin-bottom:26px}
-.hb-copy p{color:var(--soft);font-size:clamp(16px,1.35vw,18.5px);line-height:1.62;margin:0 0 18px;max-width:64ch}
-.hb-copy p strong{color:var(--ivory);font-weight:600}
-.hb-pull{margin:28px 0;padding:22px 26px;border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(201,162,74,.12),rgba(201,162,74,0));font-family:var(--display);font-size:clamp(18px,1.7vw,22px);line-height:1.4;color:var(--ivory)}
-.hb-sign{margin-top:28px}
-.hb-sign .sig{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(30px,3.4vw,42px);line-height:1.1;color:var(--gold-hi)}
-.hb-sign .label{display:block;margin-top:6px;color:var(--muted)}
-.hb-marks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:36px}
-.hb-marks div{padding:18px 18px 16px;border:1px solid var(--line);background:var(--tile)}
-.hb-marks b{display:block;font-family:var(--display);font-size:clamp(26px,3vw,36px);line-height:1;background:var(--metal-flat);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
-.hb-marks span{color:var(--muted);font-size:14.5px;line-height:1.35;display:block}
+.hb2{position:relative;isolation:isolate;overflow-x:hidden;overflow-x:clip}
+.hb2-stars{position:absolute;inset:-40px 0 auto;height:520px;z-index:-1;pointer-events:none;opacity:.7;
+ background-image:radial-gradient(1.4px 1.4px at 12% 18%,#f6e2a2,transparent),radial-gradient(1px 1px at 28% 62%,#fff,transparent),radial-gradient(1.6px 1.6px at 46% 8%,#e8cd87,transparent),radial-gradient(1px 1px at 63% 40%,#fff,transparent),radial-gradient(1.3px 1.3px at 78% 14%,#f6e2a2,transparent),radial-gradient(1px 1px at 88% 56%,#fff,transparent),radial-gradient(1.2px 1.2px at 94% 30%,#e8cd87,transparent),radial-gradient(1px 1px at 6% 74%,#fff,transparent),radial-gradient(1.2px 1.2px at 54% 72%,#e8cd87,transparent);
+ -webkit-mask:linear-gradient(#000 60%,transparent);mask:linear-gradient(#000 60%,transparent)}
+.hb2-hero{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:64px;align-items:center}
+.hb2-portrait{position:relative;margin:0;padding:34px 30px 0}
+.hb2-orbit{position:absolute;left:-12%;top:8%;width:124%;height:auto;overflow:visible;z-index:2;pointer-events:none}
+.hb2-orbit ellipse{fill:none;stroke:url(#hbGold);stroke-width:1.6;stroke-dasharray:1 7;stroke-linecap:round}
+.hb2-moon{position:absolute;right:4px;top:0;width:74px;height:74px;border-radius:50%;box-shadow:inset -16px 8px 0 0 #e8cd87;transform:rotate(-20deg);filter:drop-shadow(0 0 18px rgba(232,205,135,.45));z-index:1}
+.hb2-arch{position:relative;aspect-ratio:3/4;border-radius:999px 999px 6px 6px;overflow:hidden;border:1px solid var(--gold-dim);background:radial-gradient(90% 60% at 50% 30%,#3a2f17 0%,#120f0a 60%,#0b0b0c 100%);box-shadow:0 0 0 8px rgba(11,11,12,.9),0 0 0 9px rgba(201,162,74,.4),0 40px 80px -30px rgba(201,162,74,.35)}
+.hb2-arch img{width:100%;height:100%;object-fit:cover;object-position:50% 16%;display:block}
+.hb2-portrait figcaption{margin-top:26px;border-left:3px solid var(--gold);padding-left:16px}
+.hb2-portrait figcaption b{display:block;font-family:var(--display);font-size:14px;letter-spacing:.14em;color:var(--gold)}
+.hb2-portrait figcaption span{color:var(--muted);font-size:16px}
+.hb2-intro h3{font-size:clamp(40px,6vw,78px);line-height:.98;margin-bottom:22px}
+.hb2-intro h3 em,.hb2-big em{font-style:normal;background:var(--metal-flat);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hb2-lead{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:clamp(24px,2.6vw,34px);color:var(--ivory);margin:0 0 30px;padding-left:22px;border-left:3px solid var(--gold)}
+.hb2-marks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.hb2-marks div{padding:18px 18px 16px;border:1px solid var(--line);background:var(--tile);position:relative;overflow:hidden}
+.hb2-marks div::before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:var(--metal-flat)}
+.hb2-marks b{display:block;font-family:var(--display);font-size:clamp(28px,3vw,40px);line-height:1;background:var(--metal-flat);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.hb2-marks span{color:var(--muted);font-size:14.5px;line-height:1.35;display:block}
+.hb2-journey{position:relative;margin-top:96px}
+.hb2-line{position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:rgba(125,102,48,.35)}
+.hb2-fill{position:absolute;inset:0;background:linear-gradient(#f6e2a2,#c9a24a 60%,#8a6b24);transform-origin:top;transform:scaleY(1);box-shadow:0 0 12px rgba(232,205,135,.6)}
+.ch{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 140px minmax(0,1fr);gap:44px;align-items:center;margin-bottom:76px;transition:opacity .8s ease,transform .8s ease}
+.ch .art{grid-column:2;grid-row:1;width:140px;height:140px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#2a2312 0%,#0f0e0b 70%);border:1px solid var(--gold-dim);box-shadow:0 0 0 10px var(--ground),0 0 0 11px rgba(201,162,74,.25),0 0 50px rgba(201,162,74,.25)}
+.ch .art svg{width:96px;height:96px;overflow:visible}
+.ch .txt{grid-column:3;grid-row:1;padding:26px 28px;background:var(--glass);border:1px solid var(--line);box-shadow:var(--depth);position:relative}
+.ch .txt::before{content:"";position:absolute;top:50%;left:-44px;width:44px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.ch .ghost{grid-column:1;grid-row:1;justify-self:end;font-family:var(--display);font-weight:900;font-size:clamp(64px,8vw,120px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(201,162,74,.45);letter-spacing:.02em;user-select:none}
+.ch.alt .txt{grid-column:1}.ch.alt .ghost{grid-column:3;justify-self:start}
+.ch.alt .txt::before{left:auto;right:-44px;background:linear-gradient(270deg,transparent,var(--gold))}
+.ch h4{font-size:clamp(20px,2vw,26px);margin:6px 0 10px;color:var(--ivory)}
+.ch p{margin:0;color:var(--soft);font-size:clamp(16px,1.3vw,18px);line-height:1.6}
+.ch p strong{color:var(--ivory)}
+.hb2-q{margin:18px 0 0;padding:14px 18px;border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(201,162,74,.14),transparent);font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:clamp(19px,1.8vw,23px);line-height:1.35;color:var(--ivory)}
+.hb2-journey.anim .ch:not(.in){opacity:0;transform:translateY(28px)}
+.tw circle{animation:hbtw 3s ease-in-out infinite}.tw circle:nth-child(2){animation-delay:1s}.tw circle:nth-child(3){animation-delay:2s}
+@keyframes hbtw{50%{opacity:.2}}
+.hb2-close{position:relative;margin-top:20px;padding:70px 32px 190px;text-align:center;border:1px solid var(--line);background:radial-gradient(70% 90% at 50% 100%,rgba(201,162,74,.22),transparent 70%),linear-gradient(#0d0c0a,#0b0b0c);overflow:hidden}
+.hb2-big{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.3vw,42px);line-height:1.2;max-width:26ch;margin:0 auto 28px;color:var(--ivory);text-wrap:balance;position:relative;z-index:1}
+.hb2-sign{position:relative;z-index:1}
+.hb2-sign .sig{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(32px,3.6vw,46px);line-height:1.1;color:var(--gold-hi)}
+.hb2-sign .label{display:block;margin-top:6px;color:var(--muted)}
+.hb2-sky{position:absolute;left:0;right:0;bottom:0;width:100%;height:180px;opacity:.95}
+@media (prefers-reduced-motion:reduce){.hb2-journey.anim .ch:not(.in){opacity:1;transform:none}.tw circle,.hb2-orbit .sat{animation:none;display:none}}
 @media (max-width:900px){
-  #story .hb{grid-template-columns:1fr;gap:32px}
-  .hb-side{position:static;display:grid;grid-template-columns:150px minmax(0,1fr);align-items:end;gap:18px}
+  .hb2-hero{grid-template-columns:1fr;gap:40px}
+  .hb2-portrait{max-width:340px;margin-inline:auto;width:100%}
 }
-@media (max-width:600px){
-  .hb-side{grid-template-columns:110px minmax(0,1fr);gap:14px}
-  .hb-marks{grid-template-columns:1fr;gap:10px}
-  .hb-marks div{display:flex;align-items:baseline;gap:14px;padding:14px 16px}
-  .hb-marks b{margin:0;flex:none;min-width:64px}
-  .hb-pull{padding:16px 18px;margin:22px 0}
+@media (max-width:760px){
+  .hb2-journey{margin-top:64px}
+  .hb2-line{left:40px}
+  .ch,.ch.alt{grid-template-columns:80px minmax(0,1fr);gap:18px;margin-bottom:36px;align-items:start}
+  .ch .art{grid-column:1;width:80px;height:80px;box-shadow:0 0 0 6px var(--ground),0 0 0 7px rgba(201,162,74,.25),0 0 30px rgba(201,162,74,.2)}
+  .ch .art svg{width:56px;height:56px}
+  .ch .txt,.ch.alt .txt{grid-column:2;padding:18px 18px}
+  .ch .txt::before{display:none}
+  .ch .ghost,.ch.alt .ghost{display:none}
+  .hb2-marks{grid-template-columns:1fr;gap:10px}
+  .hb2-marks div{display:flex;align-items:baseline;gap:14px;padding:14px 16px}
+  .hb2-marks b{margin:0;flex:none;min-width:64px}
+  .hb2-close{padding:48px 18px 140px}
+  .hb2-sky{height:120px}
 }
+@media (max-width:400px){.hb2-portrait{padding:26px 18px 0}.hb2-moon{width:56px;height:56px;box-shadow:inset -12px 6px 0 0 #e8cd87}}
 </style>
 
 <style>html,body{margin:0}</style>
@@ -930,32 +965,64 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 
   <!-- HUMBLE BEGINNINGS -->
   <section class="section" id="story" aria-labelledby="story-h">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="hbGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e2a2"/><stop offset=".5" stop-color="#c9a24a"/><stop offset="1" stop-color="#f0d68f"/></linearGradient></defs></svg>
     <div class="wrap">
       <div class="sec-head">
         <h2 id="story-h">Our story</h2>
         <p>A note from our founder on where Code Black Group came from, and why every client is treated like family.</p>
       </div>
-      <div class="hb">
-        <aside class="hb-side">
-          <div class="hb-photo"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Rubesch-Thananjeyan.png" alt="Rubesch Thananjeyan, Founder and Group CEO" loading="lazy" referrerpolicy="no-referrer"></div>
-          <div class="hb-since"><b>SINCE 2005</b><span>Sole trader to six specialist divisions</span></div>
-        </aside>
-        <div class="hb-copy">
-          <span class="label eyebrow">A note from our founder</span>
-          <h3>From humble <em>beginnings.</em></h3>
-          <div class="hb-rule" aria-hidden="true"></div>
-          <p>Nothing about this started easy. Working at Channel 9 showed me how much businesses depend on their technology, and how badly they were let down when it failed, especially after hours.</p>
-          <p>In 2005 I started Midnight IT as a sole trader, with no team and no safety net. I looked after more than 30 clients on my own, took calls at all hours, worked through nights and weekends, and taught myself everything I needed along the way.</p>
-          <p>Many nights I was the only person standing between a client and a business that couldn&rsquo;t open the next morning.</p>
-          <blockquote class="hb-pull">Those years taught me resilience, and what real work ethic means.</blockquote>
-          <p>As trust grew, clients asked who I&rsquo;d recommend for websites, CCTV and security, AV and more. Referring them on meant we couldn&rsquo;t control the quality, so we built those businesses ourselves. That is how the group was formed.</p>
-          <p>Our point of difference has always been simple: <strong>give every client confidence.</strong> Our clients are not just clients. <strong>They are part of our extended family, and we take care of them.</strong></p>
-          <div class="hb-sign"><div class="sig">Rubesch Thananjeyan</div><span class="label">Founder + Group CEO, Code Black Group</span></div>
-          <div class="hb-marks">
-            <div><b>2005</b><span>Midnight IT founded as a sole trader</span></div>
-            <div><b>30+</b><span>clients looked after single-handedly</span></div>
-            <div><b>6</b><span>specialist divisions, one group today</span></div>
+      <div class="hb2">
+        <div class="hb2-stars" aria-hidden="true"></div>
+        <div class="hb2-hero">
+          <figure class="hb2-portrait">
+            <svg class="hb2-orbit" viewBox="0 0 400 400" aria-hidden="true"><ellipse cx="200" cy="200" rx="190" ry="60" transform="rotate(-18 200 200)"/><ellipse cx="200" cy="200" rx="170" ry="40" transform="rotate(-18 200 200)" opacity=".5"/><circle class="sat" r="5" fill="#f6e2a2"><animateMotion dur="9s" repeatCount="indefinite" path="M10 200a190 60 0 1 0 380 0a190 60 0 1 0 -380 0" rotate="0"/></circle></svg>
+            <div class="hb2-moon" aria-hidden="true"></div>
+            <div class="hb2-arch"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Rubesch-Thananjeyan.png" alt="Rubesch Thananjeyan, Founder and Group CEO" loading="lazy" referrerpolicy="no-referrer"></div>
+            <figcaption><b>SINCE 2005</b><span>Sole trader to six specialist divisions</span></figcaption>
+          </figure>
+          <div class="hb2-intro">
+            <span class="label eyebrow">A note from our founder</span>
+            <h3>From humble <em>beginnings.</em></h3>
+            <p class="hb2-lead">Nothing about this started easy.</p>
+            <div class="hb2-marks">
+              <div><b>2005</b><span>Midnight IT founded as a sole trader</span></div>
+              <div><b>30+</b><span>clients looked after single-handedly</span></div>
+              <div><b>6</b><span>specialist divisions, one group today</span></div>
+            </div>
           </div>
+        </div>
+        <div class="hb2-journey">
+          <div class="hb2-line" aria-hidden="true"><i class="hb2-fill"></i></div>
+          <article class="ch">
+            <div class="ghost" aria-hidden="true">BEFORE</div>
+            <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><g stroke="url(#hbGold)" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 34 44 98M60 34l16 64M49 78h22M53 60h14M30 98h60"/><circle cx="60" cy="30" r="4"/><path d="M50 22a14 14 0 0 0 0 16M70 22a14 14 0 0 1 0 16M42 14a26 26 0 0 0 0 32M78 14a26 26 0 0 1 0 32"/></g></svg></div>
+            <div class="txt"><span class="label">Before it began</span><h4>The lesson from Channel 9</h4><p>Working at Channel 9 showed me how much businesses depend on their technology, and how badly they were let down when it failed, especially after hours.</p></div>
+          </article>
+          <article class="ch alt">
+            <div class="ghost" aria-hidden="true">2005</div>
+            <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><g stroke="url(#hbGold)" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M80 18a20 20 0 1 0 20 28a16 16 0 1 1-20-28z"/><rect x="34" y="62" width="44" height="28" rx="3"/><path d="M26 96h60l-5-6H31z"/><path d="M42 72h18M42 79h26" opacity=".7"/></g><g fill="#e8cd87" class="tw"><circle cx="30" cy="30" r="1.8"/><circle cx="50" cy="20" r="1.4"/><circle cx="22" cy="50" r="1.2"/></g><ellipse cx="56" cy="76" rx="30" ry="18" fill="rgba(232,205,135,.12)"/></svg></div>
+            <div class="txt"><span class="label">2005</span><h4>Midnight IT, a sole trader</h4><p>In 2005 I started Midnight IT as a sole trader, with no team and no safety net. I looked after more than 30 clients on my own, took calls at all hours, worked through nights and weekends, and taught myself everything I needed along the way.</p></div>
+          </article>
+          <article class="ch">
+            <div class="ghost" aria-hidden="true">2AM</div>
+            <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><g stroke="url(#hbGold)" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="62" r="34"/><path d="M60 62V36M60 62l12-7"/><path d="M60 32v4M90 62h-4M60 92v-4M30 62h4" stroke-width="3"/><path d="M44 24 36 16M76 24l8-8"/></g><circle cx="60" cy="62" r="3" fill="#e8cd87"/><text x="86" y="30" fill="#e8cd87" font-family="Poppins,sans-serif" font-size="11" font-weight="700" opacity=".8">2AM</text></svg></div>
+            <div class="txt"><span class="label">After hours</span><h4>Nights and weekends</h4><p>Many nights I was the only person standing between a client and a business that couldn&rsquo;t open the next morning.</p><blockquote class="hb2-q">Those years taught me resilience, and what real work ethic means.</blockquote></div>
+          </article>
+          <article class="ch alt">
+            <div class="ghost" aria-hidden="true">SIX</div>
+            <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><g stroke="url(#hbGold)" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 60L60.0 24.0" opacity=".55"/><circle cx="60.0" cy="24.0" r="7"/><path d="M60 60L91.2 42.0" opacity=".55"/><circle cx="91.2" cy="42.0" r="7"/><path d="M60 60L91.2 78.0" opacity=".55"/><circle cx="91.2" cy="78.0" r="7"/><path d="M60 60L60.0 96.0" opacity=".55"/><circle cx="60.0" cy="96.0" r="7"/><path d="M60 60L28.8 78.0" opacity=".55"/><circle cx="28.8" cy="78.0" r="7"/><path d="M60 60L28.8 42.0" opacity=".55"/><circle cx="28.8" cy="42.0" r="7"/><circle cx="60" cy="60" r="14"/><circle cx="60" cy="60" r="46" stroke-dasharray="2 6" opacity=".6"/></g><text x="60" y="65" text-anchor="middle" fill="#e8cd87" font-family="Poppins,sans-serif" font-size="13" font-weight="800">CB</text></svg></div>
+            <div class="txt"><span class="label">As trust grew</span><h4>The group is formed</h4><p>Clients asked who I&rsquo;d recommend for websites, CCTV and security, AV and more. Referring them on meant we couldn&rsquo;t control the quality, so we built those businesses ourselves. That is how the group was formed.</p></div>
+          </article>
+          <article class="ch">
+            <div class="ghost" aria-hidden="true">TODAY</div>
+            <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><g stroke="url(#hbGold)" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 76C40 62 44 44 55 47c2.5.7 4 3 5 5 1-2 2.5-4.3 5-5 11-3 15 15-5 29z"/><circle cx="60.0" cy="20.0" r="6"/><circle cx="96.1" cy="46.3" r="6"/><circle cx="82.3" cy="88.7" r="6"/><circle cx="37.7" cy="88.7" r="6"/><circle cx="23.9" cy="46.3" r="6"/><circle cx="60" cy="60" r="50" stroke-dasharray="2 6" opacity=".5"/></g></svg></div>
+            <div class="txt"><span class="label">Today</span><h4>Confidence, like family</h4><p>Our point of difference has always been simple: <strong>give every client confidence.</strong></p></div>
+          </article>
+        </div>
+        <div class="hb2-close">
+          <p class="hb2-big">Our clients are not just clients. <em>They are part of our extended family, and we take care of them.</em></p>
+          <div class="hb2-sign"><div class="sig">Rubesch Thananjeyan</div><span class="label">Founder + Group CEO, Code Black Group</span></div>
+          <svg class="hb2-sky" viewBox="0 0 1600 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path d="M0 200V122h46V200M50 200V86h40V200M90 200V84h60V200M150 200V145h52V200M206 200V69h52V200M260 200V154h60V200M322 200V81h52V200M376 200V153h34V200M410 200V134h40V200M454 200V38h40V200M498 200V94h46V200M544 200V150h46V200M592 200V97h60V200M652 200V43h46V200M698 200V99h34V200M732 200V133h52V200M784 200V95h34V200M818 200V89h52V200M874 200V31h40V200M916 200V63h52V200M968 200V93h40V200M1008 200V157h40V200M1050 200V90h52V200M1104 200V88h46V200M1152 200V107h60V200M1212 200V121h40V200M1256 200V49h46V200M1302 200V104h52V200M1358 200V41h60V200M1420 200V127h52V200M1472 200V77h52V200M1528 200V135h40V200M1572 200V141h40V200Z" fill="#0e0d0b"/><path d="M0 200V122h46V200M50 200V86h40V200M90 200V84h60V200M150 200V145h52V200M206 200V69h52V200M260 200V154h60V200M322 200V81h52V200M376 200V153h34V200M410 200V134h40V200M454 200V38h40V200M498 200V94h46V200M544 200V150h46V200M592 200V97h60V200M652 200V43h46V200M698 200V99h34V200M732 200V133h52V200M784 200V95h34V200M818 200V89h52V200M874 200V31h40V200M916 200V63h52V200M968 200V93h40V200M1008 200V157h40V200M1050 200V90h52V200M1104 200V88h46V200M1152 200V107h60V200M1212 200V121h40V200M1256 200V49h46V200M1302 200V104h52V200M1358 200V41h60V200M1420 200V127h52V200M1472 200V77h52V200M1528 200V135h40V200M1572 200V141h40V200" fill="none" stroke="rgba(201,162,74,.18)"/><g fill="#e8cd87" opacity=".55"><rect x="16" y="132" width="4" height="6"/><rect x="36" y="132" width="4" height="6"/><rect x="36" y="146" width="4" height="6"/><rect x="36" y="160" width="4" height="6"/><rect x="6" y="188" width="4" height="6"/><rect x="26" y="188" width="4" height="6"/><rect x="76" y="110" width="4" height="6"/><rect x="76" y="124" width="4" height="6"/><rect x="96" y="108" width="4" height="6"/><rect x="126" y="108" width="4" height="6"/><rect x="96" y="122" width="4" height="6"/><rect x="136" y="150" width="4" height="6"/><rect x="116" y="178" width="4" height="6"/><rect x="166" y="183" width="4" height="6"/><rect x="242" y="79" width="4" height="6"/><rect x="212" y="93" width="4" height="6"/><rect x="232" y="93" width="4" height="6"/><rect x="232" y="107" width="4" height="6"/><rect x="232" y="121" width="4" height="6"/><rect x="242" y="177" width="4" height="6"/><rect x="222" y="191" width="4" height="6"/><rect x="266" y="164" width="4" height="6"/><rect x="286" y="178" width="4" height="6"/><rect x="328" y="91" width="4" height="6"/><rect x="338" y="91" width="4" height="6"/><rect x="348" y="105" width="4" height="6"/><rect x="338" y="119" width="4" height="6"/><rect x="358" y="119" width="4" height="6"/><rect x="416" y="186" width="4" height="6"/><rect x="460" y="62" width="4" height="6"/><rect x="480" y="76" width="4" height="6"/><rect x="460" y="90" width="4" height="6"/><rect x="480" y="90" width="4" height="6"/><rect x="470" y="132" width="4" height="6"/><rect x="460" y="146" width="4" height="6"/><rect x="460" y="160" width="4" height="6"/><rect x="480" y="160" width="4" height="6"/><rect x="460" y="188" width="4" height="6"/><rect x="524" y="104" width="4" height="6"/><rect x="524" y="132" width="4" height="6"/><rect x="534" y="132" width="4" height="6"/><rect x="514" y="160" width="4" height="6"/><rect x="524" y="160" width="4" height="6"/><rect x="504" y="174" width="4" height="6"/><rect x="514" y="174" width="4" height="6"/><rect x="534" y="188" width="4" height="6"/><rect x="618" y="121" width="4" height="6"/><rect x="628" y="121" width="4" height="6"/><rect x="598" y="135" width="4" height="6"/><rect x="618" y="135" width="4" height="6"/><rect x="608" y="149" width="4" height="6"/><rect x="638" y="149" width="4" height="6"/><rect x="668" y="53" width="4" height="6"/><rect x="668" y="67" width="4" height="6"/><rect x="668" y="81" width="4" height="6"/><rect x="688" y="81" width="4" height="6"/><rect x="678" y="95" width="4" height="6"/><rect x="688" y="109" width="4" height="6"/><rect x="688" y="123" width="4" height="6"/><rect x="658" y="137" width="4" height="6"/><rect x="688" y="137" width="4" height="6"/><rect x="688" y="151" width="4" height="6"/><rect x="668" y="165" width="4" height="6"/><rect x="714" y="165" width="4" height="6"/><rect x="724" y="165" width="4" height="6"/><rect x="738" y="185" width="4" height="6"/><rect x="800" y="105" width="4" height="6"/><rect x="810" y="133" width="4" height="6"/><rect x="810" y="147" width="4" height="6"/><rect x="800" y="175" width="4" height="6"/><rect x="854" y="99" width="4" height="6"/><rect x="834" y="113" width="4" height="6"/><rect x="854" y="113" width="4" height="6"/><rect x="824" y="127" width="4" height="6"/><rect x="824" y="169" width="4" height="6"/><rect x="854" y="169" width="4" height="6"/><rect x="900" y="41" width="4" height="6"/><rect x="900" y="69" width="4" height="6"/><rect x="880" y="83" width="4" height="6"/><rect x="900" y="97" width="4" height="6"/><rect x="880" y="111" width="4" height="6"/><rect x="900" y="125" width="4" height="6"/><rect x="900" y="139" width="4" height="6"/><rect x="922" y="73" width="4" height="6"/><rect x="952" y="73" width="4" height="6"/><rect x="952" y="101" width="4" height="6"/><rect x="952" y="115" width="4" height="6"/><rect x="932" y="157" width="4" height="6"/><rect x="922" y="171" width="4" height="6"/><rect x="952" y="185" width="4" height="6"/><rect x="984" y="103" width="4" height="6"/><rect x="974" y="145" width="4" height="6"/><rect x="984" y="145" width="4" height="6"/><rect x="994" y="159" width="4" height="6"/><rect x="974" y="187" width="4" height="6"/><rect x="1076" y="100" width="4" height="6"/><rect x="1066" y="114" width="4" height="6"/><rect x="1056" y="142" width="4" height="6"/><rect x="1076" y="156" width="4" height="6"/><rect x="1076" y="170" width="4" height="6"/><rect x="1120" y="154" width="4" height="6"/><rect x="1140" y="154" width="4" height="6"/><rect x="1120" y="168" width="4" height="6"/><rect x="1178" y="117" width="4" height="6"/><rect x="1158" y="131" width="4" height="6"/><rect x="1178" y="159" width="4" height="6"/><rect x="1188" y="159" width="4" height="6"/><rect x="1188" y="173" width="4" height="6"/><rect x="1218" y="131" width="4" height="6"/><rect x="1238" y="131" width="4" height="6"/><rect x="1228" y="159" width="4" height="6"/><rect x="1218" y="173" width="4" height="6"/><rect x="1228" y="173" width="4" height="6"/><rect x="1218" y="187" width="4" height="6"/><rect x="1272" y="59" width="4" height="6"/><rect x="1282" y="59" width="4" height="6"/><rect x="1262" y="87" width="4" height="6"/><rect x="1262" y="129" width="4" height="6"/><rect x="1262" y="157" width="4" height="6"/><rect x="1328" y="114" width="4" height="6"/><rect x="1308" y="142" width="4" height="6"/><rect x="1338" y="142" width="4" height="6"/><rect x="1308" y="156" width="4" height="6"/><rect x="1308" y="184" width="4" height="6"/><rect x="1318" y="184" width="4" height="6"/><rect x="1364" y="51" width="4" height="6"/><rect x="1374" y="65" width="4" height="6"/><rect x="1364" y="79" width="4" height="6"/><rect x="1384" y="93" width="4" height="6"/><rect x="1404" y="107" width="4" height="6"/><rect x="1394" y="121" width="4" height="6"/><rect x="1404" y="121" width="4" height="6"/><rect x="1364" y="135" width="4" height="6"/><rect x="1394" y="163" width="4" height="6"/><rect x="1394" y="177" width="4" height="6"/><rect x="1456" y="165" width="4" height="6"/><rect x="1456" y="179" width="4" height="6"/><rect x="1498" y="87" width="4" height="6"/><rect x="1508" y="87" width="4" height="6"/><rect x="1498" y="115" width="4" height="6"/><rect x="1488" y="185" width="4" height="6"/><rect x="1554" y="145" width="4" height="6"/><rect x="1544" y="173" width="4" height="6"/><rect x="1534" y="187" width="4" height="6"/><rect x="1578" y="179" width="4" height="6"/></g></svg>
         </div>
       </div>
     </div>
@@ -1835,5 +1902,12 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 
 <!-- HubSpot tracking code: analytics + collected forms (portal 443786770) -->
 <script type="text/javascript" id="hs-script-loader" async defer src="https://js-ap1.hs-scripts.com/443786770.js"></script>
+<script>
+(function(){var j=document.querySelector('.hb2-journey');if(!j)return;var f=j.querySelector('.hb2-fill'),cs=j.querySelectorAll('.ch');
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;j.classList.add('anim');
+function u(){var r=j.getBoundingClientRect(),vh=innerHeight,p=Math.min(1,Math.max(0,(vh*.65-r.top)/r.height));f.style.transform='scaleY('+p.toFixed(3)+')';
+for(var i=0;i<cs.length;i++){if(cs[i].getBoundingClientRect().top<vh*.85)cs[i].classList.add('in')}}
+addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})();
+</script>
 </body>
 </html>
