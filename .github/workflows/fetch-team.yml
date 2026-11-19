@@ -1,0 +1,19 @@
+name: fetch-team-photos
+on: { push: { paths: ['.github/workflows/fetch-team.yml'] } }
+permissions: { contents: write }
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p img/team
+          B=https://cdn.creativeclaw.co/u/48eaa2c1/images
+          get(){ curl -fsSL "$B/$1.jpg" -o /tmp/x.jpg && convert /tmp/x.jpg -resize 600x900 -quality 85 "img/team/$2.jpg" && sed -i "s#$B/$1.jpg#img/team/$2.jpg#" index.html; }
+          get c1a0f28e-ab51-45b8-b030-dbf9057a6dc8 chetan-jha
+          get 514fad37-5783-4558-89a5-33dc7ab61e3b winitha-bonney
+          get cf83e30d-6c30-4f46-bcec-ec1056b5946d chui-wong
+          get f34ca8a2-f9de-4177-96b1-8ea464166d69 jessica-harker
+          git rm -q .github/workflows/fetch-team.yml
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -m "Self-host new team headshots" && git push
