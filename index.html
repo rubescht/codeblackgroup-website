@@ -517,12 +517,16 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   .vbar button:nth-child(2),.vbar button:nth-child(4){display:none}
   .vcap{flex-direction:column;gap:2px;margin-top:12px}
   .cbox{padding:20px 16px}.cbox .ln span{font-size:14px}.cbox .ln button{padding:5px 8px}
-  .team{gap:10px}
-  .person{flex-direction:row;align-items:flex-start;gap:16px;padding:18px 16px}
-  .person .ph{width:72px;height:72px}
-  .person .mono{font-size:22px}
-  .person h3{font-size:16.5px}
-  .person p{font-size:14px;margin-top:2px}
+  .team{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .team .person{flex:none!important;width:auto!important;max-width:none!important;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:20px 12px 18px;border-radius:14px;cursor:pointer}
+  .person .ph{width:84px;height:84px}
+  .person .mono{font-size:24px}
+  .person .txt{align-items:center;gap:4px}
+  .person .role{font-size:9.5px;letter-spacing:.07em}
+  .person h3{font-size:15px}
+  .person p{display:none;font-size:13px;text-align:left;margin-top:6px}
+  .person.open{grid-column:1/-1}
+  .person.open p{display:block}
 }
 </style>
 
@@ -1718,6 +1722,8 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     msg.className='formmsg ok';
     $('send-map').disabled=true; $('send-map').textContent='Sent';
   });
+  /* team: tap a card on mobile to read the bio */
+  document.querySelectorAll('.team .person').forEach(function(p){ p.addEventListener('click', function(){ if(matchMedia('(max-width:600px)').matches) p.classList.toggle('open'); }); });
   /* ring gauge: one arc per division, coloured by priority */
   var SHORT={strike:'Cyber',midnight:'IT',rendr:'Digital','3eyes':'CCTV',wize:'Network',aidome:'A.I.'};
   function drawRing(levels){
