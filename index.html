@@ -242,8 +242,10 @@ button{font:inherit;color:inherit}
 .tile .num{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--gold-dim);transition:color .25s}
 .tile .id{display:flex;flex-direction:column;gap:9px;min-width:0}
 .tile .lg{height:26px;display:flex;align-items:center}
-.tile .lg img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:left center;opacity:.82;transition:opacity .25s}
-.tile[data-id=midnight] .lg img{height:17px}.tile[data-id='3eyes'] .lg img{height:24px}.tile[data-id=rendr] .lg img{height:20px}.tile[data-id=wize] .lg img{height:23px}.tile[data-id=aidome] .lg img{height:30px;opacity:.95}
+.tile .lg img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:left center;filter:grayscale(1) brightness(1.15) contrast(.9);opacity:.6;transition:filter .4s,opacity .4s}
+.tile:hover .lg img{opacity:.85}
+.tile[aria-pressed="true"] .lg img{filter:none;opacity:1}
+.tile[data-id=midnight] .lg img{height:18px}.tile[data-id='3eyes'] .lg img{height:28px}.tile[data-id=rendr] .lg img{height:20px}.tile[data-id=wize] .lg img{height:30px}.tile[data-id=aidome] .lg img{height:30px;opacity:.95}
 .tile .lg .wm{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.14em;opacity:.85}
 .tile .sub{display:flex;align-items:center;gap:8px;font-family:var(--body,inherit);font-size:13px;color:var(--muted);letter-spacing:.01em}
 .tile .new{font-family:var(--display);font-size:9.5px;font-style:normal;font-weight:700;letter-spacing:.08em;border:1px solid var(--gold);border-radius:999px;padding:1px 7px;color:var(--gold)}
@@ -1465,16 +1467,16 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     {id:'strike', name:'Strikeforce Cyber', desc:'A.I. CYBER DEFENCE', site:'strikeforcecyber.com', logo:'logos/strikeforce-cyber-white.svg',
      what:'AI and cyber protection, monitoring and compliance for modern organisations, combining MDR, AI SecOps and offensive security into one integrated security layer.',
      conn:'Secures the environments every other division builds and runs, and builds the security and guardrails behind AI Dome.'},
-    {id:'midnight', name:'Midnight IT', desc:'24/7 IT SUPPORT', site:'midnightit.com.au', logo:'logos/midnight-it-white.svg',
+    {id:'midnight', name:'Midnight IT', desc:'24/7 IT SUPPORT', site:'midnightit.com.au', logo:'logos/color/midnight-it.png',
      what:'Managed IT, cloud and workplace technology, keeping your systems stable, secure and supported around the clock.',
      conn:'Runs your day-to-day IT, escalating security events to Strikeforce and connectivity faults to Wize, so you never make those calls.'},
     {id:'rendr', name:"REND'R", desc:'WEBSITES + DIGITAL', site:'rendr.com.au', logo:'logos/rendr-white.png',
      what:'UX-led websites and platforms, multimedia design, copywriting and custom software, bridging creativity and engineering.',
      conn:'Builds the client-facing layer, from websites and portals to A.I. front ends, hosted and secured with the rest of the group.'},
-    {id:'3eyes', name:'3Eyes', desc:'CCTV + SURVEILLANCE', site:'3eyes.com.au', logo:'logos/3eyes-white.svg',
+    {id:'3eyes', name:'3Eyes', desc:'CCTV + SURVEILLANCE', site:'3eyes.com.au', logo:'logos/color/3eyes.png',
      what:'Surveillance, CCTV, access control and physical security technologies that protect people, assets and environments.',
      conn:'Cameras and access control run over Wize links, with devices and networks maintained and secured alongside your IT.'},
-    {id:'wize', name:'Wize Solutions', desc:'BROADBAND + FIBRE', site:'wizesolutions.com.au', logo:'logos/wize-white.svg',
+    {id:'wize', name:'Wize Solutions', desc:'BROADBAND + FIBRE', site:'wizesolutions.com.au', logo:'logos/color/wize.png',
      what:'Business-grade internet, fibre and network connectivity, plus A.I. phone agents that replace traditional IVR menus.',
      conn:'The link everything else depends on: cloud services, cameras, phones and A.I. agents.'},
     {id:'aidome', name:'AI Dome', desc:'A.I. ADOPTION + CONTROL', site:'aidome.com.au', logo:'logos/aidome-logo-h.png', isNew:true,
