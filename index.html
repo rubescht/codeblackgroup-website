@@ -509,6 +509,21 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .foot-bar a:hover{color:var(--gold)}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.screen{--ry:0deg!important;--rx:0deg!important}}
+/* ---------- mobile polish ---------- */
+.cbox{border-radius:12px}.cbox .ln{flex-wrap:nowrap}.cbox .ln span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cbox .ln button{flex:none;border-radius:8px}
+@media (max-width:600px){
+  .vbar{gap:6px;padding:8px}
+  .vbar button{min-height:32px;min-width:32px;padding:0 8px;font-size:10px}
+  .vbar button:nth-child(2),.vbar button:nth-child(4){display:none}
+  .vcap{flex-direction:column;gap:2px;margin-top:12px}
+  .cbox{padding:20px 16px}.cbox .ln span{font-size:14px}.cbox .ln button{padding:5px 8px}
+  .team{gap:10px}
+  .person{flex-direction:row;align-items:flex-start;gap:16px;padding:18px 16px}
+  .person .ph{width:72px;height:72px}
+  .person .mono{font-size:22px}
+  .person h3{font-size:16.5px}
+  .person p{font-size:14px;margin-top:2px}
+}
 </style>
 
 <style>html,body{margin:0}</style>
