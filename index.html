@@ -22,7 +22,7 @@
 <link rel="icon" href="logos/cbg-mark-white.svg" type="image/svg+xml">
 <title>Code Black Group | All Angles Covered</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Poppins:wght@300;400;500;700;900&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
 /* Layout: black + gold toolkit grammar with depth. A live gold light-grid sits behind glass panels; films play in place on tilted screens. */
 :root{
@@ -528,6 +528,40 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   .person.open{grid-column:1/-1}
   .person.open p{display:block}
 }
+
+/* ---------- humble beginnings (founder story) ---------- */
+#story .hb{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:56px;align-items:start}
+.hb-side{display:flex;flex-direction:column;gap:22px;position:sticky;top:110px}
+.hb-photo{position:relative;aspect-ratio:2/3;overflow:hidden;border:1px solid var(--gold-dim);background:radial-gradient(120% 80% at 50% 20%,#2a2416 0%,#0b0b0c 70%);box-shadow:var(--depth)}
+.hb-photo::after{content:"";position:absolute;inset:8px;border:1px solid rgba(232,205,135,.35);pointer-events:none}
+.hb-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+.hb-since{border-left:3px solid var(--gold);padding-left:16px}
+.hb-since b{display:block;font-family:var(--display);font-size:14px;letter-spacing:.14em;color:var(--gold)}
+.hb-since span{color:var(--muted);font-size:16px}
+.hb-copy h3{font-size:clamp(32px,4.2vw,52px);line-height:1.04;text-transform:none;margin-bottom:18px}
+.hb-copy h3 em{font-style:normal;background:var(--metal-flat);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hb-rule{width:96px;height:3px;background:var(--metal-flat);margin-bottom:26px}
+.hb-copy p{color:var(--soft);font-size:clamp(16px,1.35vw,18.5px);line-height:1.62;margin:0 0 18px;max-width:64ch}
+.hb-copy p strong{color:var(--ivory);font-weight:600}
+.hb-pull{margin:28px 0;padding:22px 26px;border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(201,162,74,.12),rgba(201,162,74,0));font-family:var(--display);font-size:clamp(18px,1.7vw,22px);line-height:1.4;color:var(--ivory)}
+.hb-sign{margin-top:28px}
+.hb-sign .sig{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(30px,3.4vw,42px);line-height:1.1;color:var(--gold-hi)}
+.hb-sign .label{display:block;margin-top:6px;color:var(--muted)}
+.hb-marks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:36px}
+.hb-marks div{padding:18px 18px 16px;border:1px solid var(--line);background:var(--tile)}
+.hb-marks b{display:block;font-family:var(--display);font-size:clamp(26px,3vw,36px);line-height:1;background:var(--metal-flat);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.hb-marks span{color:var(--muted);font-size:14.5px;line-height:1.35;display:block}
+@media (max-width:900px){
+  #story .hb{grid-template-columns:1fr;gap:32px}
+  .hb-side{position:static;display:grid;grid-template-columns:150px minmax(0,1fr);align-items:end;gap:18px}
+}
+@media (max-width:600px){
+  .hb-side{grid-template-columns:110px minmax(0,1fr);gap:14px}
+  .hb-marks{grid-template-columns:1fr;gap:10px}
+  .hb-marks div{display:flex;align-items:baseline;gap:14px;padding:14px 16px}
+  .hb-marks b{margin:0;flex:none;min-width:64px}
+  .hb-pull{padding:16px 18px;margin:22px 0}
+}
 </style>
 
 <style>html,body{margin:0}</style>
@@ -894,6 +928,39 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     </div>
   </section>
 
+  <!-- HUMBLE BEGINNINGS -->
+  <section class="section" id="story" aria-labelledby="story-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="story-h">Our story</h2>
+        <p>A note from our founder on where Code Black Group came from, and why every client is treated like family.</p>
+      </div>
+      <div class="hb">
+        <aside class="hb-side">
+          <div class="hb-photo"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Rubesch-Thananjeyan.png" alt="Rubesch Thananjeyan, Founder and Group CEO" loading="lazy" referrerpolicy="no-referrer"></div>
+          <div class="hb-since"><b>SINCE 2005</b><span>Sole trader to six specialist divisions</span></div>
+        </aside>
+        <div class="hb-copy">
+          <span class="label eyebrow">A note from our founder</span>
+          <h3>From humble <em>beginnings.</em></h3>
+          <div class="hb-rule" aria-hidden="true"></div>
+          <p>Nothing about this started easy. Working at Channel 9 showed me how much businesses depend on their technology, and how badly they were let down when it failed, especially after hours.</p>
+          <p>In 2005 I started Midnight IT as a sole trader, with no team and no safety net. I looked after more than 30 clients on my own, took calls at all hours, worked through nights and weekends, and taught myself everything I needed along the way.</p>
+          <p>Many nights I was the only person standing between a client and a business that couldn&rsquo;t open the next morning.</p>
+          <blockquote class="hb-pull">Those years taught me resilience, and what real work ethic means.</blockquote>
+          <p>As trust grew, clients asked who I&rsquo;d recommend for websites, CCTV and security, AV and more. Referring them on meant we couldn&rsquo;t control the quality, so we built those businesses ourselves. That is how the group was formed.</p>
+          <p>Our point of difference has always been simple: <strong>give every client confidence.</strong> Our clients are not just clients. <strong>They are part of our extended family, and we take care of them.</strong></p>
+          <div class="hb-sign"><div class="sig">Rubesch Thananjeyan</div><span class="label">Founder + Group CEO, Code Black Group</span></div>
+          <div class="hb-marks">
+            <div><b>2005</b><span>Midnight IT founded as a sole trader</span></div>
+            <div><b>30+</b><span>clients looked after single-handedly</span></div>
+            <div><b>6</b><span>specialist divisions, one group today</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TEAM -->
   <section class="section" id="team" aria-labelledby="team-h">
     <div class="wrap">
@@ -1028,6 +1095,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
       <a href="#discover">Discovery lab</a>
       <a href="#how">How we work</a>
       <a href="#watch">Films</a>
+      <a href="#story">Our story</a>
       <a href="#team">Leadership</a>
     </nav>
     <div class="foot-col">
