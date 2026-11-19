@@ -294,51 +294,80 @@ button{font:inherit;color:inherit}
 .detail .screen{--ry:-6deg;--rx:2deg}
 
 /* ---------- discovery ---------- */
-.lab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1.5px solid var(--gold-dim);box-shadow:var(--depth)}
-@media (max-width:920px){.lab{grid-template-columns:1fr}}
-.lab .qs{padding:36px;display:flex;flex-direction:column;gap:30px;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.lab fieldset{border:0;margin:0;padding:0;min-width:0}
-.lab legend{font-family:var(--display);font-weight:700;font-size:18px;padding:0;margin-bottom:12px;text-transform:uppercase}
-.lab legend small{display:block;font-family:var(--text);font-weight:400;font-size:14px;color:var(--muted);text-transform:none;margin-top:2px}
-.opts{display:flex;flex-wrap:wrap;gap:8px}
-.opt{min-height:44px;padding:10px 16px;border:1.5px solid var(--line);background:rgba(0,0,0,.5);color:var(--ivory);font-family:var(--display);font-size:13px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s,transform .15s}
-.opt:hover{border-color:var(--gold);transform:translateY(-1px)}
-.opt[aria-pressed="true"]{background:var(--metal-flat);border-color:transparent;color:var(--on-gold);box-shadow:0 8px 18px -8px rgba(201,162,74,.6)}
-.lab .res{background:var(--glass-strong);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--ivory);padding:36px;display:flex;flex-direction:column;gap:22px;min-width:0;border-left:1px solid var(--gold-dim)}
-@media (max-width:920px){.lab .res{border-left:0;border-top:1px solid var(--gold-dim)}}
-.res h3{font-size:22px;text-transform:uppercase;letter-spacing:.02em}
-.gold-h{color:var(--gold)}
-.res .summary{color:var(--muted);margin-top:4px}
-.covbar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
-.covbar i{height:12px;background:transparent;border:1px solid #4a463d;transition:background .3s}
-.covbar i.lv-check{background:#6e6758;border-color:#6e6758}
-.covbar i.lv-priority{background:var(--metal-flat);border-color:transparent;box-shadow:0 0 12px rgba(201,162,74,.5)}
-.rows{display:flex;flex-direction:column;gap:6px}
-.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--line);background:rgba(0,0,0,.35)}
-.row b{display:block;font-family:var(--display);font-size:15px}
-.row small{color:var(--muted);font-size:13px}
-.row.lv-priority{border-color:var(--gold);background:rgba(201,162,74,.12)}
-.st{flex:none;font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.06em;border-radius:999px;padding:5px 11px;border:1px solid #4a463d;color:var(--muted);white-space:nowrap}
+.lab{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:980px){.lab{grid-template-columns:1fr}}
+.wiz,.lab .res{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(30,28,24,.88),rgba(12,12,11,.92));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),var(--depth)}
+.wiz{display:flex;flex-direction:column;min-height:620px;overflow:hidden;border-top:2px solid var(--gold)}
+.wiz-top{padding:26px 32px 22px;border-bottom:1px solid var(--line)}
+.wiz-meta{display:flex;justify-content:space-between;gap:12px;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.wiz-count{color:var(--gold)}.wiz-time{color:var(--muted)}
+.wiz-steps{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.wiz-steps button{width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:8px;background:none;border:0;padding:0;cursor:pointer;color:var(--muted);font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.03em;text-align:left}
+.wiz-steps button::before{content:"";display:block;width:100%;height:4px;border-radius:4px;background:#2e2b25;transition:background .3s}
+.wiz-steps i{display:none}
+.wiz-steps li.done button{color:var(--soft)}.wiz-steps li.done button::before{background:var(--gold-dim)}
+.wiz-steps li.cur button{color:var(--ivory)}.wiz-steps li.cur button::before{background:var(--metal-flat);box-shadow:0 0 10px rgba(201,162,74,.5)}
+.wiz-body{flex:1;padding:30px 32px 10px;position:relative}
+@media (max-width:560px){.wiz-steps span{display:none}.wiz-steps{margin-top:12px}.wiz-top{padding:20px 20px 16px}.wiz-body{padding:24px 20px 6px}.wiz-nav{padding:14px 20px 22px}.wiz{min-height:0}.lab .res{padding:22px 20px}}
+.qstep{border:0;margin:0;padding:0;min-width:0;animation:stepIn .35s ease both}
+@keyframes stepIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.qstep legend,.qstep-h{display:block;font-family:var(--display);font-weight:700;font-size:clamp(22px,2.2vw,28px);line-height:1.2;padding:0;margin:0 0 22px;color:var(--ivory);outline:none}
+.qstep legend small{display:block;font-family:var(--text);font-weight:400;font-size:15px;color:var(--muted);margin-top:8px}
+.qstep-sub{color:var(--muted);margin:-12px 0 20px}
+.opts{display:grid;gap:10px}
+.opts.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.opts.cols-1{grid-template-columns:1fr}
+@media (max-width:560px){.opts.cols-2{grid-template-columns:1fr}}
+.opt{position:relative;display:flex;align-items:center;gap:14px;min-height:58px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.35);color:var(--ivory);font-family:var(--display);font-size:15px;font-weight:600;text-align:left;cursor:pointer;transition:border-color .2s,background .2s,transform .2s,box-shadow .2s}
+.opt::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;border:1.5px solid #5b564b;transition:all .2s}
+#q-ch .opt::before{border-radius:6px}
+.opt:hover{border-color:var(--gold-dim);transform:translateY(-1px)}
+.opt[aria-pressed="true"]{border-color:var(--gold);background:linear-gradient(180deg,rgba(201,162,74,.16),rgba(201,162,74,.06));box-shadow:0 0 0 1px rgba(201,162,74,.25),0 12px 26px -16px rgba(201,162,74,.6)}
+.opt[aria-pressed="true"]::before{border-color:transparent;background:var(--metal-flat) center/12px no-repeat;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2316110a' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5 6.5 11.5 12.5 5'/%3E%3C/svg%3E"),var(--metal-flat)}
+.wiz-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 32px 26px}
+.wiz-back{display:inline-flex;align-items:center;gap:8px;background:none;border:0;color:var(--soft);font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;padding:10px 0}
+.wiz-back:hover{color:var(--gold-hi)}.wiz-back[disabled]{visibility:hidden}
+.lab .res{position:sticky;top:96px;padding:26px 28px;display:flex;flex-direction:column;gap:18px;min-width:0}
+@media (max-width:980px){.lab .res{position:static}}
+.res .summary{color:var(--soft);margin-top:6px;font-size:15px}
+.gauge{position:relative;width:210px;height:210px;margin:6px auto 0;padding:14px}
+.gauge svg{width:100%;height:100%;overflow:visible}
+.gauge-c{position:absolute;inset:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.gauge-c b{font-family:var(--display);font-size:52px;line-height:1;background:var(--metal-flat);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gauge-c span{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px;line-height:1.4}
+.ring-seg{fill:none;stroke-width:16;stroke-linecap:round;transition:stroke .4s}
+.ring-lbl{font-family:var(--display);font-size:8.5px;font-weight:700;letter-spacing:.06em;fill:var(--muted);text-transform:uppercase}
+.legend{display:flex;justify-content:center;gap:18px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.legend .lv-priority{background:var(--gold)}.legend .lv-check{background:#7a7262}.legend .lv-later{background:#2e2b25;border:1px solid #4a463d}
+.rows{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+@media (max-width:420px){.rows{grid-template-columns:1fr}}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.3)}
+.row b{display:block;font-family:var(--display);font-size:13.5px}
+.row small{display:none}
+.row.lv-priority{border-color:var(--gold);background:rgba(201,162,74,.10)}
+.st{flex:none;font-family:var(--display);font-size:9.5px;font-weight:700;letter-spacing:.06em;border-radius:999px;padding:4px 8px;border:1px solid #4a463d;color:var(--muted);white-space:nowrap}
 .row.lv-priority .st{background:var(--metal-flat);color:var(--on-gold);border-color:transparent}
 .row.lv-check .st{border-color:var(--soft);color:var(--soft)}
-.next{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:10px}
-.next .big{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.3}
+.next{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:10px}
+.next .big{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.3}
 .next p{color:var(--muted)}
 .next .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .contactline{font-family:var(--display);font-size:14px;color:var(--soft)}
 .watchnext{display:flex;flex-direction:column;gap:6px}
-.watchnext button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:rgba(0,0,0,.45);border:1px solid var(--line);color:var(--ivory);padding:10px 14px;cursor:pointer;min-height:44px}
+.watchnext button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border-radius:10px;background:rgba(0,0,0,.45);border:1px solid var(--line);color:var(--ivory);padding:10px 14px;cursor:pointer;min-height:44px}
 .watchnext button svg{color:var(--gold);flex:none}
 .watchnext button:hover{border-color:var(--gold)}
 .watchnext em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px}
 .copied{font-size:14px;color:var(--muted)}
-.sendmap{display:flex;flex-direction:column;gap:12px;margin-top:6px;padding-top:14px;border-top:1px solid var(--line)}
+.sendmap{display:flex;flex-direction:column;gap:14px}
 .fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 @media (max-width:520px){.fgrid{grid-template-columns:1fr}}
 .fgrid label{display:flex;flex-direction:column;gap:6px;font-family:var(--display);font-size:12px;font-weight:500;letter-spacing:.03em;color:var(--soft)}
 .fgrid label.full{grid-column:1/-1}
-.fgrid input,.fgrid textarea{width:100%;min-height:44px;padding:10px 12px;background:rgba(0,0,0,.55);border:1px solid var(--line);color:var(--ivory);font:15px/1.45 var(--text);border-radius:0}
-.fgrid textarea{min-height:120px;resize:vertical;font-size:14px;color:var(--soft)}
+.fgrid input,.fgrid textarea{width:100%;min-height:44px;padding:10px 12px;background:rgba(0,0,0,.55);border:1px solid var(--line);color:var(--ivory);font:15px/1.45 var(--text);border-radius:10px}
+.fgrid textarea{min-height:110px;resize:vertical;font-size:14px;color:var(--soft)}
 .fgrid input:focus,.fgrid textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,74,.2)}
 .sendmap .acts{display:flex;flex-wrap:wrap;gap:10px}
 .sendmap .btn[disabled]{opacity:.75;cursor:default;transform:none}
@@ -676,50 +705,71 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     <div class="wrap">
       <div class="sec-head">
         <h2 id="disc-h">Discovery lab</h2>
-        <p>Four quick questions. Your coverage map builds as you answer, showing which specialists matter most and what happens next.</p>
+        <p>Four quick questions, about a minute. Your coverage map builds live as you answer, showing which specialists matter most and what happens next.</p>
       </div>
-      <div class="lab">
-        <div class="qs">
-          <fieldset><legend>1 · How big is your team?</legend><div class="opts" id="q-size"></div></fieldset>
-          <fieldset><legend>2 · What industry are you in?</legend><div class="opts" id="q-ind"></div></fieldset>
-          <fieldset><legend>3 · What's on your mind?<small>Choose all that apply.</small></legend><div class="opts" id="q-ch"></div></fieldset>
-          <fieldset><legend>4 · How soon?</legend><div class="opts" id="q-urg"></div></fieldset>
-        </div>
-        <div class="res" aria-live="polite">
-          <div>
-            <h3 class="gold-h">Your coverage map</h3>
-            <p class="summary" id="r-sum"></p>
+      <div class="lab" id="lab">
+        <div class="wiz">
+          <div class="wiz-top">
+            <div class="wiz-meta"><span class="wiz-count" id="wiz-count">Step 1 of 5</span><span class="wiz-time">About 60 seconds</span></div>
+            <ol class="wiz-steps" id="wiz-steps">
+              <li><button type="button" data-go="0"><i>1</i><span>Team</span></button></li>
+              <li><button type="button" data-go="1"><i>2</i><span>Industry</span></button></li>
+              <li><button type="button" data-go="2"><i>3</i><span>Priorities</span></button></li>
+              <li><button type="button" data-go="3"><i>4</i><span>Timing</span></button></li>
+              <li><button type="button" data-go="4"><i>5</i><span>Your map</span></button></li>
+            </ol>
           </div>
-          <div class="covbar" id="r-bar" aria-hidden="true"></div>
+          <div class="wiz-body">
+            <fieldset class="qstep" data-step="0"><legend tabindex="-1">How big is your team?<small>Counting staff, contractors and volunteers.</small></legend><div class="opts cols-2" id="q-size"></div></fieldset>
+            <fieldset class="qstep" data-step="1" hidden><legend tabindex="-1">What industry are you in?<small>So we bring people who know your world.</small></legend><div class="opts cols-2" id="q-ind"></div></fieldset>
+            <fieldset class="qstep" data-step="2" hidden><legend tabindex="-1">What's on your mind?<small>Choose all that apply.</small></legend><div class="opts cols-2" id="q-ch"></div></fieldset>
+            <fieldset class="qstep" data-step="3" hidden><legend tabindex="-1">How soon do you need help?<small>This sets the pace of your next step.</small></legend><div class="opts cols-1" id="q-urg"></div></fieldset>
+            <div class="qstep" data-step="4" hidden>
+              <h3 class="qstep-h" tabindex="-1">Your map is ready</h3>
+              <p class="qstep-sub">Send it to an account manager and they'll come back to you with the right specialists. No obligation.</p>
+              <form class="sendmap" id="map-form" novalidate>
+                <div class="fgrid">
+                  <label for="f-first">First name<input id="f-first" name="firstname" autocomplete="given-name" required></label>
+                  <label for="f-last">Last name<input id="f-last" name="lastname" autocomplete="family-name"></label>
+                  <label for="f-email">Work email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+                  <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+                  <label for="f-company" class="full">Organisation<input id="f-company" name="company" autocomplete="organization"></label>
+                  <label for="f-message" class="full">Your map, plus anything you'd like to add<textarea id="f-message" name="message" rows="4"></textarea></label>
+                </div>
+                <div class="acts">
+                  <button class="btn" type="submit" id="send-map">Send my map</button>
+                  <button class="btn ghost" type="button" id="copy-map">Copy it instead</button>
+                </div>
+                <p class="formmsg" id="form-msg" role="status" aria-live="polite"></p>
+                <p class="copied" id="copy-msg" hidden></p>
+                <p class="fine">We use these details only to respond to your enquiry. Prefer to talk? Call 1300 737 562 or email vip@codeblackgroup.com.au.</p>
+              </form>
+            </div>
+          </div>
+          <div class="wiz-nav">
+            <button type="button" class="wiz-back" id="wiz-back"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3.5 5.5 8 10 12.5"/></svg>Back</button>
+            <button type="button" class="btn" id="wiz-next">Continue</button>
+          </div>
+        </div>
+        <aside class="res" aria-live="polite">
+          <div class="res-head"><span class="label">Live coverage map</span><p class="summary" id="r-sum"></p></div>
+          <div class="gauge">
+            <svg viewBox="0 0 200 200" id="r-ring" aria-hidden="true"></svg>
+            <div class="gauge-c"><b id="r-count">0</b><span>priority<br>areas</span></div>
+          </div>
+          <div class="legend"><span><i class="lv-priority"></i>Priority</span><span><i class="lv-check"></i>Review</span><span><i class="lv-later"></i>Later</span></div>
+          <div class="covbar" id="r-bar" hidden></div>
           <div class="rows" id="r-rows"></div>
           <div class="next">
             <span class="label">Your next step</span>
             <div class="big" id="r-next"></div>
             <p id="r-team"></p>
-            <form class="sendmap" id="map-form" novalidate>
-              <span class="label">Send your map to an account manager</span>
-              <div class="fgrid">
-                <label for="f-first">First name<input id="f-first" name="firstname" autocomplete="given-name" required></label>
-                <label for="f-last">Last name<input id="f-last" name="lastname" autocomplete="family-name"></label>
-                <label for="f-email">Work email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
-                <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
-                <label for="f-company" class="full">Organisation<input id="f-company" name="company" autocomplete="organization"></label>
-                <label for="f-message" class="full">Your coverage map, plus anything you'd like to add<textarea id="f-message" name="message" rows="5"></textarea></label>
-              </div>
-              <div class="acts">
-                <button class="btn" type="submit" id="send-map">Send my map</button>
-                <button class="btn ghost" type="button" id="copy-map">Copy it instead</button>
-              </div>
-              <p class="formmsg" id="form-msg" role="status" aria-live="polite"></p>
-              <p class="copied" id="copy-msg" hidden></p>
-              <p class="fine">We use these details only to respond to your enquiry. Prefer to talk? Call 1300 737 562 or email vip@codeblackgroup.com.au.</p>
-            </form>
           </div>
           <div>
             <span class="label">Watch next</span>
             <div class="watchnext" id="r-watch" style="margin-top:8px"></div>
           </div>
-        </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -1591,19 +1641,21 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     var wanted={}, any=false;
     CH.forEach(function(c){ if(S.ch[c.id]){ any=true; c.divs.forEach(function(x){ wanted[x]=true; }); } });
     var unsure=!!S.ch.unsure, prio=[], lines=[];
-    var bar=$('r-bar'), rows=$('r-rows'); bar.textContent=''; rows.textContent='';
+    var bar=$('r-bar'), rows=$('r-rows'), levels=[]; bar.textContent=''; rows.textContent='';
     DIVS.forEach(function(d){
       var lv='later';
       if(wanted[d.id]){ lv='priority'; prio.push(d.name); }
       else if(unsure || (d.id==='strike' && any)) lv='check';
       var st= lv==='priority' ? 'PRIORITY' : lv==='check' ? ((d.id==='strike' && !unsure) ? 'SECURITY REVIEW' : 'HEALTH CHECK') : 'LATER';
       bar.appendChild(el('i','lv-'+lv));
+      levels.push([d,lv]);
       var r=el('div','row lv-'+lv), l=el('div');
       l.appendChild(el('b',null,d.name)); l.appendChild(el('small',null,SUB[d.id]||d.desc));
       r.appendChild(l); r.appendChild(el('span','st',st)); rows.appendChild(r);
       lines.push('- '+d.name+': '+st);
     });
-    $('r-sum').textContent=S.ind+' · '+S.size+' people · '+(prio.length ? prio.length+' priority area'+(prio.length>1?'s':'') : 'no priorities yet');
+    drawRing(levels); $('r-count').textContent=prio.length;
+    $('r-sum').textContent=S.ind+' · '+S.size+' people · '+S.urg.replace(/ \(.*\)/,'');
     var next='Choose what is on your mind to see your next step.';
     if(any){
       if(S.urg==='Urgent (now)') next='A priority callback from your account manager.';
@@ -1649,7 +1701,43 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     msg.className='formmsg ok';
     $('send-map').disabled=true; $('send-map').textContent='Sent';
   });
-  $('ai-disc').addEventListener('click', function(){ S.ch.ai=true; update(); });
+  /* ring gauge: one arc per division, coloured by priority */
+  var SHORT={strike:'Cyber',midnight:'IT',rendr:'Digital','3eyes':'CCTV',wize:'Network',aidome:'A.I.'};
+  function drawRing(levels){
+    var svg=$('r-ring'); if(!svg) return; var NS='http://www.w3.org/2000/svg'; svg.textContent='';
+    var n=levels.length, cx=100, cy=100, R=78, gap=0.12, TAU=Math.PI*2;
+    var defs=document.createElementNS(NS,'defs'); defs.innerHTML='<linearGradient id="ringGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e2a2"/><stop offset=".5" stop-color="#d8b25c"/><stop offset="1" stop-color="#a77e2c"/></linearGradient>'; svg.appendChild(defs);
+    levels.forEach(function(p,i){
+      var a0=-Math.PI/2+i*TAU/n+gap, a1=-Math.PI/2+(i+1)*TAU/n-gap;
+      var x0=cx+R*Math.cos(a0), y0=cy+R*Math.sin(a0), x1=cx+R*Math.cos(a1), y1=cy+R*Math.sin(a1);
+      var path=document.createElementNS(NS,'path'); path.setAttribute('d','M'+x0+' '+y0+' A'+R+' '+R+' 0 0 1 '+x1+' '+y1);
+      path.setAttribute('class','ring-seg'); path.setAttribute('stroke', p[1]==='priority'?'url(#ringGold)':p[1]==='check'?'#7a7262':'#2a2722');
+      if(p[1]==='priority') path.setAttribute('filter','drop-shadow(0 0 6px rgba(201,162,74,.6))');
+      svg.appendChild(path);
+      var am=(a0+a1)/2, t=document.createElementNS(NS,'text'); t.setAttribute('x',cx+(R+21)*Math.cos(am)); t.setAttribute('y',cy+(R+21)*Math.sin(am)+3);
+      t.setAttribute('text-anchor','middle'); t.setAttribute('class','ring-lbl'); if(p[1]==='priority') t.setAttribute('style','fill:var(--gold-hi)');
+      t.textContent=SHORT[p[0].id]||p[0].name; svg.appendChild(t);
+    });
+  }
+  /* wizard: one question at a time */
+  var step=0, STEPS=5;
+  function go(n, focus){
+    step=Math.max(0,Math.min(STEPS-1,n));
+    document.querySelectorAll('#lab .qstep').forEach(function(f){ f.hidden = +f.dataset.step!==step; });
+    document.querySelectorAll('#wiz-steps li').forEach(function(li,i){ li.className = i<step?'done':i===step?'cur':''; });
+    var NAMES=['Team','Industry','Priorities','Timing']; $('wiz-count').textContent = step<STEPS-1 ? 'Step '+(step+1)+' of '+(STEPS-1)+' · '+NAMES[step] : 'Your map';
+    $('wiz-back').disabled = step===0;
+    var nx=$('wiz-next'); nx.hidden = step===STEPS-1; nx.textContent = step===STEPS-2 ? 'See my map' : 'Continue';
+    if(focus){ var h=document.querySelector('#lab .qstep:not([hidden]) legend, #lab .qstep:not([hidden]) .qstep-h'); if(h) h.focus({preventScroll:true}); }
+  }
+  $('wiz-next').addEventListener('click', function(){ go(step+1, true); });
+  $('wiz-back').addEventListener('click', function(){ go(step-1, true); });
+  document.querySelectorAll('#wiz-steps button').forEach(function(b){ b.addEventListener('click', function(){ go(+b.dataset.go, true); }); });
+  ['q-size','q-ind','q-urg'].forEach(function(id){
+    $(id).addEventListener('click', function(e){ if(e.target.closest('.opt')) setTimeout(function(){ go(step+1, true); }, 320); });
+  });
+  go(0);
+  $('ai-disc').addEventListener('click', function(){ S.ch.ai=true; update(); go(2); });
   update();
 })();
 </script>
