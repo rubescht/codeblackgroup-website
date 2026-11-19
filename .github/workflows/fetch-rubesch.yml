@@ -1,0 +1,29 @@
+name: fetch-rubesch
+on:
+  push:
+    paths: [.github/workflows/fetch-rubesch.yml]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          pip install pillow
+          curl -fsSL -o /tmp/src.jpg "https://cdn.creativeclaw.co/u/48eaa2c1/images/f828acd8-c62b-4b75-ab0d-1911c1b85bfe.jpg"
+          python3 -c "
+          from PIL import Image
+          im=Image.open('/tmp/src.jpg').convert('RGB')
+          w,h=im.size;t=2/3
+          if w/h>t: nw=int(h*t);im=im.crop(((w-nw)//2,0,(w-nw)//2+nw,h))
+          else: nh=int(w/t);im=im.crop((0,0,w,nh))
+          im.resize((600,900),Image.LANCZOS).save('img/team/rubesch-thananjeyan.jpg',quality=88,optimize=True,progressive=True)
+          im.resize((800,1200),Image.LANCZOS).save('img/team/rubesch-thananjeyan-lg.jpg',quality=86,optimize=True,progressive=True)
+          "
+          git rm -q .github/workflows/fetch-rubesch.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add img/team
+          git commit -m "Add retouched Rubesch headshot"
+          git push
