@@ -564,6 +564,12 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .ch h4{font-size:clamp(20px,2vw,26px);margin:6px 0 10px;color:var(--ivory)}
 .ch p{margin:0;color:var(--soft);font-size:clamp(16px,1.3vw,18px);line-height:1.6}
 .ch p strong{color:var(--ivory)}
+.ch-photo{grid-column:3;grid-row:1;margin:0;position:relative;overflow:hidden;border:1px solid var(--gold-dim);box-shadow:0 0 0 6px var(--ground),0 0 0 7px rgba(201,162,74,.3),var(--depth);transform:rotate(1.2deg);background:#111}
+.ch.alt .ch-photo{grid-column:3}
+.ch-photo img{display:block;width:100%;height:auto;aspect-ratio:36/25;object-fit:cover;object-position:30% 50%;filter:sepia(.28) contrast(1.05) brightness(.95)}
+.ch-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,0) 55%,rgba(11,11,12,.9) 100%);pointer-events:none}
+.ch-photo figcaption{position:absolute;left:18px;bottom:14px;z-index:1;font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi)}
+@media (max-width:760px){.ch-photo,.ch.alt .ch-photo{grid-column:2;grid-row:2;transform:none;box-shadow:var(--depth)}.ch-photo figcaption{font-size:11.5px;left:14px;bottom:10px}}
 .hb2-q{margin:18px 0 0;padding:14px 18px;border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(201,162,74,.14),transparent);font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:clamp(19px,1.8vw,23px);line-height:1.35;color:var(--ivory)}
 .hb2-journey.anim .ch:not(.in){opacity:0;transform:translateY(28px)}
 .tw circle{animation:hbtw 3s ease-in-out infinite}.tw circle:nth-child(2){animation-delay:1s}.tw circle:nth-child(3){animation-delay:2s}
@@ -996,7 +1002,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
             <div class="txt"><span class="label">Before it began</span><h4>The lesson from Channel 9</h4><p>Working at Channel 9 showed me how much businesses depend on their technology, and how badly they were let down when it failed, especially after hours.</p></div>
           </article>
           <article class="ch alt">
-            <div class="ghost" aria-hidden="true">2005</div>
+            <figure class="ch-photo"><img src="img/story/early-days-solo.jpg" alt="Rubesch in the early days, working solo on a client's network rack" loading="lazy" width="720" height="500"><figcaption>The early days &middot; solo</figcaption></figure>
             <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><g stroke="url(#hbGold)" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M80 18a20 20 0 1 0 20 28a16 16 0 1 1-20-28z"/><rect x="34" y="62" width="44" height="28" rx="3"/><path d="M26 96h60l-5-6H31z"/><path d="M42 72h18M42 79h26" opacity=".7"/></g><g fill="#e8cd87" class="tw"><circle cx="30" cy="30" r="1.8"/><circle cx="50" cy="20" r="1.4"/><circle cx="22" cy="50" r="1.2"/></g><ellipse cx="56" cy="76" rx="30" ry="18" fill="rgba(232,205,135,.12)"/></svg></div>
             <div class="txt"><span class="label">2005</span><h4>Midnight IT, a sole trader</h4><p>In 2005 I started Midnight IT as a sole trader, with no team and no safety net. I looked after more than 30 clients on my own, took calls at all hours, worked through nights and weekends, and taught myself everything I needed along the way.</p></div>
           </article>
