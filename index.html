@@ -1846,6 +1846,25 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   var msgEdited=false;
   $('f-message').addEventListener('input', function(){ msgEdited=true; });
   $('copy-map').addEventListener('click', function(){ copyText($('f-message').value||lastText, $('copy-msg'), 'Copied. Paste it into an email to vip@codeblackgroup.com.au.'); });
+  /* anti-spam: fetch a signed challenge and solve it in the background (about a second) */
+  var GS_API='https://golden-shield.onrender.com/api/website-enquiry', powP=null;
+  var POW_SRC="self.onmessage=async function(e){var s=e.data.salt,bits=e.data.bits,enc=new TextEncoder();for(var n=0;;n++){var h=new Uint8Array(await crypto.subtle.digest('SHA-256',enc.encode(s+':'+n)));var z=0;for(var i=0;i<h.length;i++){if(h[i]===0){z+=8;continue}z+=Math.clz32(h[i])-24;break}if(z>=bits){postMessage(n);return}}};";
+  function solvePow(c){
+    return new Promise(function(res,rej){
+      try{ var w=new Worker(URL.createObjectURL(new Blob([POW_SRC],{type:'text/javascript'}))); w.onmessage=function(m){ w.terminate(); res(m.data); }; w.onerror=function(){ w.terminate(); rej(new Error('worker')); }; w.postMessage({salt:c.salt,bits:c.bits}); }
+      catch(err){ rej(err); }
+    }).catch(function(){ // no workers: solve on the page instead
+      var enc=new TextEncoder(), n=0;
+      return (function step(){ return crypto.subtle.digest('SHA-256',enc.encode(c.salt+':'+n)).then(function(b){ var h=new Uint8Array(b),z=0; for(var i=0;i<h.length;i++){ if(h[i]===0){z+=8;continue} z+=Math.clz32(h[i])-24; break; } if(z>=c.bits) return n; n++; return step(); }); })();
+    });
+  }
+  function startPow(){
+    if(powP) return powP;
+    powP=fetch(GS_API+'/challenge').then(function(r){ if(!r.ok) throw new Error('challenge '+r.status); return r.json(); })
+      .then(function(c){ c.got=Date.now(); return solvePow(c).then(function(n){ c.nonce=n; return c; }); });
+    powP.catch(function(){ powP=null; });
+    return powP;
+  }
   $('map-form').addEventListener('submit', function(e){
     e.preventDefault();
     var msg=$('form-msg'), first=$('f-first'), email=$('f-email');
@@ -1856,7 +1875,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     var d={first:first.value.trim(), last:$('f-last').value.trim(), email:email.value.trim(), phone:$('f-phone').value.trim(), company:$('f-company').value.trim(), message:$('f-message').value.trim()||lastText};
     try{ var _hsq=window._hsq=window._hsq||[]; _hsq.push(['identify',{email:d.email, firstname:d.first, lastname:d.last, phone:d.phone, company:d.company}]); _hsq.push(['trackPageView']); }catch(err){}
     var btn=$('send-map'); btn.disabled=true; btn.textContent='Sending\u2026'; msg.textContent='';
-    fetch('https://golden-shield.onrender.com/api/website-enquiry',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first:d.first,last:d.last,email:d.email,phone:d.phone,company:d.company,message:d.message,page:location.href,website:$('f-hp').value})}).then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ if(!r.ok||!j.ok) throw new Error(j.error||('HTTP '+r.status)); }); })
+    startPow().then(function(ch){ var wait=Math.max(0,4600-(Date.now()-ch.got)); return new Promise(function(r){ setTimeout(function(){ r(ch); },wait); }); }).then(function(ch){ powP=null; return fetch(GS_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({challenge:ch,first:d.first,last:d.last,email:d.email,phone:d.phone,company:d.company,message:d.message,page:location.href,website:$('f-hp').value})}); }).then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ if(!r.ok||!j.ok) throw new Error(j.error||('HTTP '+r.status)); }); })
     .then(function(){ msg.textContent='Thanks, '+d.first+'. Your map has been sent and your account manager will be in touch.'; msg.className='formmsg ok'; btn.textContent='Sent'; })
     .catch(function(){
       var body='Name: '+(d.first+' '+d.last).trim()+'\nEmail: '+d.email+'\nPhone: '+(d.phone||'-')+'\nOrganisation: '+(d.company||'-')+'\n\n'+(d.message||'');
@@ -1891,6 +1910,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   var step=0, QSTEPS=5;
   function go(n, focus){
     step=Math.max(0,Math.min(QSTEPS-1,n));
+    if(step>=2) startPow().catch(function(){});
     document.querySelectorAll('#lab .qstep').forEach(function(f){ f.hidden = +f.dataset.step!==step; });
     document.querySelectorAll('#wiz-steps li').forEach(function(li,i){ li.className = i<step?'done':i===step?'cur':''; });
     var NAMES=['Team','Industry','Priorities','Timing']; $('wiz-count').textContent = step<QSTEPS-1 ? 'Step '+(step+1)+' of '+(QSTEPS-1)+' · '+NAMES[step] : 'Your map';
