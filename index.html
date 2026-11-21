@@ -1863,7 +1863,14 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
       'Discovery map and message':d.message||'-', 'Sent from':location.href
     })}).then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ if(!r.ok||String(j.success)==='false') throw new Error(j.message||('HTTP '+r.status)); }); })
     .then(function(){ msg.textContent='Thanks, '+d.first+'. Your map has been sent and your account manager will be in touch.'; msg.className='formmsg ok'; btn.textContent='Sent'; })
-    .catch(function(){ msg.textContent='Sorry, that didn\u2019t send. Please call 1300 737 562 or email vip@codeblackgroup.com.au, or use \u201cCopy it instead\u201d.'; msg.className='formmsg err'; btn.disabled=false; btn.textContent='Send my map'; });
+    .catch(function(){
+      var body='Name: '+(d.first+' '+d.last).trim()+'\nEmail: '+d.email+'\nPhone: '+(d.phone||'-')+'\nOrganisation: '+(d.company||'-')+'\n\n'+(d.message||'');
+      var href='mailto:vip@codeblackgroup.com.au?subject='+encodeURIComponent('Website enquiry: '+(d.first+' '+d.last).trim()+(d.company?' ('+d.company+')':''))+'&body='+encodeURIComponent(body);
+      msg.className='formmsg err'; msg.textContent='';
+      msg.appendChild(document.createTextNode('We couldn\u2019t send that automatically. '));
+      var a=document.createElement('a'); a.href=href; a.textContent='Email your map to us instead'; a.style.cssText='color:var(--gold-hi);text-decoration:underline;font-weight:700'; msg.appendChild(a);
+      msg.appendChild(document.createTextNode(' (it opens pre-filled), or call 1300 737 562.'));
+      btn.disabled=false; btn.textContent='Send my map'; });
   });
   /* team: tap a card on mobile to read the bio */
   document.querySelectorAll('.team .person').forEach(function(p){ p.addEventListener('click', function(){ if(matchMedia('(max-width:600px)').matches) p.classList.toggle('open'); }); });
