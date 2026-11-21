@@ -1856,12 +1856,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     var d={first:first.value.trim(), last:$('f-last').value.trim(), email:email.value.trim(), phone:$('f-phone').value.trim(), company:$('f-company').value.trim(), message:$('f-message').value.trim()||lastText};
     try{ var _hsq=window._hsq=window._hsq||[]; _hsq.push(['identify',{email:d.email, firstname:d.first, lastname:d.last, phone:d.phone, company:d.company}]); _hsq.push(['trackPageView']); }catch(err){}
     var btn=$('send-map'); btn.disabled=true; btn.textContent='Sending\u2026'; msg.textContent='';
-    fetch('https://formsubmit.co/ajax/vip@codeblackgroup.com.au',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({
-      _subject:'New website enquiry: '+d.first+' '+d.last+(d.company?' ('+d.company+')':''),
-      _template:'table', _captcha:'false', _replyto:d.email,
-      'Name':(d.first+' '+d.last).trim(), 'Email':d.email, 'Phone':d.phone||'-', 'Organisation':d.company||'-',
-      'Discovery map and message':d.message||'-', 'Sent from':location.href
-    })}).then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ if(!r.ok||String(j.success)==='false') throw new Error(j.message||('HTTP '+r.status)); }); })
+    fetch('https://golden-shield.onrender.com/api/website-enquiry',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first:d.first,last:d.last,email:d.email,phone:d.phone,company:d.company,message:d.message,page:location.href,website:$('f-hp').value})}).then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ if(!r.ok||!j.ok) throw new Error(j.error||('HTTP '+r.status)); }); })
     .then(function(){ msg.textContent='Thanks, '+d.first+'. Your map has been sent and your account manager will be in touch.'; msg.className='formmsg ok'; btn.textContent='Sent'; })
     .catch(function(){
       var body='Name: '+(d.first+' '+d.last).trim()+'\nEmail: '+d.email+'\nPhone: '+(d.phone||'-')+'\nOrganisation: '+(d.company||'-')+'\n\n'+(d.message||'');
