@@ -828,6 +828,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
                   <label for="f-email">Work email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
                   <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
                   <label for="f-company" class="full">Organisation<input id="f-company" name="company" autocomplete="organization"></label>
+                  <input type="text" id="f-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
                   <label for="f-message" class="full">Your map, plus anything you'd like to add<textarea id="f-message" name="message" rows="4"></textarea></label>
                 </div>
                 <div class="acts">
@@ -1851,14 +1852,18 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     msg.className='formmsg';
     if(!first.value.trim()){ msg.textContent='Add your first name so we know who to ask for.'; msg.className='formmsg err'; first.focus(); return; }
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){ msg.textContent='Add a work email we can reply to, for example name@company.com.au.'; msg.className='formmsg err'; email.focus(); return; }
-    try{
-      var _hsq=window._hsq=window._hsq||[];
-      _hsq.push(['identify',{email:email.value.trim(), firstname:first.value.trim(), lastname:$('f-last').value.trim(), phone:$('f-phone').value.trim(), company:$('f-company').value.trim()}]);
-      _hsq.push(['trackPageView']);
-    }catch(err){}
-    msg.textContent='Thanks, '+first.value.trim()+'. Your map has been sent and your account manager will be in touch.';
-    msg.className='formmsg ok';
-    $('send-map').disabled=true; $('send-map').textContent='Sent';
+    if($('f-hp').value) return;
+    var d={first:first.value.trim(), last:$('f-last').value.trim(), email:email.value.trim(), phone:$('f-phone').value.trim(), company:$('f-company').value.trim(), message:$('f-message').value.trim()||lastText};
+    try{ var _hsq=window._hsq=window._hsq||[]; _hsq.push(['identify',{email:d.email, firstname:d.first, lastname:d.last, phone:d.phone, company:d.company}]); _hsq.push(['trackPageView']); }catch(err){}
+    var btn=$('send-map'); btn.disabled=true; btn.textContent='Sending\u2026'; msg.textContent='';
+    fetch('https://formsubmit.co/ajax/vip@codeblackgroup.com.au',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({
+      _subject:'New website enquiry: '+d.first+' '+d.last+(d.company?' ('+d.company+')':''),
+      _template:'table', _captcha:'false', _replyto:d.email,
+      'Name':(d.first+' '+d.last).trim(), 'Email':d.email, 'Phone':d.phone||'-', 'Organisation':d.company||'-',
+      'Discovery map and message':d.message||'-', 'Sent from':location.href
+    })}).then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ if(!r.ok||String(j.success)==='false') throw new Error(j.message||('HTTP '+r.status)); }); })
+    .then(function(){ msg.textContent='Thanks, '+d.first+'. Your map has been sent and your account manager will be in touch.'; msg.className='formmsg ok'; btn.textContent='Sent'; })
+    .catch(function(){ msg.textContent='Sorry, that didn\u2019t send. Please call 1300 737 562 or email vip@codeblackgroup.com.au, or use \u201cCopy it instead\u201d.'; msg.className='formmsg err'; btn.disabled=false; btn.textContent='Send my map'; });
   });
   /* team: tap a card on mobile to read the bio */
   document.querySelectorAll('.team .person').forEach(function(p){ p.addEventListener('click', function(){ if(matchMedia('(max-width:600px)').matches) p.classList.toggle('open'); }); });
