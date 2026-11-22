@@ -424,3 +424,4 @@ body.nfp .role-c{border-top-color:var(--gold-mid)}
 .contact .wrap>*,.split>*,.why-grid>*,.sec-head>*,.founder>*{min-width:0}
 .details a,.details div{overflow-wrap:anywhere}
 .case .by,.div .by,.prio .by,[class*="foot"] b{overflow-wrap:anywhere}
+@media (max-width:420px){.audbar .wrap{padding-left:8px;padding-right:8px}.audbar nav{gap:0}.audbar nav a{padding:5px 9px;font-size:12.5px;white-space:nowrap}}

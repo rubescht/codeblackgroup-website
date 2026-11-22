@@ -20,7 +20,8 @@
   } else rv.forEach(function(el){ el.classList.add('in'); });
 
   /* films open in a dialog and play with sound (the click allows it) */
-  var dlg=$('film'), fv=dlg.querySelector('video');
+  var dlg=$('film');
+  if(dlg){ (function(){ var fv=dlg.querySelector('video');
   document.querySelectorAll('[data-film]').forEach(function(b){
     b.addEventListener('click', function(){
       fv.src=b.getAttribute('data-film'); fv.poster=b.getAttribute('data-poster')||''; fv.muted=false;
@@ -32,6 +33,8 @@
   dlg.querySelector('.x').addEventListener('click', closeFilm);
   dlg.addEventListener('click', function(e){ if(e.target===dlg) closeFilm(); });
   dlg.addEventListener('cancel', function(){ fv.pause(); });
+
+  })(); }
 
   /* enquiry form: same secure route as the main site (spam-proof challenge, then sent to vip@) */
   var GS_API='https://golden-shield.onrender.com/api/website-enquiry', powP=null;
