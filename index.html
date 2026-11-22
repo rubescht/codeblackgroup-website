@@ -214,6 +214,19 @@ button{font:inherit;color:inherit}
 .vrow small{display:block;margin-top:8px;color:var(--muted);font-size:13px;line-height:1.35}
 .alert{display:flex;align-items:center;gap:12px;margin-top:22px;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.03em}
 .alert i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--metal-flat);color:var(--on-gold);display:grid;place-items:center;font-style:normal;font-size:18px}
+/* small screens: the six vendors stack as a 2-column chart on a central spine, so every box fits and its text shows in full */
+@media (max-width:600px){
+  .diag{padding:20px 16px}
+  .tree{overflow:visible}
+  .vrow{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px;min-width:0;padding-top:16px}
+  .vrow::before{left:50%;right:auto;top:0;bottom:36px;width:1.5px;height:auto;margin-left:-.75px}
+  .vrow>div{padding:12px 10px}
+  .vrow>div::before{top:50%;width:14px;height:1.5px;left:auto;right:-15.5px}
+  .vrow>div:nth-child(2n)::before{right:auto;left:-15.5px}
+  .vrow b{font-size:12.5px}
+  .vrow small{font-size:12.5px;margin-top:6px}
+  .alert{font-size:12px;align-items:flex-start}
+}
 .grp{width:100%;border:1.5px solid var(--gold-dim);padding:14px;background:rgba(0,0,0,.35)}
 .grp .label{text-align:center;margin-bottom:12px}
 .grp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
