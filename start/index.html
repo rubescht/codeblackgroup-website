@@ -62,7 +62,8 @@ h1 .amp{font-style:italic;color:var(--gold)}
 .door{--tint:216,180,95;--mx:50%;--my:30%;position:relative;display:flex;flex-direction:column;min-height:520px;padding:26px 26px 24px;border:1px solid var(--line);border-radius:22px;text-decoration:none;color:var(--ink);overflow:hidden;isolation:isolate;
   background:linear-gradient(180deg,rgba(var(--tint),.07),rgba(var(--tint),.015) 55%,transparent),var(--bg2);
   transition:transform .6s cubic-bezier(.2,.8,.2,1),border-color .4s ease,box-shadow .6s ease;opacity:0;transform:translateY(24px);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
-.door:nth-child(1){animation-delay:.15s}.door:nth-child(2){animation-delay:.27s;--tint:206,146,96}.door:nth-child(3){animation-delay:.39s;--tint:170,184,140}.door:nth-child(4){animation-delay:.51s;--tint:224,160,150}
+.door:nth-child(1){animation-delay:.15s}.door:nth-child(2){animation-delay:.27s}.door:nth-child(3){animation-delay:.39s}.door:nth-child(4){animation-delay:.51s}
+.door.t-corp{--tint:216,180,95}.door.t-smb{--tint:206,146,96}.door.t-gov{--tint:170,184,140}.door.t-start{--tint:224,160,150}
 @keyframes rise{to{opacity:1;transform:none}}
 .door::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(var(--tint),.20),transparent 60%);opacity:0;transition:opacity .4s ease}
 .door::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;padding:1px;background:linear-gradient(160deg,rgba(var(--tint),.8),transparent 40%,transparent 70%,rgba(var(--tint),.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s ease}
@@ -71,7 +72,7 @@ h1 .amp{font-style:italic;color:var(--gold)}
 .door .top{display:flex;align-items:baseline;justify-content:space-between;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
 .door .num{font-family:var(--serif);font-style:italic;font-size:22px;letter-spacing:0;color:rgb(var(--tint))}
 .door .ill{position:relative;flex:none;height:250px;display:grid;place-items:center;margin:10px 0 8px}
-.door .txt{margin-top:0}
+.door .txt{margin-top:0;padding-bottom:18px}
 .door .foot{margin-top:auto!important}
 .door .ill svg{width:min(100%,220px);height:auto;overflow:visible;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .door:hover .ill svg{transform:translateY(-6px) scale(1.04)}
@@ -111,22 +112,22 @@ footer em{font-family:var(--serif);font-size:16px;color:var(--muted)}
   header{height:72px}.logo{width:160px}
   header nav a:not(.call){display:none}
   .paths{grid-template-columns:1fr;gap:14px}
-  .door{min-height:0;display:grid;grid-template-columns:104px 1fr;grid-template-areas:"top top" "ill txt" "foot foot";column-gap:16px;padding:20px}
-  .door .top{grid-area:top;margin-bottom:6px}
-  .door .ill{grid-area:ill;margin:0}
-  .door .ill .ring{width:100px}.door .ill .halo{width:90px}
-  .door .txt{grid-area:txt;align-self:center}
-  .door .foot{grid-area:foot;margin-top:16px}
+  .door{min-height:0;padding:20px 20px 18px}
+  .door .ill{height:132px;margin:6px 0 10px}
+  .door .ill svg{width:150px}
+  .door .ill .ring{width:128px}.door .ill .halo{width:112px}
+  .door .foot{margin-top:18px}
   .door h2{font-size:26px;margin:4px 0 6px}
   .door p{font-size:14px}
   .help{padding:22px}
   .art{top:-30vmin;right:-60vmin;width:140vmin;height:140vmin;opacity:.6}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important}.door{opacity:1;transform:none}.ill .s{stroke-dashoffset:0}.ill .f,.ill .d{opacity:1}body::after{display:none}}
+.art-clip{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 </style>
 </head>
 <body>
-<div class="art" aria-hidden="true">
+<div class="art-clip" aria-hidden="true"><div class="art">
   <div class="glow"></div>
   <svg viewBox="0 0 600 600">
     <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F1D99A"/><stop offset=".5" stop-color="#C9A24A"/><stop offset="1" stop-color="#7A5E22"/></linearGradient></defs>
@@ -145,14 +146,14 @@ footer em{font-family:var(--serif);font-size:16px;color:var(--muted)}
     </g>
   </svg>
 </div>
-<div class="art2" aria-hidden="true"></div>
+<div class="art2"></div></div>
 
 <div class="wrap">
   <header>
-    <a class="logo" href="../" aria-label="Code Black Group, group site"></a>
+    <a class="logo" href="../corporate/" aria-label="Code Black Group, group site"></a>
     <nav aria-label="Main">
-      <a href="../">Group site</a>
-      <a href="../#team">Leadership</a>
+      <a href="../corporate/">Group site</a>
+      <a href="../corporate/#leadership">Leadership</a>
       <a class="call" href="tel:1300737562">1300 737 562</a>
     </nav>
   </header>
@@ -165,25 +166,27 @@ footer em{font-family:var(--serif);font-size:16px;color:var(--muted)}
     </section>
 
     <section class="paths" aria-label="Choose your organisation type">
-      <a class="door" href="../corporate/">
+      <a class="door t-start" href="../#discover">
         <div class="top"><span>Path</span><span class="num">01</span></div>
         <div class="ill" aria-hidden="true"><span class="halo"></span><span class="ring"></span>
           <svg viewBox="0 0 200 200">
-            <path class="f" d="M48 168V78h34v90zM88 168V40h30v128zM124 168V96h30v72z"/>
-            <path class="s" pathLength="1" d="M30 168h140M48 168V78h34v90M88 168V40l15-14 15 14v128M124 168V96h30v72M103 26V12"/>
-            <path class="s l" pathLength="1" d="M56 92h18M56 106h18M56 120h18M56 134h18M56 148h18M96 56h14M96 72h14M96 88h14M96 104h14M96 120h14M96 136h14M96 152h14M132 110h14M132 124h14M132 138h14M132 152h14"/>
-            <circle class="d" cx="103" cy="10" r="2.5"/>
+            <path class="f" d="M100 26c18 16 26 40 22 76H78c-4-36 4-60 22-76z"/>
+            <path class="s" pathLength="1" d="M100 26c18 16 26 40 22 76H78c-4-36 4-60 22-76zM78 102l-16 20 18-4M122 102l16 20-18-4M88 102l4 18h16l4-18"/>
+            <circle class="s" pathLength="1" cx="100" cy="62" r="9"/>
+            <path class="s l" pathLength="1" d="M96 128q4 18 4 40M104 128q-2 14 6 30M92 130q-8 10-4 26"/>
+            <path class="s l" pathLength="1" d="M40 46l4 0M42 44v4M156 70h4M158 68v4M50 120h3M51.5 118.5v3M150 140h3M151.5 138.5v3"/>
+            <circle class="d" cx="160" cy="40" r="2.5"/>
           </svg>
         </div>
         <div class="txt">
           <span class="for">For</span>
-          <h2>Corporate clients</h2>
-          <p>Board-level cyber risk, fewer vendors and operations that keep running across every site.</p>
+          <h2>Startups &amp; sole traders</h2>
+          <p>Get set up properly from day one: secure email, devices, a great website and help when you need it.</p>
         </div>
-        <div class="foot"><span class="tags"><span>Cyber risk</span><span>Consolidation</span><span>A.I.</span></span><span class="go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+        <div class="foot"><span class="tags"><span>Set-up</span><span>Website</span><span>Grow</span></span><span class="go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
       </a>
 
-      <a class="door" href="../">
+      <a class="door t-smb" href="../">
         <div class="top"><span>Path</span><span class="num">02</span></div>
         <div class="ill" aria-hidden="true"><span class="halo"></span><span class="ring"></span>
           <svg viewBox="0 0 200 200">
@@ -203,8 +206,26 @@ footer em{font-family:var(--serif);font-size:16px;color:var(--muted)}
         <div class="foot"><span class="tags"><span>24/7 IT</span><span>Security</span><span>Web</span></span><span class="go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
       </a>
 
-      <a class="door" href="../not-for-profit/">
+      <a class="door t-corp" href="../corporate/">
         <div class="top"><span>Path</span><span class="num">03</span></div>
+        <div class="ill" aria-hidden="true"><span class="halo"></span><span class="ring"></span>
+          <svg viewBox="0 0 200 200">
+            <path class="f" d="M48 168V78h34v90zM88 168V40h30v128zM124 168V96h30v72z"/>
+            <path class="s" pathLength="1" d="M30 168h140M48 168V78h34v90M88 168V40l15-14 15 14v128M124 168V96h30v72M103 26V12"/>
+            <path class="s l" pathLength="1" d="M56 92h18M56 106h18M56 120h18M56 134h18M56 148h18M96 56h14M96 72h14M96 88h14M96 104h14M96 120h14M96 136h14M96 152h14M132 110h14M132 124h14M132 138h14M132 152h14"/>
+            <circle class="d" cx="103" cy="10" r="2.5"/>
+          </svg>
+        </div>
+        <div class="txt">
+          <span class="for">For</span>
+          <h2>Corporate clients</h2>
+          <p>Board-level cyber risk, fewer vendors and operations that keep running across every site.</p>
+        </div>
+        <div class="foot"><span class="tags"><span>Cyber risk</span><span>Consolidation</span><span>A.I.</span></span><span class="go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+      </a>
+
+      <a class="door t-gov" href="../not-for-profit/">
+        <div class="top"><span>Path</span><span class="num">04</span></div>
         <div class="ill" aria-hidden="true"><span class="halo"></span><span class="ring"></span>
           <svg viewBox="0 0 200 200">
             <path class="f" d="M40 80h120L100 40z"/>
@@ -220,26 +241,6 @@ footer em{font-family:var(--serif);font-size:16px;color:var(--muted)}
           <p>Technology that protects your mission and the people you serve, planned around budgets and funding.</p>
         </div>
         <div class="foot"><span class="tags"><span>Councils</span><span>Charities</span><span>Aged care</span></span><span class="go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
-      </a>
-
-      <a class="door" href="../#discover">
-        <div class="top"><span>Path</span><span class="num">04</span></div>
-        <div class="ill" aria-hidden="true"><span class="halo"></span><span class="ring"></span>
-          <svg viewBox="0 0 200 200">
-            <path class="f" d="M100 26c18 16 26 40 22 76H78c-4-36 4-60 22-76z"/>
-            <path class="s" pathLength="1" d="M100 26c18 16 26 40 22 76H78c-4-36 4-60 22-76zM78 102l-16 20 18-4M122 102l16 20-18-4M88 102l4 18h16l4-18"/>
-            <circle class="s" pathLength="1" cx="100" cy="62" r="9"/>
-            <path class="s l" pathLength="1" d="M96 128q4 18 4 40M104 128q-2 14 6 30M92 130q-8 10-4 26"/>
-            <path class="s l" pathLength="1" d="M40 46l4 0M42 44v4M156 70h4M158 68v4M50 120h3M51.5 118.5v3M150 140h3M151.5 138.5v3"/>
-            <circle class="d" cx="160" cy="40" r="2.5"/>
-          </svg>
-        </div>
-        <div class="txt">
-          <span class="for">For</span>
-          <h2>Startups &amp; sole traders</h2>
-          <p>Get set up properly from day one: secure email, devices, a great website and help when you need it.</p>
-        </div>
-        <div class="foot"><span class="tags"><span>Set-up</span><span>Website</span><span>Grow</span></span><span class="go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
       </a>
     </section>
 
