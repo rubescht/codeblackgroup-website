@@ -21,7 +21,7 @@
 <meta name="theme-color" content="#0b0b0c">
 <link rel="icon" href="logos/cbg-mark-white.svg" type="image/svg+xml">
 <title>Code Black Group | All Angles Covered</title>
-<link rel="preload" as="image" href="img/hero-city-gold.jpg">
+<link rel="preload" as="image" href="img/hero-melbourne.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Poppins:wght@300;400;500;700;900&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
@@ -161,7 +161,7 @@ button{font:inherit;color:inherit}
 
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;isolation:isolate}
-.hero-bg{position:absolute;inset:0;z-index:-1;background:url("img/hero-city-gold.jpg") center 30%/cover no-repeat;opacity:.38;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%)}
+.hero-bg{position:absolute;inset:0;z-index:-1;background:url("img/hero-melbourne.jpg") center 30%/cover no-repeat;opacity:.38;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%)}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,6,6,.9) 0%,rgba(6,6,6,.45) 60%,rgba(6,6,6,.6) 100%)}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center;padding-block:84px 96px}
 @media (max-width:920px){.hero .wrap{grid-template-columns:1fr;padding-block:48px 64px;gap:40px}}
@@ -609,7 +609,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .hero-cine .hero-bg::after{display:none}
 .hero-cine .screen.cine{position:absolute;inset:0;transform:none!important;border-radius:0;z-index:0}
 .hero-cine .cine .frame{position:absolute;inset:0;border-radius:0;box-shadow:none!important;background:transparent!important}
-.hero-cine .screen.cine video{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;opacity:0;transition:opacity 1.4s ease}
+.hero-cine .screen.cine video{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;opacity:1;transition:opacity 1s ease}
 .hero-cine .cine .vprog{z-index:3}
 .hero-cine .cine .vbar{bottom:56px;left:auto;right:24px;width:auto;background:none;padding:0;z-index:4}
 .hero-cine .cine .vbar .t{display:none}
@@ -625,7 +625,8 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .cine-intro{font-family:var(--display);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:0;cursor:pointer;padding:8px}
 .cine-intro:hover{color:var(--gold-hi)}
 .hero-cine.playing .screen.cine video{opacity:1}
-.hero-cine:not(.playing) .screen.cine{visibility:hidden;transition:visibility 0s linear 1.4s}
+.hero-cine:not(.playing) .screen.cine{pointer-events:none}
+.hero-cine.resetting .screen.cine video{opacity:0;transition-duration:.01s}
 .hero-cine.playing .hero-bg,.hero-cine.playing .cine-shade{opacity:0}
 .hero-cine.playing .cine-copy{opacity:0;transform:translateY(18px);pointer-events:none}
 .hero-cine.playing .cine-bar{opacity:1;pointer-events:auto}
@@ -633,7 +634,6 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .cine-scroll span{position:absolute;left:50%;top:8px;width:3px;height:8px;margin-left:-1.5px;border-radius:2px;background:var(--gold);animation:cineScroll 1.8s ease-in-out infinite}
 @keyframes cineScroll{0%{opacity:0;transform:translateY(0)}40%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
 .hero-cine.playing .cine-scroll{opacity:0;pointer-events:none}
-#cine-watch svg{margin-right:2px}
 @media (max-width:920px){.hero-cine .cine-copy{padding-block:32px 96px}}
 @media (orientation:portrait),(max-aspect-ratio:1/1){
   .hero-cine{height:auto;min-height:calc(100svh - 68px)}
@@ -659,6 +659,87 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .cine-short{display:none}
 @media (orientation:portrait),(max-aspect-ratio:1/1){.hero-cine .cine .vbar{bottom:calc((var(--barh) - 36px) / -2 - 36px);right:16px}}
 @media (max-width:520px){.cine-long{display:none}.cine-short{display:inline}.cine-bar{gap:10px}.cine-intro{display:none}}
+
+/* ---------- "Why we're different": the film sits in the page with no frame, its edges melting into the background ---------- */
+.diff-film{position:relative;max-width:1040px;margin:4px auto 44px}
+.diff-film::before{content:"";position:absolute;inset:-6% -4%;z-index:-1;background:url("media/usual-vs-ours-mel.jpg") center/cover no-repeat;filter:blur(40px) brightness(.35);opacity:.8;pointer-events:none}
+.screen.seam{transform:none!important;border-radius:0}
+.screen.seam .frame{box-shadow:none!important;background:transparent!important;border-radius:0}
+.screen.seam video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%),linear-gradient(180deg,transparent 0,#000 9%,#000 88%,transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%),linear-gradient(180deg,transparent 0,#000 9%,#000 88%,transparent 100%);mask-composite:intersect}
+.screen.seam .vbar{left:auto;right:6%;bottom:9%;width:auto;background:none;padding:0}
+.screen.seam .vbar .t{display:none}
+.screen.seam .vprog{display:none}
+.film-chapters{display:flex;align-items:center;gap:16px;max-width:620px;margin:6px auto 0;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.film-chapters span{cursor:pointer;white-space:nowrap;transition:color .3s ease}
+.film-chapters i{position:relative;flex:1;height:2px;background:rgba(201,162,74,.22);overflow:hidden}
+.film-chapters b{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--metal-flat)}
+.film-chapters[data-on="usual"] [data-ch="usual"],.film-chapters[data-on="cbg"] [data-ch="cbg"]{color:var(--gold-hi)}
+@media (max-width:520px){.diff-film{margin-bottom:28px}.film-chapters{font-size:10.5px;gap:10px}.screen.seam .vbar{right:4%;bottom:6%}}
+
+/* ---------- hero headline as artwork: "All / ANGLES / Covered." ---------- */
+.aac-wrap{max-width:860px}
+.hero h1.aac{position:relative;display:grid;justify-items:start;margin-top:26px;font-size:inherit;line-height:.84;letter-spacing:0;text-shadow:none;isolation:isolate}
+.aac-all{display:flex;align-items:center;gap:16px;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(30px,3.6vw,52px);color:var(--gold-hi);line-height:1;margin:0 0 4px 4px}
+.aac-all::after{content:"";width:clamp(60px,9vw,140px);height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.aac-angles{font-family:var(--display);font-weight:900;font-size:clamp(66px,10.4vw,150px);letter-spacing:-.02em;line-height:.86;color:transparent;-webkit-text-fill-color:transparent;-webkit-text-stroke:1.4px #e8cd87;
+  background:linear-gradient(100deg,transparent 0 38%,rgba(255,246,214,.95) 46%,transparent 54% 100%) no-repeat,repeating-linear-gradient(118deg,rgba(232,205,135,.78) 0 1.6px,transparent 1.6px 7px),linear-gradient(180deg,rgba(201,162,74,.22),rgba(201,162,74,.06));
+  background-size:260% 100%,auto,auto;background-position:140% 0,0 0,0 0;-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 10px 24px rgba(0,0,0,.7));animation:aacSweep 6.5s cubic-bezier(.45,.05,.35,1) 1.2s infinite}
+@keyframes aacSweep{0%{background-position:140% 0,0 0,0 0}45%,100%{background-position:-40% 0,0 0,0 0}}
+.aac-cov{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(50px,7.2vw,106px);line-height:1;margin:-.16em 0 0 1.05em;padding:0 .12em .08em 0;background:var(--metal-flat);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 0 #5a3f12) drop-shadow(0 12px 22px rgba(0,0,0,.75))}
+.aac-angle{position:absolute;z-index:-1;left:-14px;bottom:-6%;width:clamp(230px,34vw,470px);height:auto;overflow:visible;opacity:.7;pointer-events:none}
+.aac-angle path{fill:none;stroke:var(--gold);stroke-width:1.1;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.aac-angle .ray{stroke:rgba(201,162,74,.75);stroke-dasharray:520;stroke-dashoffset:520;animation:aacDraw 1.6s cubic-bezier(.2,.7,.2,1) .3s forwards}
+.aac-angle .r2{animation-delay:.55s}.aac-angle .r3{stroke:rgba(201,162,74,.35);animation-delay:.8s}
+.aac-angle .arc,.aac-angle .ticks{stroke:var(--gold-hi);stroke-dasharray:200;stroke-dashoffset:200;animation:aacDraw 1.2s ease 1.2s forwards}
+.aac-angle .vx{fill:var(--gold-hi);filter:drop-shadow(0 0 6px rgba(232,205,135,.9))}
+.aac-angle .deg{font-family:var(--display);font-size:13px;letter-spacing:.12em;fill:var(--gold-hi);opacity:0;animation:aacFade .8s ease 2s forwards}
+@keyframes aacDraw{to{stroke-dashoffset:0}}
+@keyframes aacFade{to{opacity:.9}}
+.hero-cine .lead{margin-top:22px;max-width:44ch}
+.pod{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:760px}
+.pod li{position:relative;padding:2px 0 2px 14px}
+.pod li::before{content:"";position:absolute;left:0;top:3px;bottom:3px;width:2px;background:var(--metal-flat)}
+.pod b{display:block;font-family:var(--display);font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-hi)}
+.pod span{display:block;margin-top:4px;font-size:14px;line-height:1.4;color:var(--soft)}
+.hero-cine .ctas{align-items:center;margin-top:28px}
+/* the film is impossible to miss: a thumbnail card with a pulsing play button and a countdown */
+.film-card{display:inline-flex;align-items:center;gap:14px;padding:6px 18px 6px 6px;border:1px solid rgba(201,162,74,.65);border-radius:14px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);color:var(--ivory);font:inherit;text-align:left;cursor:pointer;transition:border-color .25s ease,transform .25s ease}
+.film-card:hover{border-color:var(--gold-hi);transform:translateY(-1px)}
+.film-card:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.fc-thumb{position:relative;flex:none;width:112px;height:63px;border-radius:9px;overflow:hidden;background:#000;box-shadow:0 0 0 1px rgba(201,162,74,.35)}
+.fc-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.film-card:hover .fc-thumb img{transform:scale(1.07)}
+.fc-play{position:absolute;left:50%;top:50%;width:32px;height:32px;margin:-16px 0 0 -16px;border-radius:50%;background:var(--metal-flat);box-shadow:0 0 0 0 rgba(232,205,135,.6);animation:fcPulse 1.9s ease-out infinite}
+.fc-play::after{content:"";position:absolute;left:12px;top:9px;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #2a1d06}
+@keyframes fcPulse{0%{box-shadow:0 0 0 0 rgba(232,205,135,.65)}70%,100%{box-shadow:0 0 0 14px rgba(232,205,135,0)}}
+.fc-txt b{display:block;font-family:var(--display);font-size:15px;font-weight:700;letter-spacing:.01em}
+.fc-txt small{display:block;margin-top:2px;font-size:12.5px;color:var(--muted)}
+.fc-count{display:none}.fc-count em{font-style:normal;color:var(--gold-hi);font-variant-numeric:tabular-nums}
+.hero-cine.counting .fc-count{display:inline}
+.cine-timer{margin-top:26px}
+/* sound hint while the film plays (it starts muted) */
+.hero-cine .vbar button:nth-of-type(3){display:none} /* the brand film has no soundtrack */
+/* seamless: the hero backdrop IS the film's opening shot, framed exactly like the video, so text dissolves straight into the film */
+.hero-cine .hero-bg{inset:-60px;z-index:0;background:url("img/hero-melbourne.jpg") center/cover no-repeat;filter:blur(24px) brightness(.45);opacity:1;transition:none}
+/* the film picture sits in an exact 16:9 box with feathered edges, so it melts into the ambient city instead of showing bars */
+.hero-cine .screen.cine{container-type:size}
+.hero-cine .screen.cine .frame{display:grid;place-items:center}
+.hero-cine .screen.cine video{width:min(100cqw,calc(100cqh * 16 / 9));height:min(100cqh,calc(100cqw * 9 / 16));object-fit:cover;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(180deg,transparent 0,#000 7%,#000 93%,transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(180deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-composite:intersect}
+.hero-cine::after{content:"";position:absolute;left:0;right:0;bottom:0;height:var(--barh);z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,0),#000 70%)}
+.hero-cine .screen.cine{z-index:1}
+.hero-cine .cine-shade{z-index:1}
+.hero-cine .cine-copy,.hero-cine .cine-bar,.hero-cine .cine-scroll{z-index:3}
+.hero-cine.playing .hero-bg{opacity:1}
+.hero-cine.playing .cine-bar,.hero-cine .cine-bar{border-top-color:transparent}
+@media (orientation:portrait),(max-aspect-ratio:1/1){.hero-cine .hero-bg{background-position:center 28%}}
+@media (prefers-reduced-motion:reduce){.aac-angles,.fc-play{animation:none}.aac-angle *{animation:none!important;stroke-dashoffset:0!important;opacity:.9!important}}
+@media (max-height:760px) and (min-aspect-ratio:1/1){.aac-angles{font-size:clamp(60px,8.4vw,120px)}.aac-cov{font-size:clamp(44px,5.8vw,86px)}.pod{margin-top:16px}.pod span{font-size:13px}.hero-cine .ctas{margin-top:20px}.cine-timer{margin-top:18px}}
+@media (max-width:760px){.pod{grid-template-columns:1fr;gap:10px}.pod span{margin-top:2px}}
+@media (max-width:520px){.aac-angle{width:200px;left:-8px;bottom:-4%;opacity:.55}.aac-cov{margin-left:.7em}.hero-cine .ctas{flex-direction:column;align-items:stretch}.hero-cine .ctas .btn{text-align:center;justify-content:center}.film-card{width:100%}}
 </style>
 
 <style>html,body{margin:0}</style>
@@ -703,20 +784,39 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="screen flat cine" id="hero-screen" data-video="brand">
       <div class="frame">
-        <video muted playsinline preload="auto" aria-label="Brand film: One call. Every angle."></video>
+        <video muted playsinline preload="auto" poster="img/hero-melbourne.jpg" aria-label="Brand film: One call. Every angle."></video>
         <div class="vprog"><i></i></div>
       </div>
     </div>
     <div class="cine-shade" aria-hidden="true"></div>
     <div class="wrap cine-copy">
-      <div>
+      <div class="aac-wrap">
         <span class="pill">Six specialist divisions. One accountable group.</span>
-        <h1 id="hero-h">ALL ANGLES<br><span class="metal">COVERED.</span></h1>
+        <h1 id="hero-h" class="aac" aria-label="All angles covered.">
+          <svg class="aac-angle" viewBox="0 0 400 260" aria-hidden="true">
+            <path class="ray r1" d="M10 250 H390"/>
+            <path class="ray r2" d="M10 250 L330 30"/>
+            <path class="ray r3" d="M10 250 L380 140"/>
+            <path class="arc" d="M150 250 A140 140 0 0 0 125.4 170.7"/>
+            <path class="ticks" d="M178 250h-10M176.4 229.4l-9.7 2.1M171.6 209.5l-9.4 3.4M164 190.5l-8.8 4.7"/>
+            <circle class="vx" cx="10" cy="250" r="4"/>
+          </svg>
+          <span class="aac-all" aria-hidden="true">All</span>
+          <span class="aac-angles" aria-hidden="true">ANGLES</span>
+          <span class="aac-cov" aria-hidden="true">Covered.</span>
+        </h1>
         <p class="lead">From cyber and A.I. to IT, digital &amp; online platforms, surveillance and connectivity: one team, one call, fully accountable.</p>
-        <p class="sub">Most organisations juggle a different vendor for every part of their technology. We bring the specialists together so you don't have to.</p>
+        <ul class="pod" aria-label="Our point of difference">
+          <li><b>One call</b><span>Six specialists, one point of contact and one escalation path</span></li>
+          <li><b>Security-vetted</b><span>Every solution checked by Strike Force before it reaches you</span></li>
+          <li><b>Since 2005</b><span>24/7 support from a team that treats clients like family</span></li>
+        </ul>
         <div class="ctas">
           <a class="btn" href="#discover">Find your path in 60 seconds</a>
-          <button class="btn ghost" type="button" id="cine-watch"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg>Watch the film</button>
+          <button class="film-card" type="button" id="cine-watch" aria-label="Watch the one-minute brand film">
+            <span class="fc-thumb" aria-hidden="true"><img src="media/brand-film-mel.jpg" alt="" width="112" height="63" loading="eager"><i class="fc-play"></i></span>
+            <span class="fc-txt"><b>Watch the film</b><small class="fc-when">1 minute<span class="fc-count"> · starts in <em id="cine-count">5</em>s</span></small></span>
+          </button>
         </div>
         <div class="cine-timer" aria-hidden="true"><i></i></div>
       </div>
@@ -746,6 +846,15 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
           <button type="button" id="t-usual" aria-pressed="false">The usual way</button>
           <button type="button" id="t-cbg" aria-pressed="true">The Code Black way</button>
         </div>
+      </div>
+      <div class="diff-film">
+        <div class="screen flat seam" id="diff-screen" data-video="usual" data-autoplay data-loop>
+          <div class="frame">
+            <video muted playsinline loop preload="none" poster="media/usual-vs-ours-mel.jpg" aria-label="Film: the usual way vs the Code Black way"></video>
+            <div class="vprog"><i></i></div>
+          </div>
+        </div>
+        <div class="film-chapters" aria-hidden="true"><span data-ch="usual">The usual way</span><i><b></b></i><span data-ch="cbg">The Code Black way</span></div>
       </div>
       <div class="diff">
         <div class="diag glass">
@@ -786,17 +895,6 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
           <div>
             <h3 id="diff-side-h">What you get instead</h3>
             <ul class="chev" id="diff-points"></ul>
-          </div>
-          <div class="stage">
-            <div class="screen" data-video="usual" data-autoplay data-loop>
-              <div class="frame">
-                <video muted playsinline loop preload="none" poster="media/usual-vs-ours.jpg" aria-label="Film: the usual way vs ours"></video>
-                <div class="glare"></div>
-                <div class="vprog"><i></i></div>
-              </div>
-              <div class="reflect"></div>
-            </div>
-            <div class="vcap"><span><b>THE USUAL WAY VS OURS · 45 SEC</b></span></div>
           </div>
         </div>
       </div>
@@ -993,7 +1091,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
         <div class="stage">
           <div class="screen flat" id="cinema-screen" data-video="cinema">
             <div class="frame">
-              <video id="cinema-video" muted playsinline preload="none" poster="media/brand-film-gold.jpg" aria-label="Film player"></video>
+              <video id="cinema-video" muted playsinline preload="none" poster="media/brand-film-mel.jpg" aria-label="Film player"></video>
               <div class="glare"></div>
               <div class="vprog"><i></i></div>
             </div>
@@ -1604,7 +1702,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 
   // screens follow the cursor a little
   function bindScreen(scr){
-    if(!finePointer || reduce) return;
+    if(!finePointer || reduce || scr.classList.contains('seam')) return;
     var base=getComputedStyle(scr);
     scr.addEventListener('pointermove', function(e){
       var r=scr.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
@@ -1630,8 +1728,8 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   });
   /* ================= films ================= */
   var VIDEOS = {
-    brand:{title:'One call. Every angle.', src:'media/brand-film-art.mp4', poster:'media/brand-film-gold.jpg', len:'62 SEC', body:'Why one accountable group beats a stack of vendors.'},
-    usual:{title:'The usual way vs ours', src:'media/usual-vs-ours.mp4', poster:'media/usual-vs-ours.jpg', len:'45 SEC', body:'Six vendors against one account manager and one team.'},
+    brand:{title:'One call. Every angle.', src:'media/brand-film-mel.mp4', poster:'media/brand-film-mel.jpg', len:'62 SEC', body:'Why one accountable group beats a stack of vendors.'},
+    usual:{title:'The usual way vs ours', src:'media/usual-vs-ours-mel.mp4', poster:'media/usual-vs-ours-mel.jpg', len:'45 SEC', body:'Six vendors against one account manager and one team.'},
     eco:{title:'Inside the ecosystem', src:'media/ecosystem.mp4', poster:'media/ecosystem.jpg', len:'58 SEC', body:'All six divisions and how they connect.'},
     after:{title:'What happens after you call', src:'media/after-you-call.mp4', poster:'media/after-you-call.jpg', len:'49 SEC', body:'Five steps from first call to one team delivering.'},
     ai:{title:'Securing A.I. adoption', src:'media/securing-ai.mp4', poster:'media/securing-ai.jpg', len:'49 SEC', body:'AI Dome and Strikeforce Cyber on adopting A.I. with control.'}
@@ -1683,9 +1781,13 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     var hero=document.getElementById('top-hero'), HP=byId['hero-screen']; if(!hero||!HP) return;
     var INTRO=5500, timer=null, started=false, inView=true;
     hero.style.setProperty('--intro-ms', INTRO+'ms');
-    function film(){ clearTimeout(timer); hero.classList.remove('counting'); hero.classList.add('playing'); HP.userPaused=false; HP.ensure(); try{ HP.v.currentTime=0; }catch(e){} if(inView) HP.play(); }
-    function introText(){ clearTimeout(timer); hero.classList.remove('playing'); HP.v.pause(); hero.classList.remove('counting'); void hero.offsetWidth;
-      if(reduce) return; hero.classList.add('counting'); timer=setTimeout(film, INTRO); }
+    var cnt=document.getElementById('cine-count'), tick=null;
+    function countdown(){ clearInterval(tick); var left=Math.round(INTRO/1000); if(cnt) cnt.textContent=left; tick=setInterval(function(){ left--; if(cnt) cnt.textContent=Math.max(left,0); if(left<=0) clearInterval(tick); },1000); }
+    function film(){ clearTimeout(timer); clearInterval(tick); hero.classList.remove('counting'); hero.classList.add('playing'); HP.userPaused=false; HP.ensure(); try{ HP.v.currentTime=0.85; }catch(e){} if(inView) HP.play(); }
+    HP.restartAt=function(){ return 0.85; };  /* the backdrop is already on screen, so skip the film's fade-in: a seamless dissolve */
+    function rest(){ var v=HP.v, far=v.currentTime>1.5; if(far) hero.classList.add('resetting'); var go=function(){ try{ v.currentTime=0.85; }catch(e){} }; if(v.readyState>=1) go(); else v.addEventListener('loadedmetadata',go,{once:true}); if(far) v.addEventListener('seeked',function(){ requestAnimationFrame(function(){ hero.classList.remove('resetting'); }); },{once:true}); }
+    function introText(){ clearTimeout(timer); hero.classList.remove('playing'); HP.v.pause(); rest(); hero.classList.remove('counting'); void hero.offsetWidth;
+      if(reduce) return; hero.classList.add('counting'); countdown(); timer=setTimeout(film, INTRO); }
     function begin(){ if(started) return; started=true; HP.ensure(); introText(); }
     HP.v.addEventListener('ended', introText);
     document.getElementById('cine-watch').addEventListener('click', film);
@@ -1732,7 +1834,9 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     usual:['Six contracts, six invoices, six helpdesks','Nobody owns the whole picture','Problems fall between vendors','You coordinate every project','Change lands on your people unmanaged'],
     cbg:['One point of contact','One escalation path','One plan with options and phases','Change management included','Specialists who already work together']
   };
+  var diffMode=null;
   function setMode(m){
+    diffMode=m;
     $('t-usual').setAttribute('aria-pressed', m==='usual');
     $('t-cbg').setAttribute('aria-pressed', m==='cbg');
     $('tree-usual').hidden=m!=='usual'; $('tree-cbg').hidden=m!=='cbg';
@@ -1740,8 +1844,21 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     var ul=$('diff-points'); ul.textContent='';
     POINTS[m].forEach(function(t){ ul.appendChild(el('li',null,t)); });
   }
-  $('t-usual').addEventListener('click', function(){ setMode('usual'); });
-  $('t-cbg').addEventListener('click', function(){ setMode('cbg'); });
+  /* the film and the page are one piece: the toggle jumps the film to that chapter, and the film flips the toggle, diagram and list as it plays */
+  var DF=byId['diff-screen'], DCUT=19.5, DCH={usual:0.4, cbg:19.6}, dHold=0;
+  var chBar=document.querySelector('.film-chapters b');
+  function diffJump(m){ setMode(m); if(!DF) return; dHold=Date.now()+1200; DF.ensure();
+    var go=function(){ try{ DF.v.currentTime=DCH[m]; }catch(e){} DF.userPaused=false; DF.play(); };
+    if(DF.v.readyState>=1) go(); else DF.v.addEventListener('loadedmetadata',go,{once:true}); }
+  $('t-usual').addEventListener('click', function(){ diffJump('usual'); });
+  $('t-cbg').addEventListener('click', function(){ diffJump('cbg'); });
+  document.querySelectorAll('.film-chapters span').forEach(function(sp){ sp.addEventListener('click', function(){ diffJump(sp.getAttribute('data-ch')); }); });
+  if(DF){ DF.v.addEventListener('timeupdate', function(){
+      var t=DF.v.currentTime, m=t>=DCUT?'cbg':'usual';
+      if(chBar && DF.v.duration) chBar.style.width=(t/DF.v.duration*100).toFixed(2)+'%';
+      document.querySelector('.film-chapters').setAttribute('data-on', m);
+      if(Date.now()>dHold && m!==diffMode) setMode(m);
+    }); }
   setMode('cbg');
 
   /* ================= ecosystem ================= */
