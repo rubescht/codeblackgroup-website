@@ -646,6 +646,19 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 }
 @media (max-width:520px){.cine-cta{font-size:11.5px;padding:10px 13px}}
 @media (max-aspect-ratio:3/2){.hero-cine .screen.cine video{object-fit:contain}}
+
+/* hero film: controls live in a cinema bar under the picture, so nothing covers the film */
+.hero-cine{--barh:64px}
+.hero-cine .screen.cine{inset:0 0 var(--barh) 0}
+.hero-cine .cine .frame{overflow:visible}
+.hero-cine .cine .vprog{bottom:0}
+.cine-bar{height:var(--barh);padding-block:0;justify-content:flex-start;gap:18px;background:transparent;border-top:1px solid rgba(201,162,74,.35)}
+.hero-cine.playing .cine-bar{pointer-events:none}.hero-cine.playing .cine-bar>*{pointer-events:auto}
+.hero-cine .cine .vbar{opacity:1;bottom:calc((var(--barh) - 36px) / -2 - 36px);right:max(24px,calc((100vw - var(--wrap)) / 2 + 24px));left:auto;padding:0;background:none}
+.hero-cine:not(.playing) .cine-bar{background:transparent;border-color:transparent}
+.cine-short{display:none}
+@media (orientation:portrait),(max-aspect-ratio:1/1){.hero-cine .cine .vbar{bottom:calc((var(--barh) - 36px) / -2 - 36px);right:16px}}
+@media (max-width:520px){.cine-long{display:none}.cine-short{display:inline}.cine-bar{gap:10px}.cine-intro{display:none}}
 </style>
 
 <style>html,body{margin:0}</style>
@@ -709,7 +722,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
       </div>
     </div>
     <div class="cine-bar">
-      <a class="cine-cta" href="#discover">Find your path in 60 seconds <span aria-hidden="true">&rarr;</span></a>
+      <a class="cine-cta" href="#discover"><span class="cine-long">Find your path in 60 seconds</span><span class="cine-short">Find your path</span> <span aria-hidden="true">&rarr;</span></a>
       <button type="button" class="cine-intro" id="cine-intro">Show intro</button>
     </div>
     <a class="cine-scroll" href="#difference" aria-label="Scroll to the next section"><span></span></a>
@@ -1617,7 +1630,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   });
   /* ================= films ================= */
   var VIDEOS = {
-    brand:{title:'One call. Every angle.', src:'media/brand-film-gold.mp4', poster:'media/brand-film-gold.jpg', len:'62 SEC', body:'Why one accountable group beats a stack of vendors.'},
+    brand:{title:'One call. Every angle.', src:'media/brand-film-art.mp4', poster:'media/brand-film-gold.jpg', len:'62 SEC', body:'Why one accountable group beats a stack of vendors.'},
     usual:{title:'The usual way vs ours', src:'media/usual-vs-ours.mp4', poster:'media/usual-vs-ours.jpg', len:'45 SEC', body:'Six vendors against one account manager and one team.'},
     eco:{title:'Inside the ecosystem', src:'media/ecosystem.mp4', poster:'media/ecosystem.jpg', len:'58 SEC', body:'All six divisions and how they connect.'},
     after:{title:'What happens after you call', src:'media/after-you-call.mp4', poster:'media/after-you-call.jpg', len:'49 SEC', body:'Five steps from first call to one team delivering.'},
