@@ -22,6 +22,7 @@
 <link rel="icon" href="logos/cbg-mark-white.svg" type="image/svg+xml">
 <title>Code Black Group | All Angles Covered</title>
 <link rel="preload" as="image" href="img/hero-melbourne.jpg">
+<link rel="preload" as="font" type="font/woff2" href="fonts/orbitron-900.woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Poppins:wght@300;400;500;700;900&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
@@ -768,25 +769,42 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .film-chapters[data-on="usual"] [data-ch="usual"],.film-chapters[data-on="cbg"] [data-ch="cbg"]{color:var(--gold-hi)}
 @media (max-width:520px){.diff-film{margin-bottom:28px}.film-chapters{font-size:10.5px;gap:10px}.screen.seam .vbar{right:4%;bottom:6%}}
 
-/* ---------- hero headline as artwork: "All / ANGLES / Covered." ---------- */
+@font-face{font-family:"Orbitron";font-weight:500;font-display:swap;src:url("fonts/orbitron-500.woff2") format("woff2")}
+@font-face{font-family:"Orbitron";font-weight:700;font-display:swap;src:url("fonts/orbitron-700.woff2") format("woff2")}
+@font-face{font-family:"Orbitron";font-weight:900;font-display:swap;src:url("fonts/orbitron-900.woff2") format("woff2")}
+/* ---------- hero headline, futuristic: "ALL / ANGLES / COVERED." in HUD style (matches the film's close) ---------- */
 .aac-wrap{max-width:860px}
-.hero h1.aac{position:relative;display:grid;justify-items:start;margin-top:26px;font-size:inherit;line-height:.84;letter-spacing:0;text-shadow:none;isolation:isolate}
-.aac-all{display:flex;align-items:center;gap:16px;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(30px,3.6vw,52px);color:var(--gold-hi);line-height:1;margin:0 0 4px 4px}
-.aac-all::after{content:"";width:clamp(60px,9vw,140px);height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
-.aac-angles{font-family:var(--display);font-weight:900;font-size:clamp(66px,10.4vw,150px);letter-spacing:-.02em;line-height:.86;color:transparent;-webkit-text-fill-color:transparent;-webkit-text-stroke:1.4px #e8cd87;
-  background:linear-gradient(100deg,transparent 0 38%,rgba(255,246,214,.95) 46%,transparent 54% 100%) no-repeat,repeating-linear-gradient(118deg,rgba(232,205,135,.78) 0 1.6px,transparent 1.6px 7px),linear-gradient(180deg,rgba(201,162,74,.22),rgba(201,162,74,.06));
-  background-size:260% 100%,auto,auto;background-position:140% 0,0 0,0 0;-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 10px 24px rgba(0,0,0,.7));animation:aacSweep 6.5s cubic-bezier(.45,.05,.35,1) 1.2s infinite}
-@keyframes aacSweep{0%{background-position:140% 0,0 0,0 0}45%,100%{background-position:-40% 0,0 0,0 0}}
-.aac-cov{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(50px,7.2vw,106px);line-height:1;margin:-.16em 0 0 1.05em;padding:0 .12em .08em 0;background:var(--metal-flat);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 0 #5a3f12) drop-shadow(0 12px 22px rgba(0,0,0,.75))}
-.aac-angle{position:absolute;z-index:-1;left:-14px;bottom:-6%;width:clamp(230px,34vw,470px);height:auto;overflow:visible;opacity:.7;pointer-events:none}
-.aac-angle path{fill:none;stroke:var(--gold);stroke-width:1.1;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.aac-angle .ray{stroke:rgba(201,162,74,.75);stroke-dasharray:520;stroke-dashoffset:520;animation:aacDraw 1.6s cubic-bezier(.2,.7,.2,1) .3s forwards}
-.aac-angle .r2{animation-delay:.55s}.aac-angle .r3{stroke:rgba(201,162,74,.35);animation-delay:.8s}
-.aac-angle .arc,.aac-angle .ticks{stroke:var(--gold-hi);stroke-dasharray:200;stroke-dashoffset:200;animation:aacDraw 1.2s ease 1.2s forwards}
-.aac-angle .vx{fill:var(--gold-hi);filter:drop-shadow(0 0 6px rgba(232,205,135,.9))}
-.aac-angle .deg{font-family:var(--display);font-size:13px;letter-spacing:.12em;fill:var(--gold-hi);opacity:0;animation:aacFade .8s ease 2s forwards}
-@keyframes aacDraw{to{stroke-dashoffset:0}}
-@keyframes aacFade{to{opacity:.9}}
+.hero h1.aac.fx{--orb:"Orbitron","Poppins",system-ui,sans-serif;position:relative;display:grid;width:fit-content;max-width:100%;justify-items:start;margin-top:24px;padding:22px 30px 20px 26px;font-size:inherit;line-height:1;letter-spacing:0;text-shadow:none;isolation:isolate}
+.fx-tag{display:flex;align-items:center;gap:8px;font-family:var(--orb);font-size:11px;font-weight:500;letter-spacing:.32em;color:var(--muted);margin-bottom:10px}
+.fx-tag i{width:7px;height:7px;border-radius:50%;background:#e5484d;box-shadow:0 0 8px rgba(229,72,77,.9);animation:fxBlink 1.1s steps(2) infinite}
+.fx-tag b{color:var(--gold);font-weight:500}
+@keyframes fxBlink{50%{opacity:.15}}
+.fx-all{font-family:var(--orb);font-weight:700;font-size:clamp(20px,2.3vw,32px);letter-spacing:.62em;color:var(--gold-hi);margin:0 0 6px 2px}
+.fx-angles{position:relative;font-family:var(--orb);font-weight:900;font-size:clamp(56px,9vw,130px);letter-spacing:.02em;line-height:.95;color:transparent;-webkit-text-fill-color:transparent;
+  background:repeating-linear-gradient(180deg,rgba(0,0,0,.42) 0 1px,transparent 1px 4px),linear-gradient(100deg,transparent 0 40%,rgba(255,248,220,.9) 48%,transparent 56% 100%) no-repeat,var(--metal-flat);
+  background-size:auto,260% 100%,100% 100%;background-position:0 0,140% 0,0 0;-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 0 18px rgba(201,162,74,.28)) drop-shadow(0 8px 20px rgba(0,0,0,.8));animation:fxSweep 5.5s cubic-bezier(.45,.05,.35,1) 2.2s infinite}
+@keyframes fxSweep{0%{background-position:0 0,140% 0,0 0}40%,100%{background-position:0 0,-40% 0,0 0}}
+.fx-angles::before,.fx-angles::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;-webkit-text-fill-color:currentColor;background:none;opacity:0}
+.fx-angles::before{color:rgba(229,72,77,.85);animation:fxGlitchA 7s steps(1) 1.6s infinite}
+.fx-angles::after{color:rgba(246,226,162,.8);animation:fxGlitchB 7s steps(1) 1.6s infinite}
+@keyframes fxGlitchA{0%,86%,100%{opacity:0;transform:none;clip-path:inset(0)}87%{opacity:1;transform:translate(-5px,0);clip-path:inset(12% 0 60% 0)}88.5%{opacity:1;transform:translate(4px,0);clip-path:inset(55% 0 20% 0)}90%{opacity:1;transform:translate(-3px,0);clip-path:inset(30% 0 45% 0)}91%{opacity:0}}
+@keyframes fxGlitchB{0%,86%,100%{opacity:0;transform:none;clip-path:inset(0)}87.5%{opacity:.9;transform:translate(5px,0);clip-path:inset(62% 0 8% 0)}89%{opacity:.9;transform:translate(-4px,0);clip-path:inset(5% 0 70% 0)}90.5%{opacity:0}}
+.fx-cov{font-family:var(--orb);font-weight:500;font-size:clamp(28px,4.7vw,66px);letter-spacing:.2em;color:transparent;-webkit-text-stroke:1.3px var(--gold-hi);margin-top:8px}
+.fx-bar{display:flex;gap:6px;width:100%;margin-top:16px}
+.fx-bar i{flex:1;height:4px;background:rgba(201,162,74,.18)}
+.fx.on .fx-bar i{animation:fxSeg .25s ease forwards}
+.fx-bar i:nth-child(1){animation-delay:1.25s}.fx-bar i:nth-child(2){animation-delay:1.33s}.fx-bar i:nth-child(3){animation-delay:1.41s}.fx-bar i:nth-child(4){animation-delay:1.49s}.fx-bar i:nth-child(5){animation-delay:1.57s}.fx-bar i:nth-child(6){animation-delay:1.65s}
+.fx-bar i:nth-child(7){animation-delay:1.73s}.fx-bar i:nth-child(8){animation-delay:1.81s}.fx-bar i:nth-child(9){animation-delay:1.89s}.fx-bar i:nth-child(10){animation-delay:1.97s}.fx-bar i:nth-child(11){animation-delay:2.05s}.fx-bar i:nth-child(12){animation-delay:2.13s}
+@keyframes fxSeg{to{background:var(--metal-flat);box-shadow:0 0 6px rgba(232,205,135,.5)}}
+.fx-br{position:absolute;width:22px;height:22px;border:0 solid var(--gold);opacity:.85}
+.fx-br.tl{left:0;top:0;border-left-width:2px;border-top-width:2px}.fx-br.tr{right:0;top:0;border-right-width:2px;border-top-width:2px}
+.fx-br.bl{left:0;bottom:0;border-left-width:2px;border-bottom-width:2px}.fx-br.br{right:0;bottom:0;border-right-width:2px;border-bottom-width:2px}
+.fx.on .fx-br{animation:fxLock .6s cubic-bezier(.2,.8,.2,1) both}
+.fx.on .fx-br.tl{--dx:-14px;--dy:-14px}.fx.on .fx-br.tr{--dx:14px;--dy:-14px}.fx.on .fx-br.bl{--dx:-14px;--dy:14px}.fx.on .fx-br.br{--dx:14px;--dy:14px}
+@keyframes fxLock{0%{opacity:0;transform:translate(var(--dx),var(--dy))}60%{opacity:1}75%{opacity:.3}100%{opacity:.85;transform:none}}
+.fx .scr{opacity:.55;color:var(--muted)}
+@media (max-width:520px){.hero h1.aac.fx{padding:16px 18px 14px 16px}.fx-tag{font-size:9.5px;letter-spacing:.24em}.fx-all{letter-spacing:.5em}.fx-cov{letter-spacing:.14em;-webkit-text-stroke-width:1px}}
+@media (prefers-reduced-motion:reduce){.fx-angles,.fx-angles::before,.fx-angles::after,.fx-tag i{animation:none}.fx.on .fx-bar i{animation:none;background:var(--metal-flat)}}
 .hero-cine .lead{margin-top:22px;max-width:44ch}
 .pod{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:760px}
 .pod li{position:relative;padding:2px 0 2px 14px}
@@ -827,10 +845,10 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .hero-cine.playing .hero-bg{opacity:1}
 .hero-cine.playing .cine-bar,.hero-cine .cine-bar{border-top-color:transparent}
 @media (orientation:portrait),(max-aspect-ratio:1/1){.hero-cine .hero-bg{background-position:center 28%}}
-@media (prefers-reduced-motion:reduce){.aac-angles,.fc-play{animation:none}.aac-angle *{animation:none!important;stroke-dashoffset:0!important;opacity:.9!important}}
-@media (max-height:760px) and (min-aspect-ratio:1/1){.aac-angles{font-size:clamp(60px,8.4vw,120px)}.aac-cov{font-size:clamp(44px,5.8vw,86px)}.pod{margin-top:16px}.pod span{font-size:13px}.hero-cine .ctas{margin-top:20px}.cine-timer{margin-top:18px}}
+@media (prefers-reduced-motion:reduce){.fc-play{animation:none}.aac-angle *{animation:none!important;stroke-dashoffset:0!important;opacity:.9!important}}
+@media (max-height:820px) and (min-aspect-ratio:1/1){.fx-angles{font-size:clamp(46px,6.4vw,94px)}.fx-cov{font-size:clamp(24px,3.4vw,48px)}.fx-all{font-size:clamp(18px,1.9vw,26px)}.hero-cine .lead{margin-top:16px;font-size:clamp(16px,1.4vw,19px)}.pod{margin-top:14px}.fx-tag{margin-bottom:6px}.fx-bar{margin-top:12px}.hero h1.aac.fx{margin-top:16px;padding-top:16px;padding-bottom:14px}.pod{margin-top:16px}.pod span{font-size:13px}.hero-cine .ctas{margin-top:20px}.cine-timer{margin-top:18px}}
 @media (max-width:760px){.pod{grid-template-columns:1fr;gap:10px}.pod span{margin-top:2px}}
-@media (max-width:520px){.aac-angle{width:200px;left:-8px;bottom:-4%;opacity:.55}.aac-cov{margin-left:.7em}.hero-cine .ctas{flex-direction:column;align-items:stretch}.hero-cine .ctas .btn{text-align:center;justify-content:center}.film-card{width:100%}}
+@media (max-width:520px){.hero-cine .ctas{flex-direction:column;align-items:stretch}.hero-cine .ctas .btn{text-align:center;justify-content:center}.film-card{width:100%}}
 </style>
 
 <style>html,body{margin:0}</style>
@@ -883,18 +901,13 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     <div class="wrap cine-copy">
       <div class="aac-wrap">
         <span class="pill">Six specialist divisions. One accountable group.</span>
-        <h1 id="hero-h" class="aac" aria-label="All angles covered.">
-          <svg class="aac-angle" viewBox="0 0 400 260" aria-hidden="true">
-            <path class="ray r1" d="M10 250 H390"/>
-            <path class="ray r2" d="M10 250 L330 30"/>
-            <path class="ray r3" d="M10 250 L380 140"/>
-            <path class="arc" d="M150 250 A140 140 0 0 0 125.4 170.7"/>
-            <path class="ticks" d="M178 250h-10M176.4 229.4l-9.7 2.1M171.6 209.5l-9.4 3.4M164 190.5l-8.8 4.7"/>
-            <circle class="vx" cx="10" cy="250" r="4"/>
-          </svg>
-          <span class="aac-all" aria-hidden="true">All</span>
-          <span class="aac-angles" aria-hidden="true">ANGLES</span>
-          <span class="aac-cov" aria-hidden="true">Covered.</span>
+        <h1 id="hero-h" class="aac fx" aria-label="All angles covered.">
+          <span class="fx-tag" aria-hidden="true"><i></i>SYS.STATUS <b>//</b> 360&deg; SCAN</span>
+          <span class="fx-all" aria-hidden="true" data-fx="ALL">ALL</span>
+          <span class="fx-angles" aria-hidden="true" data-fx="ANGLES" data-text="ANGLES">ANGLES</span>
+          <span class="fx-cov" aria-hidden="true" data-fx="COVERED.">COVERED.</span>
+          <span class="fx-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="fx-br tl" aria-hidden="true"></span><span class="fx-br tr" aria-hidden="true"></span><span class="fx-br bl" aria-hidden="true"></span><span class="fx-br br" aria-hidden="true"></span>
         </h1>
         <p class="lead">From cyber and A.I. to IT, digital &amp; online platforms, surveillance and connectivity: one team, one call, fully accountable.</p>
         <ul class="pod" aria-label="Our point of difference">
@@ -1892,6 +1905,28 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   }
   var byId={};
   document.querySelectorAll('.screen').forEach(function(s){ var P=makePlayer(s); byId[s.id||s.getAttribute('data-video')]=P; });
+  /* hero headline: decode from scrambled code, letter by letter (like the film's close) */
+  var FX=document.querySelector('.aac.fx');
+  window.addEventListener('resize', function(){ if(FX) [].forEach.call(FX.querySelectorAll('[data-fx]'), function(el){ el.style.width=''; }); });
+  function fxDecode(){
+    if(!FX) return; FX.classList.remove('on'); void FX.offsetWidth; FX.classList.add('on');
+    if(reduce) return;
+    [].forEach.call(FX.querySelectorAll('[data-fx]'), function(el){ el.textContent=el.getAttribute('data-fx'); el.style.width=''; el.style.width=Math.ceil(el.getBoundingClientRect().width)+'px'; el.style.whiteSpace='nowrap'; el.style.overflow='visible'; });
+    var G='ABCDEFGHJKLMNPRSTUVWXYZ0123456789#/<>=+';
+    [].forEach.call(FX.querySelectorAll('[data-fx]'), function(el, li){
+      var txt=el.getAttribute('data-fx'), start=performance.now()+li*220, per=55;
+      (function step(now){
+        var out='', done=true;
+        for(var i=0;i<txt.length;i++){
+          var lockAt=start+i*per+260;
+          if(now>=lockAt || txt[i]===' ' || txt[i]==='.') out+=txt[i];
+          else { done=false; out+=(now<start? ' ' : G[(Math.random()*G.length)|0]); }
+        }
+        el.textContent=out; if(el.hasAttribute('data-text')) el.setAttribute('data-text', out);
+        if(!done) requestAnimationFrame(step);
+      })(performance.now());
+    });
+  }
   /* cinematic hero: show the intro text, then play the brand film full size; back to the text when it ends */
   (function(){
     var hero=document.getElementById('top-hero'), HP=byId['hero-screen']; if(!hero||!HP) return;
@@ -1903,7 +1938,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     function film(){ clearTimeout(timer); clearInterval(tick); setTimeout(soundHint,1200); hero.classList.remove('counting'); hero.classList.add('playing'); HP.userPaused=false; HP.ensure(); try{ HP.v.currentTime=0.85; }catch(e){} if(inView) HP.play(); }
     HP.restartAt=function(){ return 0.85; };  /* the backdrop is already on screen, so skip the film's fade-in: a seamless dissolve */
     function rest(){ var v=HP.v, far=v.currentTime>1.5; if(far) hero.classList.add('resetting'); var go=function(){ try{ v.currentTime=0.85; }catch(e){} }; if(v.readyState>=1) go(); else v.addEventListener('loadedmetadata',go,{once:true}); if(far) v.addEventListener('seeked',function(){ requestAnimationFrame(function(){ hero.classList.remove('resetting'); }); },{once:true}); }
-    function introText(){ clearTimeout(timer); hero.classList.remove('playing'); HP.v.pause(); rest(); hero.classList.remove('counting'); void hero.offsetWidth;
+    function introText(){ clearTimeout(timer); var wasPlaying=hero.classList.contains('playing'); hero.classList.remove('playing'); HP.v.pause(); rest(); setTimeout(fxDecode, wasPlaying?700:0); hero.classList.remove('counting'); void hero.offsetWidth;
       if(reduce) return; hero.classList.add('counting'); countdown(); timer=setTimeout(film, INTRO); }
     function begin(){ if(started) return; started=true; HP.ensure(); introText(); }
     HP.v.addEventListener('ended', introText);
