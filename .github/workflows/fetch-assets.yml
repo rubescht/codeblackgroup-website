@@ -8,7 +8,7 @@ jobs:
     steps:
       - run: |
           mkdir out && cd out
-          A=https://cdn.creativeclaw.co/u/48eaa2c1/audio
-          i=1; for id in 9712aa54-4595-48e4-a172-ca88cf627d2e 4f6c8185-ee95-4716-855c-411dbff15817 d42ae16b-0bbb-46c9-be11-fd850c3208da d8472915-d419-4f9a-a7ce-bdce7c1c78f6 5b27a849-3b32-4eb7-85ce-b479bcec628d 03c3d9b8-92d7-4b14-b245-6926941cb572 e699a83a-f882-4bd1-a4a2-b50f7c924756 edae5c69-a725-4cda-9cdf-20bba1f6ba54 2c868071-cb2e-433f-b5a7-205d0daea1cc d447bf25-bb0b-4fdd-88ca-2331f9d25813; do curl -sfL -o vo$i.mp3 $A/$id.mp3; i=$((i+1)); done
+          A=https://cdn.creativeclaw.co/u/48eaa2c1/audio; curl -sfL -o bed.mp3 $A/42b41496-1790-41c1-bb8d-484cf4077b12.mp3
+          true
           git init -q && git add . && git -c user.name=bot -c user.email=b@b commit -qm a
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" HEAD:assets-fetch
