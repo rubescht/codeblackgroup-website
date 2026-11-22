@@ -159,6 +159,27 @@ body.st::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;
 }
 @media (prefers-reduced-motion:reduce){.ahero .orbit,.ribbon .track{animation:none}.grow path,.grow ellipse{stroke-dashoffset:0}}
 
+/* ===== full-screen film ===== */
+.ff{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:#0E0E10;color:#F4F1EA;display:flex;align-items:center;isolation:isolate}
+.ff .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.ff::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(14,14,16,.88) 0%,rgba(14,14,16,.55) 45%,rgba(14,14,16,.15) 100%),linear-gradient(0deg,rgba(14,14,16,.7),transparent 35%)}
+.ff .eyebrow{color:var(--rose-soft)}
+.ff h2{margin:18px 0 18px;font-size:clamp(40px,6vw,88px);line-height:1.02;letter-spacing:-.02em;max-width:14ch;color:#F4F1EA}
+.ff h2 em{font-style:italic;background:linear-gradient(95deg,#E0A096,#F3CDB0 60%,#C97C6E);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.ff p{max-width:46ch;color:#CFCBC3;font-size:clamp(16px,1.4vw,19px);margin:0 0 34px}
+.ff-play{display:inline-flex;align-items:center;gap:18px;background:none;border:0;padding:0;color:#F4F1EA;font:600 16px var(--sans);cursor:pointer}
+.ff-play .pr{position:relative;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:rgba(224,160,150,.95);color:#121316;box-shadow:0 0 0 0 rgba(224,160,150,.5);animation:ffpulse 2.4s ease-out infinite;transition:transform .3s ease}
+.ff-play:hover .pr{transform:scale(1.06)}
+.ff-play small{display:block;font-weight:400;font-size:13.5px;color:#9B978F;margin-top:3px}
+@keyframes ffpulse{0%{box-shadow:0 0 0 0 rgba(224,160,150,.55)}100%{box-shadow:0 0 0 28px rgba(224,160,150,0)}}
+.ff .meta{position:absolute;right:var(--gut,24px);bottom:26px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9B978F}
+.ffp{position:fixed;inset:0;z-index:200;background:#000;display:none;align-items:center;justify-content:center}
+.ffp.open{display:flex}
+.ffp video{width:100%;height:100%;object-fit:contain;background:#000}
+.ffp .x{position:absolute;top:18px;right:18px;z-index:2;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.5);color:#fff;font-size:24px;line-height:1;cursor:pointer}
+@media (max-width:640px){.ff{align-items:flex-end;padding-bottom:70px}.ff::before{background:linear-gradient(0deg,rgba(14,14,16,.92) 0%,rgba(14,14,16,.6) 55%,rgba(14,14,16,.2) 100%)}.ff .pr{width:68px;height:68px}}
+@media (prefers-reduced-motion:reduce){.ff-play .pr{animation:none}}
+
 @media (max-width:1024px){.phases{grid-template-columns:1fr 1fr}.phases .phase:last-child{grid-column:1/-1}}
 @media (max-width:860px){.story{grid-template-columns:1fr}.story figure{max-width:360px}.lc{max-width:520px}}
 @media (max-width:640px){
@@ -223,6 +244,7 @@ body.st::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;
           <a class="btn" href="#first">See what to do first
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
           <a class="textlink" href="#discovery">Take the 60-second launch check</a>
+          <a class="textlink" href="#film-play">▶ Watch the film</a>
         </div>
         <div class="proof">
           <span>Founded by a sole trader in 2005</span>
@@ -249,6 +271,20 @@ body.st::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="ff" id="watch" aria-labelledby="ff-h">
+    <video class="bgv" src="../media/startup-film-loop.mp4" poster="../media/startup-film-loop.jpg" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video>
+    <div class="wrap">
+      <span class="eyebrow">Why startups choose us</span>
+      <h2 id="ff-h">We started <em>where you are.</em></h2>
+      <p>One person, one laptop and a lot riding on it. See how a sole trader’s business became six specialist teams, and what that means for yours.</p>
+      <button class="ff-play" type="button" id="ff-play" aria-label="Play the film with sound, full screen">
+        <span class="pr"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+        <span>Watch with sound<small>54 seconds · full screen</small></span>
+      </button>
+    </div>
+    <span class="meta">Film · Code Black Group</span>
   </section>
 
   <section class="figures" aria-label="Why it matters">
@@ -428,6 +464,37 @@ body.st::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;
   </div>
 </footer>
 
+<div class="ffp" id="ffp" role="dialog" aria-modal="true" aria-label="Film: why startups choose Code Black Group">
+  <button class="x" type="button" id="ffp-x" aria-label="Close film">×</button>
+  <video id="ffv" src="../media/startup-film.mp4" poster="../media/startup-film.jpg" preload="none" controls playsinline></video>
+</div>
+<script>
+(function(){
+  var bg=document.querySelector('.ff .bgv'), ov=document.getElementById('ffp'), v=document.getElementById('ffv'), btn=document.getElementById('ff-play'), x=document.getElementById('ffp-x');
+  if(bg){
+    if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ bg.removeAttribute('autoplay'); bg.pause(); }
+    else if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ var p=bg.play(); if(p&&p.catch)p.catch(function(){}); } else bg.pause(); }); },{threshold:.15}).observe(bg); }
+  }
+  function open(){
+    ov.classList.add('open'); document.body.style.overflow='hidden'; v.currentTime=0; v.muted=false;
+    var p=v.play(); if(p&&p.catch) p.catch(function(){});
+    try{ if(ov.requestFullscreen) ov.requestFullscreen().catch(function(){}); else if(v.webkitEnterFullscreen) v.webkitEnterFullscreen(); }catch(e){}
+    if(bg) bg.pause(); x.focus();
+  }
+  function close(){
+    v.pause(); ov.classList.remove('open'); document.body.style.overflow='';
+    if(document.fullscreenElement&&document.exitFullscreen) document.exitFullscreen().catch(function(){});
+    btn.focus();
+  }
+  btn.addEventListener('click',open);
+  document.querySelectorAll('a[href="#film-play"]').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); open(); }); });
+  x.addEventListener('click',close);
+  v.addEventListener('ended',close);
+  v.addEventListener('webkitendfullscreen',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open')) close(); });
+  document.addEventListener('fullscreenchange',function(){ if(!document.fullscreenElement&&ov.classList.contains('open')) close(); });
+})();
+</script>
 <script src="../assets/editorial.js"></script>
 <script src="../assets/disc/startups.js"></script>
 <script src="../assets/discovery.js"></script>
