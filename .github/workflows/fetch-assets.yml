@@ -1,0 +1,18 @@
+name: fetch-assets
+on:
+  push:
+    paths: ['.github/workflows/fetch-assets.yml']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download to a side branch
+        run: |
+          mkdir out && cd out
+          curl -fsSL -o score.mp3 https://cdn.creativeclaw.co/u/48eaa2c1/audio/41ed5d52-d28d-4703-88f8-5def441aba43.mp3
+          git init -q -b assets-fetch
+          git config user.name github-actions && git config user.email github-actions@users.noreply.github.com
+          git add . && git commit -qm "fetched assets"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" assets-fetch
