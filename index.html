@@ -674,6 +674,11 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 @media (orientation:portrait),(max-aspect-ratio:1/1){.hero-cine .cine .vbar{bottom:calc((var(--barh) - 36px) / -2 - 36px);right:16px}}
 @media (max-width:520px){.cine-long{display:none}.cine-short{display:inline}.cine-bar{gap:10px}.cine-intro{display:none}}
 
+/* "tap for sound": only shown if the browser made the film start muted */
+.cine-tap{position:absolute;z-index:5;left:50%;bottom:calc(var(--barh) + 22px);transform:translateX(-50%);display:none;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;border:1px solid var(--gold-hi);background:rgba(0,0,0,.72);backdrop-filter:blur(6px);color:var(--gold-hi);font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;animation:tapPulse 1.8s ease-in-out infinite}
+.cine-tap:hover{background:var(--gold);color:var(--on-gold)}
+.hero-cine.playing.needs-sound .cine-tap{display:inline-flex}
+@keyframes tapPulse{0%,100%{box-shadow:0 0 0 0 rgba(232,205,135,.55)}50%{box-shadow:0 0 0 10px rgba(232,205,135,0)}}
 /* breathing room between the hero's control bar and the stats cards */
 .hero-cine + .wrap .proof{margin-top:44px}
 @media (max-width:760px){.hero-cine + .wrap .proof{margin-top:28px}}
@@ -929,6 +934,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
       <a class="cine-cta" href="#discover"><span class="cine-long">Find your path in 60 seconds</span><span class="cine-short">Find your path</span> <span aria-hidden="true">&rarr;</span></a>
       <button type="button" class="cine-intro" id="cine-intro">Show intro</button>
     </div>
+    <button type="button" class="cine-tap" id="cine-tap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>Tap for sound</button>
     <a class="cine-scroll" href="#difference" aria-label="Scroll to the next section"><span></span></a>
   </section>
 
@@ -1935,7 +1941,28 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     var cnt=document.getElementById('cine-count'), tick=null;
     function countdown(){ clearInterval(tick); var left=Math.round(INTRO/1000); if(cnt) cnt.textContent=left; tick=setInterval(function(){ left--; if(cnt) cnt.textContent=Math.max(left,0); if(left<=0) clearInterval(tick); },1000); }
     function soundHint(){ var b=[].filter.call(HP.scr.querySelectorAll('.vbar button'),function(x){return /^SOUND/.test(x.textContent)})[0]; if(b&&HP.v.muted){ b.classList.remove('snd-hint'); void b.offsetWidth; b.classList.add('snd-hint'); } }
-    function film(){ clearTimeout(timer); clearInterval(tick); setTimeout(soundHint,1200); hero.classList.remove('counting'); hero.classList.add('playing'); HP.userPaused=false; HP.ensure(); try{ HP.v.currentTime=0.85; }catch(e){} if(inView) HP.play(); }
+    /* sound on by default: browsers only allow it once the visitor has clicked or tapped the page, so try with sound,
+       fall back to muted with a clear "tap for sound" button, and switch sound on at the visitor's first click or tap */
+    var userMuted=false, autoMuting=false;
+    HP.v.addEventListener('volumechange', function(){ if(!HP.v.muted) hero.classList.remove('needs-sound'); });
+    /* only the visitor's own press of the Sound button counts as choosing sound off/on */
+    var sndBtn=[].filter.call(HP.scr.querySelectorAll('.vbar button'),function(x){return /^SOUND/.test(x.textContent)})[0];
+    if(sndBtn) sndBtn.addEventListener('click', function(){ setTimeout(function(){ userMuted=HP.v.muted; },0); });
+    function soundOn(){ if(userMuted) return; players.forEach(function(o){ if(o!==HP && !o.v.muted){ o.v.muted=true; o.sync(); } }); autoMuting=true; HP.v.muted=false; autoMuting=false; hero.classList.remove('needs-sound'); HP.sync(); }
+    function playWithSound(){
+      HP.ensure(); if(!userMuted){ autoMuting=true; HP.v.muted=false; autoMuting=false; }
+      var pr=HP.v.play();
+      if(pr && pr.catch) pr.catch(function(err){
+        if(err && err.name==='NotAllowedError' && !HP.v.muted){ autoMuting=true; HP.v.muted=true; autoMuting=false; hero.classList.add('needs-sound'); var p2=HP.v.play(); if(p2&&p2.catch) p2.catch(function(){}); }
+      });
+    }
+    var justUnmuted=0;
+    function firstTouch(){ if(hero.classList.contains('needs-sound') && hero.classList.contains('playing')){ soundOn(); justUnmuted=Date.now(); } }
+    /* the tap that switches sound on should not also pause the film */
+    HP.v.addEventListener('click', function(e){ if(Date.now()-justUnmuted<800){ e.stopImmediatePropagation(); } }, true);
+    ['pointerdown','keydown','touchend'].forEach(function(ev){ document.addEventListener(ev, firstTouch, true); });
+    var tap=document.getElementById('cine-tap'); if(tap) tap.addEventListener('click', function(e){ e.stopPropagation(); soundOn(); var pr=HP.v.play(); if(pr&&pr.catch) pr.catch(function(){}); });
+    function film(){ clearTimeout(timer); clearInterval(tick); setTimeout(soundHint,1200); hero.classList.remove('counting'); hero.classList.add('playing'); HP.userPaused=false; HP.ensure(); try{ HP.v.currentTime=0.85; }catch(e){} if(inView) playWithSound(); }
     HP.restartAt=function(){ return 0.85; };  /* the backdrop is already on screen, so skip the film's fade-in: a seamless dissolve */
     function rest(){ var v=HP.v, far=v.currentTime>1.5; if(far) hero.classList.add('resetting'); var go=function(){ try{ v.currentTime=0.85; }catch(e){} }; if(v.readyState>=1) go(); else v.addEventListener('loadedmetadata',go,{once:true}); if(far) v.addEventListener('seeked',function(){ requestAnimationFrame(function(){ hero.classList.remove('resetting'); }); },{once:true}); }
     function introText(){ clearTimeout(timer); var wasPlaying=hero.classList.contains('playing'); hero.classList.remove('playing'); HP.v.pause(); rest(); setTimeout(fxDecode, wasPlaying?700:0); hero.classList.remove('counting'); void hero.offsetWidth;
