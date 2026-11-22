@@ -96,6 +96,69 @@ body.st{--paper:#F8F4EF;--line:#E8DFD4;--rose:#B8645A;--rose-soft:#E0A096}
 .story blockquote{margin:26px 0 0;padding-left:22px;border-left:2px solid var(--rose);font-family:var(--serif);font-size:24px;line-height:1.35}
 .story cite{display:block;margin-top:12px;font-style:normal;font-size:14px;color:var(--muted)}
 
+/* ===== artistic layer ===== */
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+body.st::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.045;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+/* dark header */
+.st .head{background:#0E0E10;border-bottom-color:rgba(255,255,255,.08)}
+.st .logo{background:#F4F1EA}
+.st .nav a{color:#CFCBC3}.st .nav a:hover{border-color:var(--rose-soft);color:#fff}
+.st .head-cta .tel{color:#F4F1EA}
+.st .head-cta .btn{background:var(--rose-soft);border-color:var(--rose-soft);color:#121316}
+.st .menu-btn{background:transparent;border-color:rgba(255,255,255,.2)}
+.st .menu-btn span,.st .menu-btn span::before,.st .menu-btn span::after{background:#F4F1EA}
+@media (max-width:920px){.st .mnav{background:#121316;border-color:rgba(255,255,255,.08)}.st .mnav a{color:#F4F1EA;border-color:rgba(255,255,255,.08)}.st .mnav .btn{background:var(--rose-soft);color:#121316;border-color:var(--rose-soft)}}
+/* hero */
+.ahero{position:relative;background:#0E0E10;color:#F4F1EA;overflow:hidden;isolation:isolate;padding-top:clamp(56px,8vw,120px)}
+.ahero::before{content:"";position:absolute;right:-10%;top:-20%;width:70%;height:120%;background:radial-gradient(closest-side,rgba(224,160,150,.16),transparent 70%);z-index:-2}
+.ahero .orbit{position:absolute;right:-22vmin;top:-26vmin;width:96vmin;height:96vmin;z-index:-1;opacity:.6;animation:spin 140s linear infinite;pointer-events:none}
+.ahero .orbit *{fill:none;stroke:#E0A096}
+.ahero .eyebrow{color:var(--rose-soft)}
+.ahero h1{color:#F4F1EA}
+.ahero h1 em{background:linear-gradient(95deg,#E0A096 0%,#F3CDB0 55%,#C97C6E 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.ahero .lead{color:#B9B5AD}
+.ahero .btn{background:var(--rose-soft);border-color:var(--rose-soft);color:#121316}.ahero .btn:hover{background:#F0B8AE}
+.ahero .textlink{color:#F4F1EA;border-color:rgba(255,255,255,.3)}
+.ahero .proof{border-color:rgba(255,255,255,.12);color:#9B978F}
+.hvis{position:relative;padding:0 0 70px 48px}
+.hvis::before{content:"";position:absolute;left:28px;top:-20px;right:-20px;bottom:50px;border:1px dashed rgba(224,160,150,.35);border-radius:999px 999px 28px 28px;pointer-events:none}
+.arch{position:relative;margin:0;aspect-ratio:4/5;border-radius:999px 999px 24px 24px;overflow:hidden;box-shadow:0 0 0 1px rgba(224,160,150,.35),0 60px 120px -40px rgba(0,0,0,.9)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 60%;filter:saturate(.9)}
+.arch::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(14,14,16,.55)),linear-gradient(160deg,rgba(224,160,150,.18),transparent 40%);mix-blend-mode:multiply}
+.hvis .lc{position:absolute;left:0;bottom:0;width:min(88%,390px);padding:24px 24px 20px}
+.hvis .lc li em{display:none}
+.hvis .lc li{grid-template-columns:24px 1fr}
+.hvis .lc .hd b{font-size:22px}
+.hvis .tagdot{position:absolute;right:6%;top:12%;display:flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:999px;background:rgba(14,14,16,.7);backdrop-filter:blur(8px);border:1px solid rgba(224,160,150,.35);font-size:12.5px;color:#F4F1EA}
+.hvis .tagdot i{width:8px;height:8px;border-radius:50%;background:var(--rose-soft);box-shadow:0 0 0 4px rgba(224,160,150,.2)}
+/* ribbon */
+.ribbon{overflow:hidden;background:#0E0E10;color:#F4F1EA;padding:20px 0;border-top:1px solid rgba(255,255,255,.06)}
+.ribbon .track{display:flex;width:max-content;animation:marq 48s linear infinite}
+.ribbon span{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3.6vw,46px);white-space:nowrap;letter-spacing:-.01em}
+.ribbon i{font-style:normal;color:var(--rose-soft);margin:0 .6em;font-size:.55em;vertical-align:.25em}
+/* figures */
+.st .fig b{font-style:italic;background:linear-gradient(95deg,#B8645A,#D98E7F);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+/* phase drawings */
+.grow{display:block;height:70px;width:auto;margin:-4px 0 12px}
+.grow path,.grow ellipse{fill:none;stroke:var(--rose);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.8s cubic-bezier(.6,.1,.2,1) .2s}
+.grow .g{stroke:#CDBFB2;stroke-width:1.2}
+.grow .lf{fill:rgba(184,100,90,.08)}
+.phase.in .grow path,.phase.in .grow ellipse{stroke-dashoffset:0}
+.phase{transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease}
+.phase:hover{transform:translateY(-4px);box-shadow:0 30px 60px -40px rgba(120,60,50,.35)}
+/* mistakes numerals */
+.st .real{counter-reset:m}
+.st .real div::before{counter-increment:m;content:counter(m,decimal-leading-zero);display:block;font-family:var(--serif);font-size:58px;line-height:1;color:transparent;-webkit-text-stroke:1px var(--rose);margin-bottom:14px;letter-spacing:-.02em}
+/* founder arch */
+.story figure{border-radius:999px 999px 20px 20px;box-shadow:0 0 0 1px rgba(184,100,90,.35),0 0 0 14px #fff,0 0 0 15px rgba(184,100,90,.25)}
+@media (max-width:860px){
+  .hvis{padding:0 0 0 0;max-width:460px;margin-top:12px}
+  .hvis::before{left:-10px;right:-10px;top:-14px;bottom:auto;aspect-ratio:4/5}
+  .hvis .lc{position:relative;width:auto;margin:-120px 14px 0}
+}
+@media (prefers-reduced-motion:reduce){.ahero .orbit,.ribbon .track{animation:none}.grow path,.grow ellipse{stroke-dashoffset:0}}
+
 @media (max-width:1024px){.phases{grid-template-columns:1fr 1fr}.phases .phase:last-child{grid-column:1/-1}}
 @media (max-width:860px){.story{grid-template-columns:1fr}.story figure{max-width:360px}.lc{max-width:520px}}
 @media (max-width:640px){
@@ -147,7 +210,8 @@ body.st{--paper:#F8F4EF;--line:#E8DFD4;--rose:#B8645A;--rose-soft:#E0A096}
 
 <main id="main">
   <span id="top"></span>
-  <section class="hero" aria-labelledby="hero-h">
+  <section class="hero ahero" aria-labelledby="hero-h">
+    <svg class="orbit" viewBox="0 0 600 600" aria-hidden="true"><circle cx="300" cy="300" r="290" stroke-opacity=".25" stroke-dasharray="2 7"/><circle cx="300" cy="300" r="220" stroke-opacity=".35"/><circle cx="300" cy="300" r="150" stroke-opacity=".2" stroke-dasharray="1 5"/><path d="M300 10v580M10 300h580M95 95l410 410M505 95L95 505" stroke-opacity=".12"/><circle cx="300" cy="80" r="5" fill="#E0A096" stroke="none"/><circle cx="455" cy="455" r="3" fill="#E0A096" stroke="none"/></svg>
     <div class="wrap">
       <div>
         <span class="eyebrow">For startups and sole traders</span>
@@ -164,7 +228,9 @@ body.st{--paper:#F8F4EF;--line:#E8DFD4;--rose:#B8645A;--rose-soft:#E0A096}
           <span>Payment plans available</span>
         </div>
       </div>
-      <div class="rv">
+      <div class="hvis rv">
+        <figure class="arch"><img src="../assets/img/startup-desk.jpg" alt="A sole trader's first desk by a sunny window, with a laptop, notebook and a seedling" width="928" height="1152"></figure>
+        <span class="tagdot"><i></i>Day one</span>
         <div class="lc" aria-label="Your launch list progress">
           <div class="hd">
             <div><small>Your launch list</small><b>12 things to sort<br>before you grow</b></div>
@@ -174,8 +240,8 @@ body.st{--paper:#F8F4EF;--line:#E8DFD4;--rose:#B8645A;--rose-soft:#E0A096}
             <li data-k="domain"><i></i>Secure your .com.au domain<em>Week 1</em></li>
             <li data-k="email"><i></i>Business email on your domain<em>Week 1</em></li>
             <li data-k="mfa"><i></i>Multi-factor sign-in everywhere<em>Week 1</em></li>
-            <li data-k="backup"><i></i>Automatic, tested backups<em>Month 1</em></li>
-            <li data-k="pay"><i></i>A rule for changed bank details<em>Month 1</em></li>
+            
+            
           </ol>
           <div class="ft"><span><span id="lc-done">0</span> of 12 done</span><a href="#first">Open the full list</a></div>
         </div>
@@ -192,6 +258,8 @@ body.st{--paper:#F8F4EF;--line:#E8DFD4;--rose:#B8645A;--rose-soft:#E0A096}
     </div>
   </section>
   <div class="wrap"><p class="src">Sources: Australian Signals Directorate, <a href="https://www.cyber.gov.au/publication/annual-cyber-threat-report-2025-26/year-in-review" target="_blank" rel="noopener">Annual Cyber Threat Report 2025–26</a> and 2024–25; Australian Cyber Security Centre, <a href="https://www.cyber.gov.au/publication/small-business-cyber-security-handbook" target="_blank" rel="noopener">Small business cyber security handbook</a>.</p></div>
+  <div class="ribbon" aria-hidden="true"><div class="track"><span>Your domain<i>✦</i>Business email<i>✦</i>Multi-factor sign-in<i>✦</i>Password manager<i>✦</i>Updates<i>✦</i>Backups<i>✦</i>A website you own<i>✦</i>Room to grow<i>✦</i></span><span>Your domain<i>✦</i>Business email<i>✦</i>Multi-factor sign-in<i>✦</i>Password manager<i>✦</i>Updates<i>✦</i>Backups<i>✦</i>A website you own<i>✦</i>Room to grow<i>✦</i></span></div></div>
+
 
   <section class="sec" id="first" aria-labelledby="first-h">
     <div class="wrap">
@@ -201,21 +269,21 @@ body.st{--paper:#F8F4EF;--line:#E8DFD4;--rose:#B8645A;--rose-soft:#E0A096}
       </div>
       <div class="phases">
         <div class="phase rv">
-          <div class="ph-h"><b>Before you launch</b><small>Week 1</small></div>
+          <svg class="grow" viewBox="0 0 140 70" aria-hidden="true"><path class="g" pathLength="1" d="M8 58h124"/><ellipse pathLength="1" cx="70" cy="50" rx="7" ry="5"/><path pathLength="1" d="M70 45q2-6 0-10M50 40l3 3M90 40l-3 3M70 26v4"/></svg><div class="ph-h"><b>Before you launch</b><small>Week 1</small></div>
           <label class="item"><input type="checkbox" data-k="domain"><span class="box"></span><div><h3>Secure your name online</h3><p>Register your .com.au domain as soon as you've chosen a name, even if the website isn't ready. Keep it in an account you own, not your web designer's.</p><span class="we">We can do this for you</span></div></label>
           <label class="item"><input type="checkbox" data-k="email"><span class="box"></span><div><h3>Get email on your own domain</h3><p>you@yourbusiness.com.au builds trust that a free address can't. Set it up properly so your emails land in inboxes and can't easily be faked by scammers.</p><span class="we">We can do this for you</span></div></label>
           <label class="item"><input type="checkbox" data-k="mfa"><span class="box"></span><div><h3>Turn on multi-factor sign-in</h3><p>Do it for email, banking, accounting and social media. A stolen password alone then isn't enough to get in. It's the first thing the ACSC recommends.</p><span class="we">We'll set it up with you</span></div></label>
           <label class="item"><input type="checkbox" data-k="pw"><span class="box"></span><div><h3>Use a password manager</h3><p>One strong, unique passphrase for every account, stored safely. Never reuse your personal passwords for the business, and never share logins.</p><span class="we">We'll set it up with you</span></div></label>
         </div>
         <div class="phase rv">
-          <div class="ph-h"><b>Your first month</b><small>Month 1</small></div>
+          <svg class="grow" viewBox="0 0 140 70" aria-hidden="true"><path class="g" pathLength="1" d="M8 58h124"/><path pathLength="1" d="M70 58V30"/><path class="lf" pathLength="1" d="M70 44c-10 0-18-6-20-15 10-1 18 5 20 15z"/><path class="lf" pathLength="1" d="M70 36c4-11 12-16 23-16 0 11-9 17-23 16z"/></svg><div class="ph-h"><b>Your first month</b><small>Month 1</small></div>
           <label class="item"><input type="checkbox" data-k="updates"><span class="box"></span><div><h3>Keep devices and apps updated</h3><p>Switch on automatic updates for laptops, phones and apps. Replace any device that no longer receives security updates; it can't be made safe.</p><span class="we">We can manage this</span></div></label>
           <label class="item"><input type="checkbox" data-k="backup"><span class="box"></span><div><h3>Back up what you can't lose</h3><p>Automatic backups of your files, email and accounts, kept separately. Then test a restore, so you know it works before the day you need it.</p><span class="we">We can manage this</span></div></label>
           <label class="item"><input type="checkbox" data-k="separate"><span class="box"></span><div><h3>Keep business and personal apart</h3><p>Separate accounts, and ideally separate devices, from personal and family use. It protects your business data and keeps your records clean.</p><span class="we">We'll advise you</span></div></label>
           <label class="item"><input type="checkbox" data-k="pay"><span class="box"></span><div><h3>Set a rule for changed bank details</h3><p>If a supplier or customer says their bank details have changed, call them on a number you already have before paying. Fake invoices are one of the most common scams hitting new businesses.</p><span class="we">We'll show you how</span></div></label>
         </div>
         <div class="phase rv">
-          <div class="ph-h"><b>As you grow</b><small>Month 2+</small></div>
+          <svg class="grow" viewBox="0 0 140 70" aria-hidden="true"><path class="g" pathLength="1" d="M8 58h124"/><path pathLength="1" d="M70 58V34M70 46l-9-7M70 40l9-6"/><path class="lf" pathLength="1" d="M70 6c13 0 22 8 22 17 0 10-9 16-22 16s-22-6-22-16c0-9 9-17 22-17z"/><path class="g" pathLength="1" d="M40 58v-8M100 58v-12M104 50l-4-4-4 4"/></svg><div class="ph-h"><b>As you grow</b><small>Month 2+</small></div>
           <label class="item"><input type="checkbox" data-k="web"><span class="box"></span><div><h3>A website that's yours and secure</h3><p>Fast, secure and kept up to date, with the domain, hosting and logins in your name. Built so you can add pages, bookings or a shop later without starting again.</p><span class="we">Built by Rend'r</span></div></label>
           <label class="item"><input type="checkbox" data-k="cloud"><span class="box"></span><div><h3>Choose tools that scale</h3><p>Pick business-grade email, file storage and accounting tools, set up so you can add people without rebuilding everything.</p><span class="we">We'll recommend and set up</span></div></label>
           <label class="item"><input type="checkbox" data-k="people"><span class="box"></span><div><h3>Add people safely</h3><p>Everyone gets their own account and only the access they need. When someone leaves, their access is removed the same day.</p><span class="we">We can manage this</span></div></label>
