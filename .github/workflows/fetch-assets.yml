@@ -1,0 +1,28 @@
+name: fetch-assets
+on:
+  push:
+    paths: ['.github/workflows/fetch-assets.yml']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download to a side branch
+        run: |
+          mkdir out && cd out
+          curl -fsSL -o nyc.jpg https://cdn.creativeclaw.co/u/48eaa2c1/images/963f2f5a-f03e-41dd-91be-ed38b450c6c4.jpg
+          curl -fsSL -o london.jpg https://cdn.creativeclaw.co/u/48eaa2c1/images/67f69e86-84e8-46f1-98a3-edb37c837cd8.jpg
+          curl -fsSL -o tokyo.jpg https://cdn.creativeclaw.co/u/48eaa2c1/images/d4795e30-4cd1-4744-8adb-4bb24617d80a.jpg
+          curl -fsSL -o dubai.jpg https://cdn.creativeclaw.co/u/48eaa2c1/images/5db05fbb-f5cf-4898-a960-5e70188526fa.jpg
+          curl -fsSL -o singapore.jpg https://cdn.creativeclaw.co/u/48eaa2c1/images/851921b1-602d-4546-bed4-ea095ef54dc5.jpg
+          curl -fsSL -o hongkong.jpg https://cdn.creativeclaw.co/u/48eaa2c1/images/165c4a74-853c-430b-82e3-966d85d8c125.jpg
+          curl -fsSL -o paris.jpg https://cdn.creativeclaw.co/u/48eaa2c1/images/e2d852bd-8c4d-4d46-83c8-8798cee29798.jpg
+          curl -fsSL -o sydney.jpg https://cdn.creativeclaw.co/u/48eaa2c1/images/441ba12e-5254-400e-a306-a6942bfa1da9.jpg
+          curl -fsSL -o melbourne.jpg https://cdn.creativeclaw.co/u/48eaa2c1/images/f56ce95f-6812-46e1-adf1-b313d86e395f.jpg
+          curl -fsSL -o shanghai.jpg https://cdn.creativeclaw.co/u/48eaa2c1/images/c2d94f9d-6b2f-4983-9272-f705fa02a133.jpg
+          curl -fsSL -o trailer.mp3 https://cdn.creativeclaw.co/u/48eaa2c1/audio/b5789b1d-879f-4ed3-95d1-44ff8ada1089.mp3
+          git init -q -b assets-fetch
+          git config user.name github-actions && git config user.email github-actions@users.noreply.github.com
+          git add . && git commit -qm "fetched assets"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" assets-fetch
