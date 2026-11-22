@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-DqK66ygDXrOCs4cZVUBPQ+P0iWXuNWwy6hWndXBkHbo='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="../assets/guard.js"></script>
 <!-- security:end -->
@@ -15,6 +15,22 @@
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/newsreader-latin-500-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/inter-latin-400-normal.woff2" crossorigin>
 <link rel="stylesheet" href="../assets/editorial.css">
+<style>
+.lf{position:relative;height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:480px;background:#060607;overflow:hidden}
+.lf video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#060607}
+.lf .ctl{position:absolute;left:0;right:0;bottom:0;padding:60px var(--gut,24px) 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;z-index:2;background:linear-gradient(0deg,rgba(6,6,7,.8),transparent)}
+.lf .pill{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 18px 0 8px;border-radius:999px;border:1px solid rgba(212,180,106,.55);background:rgba(10,10,12,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#F4F1EA;font:600 14.5px var(--sans);cursor:pointer;text-decoration:none}
+.lf .pill .ic{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--gold-soft);color:#121316}
+.lf .pill.sm{padding:0 16px;border-color:rgba(255,255,255,.22)}
+.lf .pill:hover{border-color:var(--gold-soft)}
+.lf .sp{flex:1}
+.lf .bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08);z-index:3}
+.lf .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold-mid),var(--gold-soft))}
+.lf .hint{position:absolute;top:18px;right:var(--gut,24px);z-index:2;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#C9C3B6;background:rgba(10,10,12,.55);padding:7px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.lf.sound .hint{display:none}
+.lf:fullscreen{height:100vh}
+@media (max-width:640px){.lf .pill{height:42px;font-size:13.5px}.lf .pill.fs{display:none}}
+</style>
 </head>
 <body class="nfp">
 <a class="skip" href="#main">Skip to content</a>
@@ -58,6 +74,17 @@
 
 <main id="main">
   <span id="top"></span>
+  <section class="lf" id="watch" aria-label="Film: different missions, different approach">
+    <video id="lfv" muted playsinline preload="auto" poster="../media/gov-nfp-film-land.jpg" data-land="../media/gov-nfp-film-land.mp4" data-port="../media/gov-nfp-film-port.mp4" data-poster-port="../media/gov-nfp-film-port.jpg"></video>
+    <span class="hint">▶ Playing · sound off</span>
+    <div class="ctl">
+      <button class="pill" type="button" id="lf-sound"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span id="lf-sound-t">Play with sound</span></button>
+      <button class="pill sm fs" type="button" id="lf-fs">Full screen</button>
+      <span class="sp"></span>
+      <a class="pill sm" href="#hero-h" id="lf-skip">Skip ↓</a>
+    </div>
+    <span class="bar" aria-hidden="true"><i id="lf-bar"></i></span>
+  </section>
   <section class="hero" aria-labelledby="hero-h">
     <div class="wrap">
       <div>
@@ -68,6 +95,7 @@
           <a class="btn" href="#contact">Talk to us about your organisation
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
           <a class="textlink" href="#discovery">Take the 60-second check</a>
+          <a class="textlink" href="#watch" id="replay">▶ Watch the 74-second film</a>
         </div>
         <div class="proof">
           <span>Established 2005</span>
@@ -286,6 +314,37 @@
   <button class="x" type="button" aria-label="Close film">×</button>
   <video controls playsinline preload="none"></video>
 </dialog>
+<script>
+(function(){
+  var v=document.getElementById('lfv'), sec=document.getElementById('watch'); if(!v) return;
+  function fit(){ var top=sec.getBoundingClientRect().top+window.scrollY; sec.style.height=Math.max(480, window.innerHeight-top)+'px'; }
+  fit(); addEventListener('resize',fit);
+  var port = window.innerHeight > window.innerWidth*1.05;
+  v.src = port ? v.dataset.port : v.dataset.land; if(port) v.poster=v.dataset.posterPort;
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sbtn=document.getElementById('lf-sound'), st=document.getElementById('lf-sound-t'), bar=document.getElementById('lf-bar');
+  function tryPlay(){ var p=v.play(); if(p&&p.catch) p.catch(function(){ sec.classList.add('paused'); st.textContent='Play with sound'; }); }
+  v.loop=true;
+  if(!RM){ tryPlay(); } else { sec.querySelector('.hint').textContent='Press play to watch'; }
+  function setLabel(){ st.textContent = v.muted ? (v.paused?'Play with sound':'Play with sound') : (v.paused?'Resume':'Sound on · mute'); }
+  sbtn.addEventListener('click',function(){
+    if(v.muted || v.paused){ if(v.muted){ v.currentTime=0; } v.muted=false; sec.classList.add('sound'); tryPlay(); }
+    else { v.muted=true; sec.classList.remove('sound'); }
+    setLabel();
+  });
+  document.getElementById('lf-fs').addEventListener('click',function(){
+    if(document.fullscreenElement){ document.exitFullscreen(); return; }
+    if(sec.requestFullscreen) sec.requestFullscreen().catch(function(){}); else if(v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+    if(v.muted){ v.currentTime=0; v.muted=false; sec.classList.add('sound'); tryPlay(); setLabel(); }
+  });
+  v.addEventListener('timeupdate',function(){ if(v.duration) bar.style.width=(v.currentTime/v.duration*100)+'%'; });
+  v.addEventListener('play',setLabel); v.addEventListener('pause',setLabel);
+  /* pause when scrolled away, resume when back */
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting){ if(!v.paused){ v.dataset.was='1'; v.pause(); } } else if(v.dataset.was==='1'){ v.dataset.was=''; tryPlay(); } }); },{threshold:.25}).observe(sec); }
+  var rp=document.getElementById('replay');
+  if(rp) rp.addEventListener('click',function(e){ e.preventDefault(); sec.scrollIntoView({behavior:'smooth'}); v.currentTime=0; v.muted=false; sec.classList.add('sound'); tryPlay(); setLabel(); });
+})();
+</script>
 <script src="../assets/editorial.js"></script>
 <script src="../assets/disc/nfp.js"></script>
 <script src="../assets/discovery.js"></script>
