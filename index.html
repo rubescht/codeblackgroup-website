@@ -660,6 +660,10 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 @media (orientation:portrait),(max-aspect-ratio:1/1){.hero-cine .cine .vbar{bottom:calc((var(--barh) - 36px) / -2 - 36px);right:16px}}
 @media (max-width:520px){.cine-long{display:none}.cine-short{display:inline}.cine-bar{gap:10px}.cine-intro{display:none}}
 
+/* breathing room between the hero's control bar and the stats cards */
+.hero-cine + .wrap .proof{margin-top:44px}
+@media (max-width:760px){.hero-cine + .wrap .proof{margin-top:28px}}
+
 /* ---------- "Why we're different": the film sits in the page with no frame, its edges melting into the background ---------- */
 .diff-film{position:relative;max-width:1040px;margin:4px auto 44px}
 .diff-film::before{content:"";position:absolute;inset:-6% -4%;z-index:-1;background:url("media/usual-vs-ours-mel.jpg") center/cover no-repeat;filter:blur(40px) brightness(.35);opacity:.8;pointer-events:none}
@@ -670,6 +674,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%),linear-gradient(180deg,transparent 0,#000 9%,#000 88%,transparent 100%);mask-composite:intersect}
 .screen.seam .vbar{left:auto;right:6%;bottom:9%;width:auto;background:none;padding:0}
 .screen.seam .vbar .t{display:none}
+.screen.seam .vbar button:nth-of-type(3){display:none} /* no soundtrack */
 .screen.seam .vprog{display:none}
 .film-chapters{display:flex;align-items:center;gap:16px;max-width:620px;margin:6px auto 0;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .film-chapters span{cursor:pointer;white-space:nowrap;transition:color .3s ease}
