@@ -60,7 +60,7 @@ h1 .amp{font-style:italic;color:var(--gold)}
 /* the four doors */
 .paths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;padding-bottom:28px}
 .door{--tint:216,180,95;--mx:50%;--my:30%;position:relative;display:flex;flex-direction:column;min-height:520px;padding:26px 26px 24px;border:1px solid var(--line);border-radius:22px;text-decoration:none;color:var(--ink);overflow:hidden;isolation:isolate;
-  background:linear-gradient(180deg,rgba(var(--tint),.09),rgba(var(--tint),.02) 55%,transparent),rgba(24,24,27,.14);-webkit-backdrop-filter:blur(1px);backdrop-filter:blur(1px);
+  background:linear-gradient(180deg,rgba(var(--tint),.06),transparent 55%),rgba(24,24,27,.03);
   transition:transform .6s cubic-bezier(.2,.8,.2,1),border-color .4s ease,box-shadow .6s ease;opacity:0;transform:translateY(24px);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
 .door:nth-child(1){animation-delay:.15s}.door:nth-child(2){animation-delay:.27s}.door:nth-child(3){animation-delay:.39s}.door:nth-child(4){animation-delay:.51s}
 .door.t-corp{--tint:216,180,95}.door.t-smb{--tint:206,146,96}.door.t-gov{--tint:170,184,140}.door.t-start{--tint:224,160,150}
@@ -101,7 +101,7 @@ h1 .amp{font-style:italic;color:var(--gold)}
 .door .go{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(var(--tint),.5);color:rgb(var(--tint));transition:background .3s ease,color .3s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
 .door:hover .go{background:rgb(var(--tint));color:#0A0A0B;transform:rotate(-45deg)}
 
-.help{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 32px;margin:18px 0 0;padding:26px 30px;border:1px solid var(--line);border-radius:22px;background:rgba(24,24,27,.14);-webkit-backdrop-filter:blur(1px);backdrop-filter:blur(1px)}
+.help{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 32px;margin:18px 0 0;padding:26px 30px;border:1px solid var(--line);border-radius:22px;background:rgba(24,24,27,.03)}
 .help p{margin:0;font-family:var(--serif);font-size:clamp(20px,1.8vw,26px);line-height:1.3}
 .help p i{color:var(--gold)}
 .help .acts{display:flex;flex-wrap:wrap;gap:12px}
