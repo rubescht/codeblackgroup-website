@@ -678,6 +678,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .cine-tap{position:absolute;z-index:5;left:50%;bottom:calc(var(--barh) + 22px);transform:translateX(-50%);display:none;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;border:1px solid var(--gold-hi);background:rgba(0,0,0,.72);backdrop-filter:blur(6px);color:var(--gold-hi);font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;animation:tapPulse 1.8s ease-in-out infinite}
 .cine-tap:hover{background:var(--gold);color:var(--on-gold)}
 .hero-cine.playing.needs-sound .cine-tap{display:inline-flex}
+@media (orientation:portrait),(max-aspect-ratio:1/1){.cine-tap{bottom:auto;top:calc(50% - var(--barh) / 2 + 30vw);font-size:12px;padding:11px 18px}}
 @keyframes tapPulse{0%,100%{box-shadow:0 0 0 0 rgba(232,205,135,.55)}50%{box-shadow:0 0 0 10px rgba(232,205,135,0)}}
 /* breathing room between the hero's control bar and the stats cards */
 .hero-cine + .wrap .proof{margin-top:44px}
