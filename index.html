@@ -677,6 +677,28 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .hero-cine + .wrap .proof{margin-top:44px}
 @media (max-width:760px){.hero-cine + .wrap .proof{margin-top:28px}}
 
+/* featured client story spans the full row */
+.use-feature{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:center}
+.use-feature .uf-txt{display:flex;flex-direction:column;gap:12px}
+.use-feature h3{font-size:clamp(20px,2vw,26px)}
+.uf-art svg{display:block;width:100%;max-width:420px;height:auto;margin:0 auto}
+.uf-br circle{fill:#0b0b0c;stroke:var(--gold-hi);stroke-width:1.6}
+.uf-ln path{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-dasharray:4 5;animation:tgFlow 1.4s linear infinite;opacity:.8}
+.uf-sh{fill:rgba(201,162,74,.12);stroke:var(--gold-hi);stroke-width:1.6}
+.uf-art text{text-anchor:middle;font-family:var(--display);fill:var(--ivory)}
+.uf-t1{font-size:15px;font-weight:800;letter-spacing:.08em}.uf-t2{font-size:8.5px;font-weight:700;letter-spacing:.1em;fill:var(--gold-hi)!important}
+.uf-lab{font-size:9px;letter-spacing:.14em;fill:var(--muted)!important}
+.uf-flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin-top:10px;font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.uf-flow span{padding:6px 10px;border:1px solid var(--line)}
+.uf-flow .old{color:var(--muted);border-style:dashed}
+.uf-flow .new{color:var(--on-gold);background:var(--metal-flat);border-color:transparent}
+.uf-flow i{width:26px;height:1.5px;background:var(--gold);position:relative}.uf-flow i::after{content:"";position:absolute;right:-1px;top:-3.5px;border:4px solid transparent;border-left:6px solid var(--gold);border-right:0}
+.uf-flow em{flex-basis:100%;text-align:center;font-style:normal;color:var(--gold-hi);font-size:11px;letter-spacing:.12em}
+.uf-flow em::before{content:"\25C6  "}
+@media (max-width:760px){.use-feature{grid-template-columns:1fr;gap:18px}}
+@media (max-width:560px){.uf-flow{flex-direction:column;gap:6px}.uf-flow i{width:1.5px;height:16px}.uf-flow i::after{right:auto;left:-3.5px;top:auto;bottom:-1px;border:4px solid transparent;border-top:6px solid var(--gold);border-bottom:0}}
+@media (prefers-reduced-motion:reduce){.uf-ln path{animation:none}}
+
 /* ---------- "The usual way": you, tangled in six vendors that don't talk to each other ---------- */
 .tree.tangle-wrap{align-items:stretch}
 .tangle{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:64px 22px;padding:4px 0 8px}
@@ -1188,6 +1210,24 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
         <p>The kinds of work we take on across divisions. We don't name clients publicly.</p>
       </div>
       <div class="uses">
+        <article class="use use-feature glass">
+          <div class="uf-txt">
+            <span class="label">Membership organisation · national</span>
+            <h3>Branches across Australia, one shared membership system</h3>
+            <p>We designed and implemented a single membership platform used by every branch nationally. The organisation's legacy system was integrated into a modern architecture, with security treated as the first priority at every step, not added at the end.</p>
+            <div class="divs"><span>REND'R</span><span>STRIKEFORCE</span><span>MIDNIGHT IT</span></div>
+          </div>
+          <div class="uf-art" aria-hidden="true">
+            <svg viewBox="0 0 360 220">
+              <g class="uf-br"><circle cx="40" cy="40" r="7"/><circle cx="26" cy="110" r="7"/><circle cx="44" cy="180" r="7"/><circle cx="320" cy="40" r="7"/><circle cx="334" cy="110" r="7"/><circle cx="316" cy="180" r="7"/></g>
+              <g class="uf-ln"><path d="M47 42 158 98M33 110h120M51 177 158 122M313 42 202 98M327 110H207M309 177 202 122"/></g>
+              <path class="uf-sh" d="M180 62l38 15v28c0 24-16 42-38 52-22-10-38-28-38-52V77z"/>
+              <text x="180" y="104" class="uf-t1">ONE</text><text x="180" y="120" class="uf-t2">MEMBERSHIP</text><text x="180" y="132" class="uf-t2">SYSTEM</text>
+              <text x="40" y="18" class="uf-lab">BRANCHES</text><text x="320" y="18" class="uf-lab">BRANCHES</text>
+            </svg>
+            <div class="uf-flow"><span class="old">Legacy system</span><i></i><span class="new">Modern architecture</span><em>Security first</em></div>
+          </div>
+        </article>
         <article class="use glass tilt"><span class="label">Hospitality · multi-site</span><h3>Regional venues under one IT plan</h3><p>IT takeover, managed services, cyber uplift and connectivity upgrades across several sites, run as one phased program.</p><div class="divs"><span>MIDNIGHT IT</span><span>STRIKEFORCE</span><span>WIZE</span></div></article>
         <article class="use glass tilt"><span class="label">Financial services</span><h3>Managed services with an integrated security stack</h3><p>Day-to-day support moved onto a group retainer, with monitoring and email security built in rather than bolted on.</p><div class="divs"><span>MIDNIGHT IT</span><span>STRIKEFORCE</span></div></article>
         <article class="use glass tilt"><span class="label">Trade · two countries</span><h3>Offices in two countries, one agreement</h3><p>Melbourne and overseas offices supported and secured under a single managed services agreement.</p><div class="divs"><span>MIDNIGHT IT</span><span>STRIKEFORCE</span></div></article>
