@@ -128,7 +128,13 @@ h2 em{font-style:italic;color:var(--gold)}
 .door .br i:nth-child(3){left:0;bottom:0;border-right:0;border-top:0}.door .br i:nth-child(4){right:0;bottom:0;border-left:0;border-top:0}
 .door .pid{position:absolute;left:16px;bottom:12px;z-index:3;color:rgb(var(--tint))}
 .door .live{position:absolute;right:14px;bottom:12px;z-index:3;display:flex;align-items:center;gap:6px;color:#C8D0DA}
-.door .live::before{content:"";width:6px;height:6px;border-radius:50%;background:rgb(var(--tint));box-shadow:0 0 10px rgb(var(--tint))}
+.door .live{animation:rec 2.4s ease-in-out infinite}
+.door .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#FF3B30;box-shadow:0 0 10px rgba(255,59,48,.9);animation:recdot 2.4s ease-in-out infinite}
+.door:nth-child(2) .live,.door:nth-child(2) .live::before{animation-delay:-.6s}
+.door:nth-child(3) .live,.door:nth-child(3) .live::before{animation-delay:-1.2s}
+.door:nth-child(4) .live,.door:nth-child(4) .live::before{animation-delay:-1.8s}
+@keyframes rec{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes recdot{0%,100%{opacity:1;box-shadow:0 0 12px rgba(255,59,48,.95)}50%{opacity:.15;box-shadow:0 0 0 rgba(255,59,48,0)}}
 .door .tx{display:flex;flex-direction:column;flex:1;padding:20px 20px 18px}
 .door .for{color:var(--muted);font-size:13px}
 .door h3{margin:4px 0 10px;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.12}
