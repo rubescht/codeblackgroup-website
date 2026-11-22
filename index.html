@@ -239,6 +239,22 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 .f-bot a{color:var(--muted);text-decoration:none}
 @media (max-width:800px){.f-top{grid-template-columns:1fr}.divs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+/* ---------- opening logo reveal (once per visit) ---------- */
+#intro{position:fixed;inset:0;z-index:300;background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;cursor:pointer;transition:opacity .7s ease}
+#intro[hidden]{display:none}
+#intro.out{opacity:0;pointer-events:none}
+#intro video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+@media (orientation:portrait){#intro video{object-fit:contain}}
+#intro .fb{display:none;flex-direction:column;align-items:center;gap:18px;text-align:center}
+#intro.fallback video{display:none}
+#intro.fallback .fb{display:flex;animation:fbIn 1.4s cubic-bezier(.2,.8,.2,1) both}
+#intro .fb img{width:130px;height:130px;filter:drop-shadow(0 0 24px rgba(255,255,255,.25))}
+#intro .fb b{font-family:var(--hud);font-weight:500;font-size:clamp(20px,3vw,30px);letter-spacing:.18em;color:#fff}
+#intro .fb em{font-family:var(--serif);font-size:18px;color:var(--gold)}
+@keyframes fbIn{from{opacity:0;transform:scale(.94);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+#intro .skip{position:absolute;z-index:2;left:auto;top:auto;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));background:rgba(0,0,0,.4);border:1px solid rgba(216,180,95,.45);color:#C8D0DA;font-family:var(--hud);font-size:11px;letter-spacing:.14em;padding:9px 14px;border-radius:999px;cursor:pointer}
+#intro .skip:hover{color:#fff;border-color:var(--gold)}
+
 /* reveal */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -246,6 +262,34 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 </style>
 </head>
 <body>
+<div id="intro" hidden aria-hidden="true">
+  <video id="intro-video" muted playsinline preload="auto" poster="media/cbg-logo-reveal-first.jpg"><source src="media/cbg-logo-reveal.webm" type="video/webm"><source src="media/cbg-logo-reveal.mp4" type="video/mp4"></video>
+  <div class="fb"><img src="logos/cbg-mark-white.svg" alt=""><b>CODE BLACK GROUP</b><em>One Code. One Strategy. One Outcome.</em></div>
+  <button class="skip" type="button" tabindex="-1">SKIP</button>
+</div>
+<script>
+/* opening logo reveal: once per visit, before the page shows */
+(function(){
+  var intro=document.getElementById('intro'); if(!intro) return;
+  var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches, seen=false;
+  try{ seen=sessionStorage.getItem('cbg-intro')==='1'; }catch(e){}
+  if(seen||RM){ window.CBG_INTRO=false; return; }
+  try{ sessionStorage.setItem('cbg-intro','1'); }catch(e){}
+  window.CBG_INTRO=true; intro.hidden=false; document.documentElement.style.overflow='hidden';
+  var vid=document.getElementById('intro-video'), closed=false, fb=false;
+  function close(){ if(closed) return; closed=true; intro.classList.add('out'); document.documentElement.style.overflow='';
+    window.CBG_INTRO=false; try{ window.dispatchEvent(new Event('cbg-intro-done')); }catch(e){}
+    setTimeout(function(){ intro.hidden=true; try{ vid.pause(); }catch(e){} },750); }
+  function fallback(){ if(fb||closed) return; fb=true; intro.classList.add('fallback'); setTimeout(close,2600); }
+  intro.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'||e.key==='Enter'||e.key===' ') close(); },{once:true});
+  vid.addEventListener('ended',function(){ setTimeout(close,300); });
+  vid.addEventListener('error',fallback,true);
+  var p=vid.play(); if(p&&p.catch) p.catch(fallback);
+  setTimeout(function(){ if(!fb&&vid.currentTime<0.2) fallback(); },2500);
+  setTimeout(close,11000);
+})();
+</script>
 <a class="skip" href="#paths">Skip to client paths</a>
 
 <header class="top" id="top">
@@ -445,13 +489,14 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 
   /* decode the first headline line */
   var l1=document.querySelector('h1 .l1');
-  if(l1 && !RM){
+  function decode(){
     var target=l1.dataset.text, glyphs='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*/<>', f=0;
     var tick=function(){
       var out=''; for(var i=0;i<target.length;i++){ var c=target[i]; out += (c===' '||i < f/1.6) ? c : glyphs[(Math.random()*glyphs.length)|0]; }
       l1.textContent=out; f++; if(f/1.6 < target.length+1) requestAnimationFrame(tick); else l1.textContent=target;
     }; tick();
   }
+  if(l1 && !RM){ if(window.CBG_INTRO){ l1.style.opacity='0'; addEventListener('cbg-intro-done',function(){ l1.style.opacity=''; setTimeout(decode,250); },{once:true}); } else decode(); }
 
   /* live clock readout in the HUD frame */
   var ck=document.getElementById('clock');
