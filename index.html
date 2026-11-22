@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Code Black Group | Ready for the age of intelligence</title>
-<meta name="description" content="Artificial intelligence is changing how every organisation works, and super intelligence is on the horizon. Code Black Group brings technology, security and A.I. together. Choose your path: startups, small and medium business, corporate and enterprise, or government and not-for-profit.">
+<title>Code Black Group | Grow with the right technology partner</title>
+<meta name="description" content="Growing with the right technology partner is key to success. Since 2005 Code Black Group has evolved with every shift in technology, and today brings A.I. into how we secure, support and build, while preparing clients for super intelligence. Choose your path: startups, small and medium business, corporate and enterprise, or government and not-for-profit.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#05060A">
 <link rel="icon" href="logos/cbg-mark-white.svg" type="image/svg+xml">
@@ -147,6 +147,31 @@ h2 em{font-style:italic;color:var(--gold)}
 @media (max-width:1100px){.paths{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.paths{grid-template-columns:1fr}.door h3{font-size:24px}.door .ph{aspect-ratio:16/9}}
 
+
+/* ---------- evolution timeline ---------- */
+.evo{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin-top:8px}
+.evo::before{content:"";position:absolute;left:0;right:0;top:27px;height:1px;background:linear-gradient(90deg,rgba(216,180,95,.6),rgba(127,227,255,.6) 70%,rgba(167,139,250,.9))}
+.evo::after{content:"";position:absolute;left:0;top:26px;width:90px;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--syn));filter:drop-shadow(0 0 8px var(--syn));animation:travel 6s linear infinite}
+@keyframes travel{from{left:0}to{left:calc(100% - 90px)}}
+.ev{position:relative;padding:0 18px 0 0}
+.ev .dot{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--void);border:1px solid rgba(216,180,95,.55);font-family:var(--hud);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--gold-hi)}
+.ev.now .dot{border-color:var(--syn);color:var(--syn);box-shadow:0 0 24px rgba(127,227,255,.35)}
+.ev.next .dot{border:1px dashed var(--violet);color:#CDBEFF;box-shadow:0 0 30px rgba(167,139,250,.35);animation:breathe2 3s ease-in-out infinite}
+@keyframes breathe2{50%{box-shadow:0 0 44px rgba(167,139,250,.6)}}
+.ev .when{display:block;margin:18px 0 6px;color:var(--muted)}
+.ev.now .when{color:var(--syn)}.ev.next .when{color:#CDBEFF}
+.ev h3{margin:0 0 8px;font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.2}
+.ev p{margin:0;color:#AEB7C3;font-size:14.5px;line-height:1.55}
+.ev .who{display:block;margin-top:10px;color:var(--gold);font-size:13px}
+.ev.now .who{color:var(--syn)}.ev.next .who{color:#CDBEFF}
+@media (max-width:1000px){
+  .evo{grid-template-columns:1fr;gap:0}
+  .evo::before{left:27px;right:auto;top:0;bottom:0;width:1px;height:auto;background:linear-gradient(180deg,rgba(216,180,95,.6),rgba(127,227,255,.6) 70%,rgba(167,139,250,.9))}
+  .evo::after{display:none}
+  .ev{display:grid;grid-template-columns:56px 1fr;column-gap:18px;padding:0 0 26px}
+  .ev .dot{grid-row:1/5}.ev .when{margin-top:4px}
+}
+
 /* ---------- constellation ---------- */
 .cst{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,5vw,80px);align-items:center}
 .cst-copy p{color:#B7C0CC;font-size:17px;max-width:46ch}
@@ -244,8 +269,8 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     <div class="wrap">
       <div class="h-in">
         <span class="kick hudt"><b></b>Code Black Group // The intelligence era</span>
-        <h1 id="h"><span class="l1" data-text="Intelligence is accelerating.">Intelligence is accelerating.</span><span class="l2">Be ready from every angle.</span></h1>
-        <p class="lead">Artificial intelligence is already changing how every organisation works, and super intelligence is on the horizon. Code Black Group brings technology, security and A.I. together, so you can use it safely and get ahead, whatever your size.</p>
+        <h1 id="h"><span class="l1" data-text="Grow with the right partner.">Grow with the right partner.</span><span class="l2">Built for the age of intelligence.</span></h1>
+        <p class="lead">The organisations that succeed don’t just buy technology. They grow with the right technology partner. Since 2005 we’ve evolved with every shift in technology, and today we bring A.I. into how we secure, support and build for our clients, while preparing them for what comes next: super intelligence.</p>
         <div class="acts">
           <a class="btn gold" href="#paths">Choose your path
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
@@ -258,7 +283,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
         <div class="ro"><b><em>06</em> Divisions</b><span>Specialist teams, one group</span></div>
         <div class="ro"><b><em>24/7</em> Human</b><span>Real experts, around the clock</span></div>
         <div class="ro"><b>Vetted</b><span>Every solution checked by Strikeforce Cyber</span></div>
-        <div class="ro"><b>Since <em>2005</em></b><span>Founded in Melbourne</span></div>
+        <div class="ro"><b>Since <em>2005</em></b><span>Evolving with every technology shift</span></div>
       </div>
       <span class="cue" aria-hidden="true"></span>
     </div>
@@ -268,7 +293,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     <div class="wrap">
       <div class="sec-h rv">
         <div><span class="hudt">Select your path</span><h2 id="paths-h">Every organisation is different. <em>Start with yours.</em></h2></div>
-        <p>Tell us who you are and we'll show you how we work with organisations like yours, from your first day of trading to the boardroom.</p>
+        <p>Wherever you are on the journey, from your first day of trading to the boardroom, the right partner grows with you. Tell us who you are and we’ll show you how.</p>
       </div>
       <div class="paths">
         <a class="door t-start" href="startups/">
@@ -311,6 +336,23 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     </div>
   </section>
 
+  <section class="sec" id="evolution" aria-labelledby="evo-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-h rv">
+        <div><span class="hudt">Always evolving</span><h2 id="evo-h">We’ve grown with technology. <em>So you can grow with us.</em></h2></div>
+        <p>Choosing the right technology partner is one of the most important decisions an organisation makes. Ours started with one person in 2005 and has adapted to every shift since, from 24/7 support to A.I.</p>
+      </div>
+      <ol class="evo rv" style="list-style:none;padding:0">
+        <li class="ev"><span class="dot">2005</span><span class="when hudt">The start</span><h3>One person, 24/7 support</h3><p>Our founder starts out as a sole trader, looking after more than 30 clients around the clock.</p><span class="who">Midnight IT</span></li>
+        <li class="ev"><span class="dot">02</span><span class="when hudt">Then</span><h3>Security and connectivity</h3><p>Clients ask us for more, so we build the teams to deliver it to the same standard.</p><span class="who">3 Eyes Australia · Wize Solutions</span></li>
+        <li class="ev"><span class="dot">03</span><span class="when hudt">Then</span><h3>Web and digital</h3><p>Websites, platforms and the digital front door, built and secured in-house.</p><span class="who">Rend’r</span></li>
+        <li class="ev"><span class="dot">04</span><span class="when hudt">Then</span><h3>Cyber security at the centre</h3><p>A dedicated cyber division security-vets every solution before it reaches a client.</p><span class="who">Strikeforce Cyber</span></li>
+        <li class="ev now"><span class="dot">NOW</span><span class="when hudt">Today</span><h3>A.I., built in</h3><p>A.I. now runs through how we secure, support and build, and we help clients adopt it with guardrails.</p><span class="who">AI Dome · Strikeforce Cyber</span></li>
+        <li class="ev next"><span class="dot">NEXT</span><span class="when hudt">Tomorrow</span><h3>Ready for super intelligence</h3><p>As A.I. grows more capable, we’re preparing clients with the security, governance and people to use it safely.</p><span class="who">The whole group</span></li>
+      </ol>
+    </div>
+  </section>
+
   <section class="sec" id="group" aria-labelledby="group-h">
     <div class="wrap cst">
       <div class="cst-copy rv">
@@ -347,7 +389,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     <div class="wrap">
       <div class="sec-h rv">
         <div><span class="hudt">Ready for what's next</span><h2 id="ai-h">Get the benefits of A.I. <em>without the exposure.</em></h2></div>
-        <p>As A.I. grows more capable, the gap widens between organisations that adopt it safely and those that don't. We help you land on the right side of it.</p>
+        <p>As A.I. moves toward super intelligence, the gap widens between organisations that adopt it safely and those that don’t. The right partner puts you on the right side of it.</p>
       </div>
       <div class="band">
         <article class="card rv"><span class="n hudt">01 // Adopt</span><h3>A.I. with guardrails</h3><p>Put A.I. to work across your organisation with clear policies, controls and training, so productivity goes up and risk doesn't.</p><span class="by">AI Dome, secured by Strikeforce Cyber</span></article>
