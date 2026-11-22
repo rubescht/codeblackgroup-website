@@ -21,6 +21,7 @@
 <meta name="theme-color" content="#0b0b0c">
 <link rel="icon" href="logos/cbg-mark-white.svg" type="image/svg+xml">
 <title>Code Black Group | All Angles Covered</title>
+<link rel="preload" as="image" href="img/hero-city-grid.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Poppins:wght@300;400;500;700;900&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
@@ -601,6 +602,49 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   .hb2-sky{height:120px}
 }
 @media (max-width:400px){.hb2-portrait{padding:26px 18px 0}.hb2-moon{width:56px;height:56px;box-shadow:inset -12px 6px 0 0 #e8cd87}}
+
+/* ---------- cinematic hero: intro text, then the film full size ---------- */
+.hero-cine{height:calc(100svh - 68px);min-height:560px;max-height:1200px;background:#000}
+.hero-cine .hero-bg{opacity:.85;-webkit-mask-image:none;mask-image:none;transition:opacity 1.2s ease}
+.hero-cine .hero-bg::after{display:none}
+.hero-cine .screen.cine{position:absolute;inset:0;transform:none!important;border-radius:0;z-index:0}
+.hero-cine .cine .frame{position:absolute;inset:0;border-radius:0;box-shadow:none!important;background:transparent!important}
+.hero-cine .screen.cine video{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.hero-cine .cine .vprog{z-index:3}
+.hero-cine .cine .vbar{bottom:56px;left:auto;right:24px;width:auto;background:none;padding:0;z-index:4}
+.hero-cine .cine .vbar .t{display:none}
+.hero-cine:not(.playing) .cine .vbar,.hero-cine:not(.playing) .cine .vprog{display:none}
+.cine-shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(4,4,4,.92) 0%,rgba(4,4,4,.55) 55%,rgba(4,4,4,.25) 100%),linear-gradient(0deg,rgba(4,4,4,.85) 0%,rgba(4,4,4,0) 35%);transition:opacity 1.2s ease}
+.hero-cine .cine-copy{position:relative;z-index:2;display:flex;align-items:center;height:100%;padding-block:40px 90px;transition:opacity .9s ease,transform .9s ease}
+.cine-timer{width:180px;height:2px;margin-top:34px;background:rgba(201,162,74,.25);overflow:hidden}
+.cine-timer i{display:block;height:100%;width:0;background:var(--metal-flat)}
+.hero-cine.counting .cine-timer i{width:100%;transition:width var(--intro-ms,5500ms) linear}
+.cine-bar{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px max(24px,calc((100vw - var(--wrap))/2 + 24px));background:linear-gradient(0deg,rgba(0,0,0,.75),rgba(0,0,0,0));opacity:0;pointer-events:none;transition:opacity .8s ease .6s}
+.cine-cta{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-hi);text-decoration:none;border:1px solid rgba(201,162,74,.6);background:rgba(0,0,0,.55);backdrop-filter:blur(6px);padding:11px 16px;border-radius:999px}
+.cine-cta:hover{background:var(--gold);color:var(--on-gold)}
+.cine-intro{font-family:var(--display);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:0;cursor:pointer;padding:8px}
+.cine-intro:hover{color:var(--gold-hi)}
+.hero-cine.playing .screen.cine video{opacity:1}
+.hero-cine:not(.playing) .screen.cine{visibility:hidden;transition:visibility 0s linear 1.4s}
+.hero-cine.playing .hero-bg,.hero-cine.playing .cine-shade{opacity:0}
+.hero-cine.playing .cine-copy{opacity:0;transform:translateY(18px);pointer-events:none}
+.hero-cine.playing .cine-bar{opacity:1;pointer-events:auto}
+.cine-scroll{position:absolute;left:50%;bottom:18px;z-index:3;width:26px;height:40px;margin-left:-13px;border:1.5px solid rgba(201,162,74,.6);border-radius:14px}
+.cine-scroll span{position:absolute;left:50%;top:8px;width:3px;height:8px;margin-left:-1.5px;border-radius:2px;background:var(--gold);animation:cineScroll 1.8s ease-in-out infinite}
+@keyframes cineScroll{0%{opacity:0;transform:translateY(0)}40%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+.hero-cine.playing .cine-scroll{opacity:0;pointer-events:none}
+#cine-watch svg{margin-right:2px}
+@media (max-width:920px){.hero-cine .cine-copy{padding-block:32px 96px}}
+@media (orientation:portrait),(max-aspect-ratio:1/1){
+  .hero-cine{height:auto;min-height:calc(100svh - 68px)}
+  .hero-cine .screen.cine video{object-fit:contain}
+  .hero-cine .cine-copy{align-items:flex-end;min-height:calc(100svh - 68px)}
+  .cine-shade{background:linear-gradient(0deg,rgba(4,4,4,.95) 0%,rgba(4,4,4,.75) 45%,rgba(4,4,4,.3) 100%)}
+  .hero-cine .cine .vbar{bottom:72px;right:12px}
+  .cine-bar{padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px))}
+  .cine-scroll{display:none}
+}
+@media (max-width:520px){.cine-cta{font-size:11.5px;padding:10px 13px}}
 </style>
 
 <style>html,body{margin:0}</style>
@@ -641,9 +685,16 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 
 <main id="top">
   <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-h">
+  <section class="hero hero-cine" id="top-hero" aria-labelledby="hero-h">
     <div class="hero-bg" aria-hidden="true"></div>
-    <div class="wrap">
+    <div class="screen flat cine" id="hero-screen" data-video="brand">
+      <div class="frame">
+        <video muted playsinline preload="auto" aria-label="Brand film: One call. Every angle."></video>
+        <div class="vprog"><i></i></div>
+      </div>
+    </div>
+    <div class="cine-shade" aria-hidden="true"></div>
+    <div class="wrap cine-copy">
       <div>
         <span class="pill">Six specialist divisions. One accountable group.</span>
         <h1 id="hero-h">ALL ANGLES<br><span class="metal">COVERED.</span></h1>
@@ -651,21 +702,16 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
         <p class="sub">Most organisations juggle a different vendor for every part of their technology. We bring the specialists together so you don't have to.</p>
         <div class="ctas">
           <a class="btn" href="#discover">Find your path in 60 seconds</a>
-          <a class="btn ghost" href="#watch">Watch all films</a>
+          <button class="btn ghost" type="button" id="cine-watch"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg>Watch the film</button>
         </div>
-      </div>
-      <div class="stage">
-        <div class="screen" data-video="brand" data-autoplay data-loop>
-          <div class="frame">
-            <video muted playsinline loop preload="metadata" poster="media/brand-film.jpg" aria-label="Brand film: One call. Every angle."></video>
-            <div class="glare"></div>
-            <div class="vprog"><i></i></div>
-          </div>
-          <div class="reflect"></div>
-        </div>
-        <div class="vcap"><span><b>BRAND FILM · 62 SEC</b></span><span>One call. Every angle.</span></div>
+        <div class="cine-timer" aria-hidden="true"><i></i></div>
       </div>
     </div>
+    <div class="cine-bar">
+      <a class="cine-cta" href="#discover">Find your path in 60 seconds <span aria-hidden="true">&rarr;</span></a>
+      <button type="button" class="cine-intro" id="cine-intro">Show intro</button>
+    </div>
+    <a class="cine-scroll" href="#difference" aria-label="Scroll to the next section"><span></span></a>
   </section>
 
   <div class="wrap">
@@ -1462,7 +1508,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     try{ sessionStorage.setItem('cbg-intro','1'); }catch(e){}
     intro.hidden=false; document.documentElement.style.overflow='hidden';
     var closed=false, ring=null, vid=document.getElementById('intro-video'), fellBack=false;
-    function close(){ if(closed) return; closed=true; intro.classList.add('out'); document.documentElement.style.overflow=''; setTimeout(function(){ intro.hidden=true; if(ring) ring.stop(); try{ vid.pause(); }catch(e){} }, 650); }
+    function close(){ if(closed) return; closed=true; intro.classList.add('out'); try{ window.dispatchEvent(new Event('cbg-intro-done')); }catch(e){} document.documentElement.style.overflow=''; setTimeout(function(){ intro.hidden=true; if(ring) ring.stop(); try{ vid.pause(); }catch(e){} }, 650); }
     intro.addEventListener('click', close);
     document.addEventListener('keydown', function(e){ if(e.key==='Escape'||e.key==='Enter'||e.key===' ') close(); }, {once:true});
     function drawnReveal(){
@@ -1575,6 +1621,27 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   }
   var byId={};
   document.querySelectorAll('.screen').forEach(function(s){ var P=makePlayer(s); byId[s.id||s.getAttribute('data-video')]=P; });
+  /* cinematic hero: show the intro text, then play the brand film full size; back to the text when it ends */
+  (function(){
+    var hero=document.getElementById('top-hero'), HP=byId['hero-screen']; if(!hero||!HP) return;
+    var INTRO=5500, timer=null, started=false, inView=true;
+    hero.style.setProperty('--intro-ms', INTRO+'ms');
+    function film(){ clearTimeout(timer); hero.classList.remove('counting'); hero.classList.add('playing'); HP.userPaused=false; HP.ensure(); try{ HP.v.currentTime=0; }catch(e){} if(inView) HP.play(); }
+    function introText(){ clearTimeout(timer); hero.classList.remove('playing'); HP.v.pause(); hero.classList.remove('counting'); void hero.offsetWidth;
+      if(reduce) return; hero.classList.add('counting'); timer=setTimeout(film, INTRO); }
+    function begin(){ if(started) return; started=true; HP.ensure(); introText(); }
+    HP.v.addEventListener('ended', introText);
+    document.getElementById('cine-watch').addEventListener('click', film);
+    document.getElementById('cine-intro').addEventListener('click', introText);
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){ inView=en[0].isIntersecting && en[0].intersectionRatio>.3;
+        if(hero.classList.contains('playing')){ if(inView && !HP.userPaused) HP.play(); else if(!inView) HP.v.pause(); }
+      },{threshold:[0,.3,.6]}).observe(hero);
+    }
+    var intro=document.getElementById('intro');
+    if(intro && !intro.hidden){ window.addEventListener('cbg-intro-done', function(){ setTimeout(begin, 500); }); setTimeout(begin, 12000); }
+    else begin();
+  })();
 
   // autoplay in view, pause out of view
   if('IntersectionObserver' in window){
