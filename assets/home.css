@@ -112,3 +112,9 @@ header nav .call .ph{display:none}
 .mnav a.m-sos{justify-content:center}
 .pick-h{max-width:1120px}
 .pick{padding-bottom:clamp(64px,6vw,96px)}
+/* simplified who-we-are: heading left, short copy right */
+.grp-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
+.grp .gl{margin-top:6px}
+.grp{padding-top:clamp(64px,7vw,104px);padding-bottom:0}
+.pick{padding-top:clamp(64px,7vw,100px)}
+@media (max-width:860px){.grp-in{grid-template-columns:1fr;gap:20px}.grp{padding-top:56px}.pick{padding-top:56px}}
