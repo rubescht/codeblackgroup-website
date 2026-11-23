@@ -44,17 +44,17 @@
     text=String(text||'').trim(); if(!text||busy) return;
     busy=true; send.disabled=true; chips.hidden=true;
     add('u',text); msgs.push({role:'user',content:text});
-    var w=add('a wait','Thinking about the best next steps…','Golden Shield');
+    var w=add('a wait','Thinking about the best next steps…','Golden Shield AI');
     session().then(function(t){
       return fetch(API+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:t,messages:msgs.slice(-10)})}).then(json);
     }).then(function(j){
       if(j._s===401){ token=null; }
       var reply=j.text||FALLBACK;
-      w.remove(); add('a',reply,'Golden Shield');
+      w.remove(); add('a',reply,'Golden Shield AI');
       if(j.redacted) add('note',"For your safety we removed what looked like card, account or ID numbers from your message. Please don't share those here.");
       msgs.push({role:'assistant',content:reply});
     }).catch(function(){
-      w.remove(); add('a',FALLBACK,'Golden Shield'); msgs.push({role:'assistant',content:FALLBACK});
+      w.remove(); add('a',FALLBACK,'Golden Shield AI'); msgs.push({role:'assistant',content:FALLBACK});
     }).then(function(){ busy=false; send.disabled=false; input.focus(); });
   }
   form.addEventListener('submit',function(e){ e.preventDefault(); var v=input.value; input.value=''; ask(v); });
