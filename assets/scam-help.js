@@ -35,7 +35,8 @@
   function add(cls,text,who){
     var d=document.createElement('div'); d.className='sh-m '+cls;
     if(who){ var w=document.createElement('span'); w.className='who'; w.textContent=who; d.appendChild(w); }
-    d.appendChild(document.createTextNode(text)); log.appendChild(d);
+    String(text).replace(/^#+\s*/gm,'').split(/\*\*(.+?)\*\*/).forEach(function(part,i){ if(i%2){ var b=document.createElement('b'); b.textContent=part; d.appendChild(b); } else d.appendChild(document.createTextNode(part.replace(/\*/g,''))); });
+    log.appendChild(d);
     d.scrollIntoView({block:'nearest',behavior:'smooth'}); return d;
   }
   var FALLBACK="It's not your fault, and acting quickly helps.\n1. If you gave money, card or bank details: call your bank now on the number on the back of your card.\n2. If someone has access to your device: disconnect it from the internet.\n3. Change passwords from a different, safe device.\n4. Shared ID documents? Call IDCARE on 1800 595 160.\n5. Report it at cyber.gov.au and scamwatch.gov.au.\nFor hands-on help, call Code Black Group on 1300 737 562.";
