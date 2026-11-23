@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-DqK66ygDXrOCs4cZVUBPQ+P0iWXuNWwy6hWndXBkHbo=' 'sha256-yFmPNOx82RfjioKFNff2WH/P5YRgSlWOb0R4nlhE6bM='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-DqK66ygDXrOCs4cZVUBPQ+P0iWXuNWwy6hWndXBkHbo=' 'sha256-yFmPNOx82RfjioKFNff2WH/P5YRgSlWOb0R4nlhE6bM=' 'sha256-WmXbe4G2ijS/XrTzdj10RShteNucjQJpr4HgCoQVmoU='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="../assets/guard.js"></script>
 <!-- security:end -->
@@ -49,6 +49,19 @@
 .ap-ch button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 .ap-ch button.on .n{color:var(--gold-soft)}
 @media (max-width:900px){.ap{grid-template-columns:1fr}.ap-ch{grid-template-columns:repeat(2,minmax(0,1fr))}.ap-ch button{padding:10px 12px;font-size:14px}}
+/* licensed Aboriginal artwork, blended softly into the background; only shown once the artwork file exists */
+.art-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.2s ease;background-repeat:no-repeat;background-size:cover}
+body.has-art .art-bg{opacity:1}
+.hero,#government,#contact{position:relative;isolation:isolate;overflow:hidden}
+.hero .art-bg{background-position:right center;opacity:0;-webkit-mask-image:linear-gradient(90deg,transparent 30%,#000 75%);mask-image:linear-gradient(90deg,transparent 30%,#000 75%);mix-blend-mode:multiply}
+body.has-art .hero .art-bg{opacity:.16}
+#government .art-bg,#contact .art-bg{background-position:center;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(120% 90% at 85% 20%,#000 20%,transparent 75%);mask-image:radial-gradient(120% 90% at 85% 20%,#000 20%,transparent 75%)}
+body.has-art #government .art-bg{opacity:.14} body.has-art #contact .art-bg{opacity:.1}
+.aoc{background:var(--night);color:#CBD8E4;border-top:1px solid var(--night-line)}
+.aoc .wrap{padding-top:28px;padding-bottom:28px}
+.aoc p{margin:0;font-size:14.5px;line-height:1.6;max-width:90ch}
+.aoc .art-credit{display:none;margin-top:8px;font-size:13px;color:#9FB2C5}
+body.has-art .aoc .art-credit.ready{display:block}
 </style>
 </head>
 <body class="nfp">
@@ -105,6 +118,7 @@
     <span class="bar" aria-hidden="true"><i id="lf-bar"></i></span>
   </section>
   <section class="hero" aria-labelledby="hero-h">
+    <div class="art-bg" aria-hidden="true"></div>
     <div class="wrap">
       <div>
         <span class="eyebrow">For government, not-for-profit and community organisations</span>
@@ -221,6 +235,7 @@
   </section>
 
   <section class="sec bg-night" id="government" aria-labelledby="gov2-h">
+    <div class="art-bg" aria-hidden="true"></div>
     <div class="wrap split rev">
       <div class="rv">
         <span class="eyebrow">Councils and government agencies</span>
@@ -301,6 +316,7 @@
   </section>
 
   <section class="sec bg-night contact" id="contact" aria-labelledby="contact-h">
+    <div class="art-bg" aria-hidden="true"></div>
     <div class="wrap">
       <div class="rv">
         <span class="eyebrow">Talk to us</span>
@@ -328,6 +344,14 @@
   </section>
 </main>
 
+<section class="aoc" aria-label="Acknowledgement of Country">
+  <div class="wrap">
+    <div>
+      <p>Code Black Group acknowledges the Traditional Custodians of the lands on which we live and work throughout Australia, and their continuing connection to land, waters and community. We pay our respects to Elders past and present, and extend that respect to all Aboriginal and Torres Strait Islander peoples.</p>
+      <p class="art-credit" id="art-credit"></p>
+    </div>
+  </div>
+</section>
 <footer class="foot">
   <div class="wrap">
     <div class="top">
@@ -402,6 +426,19 @@
       else if(!v.paused){ v.dataset.was='1'; v.pause(); }
     }); },{threshold:.55}).observe(v);
   }
+})();
+</script>
+<script>
+/* Licensed artwork: drop the file at media/art/gov-nfp-artwork.jpg and fill in the credit below. Nothing shows until the file exists. */
+(function(){
+  var ART={src:'../media/art/gov-nfp-artwork.jpg', title:'', artist:'', people:'', licence:'Used under licence'};
+  var img=new Image();
+  img.onload=function(){
+    [].forEach.call(document.querySelectorAll('.art-bg'),function(el){ el.style.backgroundImage='url('+ART.src+')'; });
+    document.body.classList.add('has-art');
+    if(ART.artist){ var c=document.getElementById('art-credit'); c.textContent='Artwork: '+(ART.title?ART.title+' by ':'')+ART.artist+(ART.people?', '+ART.people:'')+'. '+ART.licence+'.'; c.classList.add('ready'); }
+  };
+  img.src=ART.src;
 })();
 </script>
 <script src="../assets/editorial.js"></script>
