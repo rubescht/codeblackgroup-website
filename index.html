@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-XML3p12RpBkeQlQ6V+3zciK1RTfjLb742KrytwOCz+w='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-6iMKrulwHQABlrBuGP17jRJ0Yx1LGWy8eylrqWaTu5M='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/guard.js"></script>
 <!-- security:end -->
@@ -60,6 +60,26 @@ header nav .call:hover{border-color:var(--syn);box-shadow:0 0 18px rgba(127,227,
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate;padding:110px 0 120px}
 #field{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+.ai-v{position:absolute;z-index:3;width:0;display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.ai-btn{pointer-events:auto;display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 16px 0 6px;border-radius:999px;border:1px solid rgba(127,227,255,.45);background:rgba(5,8,14,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#E8F7FF;font-family:var(--hud);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;white-space:nowrap;box-shadow:0 0 0 0 rgba(127,227,255,.35);animation:aiping 2.8s ease-out infinite}
+.ai-btn:hover{border-color:rgba(127,227,255,.85)}
+.ai-btn .eq{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;gap:2px;background:linear-gradient(135deg,#7FE3FF,#A78BFA)}
+.ai-btn .eq i{display:block;width:3px;height:8px;border-radius:2px;background:#05060A;animation:eqb 1s ease-in-out infinite}
+.ai-btn .eq i:nth-child(2){animation-delay:-.3s}.ai-btn .eq i:nth-child(3){animation-delay:-.6s}.ai-btn .eq i:nth-child(4){animation-delay:-.15s}
+.ai-v.on .ai-btn{animation:none;border-color:rgba(241,217,154,.7)}
+.ai-v.on .ai-btn .eq{background:linear-gradient(135deg,#F1D99A,#D8B45F)}
+@keyframes eqb{0%,100%{height:5px}50%{height:15px}}
+@keyframes aiping{0%{box-shadow:0 0 0 0 rgba(127,227,255,.35)}70%{box-shadow:0 0 0 14px rgba(127,227,255,0)}100%{box-shadow:0 0 0 0 rgba(127,227,255,0)}}
+.ai-cap{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:40;transform:translate(-50%,8px);width:min(600px,calc(100vw - 32px));pointer-events:none;padding:12px 18px 14px;border-radius:14px;border:1px solid rgba(127,227,255,.25);background:rgba(5,8,14,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);text-align:left;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
+.ai-v.on .ai-cap{opacity:1;transform:translate(-50%,0)}
+.ai-cap .lbl{display:flex;align-items:center;gap:8px;font-family:var(--hud);font-size:10px;letter-spacing:.22em;color:#7FE3FF;margin-bottom:6px}
+.ai-cap .lbl i{width:6px;height:6px;border-radius:50%;background:#7FE3FF;box-shadow:0 0 10px #7FE3FF;animation:recdot 1.2s ease-in-out infinite}
+.ai-cap p{margin:0;font-size:15.5px;line-height:1.5;color:#E9EEF5;min-height:3em}
+.ai-cap p .cur{display:inline-block;width:7px;height:1em;margin-left:2px;vertical-align:-2px;background:#7FE3FF;animation:blink .9s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (max-width:860px){.ai-btn{height:38px;font-size:10.5px}.ai-cap p{font-size:14.5px}}
+@media (prefers-reduced-motion:reduce){.ai-btn,.ai-btn .eq i{animation:none}}
+
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(60% 70% at 15% 50%,rgba(5,6,10,.85),transparent 70%),linear-gradient(180deg,rgba(5,6,10,.3),transparent 25%,transparent 70%,var(--void))}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;
@@ -96,7 +116,7 @@ h1 .l2{display:block;margin-top:14px;font-family:var(--serif);font-style:italic;
 .cue{position:absolute;left:50%;bottom:-2px;transform:translateX(-50%);width:1px;height:28px;background:linear-gradient(var(--syn),transparent);animation:cue 2s ease-in-out infinite}
 @keyframes cue{0%,100%{opacity:.2;transform:translate(-50%,-6px)}50%{opacity:1;transform:translate(-50%,0)}}
 @media (max-width:860px){
-  .hero{align-items:flex-start;padding-top:270px;padding-bottom:210px}
+  .hero{align-items:flex-start;padding-top:330px;padding-bottom:210px}
   .hero::before{background:linear-gradient(180deg,rgba(5,6,10,.55),rgba(5,6,10,.65) 60%,var(--void))}
   .readout .wrap{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:10px}
   .ro b{font-size:17px}.ro{padding:10px 12px 0}
@@ -314,6 +334,11 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
   <section class="hero" aria-labelledby="h">
     <canvas id="field" aria-hidden="true"></canvas>
     <div class="scan" aria-hidden="true"></div>
+    <div class="ai-v" id="aiv">
+      <button class="ai-btn" type="button" id="ai-btn" aria-label="Hear a short welcome from our AI, with captions"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="ai-btn-t">Hear from our AI</span></button>
+      <div class="ai-cap" aria-live="polite"><span class="lbl hudt"><i></i>CBG // AI speaking</span><p id="ai-text"></p></div>
+      <audio id="ai-audio" src="media/ai-welcome.mp3" preload="none"></audio>
+    </div>
     <div class="frame hudt" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="coord">LAT −37.81 · LON 144.96 · MELBOURNE</span><span class="coord2" id="clock">SYS ONLINE</span></div>
     <div class="wrap">
       <div class="h-in">
@@ -528,6 +553,36 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
   }
 
   /* ===== intelligence field: neural network + rotating core ===== */
+  /* ---- AI voice: drives the core sphere from the live audio level ---- */
+  var V=window.CBG_VOICE={l:0,on:false,bins:null,update:function(){}};
+  (function(){
+    var au=document.getElementById('ai-audio'), btn=document.getElementById('ai-btn'), bt=document.getElementById('ai-btn-t'), box=document.getElementById('aiv'), txt=document.getElementById('ai-text');
+    if(!au||!btn) return;
+    var CUES=[[0,2.9,"Hello, and welcome to Code Black Group."],[3.2,6.4,"I'm the intelligence at the centre of everything we do."],[6.5,14.4,"Whether you're just starting out, growing a business, leading a large organisation, or serving your community, we're here from day one."],[14.6,16.1,"We listen first."],[16.2,23.0,"Then we bring the right specialists together: IT support, cyber security, connectivity, surveillance, digital, and AI."],[23.0,25.8,"One partner. One point of contact."],[25.8,30.9,"And every solution security-vetted before it reaches you."],[31.1,35.2,"Choose your path below, and let's build what's next, together."]];
+    var ac=null, an=null, td=null, fd=null, last=-1;
+    function setup(){ try{ var AC=window.AudioContext||window.webkitAudioContext; if(!AC||ac) return; ac=new AC(); var src=ac.createMediaElementSource(au); an=ac.createAnalyser(); an.fftSize=256; an.smoothingTimeConstant=.7; src.connect(an); an.connect(ac.destination); td=new Uint8Array(an.fftSize); fd=new Uint8Array(an.frequencyBinCount); V.bins=fd; }catch(e){ ac=null; } }
+    V.update=function(){
+      var lv=0;
+      if(an&&V.on){ an.getByteTimeDomainData(td); var sum=0; for(var i=0;i<td.length;i++){ var x=(td[i]-128)/128; sum+=x*x; } lv=Math.min(1,Math.sqrt(sum/td.length)*2.6); an.getByteFrequencyData(fd); }
+      else if(V.on){ lv=.35+.25*Math.sin(performance.now()/90); }
+      V.l+= (lv-V.l)*(lv>V.l?.5:.12);
+      if(V.on){ var t=au.currentTime, c=-1; for(var k=0;k<CUES.length;k++) if(t>=CUES[k][0]-.05) c=k;
+        if(c>=0){ var q=CUES[c], f=Math.min(1,(t-q[0])/Math.max(.6,(q[1]-q[0])*.82)), n=Math.round(q[2].length*f);
+          if(c!==last||n!==V._n){ txt.textContent=q[2].slice(0,n); var cur=document.createElement('span'); cur.className='cur'; txt.appendChild(cur); last=c; V._n=n; } } }
+    };
+    function stop(){ au.pause(); V.on=false; box.classList.remove('on'); bt.textContent='Hear from our AI'; btn.setAttribute('aria-label','Hear a short welcome from our AI, with captions'); }
+    btn.addEventListener('click',function(){
+      if(V.on){ stop(); return; }
+      setup(); if(ac&&ac.state==='suspended') ac.resume();
+      if(au.ended||au.currentTime>34) au.currentTime=0;
+      var p=au.play(); if(p&&p.catch) p.catch(function(){ stop(); });
+      V.on=true; box.classList.add('on'); bt.textContent='Stop'; btn.setAttribute('aria-label','Stop the AI welcome'); last=-1;
+      if(window.CBG_KICK) window.CBG_KICK();
+    });
+    au.addEventListener('ended',function(){ setTimeout(function(){ stop(); txt.textContent=''; au.currentTime=0; },1600); });
+    document.addEventListener('visibilitychange',function(){ if(document.hidden&&V.on) stop(); });
+  })();
+
   var cv=document.getElementById('field'); if(!cv) return;
   var ctx=cv.getContext('2d'), W=0,H=0,DPR=1, nodes=[], core=[], sig=[], mouse={x:-9999,y:-9999}, running=true, t0=performance.now();
   function size(){
@@ -539,7 +594,10 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     for(var k=0;k<N;k++){ var y=1-(k/(N-1))*2, rr=Math.sqrt(1-y*y), th=ga*k; core.push([Math.cos(th)*rr,y,Math.sin(th)*rr]); }
   }
   function corePos(){ return W<860 ? {x:W*.5,y:150,R:Math.min(W*.2,90)} : {x:W*.73,y:H*.46,R:Math.min(W*.15,H*.24)}; }
-  addEventListener('resize',size); size();
+  var aiv=document.getElementById('aiv');
+  function placeAI(){ if(!aiv) return; var C=corePos(); aiv.style.left=C.x+'px'; aiv.style.top=(W<860 ? C.y+C.R+34 : C.y+C.R+26)+'px'; }
+  addEventListener('resize',function(){ size(); placeAI(); }); size(); placeAI();
+  window.CBG_KICK=function(){ if(!running||RM) return; };
   cv.parentElement.addEventListener('pointermove',function(e){ var r=cv.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; });
   cv.parentElement.addEventListener('pointerleave',function(){ mouse.x=mouse.y=-9999; });
   if('IntersectionObserver' in window) new IntersectionObserver(function(es){ running=es[0].isIntersecting; if(running&&!RM) requestAnimationFrame(draw); }).observe(cv);
@@ -548,9 +606,11 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
   function draw(now){
     var t=((now||performance.now())-t0)/1000;
     ctx.clearRect(0,0,W,H);
+    V.update(); var VL=V.l, VON=V.on;
     var C=corePos(), D=Math.min(170,W*.14);
+    C.R*=1+VL*.16;
     /* core glow */
-    var g=ctx.createRadialGradient(C.x,C.y,0,C.x,C.y,C.R*2.2); g.addColorStop(0,'rgba(127,227,255,.16)'); g.addColorStop(.45,'rgba(167,139,250,.06)'); g.addColorStop(1,'rgba(5,6,10,0)');
+    var g=ctx.createRadialGradient(C.x,C.y,0,C.x,C.y,C.R*2.2); g.addColorStop(0,'rgba(127,227,255,'+(.16+VL*.22)+')'); g.addColorStop(.45,'rgba(167,139,250,.06)'); g.addColorStop(1,'rgba(5,6,10,0)');
     ctx.fillStyle=g; ctx.beginPath(); ctx.arc(C.x,C.y,C.R*2.2,0,Math.PI*2); ctx.fill();
     /* network */
     for(var i=0;i<nodes.length;i++){
@@ -574,18 +634,24 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
       var x=s.a.x+(s.b.x-s.a.x)*s.p, y=s.a.y+(s.b.y-s.a.y)*s.p;
       ctx.fillStyle='rgba(241,217,154,.95)'; ctx.shadowColor='rgba(241,217,154,.9)'; ctx.shadowBlur=10; ctx.beginPath(); ctx.arc(x,y,1.8,0,Math.PI*2); ctx.fill(); ctx.shadowBlur=0; }
     /* rotating intelligence core (point sphere) */
-    var ry=t*.18, rx=.35+Math.sin(t*.2)*.12, cy=Math.cos(ry), sy=Math.sin(ry), cx=Math.cos(rx), sx=Math.sin(rx);
+    var ry=t*(.18+VL*.5), rx=.35+Math.sin(t*.2)*.12, cy=Math.cos(ry), sy=Math.sin(ry), cx=Math.cos(rx), sx=Math.sin(rx);
     for(i=0;i<core.length;i++){ var p=core[i], X=p[0]*cy+p[2]*sy, Z=-p[0]*sy+p[2]*cy, Y=p[1]*cx-Z*sx; Z=p[1]*sx+Z*cx;
-      var breath=1+Math.sin(t*1.2+i*.05)*.015, px=C.x+X*C.R*breath, py=C.y+Y*C.R*breath, dep=(Z+1)/2;
-      ctx.fillStyle= (i%23===0) ? 'rgba(241,217,154,'+(.35+dep*.65)+')' : 'rgba(150,235,255,'+(.14+dep*.86)+')';
-      ctx.beginPath(); ctx.arc(px,py,.7+dep*1.9,0,Math.PI*2); ctx.fill(); }
-    var cg=ctx.createRadialGradient(C.x,C.y,0,C.x,C.y,C.R*.9); cg.addColorStop(0,'rgba(200,245,255,.35)'); cg.addColorStop(.35,'rgba(127,227,255,.12)'); cg.addColorStop(1,'rgba(127,227,255,0)'); ctx.fillStyle=cg; ctx.beginPath(); ctx.arc(C.x,C.y,C.R*.9,0,Math.PI*2); ctx.fill();
+      var wave=VON ? VL*.16*Math.sin(p[1]*7+t*13)*Math.cos(p[0]*5-t*9) : 0;
+      var breath=1+Math.sin(t*1.2+i*.05)*.015+wave, px=C.x+X*C.R*breath, py=C.y+Y*C.R*breath, dep=(Z+1)/2;
+      ctx.fillStyle= (i%23===0||(VON&&wave>.03)) ? 'rgba(241,217,154,'+(.35+dep*.65)+')' : 'rgba(150,235,255,'+Math.min(1,.14+dep*.86+VL*.3)+')';
+      ctx.beginPath(); ctx.arc(px,py,.7+dep*1.9+VL*1.2*dep,0,Math.PI*2); ctx.fill(); }
+    /* voice ring: radial bars from the live spectrum */
+    if(VON&&V.bins){ var nb=72; ctx.lineCap='round';
+      for(i=0;i<nb;i++){ var bi=Math.floor(2+Math.abs((i/nb)*2-1)*40), m=V.bins[bi]/255, ang=i/nb*Math.PI*2-Math.PI/2+t*.15, r0=C.R*1.12, r1=r0+4+m*C.R*.55;
+        ctx.strokeStyle= i%9===0 ? 'rgba(241,217,154,'+(.35+m*.65)+')' : 'rgba(127,227,255,'+(.25+m*.7)+')'; ctx.lineWidth=2;
+        ctx.beginPath(); ctx.moveTo(C.x+Math.cos(ang)*r0,C.y+Math.sin(ang)*r0); ctx.lineTo(C.x+Math.cos(ang)*r1,C.y+Math.sin(ang)*r1); ctx.stroke(); } }
+    var cg=ctx.createRadialGradient(C.x,C.y,0,C.x,C.y,C.R*.9); cg.addColorStop(0,'rgba(200,245,255,'+(.35+VL*.4)+')'); cg.addColorStop(.35,'rgba(127,227,255,.12)'); cg.addColorStop(1,'rgba(127,227,255,0)'); ctx.fillStyle=cg; ctx.beginPath(); ctx.arc(C.x,C.y,C.R*.9,0,Math.PI*2); ctx.fill();
     /* orbit rings around the core */
     ctx.strokeStyle='rgba(216,180,95,.35)'; ctx.lineWidth=1;
     ctx.beginPath(); ctx.ellipse(C.x,C.y,C.R*1.45,C.R*.42,-.35,0,Math.PI*2); ctx.stroke();
     ctx.strokeStyle='rgba(127,227,255,.25)';
     ctx.beginPath(); ctx.ellipse(C.x,C.y,C.R*1.25,C.R*.3,.5,0,Math.PI*2); ctx.stroke();
-    var oa=t*.6; ctx.fillStyle='rgba(241,217,154,.95)'; ctx.beginPath();
+    var oa=t*(.6+VL*2.4); ctx.fillStyle='rgba(241,217,154,.95)'; ctx.beginPath();
     var ex=C.R*1.45*Math.cos(oa), ey=C.R*.42*Math.sin(oa); ctx.arc(C.x+ex*Math.cos(-.35)-ey*Math.sin(-.35), C.y+ex*Math.sin(-.35)+ey*Math.cos(-.35),2.4,0,Math.PI*2); ctx.fill();
     if(running && !RM && !document.hidden) requestAnimationFrame(draw);
   }
