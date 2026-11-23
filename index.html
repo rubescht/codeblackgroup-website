@@ -148,12 +148,13 @@ h2 em{font-style:italic;color:var(--gold)}
 .door{--tint:216,180,95;position:relative;display:block;aspect-ratio:3/4;border-radius:20px;overflow:hidden;isolation:isolate;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 60px -34px rgba(0,0,0,.9);transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .4s ease,box-shadow .5s ease;opacity:0;translate:0 24px;animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
 .door:nth-child(2){animation-delay:.08s}.door:nth-child(3){animation-delay:.16s}.door:nth-child(4){animation-delay:.24s}
 .door.t-start{--tint:238,150,140}.door.t-smb{--tint:120,210,240}.door.t-corp{--tint:222,186,104}.door.t-gov{--tint:110,207,190}
-.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 32%;z-index:-2;filter:saturate(.85) brightness(.88);transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .6s ease}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;z-index:-2;filter:saturate(.85) brightness(.88);transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .6s ease}
 .door::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,6,10,.15) 0,rgba(5,6,10,0) 22%,rgba(5,6,10,.5) 52%,rgba(5,6,10,.94) 100%)}
 .door::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:rgb(var(--tint));transform:scaleX(.2);transform-origin:left;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .door .num{position:absolute;left:20px;top:20px;font-size:12px;letter-spacing:.22em;color:rgb(var(--tint));text-shadow:0 1px 8px rgba(0,0,0,.6)}
-.door .live{position:absolute;right:14px;top:14px;display:flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(5,6,10,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-size:10px;letter-spacing:.18em;color:#E8EEF5;animation:rec 2.4s ease-in-out infinite}
-.door .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#FF3B30;box-shadow:0 0 10px rgba(255,59,48,.9);animation:recdot 2.4s ease-in-out infinite}
+.door .live{position:absolute;right:14px;top:14px;display:flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(5,6,10,.55);border:1px solid rgba(52,211,153,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-size:10px;letter-spacing:.18em;color:#A7F3D0;animation:rec 2.4s ease-in-out infinite}
+.door .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#34D399;box-shadow:0 0 10px rgba(52,211,153,.9);animation:livedot 2.4s ease-in-out infinite}
+@keyframes livedot{0%,100%{opacity:1;box-shadow:0 0 12px rgba(52,211,153,.95)}50%{opacity:.25;box-shadow:0 0 0 rgba(52,211,153,0)}}
 .door:nth-child(2) .live,.door:nth-child(2) .live::before{animation-delay:-.6s}
 .door:nth-child(3) .live,.door:nth-child(3) .live::before{animation-delay:-1.2s}
 .door:nth-child(4) .live,.door:nth-child(4) .live::before{animation-delay:-1.8s}
@@ -361,7 +362,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
       </div>
       <div class="paths">
         <a class="door t-start" href="startups/" aria-label="Visit the site for Startups and sole traders">
-          <img src="assets/img/door-start.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async">
+          <img src="assets/img/door-start.jpg?v=2" alt="" width="900" height="1200" loading="lazy" decoding="async">
           <span class="num hudt">01</span>
           <span class="live hudt">Online</span>
           <div class="tx">
@@ -371,7 +372,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
           </div>
         </a>
         <a class="door t-smb" href="business/" aria-label="Visit the site for Small and medium businesses">
-          <img src="assets/img/door-smb.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async">
+          <img src="assets/img/door-smb.jpg?v=2" alt="" width="900" height="1200" loading="lazy" decoding="async">
           <span class="num hudt">02</span>
           <span class="live hudt">Online</span>
           <div class="tx">
@@ -381,7 +382,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
           </div>
         </a>
         <a class="door t-corp" href="corporate/" aria-label="Visit the site for Corporate and enterprise clients">
-          <img src="assets/img/door-corp.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async">
+          <img src="assets/img/door-corp.jpg?v=2" alt="" width="900" height="1200" loading="lazy" decoding="async">
           <span class="num hudt">03</span>
           <span class="live hudt">Online</span>
           <div class="tx">
@@ -391,7 +392,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
           </div>
         </a>
         <a class="door t-gov" href="not-for-profit/" aria-label="Visit the site for Government and not-for-profit">
-          <img src="assets/img/door-gov.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async">
+          <img src="assets/img/door-gov.jpg?v=2" alt="" width="900" height="1200" loading="lazy" decoding="async">
           <span class="num hudt">04</span>
           <span class="live hudt">Online</span>
           <div class="tx">
