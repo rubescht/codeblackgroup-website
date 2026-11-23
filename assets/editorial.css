@@ -531,3 +531,8 @@ body.nfp .dl-row.lv-r .dl-st{color:#DCE6EF;border-color:#4F6A85}
 
 @media (max-width:640px){.audbar nav a span{display:none}.audbar nav a::after{content:attr(data-s)}}
 @media (max-width:360px){.audbar nav{gap:2px}.audbar nav a{padding:5px 8px;font-size:12px}}
+/* Acknowledgement of Country + privacy link in footer */
+.foot .aoc-ft{padding:24px 0;border-bottom:1px solid var(--night-line)}
+.foot .aoc-ft b{display:block;margin-bottom:6px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.foot .aoc-ft p{margin:0;max-width:96ch;font-size:13.5px;line-height:1.65;opacity:.85}
+.foot .bottom .legal{display:inline-flex;gap:18px}

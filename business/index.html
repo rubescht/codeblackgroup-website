@@ -529,6 +529,10 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .foot-col .sel{user-select:all;overflow-wrap:anywhere}
 .foot-bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-block:18px 28px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .foot-bar a{color:var(--muted);text-decoration:none}
+.foot-legal{display:inline-flex;gap:18px}
+.foot-aoc{padding-block:20px;border-top:1px solid var(--line)}
+.foot-aoc b{display:block;margin-bottom:6px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.foot-aoc p{margin:0;max-width:96ch;font-size:13.5px;line-height:1.65;color:var(--muted)}
 .foot-bar a:hover{color:var(--gold)}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.screen{--ry:0deg!important;--rx:0deg!important}}
@@ -1496,9 +1500,10 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
       <a class="btn" href="#discover" style="margin-top:10px">Start discovery</a>
     </div>
   </div>
+  <div class="wrap foot-aoc"><b>Acknowledgement of Country</b><p>Code Black Group acknowledges the Traditional Custodians of the lands on which we live and work throughout Australia, and their continuing connection to land, waters and community. We pay our respects to Elders past and present, and extend that respect to all Aboriginal and Torres Strait Islander peoples.</p></div>
   <div class="wrap foot-bar">
     <span>© 2026 Code Black Group Global Pty Ltd · ABN 62 315 213 466</span>
-    <a href="#top">Back to top</a>
+    <span class="foot-legal"><a href="../privacy/">Privacy policy</a><a href="#top">Back to top</a></span>
   </div>
 </footer>
 </div>
