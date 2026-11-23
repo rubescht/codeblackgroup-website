@@ -520,3 +520,6 @@ body.nfp .dl-gc span,body.nfp .dl-legend,body.nfp .dl-row small,body.nfp .dl-st,
 body.nfp .dl-st{border-color:#2A4560}
 body.nfp .seg.lv-r{stroke:#4F6A85} body.nfp .dl-legend .lv-r{background:#4F6A85}
 body.nfp .dl-row.lv-r .dl-st{color:#DCE6EF;border-color:#4F6A85}
+/* footer: give the contact column room between 1025px and 1200px so the email never spills */
+@media (min-width:1025px) and (max-width:1200px){.foot .top{grid-template-columns:minmax(0,4fr) repeat(2,minmax(0,2fr)) minmax(0,3fr);gap:32px}}
+.foot .top a[href^="mailto"]{overflow-wrap:anywhere}
