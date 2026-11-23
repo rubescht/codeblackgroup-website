@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-G+jZBLnpbZQw2Bd1MZo5u95I2uEzfJZ5J/V/YLTn0Zk='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-gvqjBXhZiX9ioA0BbHmZltghklQ9rNc20lYkgbdlrQM='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/guard.js"></script>
 <!-- security:end -->
@@ -621,11 +621,18 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     if(strobe.f>.01||strobe.rings.length){ ctx.save(); ctx.globalCompositeOperation='lighter';
       var F=strobe.f;
       if(F>.01){ ctx.fillStyle='rgba(190,235,255,'+(F*.16)+')'; ctx.fillRect(0,0,W,H);
-        var sg=ctx.createRadialGradient(C.x,C.y,0,C.x,C.y,C.R*1.6); sg.addColorStop(0,'rgba(255,255,255,'+(F*.85)+')'); sg.addColorStop(.45,'rgba(170,235,255,'+(F*.45)+')'); sg.addColorStop(1,'rgba(127,227,255,0)');
-        ctx.fillStyle=sg; ctx.beginPath(); ctx.arc(C.x,C.y,C.R*1.6,0,Math.PI*2); ctx.fill(); }
+        /* bright burst from the centre of the sphere */
+        var sg=ctx.createRadialGradient(C.x,C.y,0,C.x,C.y,C.R*2.1); sg.addColorStop(0,'rgba(255,255,255,'+Math.min(1,F*1.1)+')'); sg.addColorStop(.18,'rgba(255,255,255,'+(F*.9)+')'); sg.addColorStop(.5,'rgba(180,240,255,'+(F*.55)+')'); sg.addColorStop(1,'rgba(127,227,255,0)');
+        ctx.fillStyle=sg; ctx.beginPath(); ctx.arc(C.x,C.y,C.R*2.1,0,Math.PI*2); ctx.fill();
+        ctx.fillStyle='rgba(255,255,255,'+Math.min(1,F*1.2)+')'; ctx.shadowColor='rgba(255,255,255,1)'; ctx.shadowBlur=60*F; ctx.beginPath(); ctx.arc(C.x,C.y,C.R*.22*(.6+.4*F),0,Math.PI*2); ctx.fill(); ctx.shadowBlur=0;
+        /* cross flare */
+        var fl=C.R*3.4*(.5+.5*F), fw=C.R*.045;
+        for(var fa=0;fa<2;fa++){ ctx.save(); ctx.translate(C.x,C.y); ctx.rotate(fa*Math.PI/2+t*.05);
+          var fg=ctx.createLinearGradient(-fl,0,fl,0); fg.addColorStop(0,'rgba(200,240,255,0)'); fg.addColorStop(.5,'rgba(255,255,255,'+(F*.95)+')'); fg.addColorStop(1,'rgba(200,240,255,0)');
+          ctx.fillStyle=fg; ctx.beginPath(); ctx.ellipse(0,0,fl,fw*(.5+F),0,0,Math.PI*2); ctx.fill(); ctx.restore(); } }
       for(var q=strobe.rings.length-1;q>=0;q--){ var rg=strobe.rings[q]; rg.r+=C.R*.06; rg.a*=.9; if(rg.a<.03){ strobe.rings.splice(q,1); continue; }
         ctx.strokeStyle='rgba(220,245,255,'+(rg.a*.7)+')'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(C.x,C.y,rg.r,0,Math.PI*2); ctx.stroke(); }
-      ctx.restore(); strobe.f*=.72; }
+      ctx.restore(); strobe.f*=.8; }
     /* network */
     for(var i=0;i<nodes.length;i++){
       var a=nodes[i]; if(!RM){ a.x+=a.vx; a.y+=a.vy; }
