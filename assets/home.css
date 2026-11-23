@@ -118,3 +118,9 @@ header nav .call .ph{display:none}
 .grp{padding-top:clamp(64px,7vw,104px);padding-bottom:0}
 .pick{padding-top:clamp(64px,7vw,100px)}
 @media (max-width:860px){.grp-in{grid-template-columns:1fr;gap:20px}.grp{padding-top:56px}.pick{padding-top:56px}}
+/* tighter start page: no dead space under the hero or the tiles */
+.hero{min-height:clamp(620px,84svh,800px);padding-bottom:56px}
+.pick{padding-top:clamp(28px,3vw,44px);padding-bottom:clamp(40px,4vw,56px)}
+.pick-h{margin-bottom:32px}
+footer{margin-top:0}
+@media (max-width:860px){.hero{min-height:0;padding-bottom:40px}.pick{padding-top:24px;padding-bottom:40px}.pick-h{margin-bottom:24px}}
