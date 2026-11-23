@@ -288,7 +288,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.door{opacity:1;transform:none;translate:none}}
 </style>
 <link rel="stylesheet" href="../assets/scam-help.css?v=6">
-<link rel="stylesheet" href="../assets/home.css?v=6">
+<link rel="stylesheet" href="../assets/home.css?v=11">
 <link rel="stylesheet" href="../assets/about.css?v=1">
 </head>
 <body class="about">
@@ -417,26 +417,50 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 </main>
 
 
-<footer>
+<footer class="ft">
   <div class="wrap">
-    <div class="f-top">
-      <div>
-        <img class="f-logo" src="../logos/cbg-lockup-horizontal-white.png" alt="Code Black Group" width="250" height="51" loading="lazy">
-        <em>One Code. One Strategy. One Outcome.</em>
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img class="ft-logo" src="../logos/cbg-lockup-horizontal-white.png" alt="Code Black Group" width="250" height="51" loading="lazy">
+        <p class="ft-tag">One Code. One Strategy. One Outcome.</p>
+        <p class="ft-sum">Six specialist teams in one accountable group, helping organisations grow the right way since 2005.</p>
       </div>
-      <div>
-        <span class="hudt">Our divisions</span>
-        <div class="divs">
-          <a href="https://strikeforcecyber.com" target="_blank" rel="noopener"><span class="lg"><img src="../logos/strikeforce-cyber-white.svg" alt="Strikeforce Cyber" class="tall" loading="lazy"></span><span>Cyber security that vets every solution we deliver.</span></a>
-          <a href="https://midnightit.com.au" target="_blank" rel="noopener"><span class="lg"><img src="../logos/color/midnight-it.png" alt="Midnight IT" class="mit" loading="lazy"></span><span>24/7 IT support and managed services, since 2005.</span></a>
-          <a href="https://rendr.com.au" target="_blank" rel="noopener"><span class="lg"><img src="../assets/rendr-solid.png" alt="Rend'r" loading="lazy"></span><span>Websites, apps and digital platforms that perform.</span></a>
-          <a href="https://3eyes.com.au" target="_blank" rel="noopener"><span class="lg"><img src="../logos/color/3eyes.png" alt="3 Eyes Australia" class="tall eyes" loading="lazy"></span><span>CCTV, access control and surveillance, supported in person.</span></a>
-          <a href="https://wizesolutions.com.au" target="_blank" rel="noopener"><span class="lg"><img src="../logos/color/wize.png" alt="Wize Solutions" class="tall" loading="lazy"></span><span>Business internet and phones: fibre, 5G and Starlink.</span></a>
-          <a href="https://aidome.com.au" target="_blank" rel="noopener"><span class="lg"><img src="../logos/aidome-logo-h.png" alt="AI Dome" class="tall" loading="lazy"></span><span>Safe A.I. adoption, with guardrails and control.</span></a>
-        </div>
+      <nav class="ft-col" aria-label="Choose your website">
+        <span class="hudt">Websites</span>
+        <a href="../startups/">Startups &amp; Sole Traders</a>
+        <a href="../business/">Small &amp; Medium Businesses</a>
+        <a href="../corporate/">Corporate &amp; Enterprise</a>
+        <a href="../not-for-profit/">Government &amp; Not-for-Profit</a>
+      </nav>
+      <nav class="ft-col" aria-label="Company">
+        <span class="hudt">Company</span>
+        <a href="../about/">About us</a>
+        <a href="../corporate/">Group site</a>
+        <a href="../corporate/#leadership">Leadership</a>
+        <a href="#scam-help" data-scam-help class="ft-sos"><i aria-hidden="true"></i>SOS scam help</a>
+      </nav>
+      <div class="ft-col ft-contact">
+        <span class="hudt">Talk to us</span>
+        <a class="ft-ph" href="tel:1300737562">1300 737 562</a>
+        <a href="mailto:vip@codeblackgroup.com.au">vip@codeblackgroup.com.au</a>
+        <span class="ft-note">Melbourne, Australia · 24/7 support</span>
       </div>
     </div>
-    <div class="f-bot"><span>© 2026 Code Black Group Global Pty Ltd · ABN 62 315 213 466</span><span><a href="tel:1300737562">1300 737 562</a> · <a href="mailto:vip@codeblackgroup.com.au">vip@codeblackgroup.com.au</a></span></div>
+    <div class="ft-divs">
+      <span class="hudt">Our divisions</span>
+      <div class="ft-grid">
+        <a href="https://strikeforcecyber.com" target="_blank" rel="noopener"><span class="fl"><img src="../logos/strikeforce-cyber-white.svg" alt="Strikeforce Cyber" class="tall" loading="lazy"></span><span class="fd">Cyber security</span></a>
+        <a href="https://midnightit.com.au" target="_blank" rel="noopener"><span class="fl"><img src="../logos/color/midnight-it.png" alt="Midnight IT" class="mit" loading="lazy"></span><span class="fd">24/7 IT support</span></a>
+        <a href="https://rendr.com.au" target="_blank" rel="noopener"><span class="fl"><img src="../assets/rendr-solid.png" alt="Rend'r" class="rd" loading="lazy"></span><span class="fd">Web &amp; digital</span></a>
+        <a href="https://3eyes.com.au" target="_blank" rel="noopener"><span class="fl"><img src="../logos/color/3eyes.png" alt="3 Eyes Australia" class="tall eyes" loading="lazy"></span><span class="fd">Surveillance &amp; security</span></a>
+        <a href="https://wizesolutions.com.au" target="_blank" rel="noopener"><span class="fl"><img src="../logos/color/wize.png" alt="Wize Solutions" class="tall" loading="lazy"></span><span class="fd">Connectivity</span></a>
+        <a href="https://aidome.com.au" target="_blank" rel="noopener"><span class="fl"><img src="../logos/aidome-logo-h.png" alt="AI Dome" class="tall" loading="lazy"></span><span class="fd">A.I. adoption &amp; control</span></a>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span>&copy; 2026 Code Black Group Global Pty Ltd · ABN 62 315 213 466</span>
+      <a href="#top" class="ft-up">Back to top <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
+    </div>
   </div>
 </footer>
 <dialog class="sh" id="sh" aria-labelledby="sh-t">
