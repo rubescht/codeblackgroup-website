@@ -290,6 +290,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.door{opacity:1;transform:none;translate:none}}
 </style>
 <link rel="stylesheet" href="assets/scam-help.css?v=6">
+<link rel="stylesheet" href="assets/home.css?v=4">
 </head>
 <body>
 <div id="intro" hidden aria-hidden="true">
@@ -326,13 +327,22 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
   <div class="wrap">
     <a class="logo" href="corporate/" aria-label="Code Black Group, group site"></a>
     <nav aria-label="Main">
-      <a href="#paths">Choose your website</a>
       <a href="#group">Our divisions</a>
+      <a href="#paths">Choose your website</a>
       <a href="corporate/">Group site</a>
       <a href="corporate/#leadership">Leadership</a>
-      <span class="hotline"><a class="sos" href="#scam-help" data-scam-help aria-label="SOS: been scammed? Get help now with Golden Shield" title="Been scammed? Get help now"><i aria-hidden="true"></i>SOS</a><a class="call" href="tel:1300737562">1300 737 562</a></span>
+      <span class="hotline"><a class="sos" href="#scam-help" data-scam-help aria-label="SOS: been scammed? Get help now with Golden Shield" title="Been scammed? Get help now"><i aria-hidden="true"></i>SOS</a><a class="call" href="tel:1300737562" aria-label="Call 1300 737 562"><svg class="ph" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.1 6.1l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="num">1300 737 562</span></a></span>
+      <button class="mnav-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Open menu"><i></i><i></i><i></i></button>
     </nav>
   </div>
+  <nav class="mnav" id="mnav" aria-label="Menu" hidden>
+    <a href="#group"><span class="hudt">01</span>Our divisions</a>
+    <a href="#paths"><span class="hudt">02</span>Choose your website</a>
+    <a href="corporate/"><span class="hudt">03</span>Group site</a>
+    <a href="corporate/#leadership"><span class="hudt">04</span>Leadership</a>
+    <a class="m-call" href="tel:1300737562"><span class="hudt">Call</span>1300 737 562</a>
+    <a class="m-sos" href="#scam-help" data-scam-help><i aria-hidden="true"></i>SOS: been scammed? Get help now</a>
+  </nav>
 </header>
 
 <main>
@@ -349,21 +359,68 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
       <div class="h-in">
         <span class="kick hudt"><b></b>Code Black Group // The intelligence era</span>
         <h1 id="h"><span class="l1" data-text="Grow with the right partner.">Grow with the right partner.</span><span class="l2">Built for the age of intelligence.</span></h1>
-        <p class="lead">Six specialist teams, one group, since 2005. <b>Choose the website for your organisation to get started.</b></p>
+        <p class="lead">One group. Six specialist teams. Here since 2005. <b>Start by choosing the website made for your organisation.</b></p>
         <div class="acts">
           <a class="btn gold" href="#paths">Choose your website
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          <a class="btn ghost" href="#group">Meet the group</a>
         </div>
       </div>
     </div>
     <a class="cue-l" href="#paths" aria-label="Scroll to choose your website"><span class="cue" aria-hidden="true"></span></a>
   </section>
 
-  <section class="sec" id="paths" aria-labelledby="paths-h" style="padding-top:clamp(60px,7vw,100px)">
+
+  <section class="sec grp" id="group" aria-labelledby="group-h">
     <div class="wrap">
-      <div class="sec-h rv">
-        <div><span class="hudt">Step 1 // Choose one</span><h2 id="paths-h">Which best describes <em>your organisation?</em></h2></div>
-        <p>Pick one to visit the website made for you.</p>
+      <div class="cst">
+        <div class="cst-copy rv">
+          <span class="kh hudt">Who we are // One group</span>
+          <h2 id="group-h">One core. <em>Six specialist teams.</em></h2>
+          <p class="gl">IT support, cyber security, connectivity, surveillance, digital and A.I., delivered by one accountable group with one point of contact.</p>
+          <ul class="rings">
+            <li><span class="ic"><img src="logos/cbg-mark-white.svg" alt="" width="22" height="22"></span><div><b>The outer ring: Code Black Group</b><span>One accountable group around every division, every project and every client.</span></div></li>
+            <li><span class="ic s"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z" fill="none" stroke="#7FE3FF" stroke-width="1.5"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="#7FE3FF" stroke-width="1.5"/></svg></span><div><b>The inner ring: Strikeforce Cyber</b><span>Our cyber security division security-vets every solution before it reaches you.</span></div></li>
+          </ul>
+          <dl class="facts">
+            <div><dt class="hudt">Since</dt><dd>2005</dd></div>
+            <div><dt class="hudt">Teams</dt><dd>6</dd></div>
+            <div><dt class="hudt">Contact</dt><dd>1</dd></div>
+          </dl>
+        </div>
+      <div class="orb rv" id="orb">
+        <svg class="lines" viewBox="0 0 600 600" aria-hidden="true">
+          <defs><path id="sfp" d="M300 300 m-118 0 a118 118 0 1 1 236 0 a118 118 0 1 1 -236 0"/><path id="cbp" d="M300 300 m-262 0 a262 262 0 1 1 524 0 a262 262 0 1 1 -524 0"/></defs>
+          <circle class="ring-o" cx="300" cy="300" r="262"/>
+          <circle class="ring-o" cx="300" cy="300" r="282" stroke-dasharray="1 6" opacity=".7"/>
+          <g id="spokes"></g>
+          <circle class="ring-s2" cx="300" cy="300" r="118"/>
+          <circle class="ring-s" cx="300" cy="300" r="118"/>
+          <text class="ring-lbl"><textPath href="#sfp" startOffset="2%">STRIKEFORCE CYBER · SECURITY RING · EVERY SOLUTION VETTED ·</textPath></text>
+        </svg>
+        <div class="core"><img src="logos/cbg-mark-white.svg" alt="Code Black Group" width="80" height="80"></div>
+        <a class="node sf" data-a="-90" href="https://strikeforcecyber.com" target="_blank" rel="noopener"><span class="chip"><img src="logos/strikeforce-cyber-white.svg" alt="Strikeforce Cyber" class="tall"></span><small>Cyber security</small></a>
+        <a class="node" data-a="-30" href="https://midnightit.com.au" target="_blank" rel="noopener"><span class="chip"><img src="logos/color/midnight-it.png" alt="Midnight IT"></span><small>24/7 IT support</small></a>
+        <a class="node" data-a="30" href="https://rendr.com.au" target="_blank" rel="noopener"><span class="chip"><img src="assets/rendr-solid.png" alt="Rend'r"></span><small>Web &amp; digital</small></a>
+        <a class="node" data-a="90" href="https://3eyes.com.au" target="_blank" rel="noopener"><span class="chip"><img src="logos/color/3eyes.png" alt="3 Eyes Australia" class="tall eyes"></span><small>Surveillance &amp; security</small></a>
+        <a class="node" data-a="150" href="https://wizesolutions.com.au" target="_blank" rel="noopener"><span class="chip"><img src="logos/color/wize.png" alt="Wize Solutions" class="tall"></span><small>Connectivity</small></a>
+        <a class="node" data-a="210" href="https://aidome.com.au" target="_blank" rel="noopener"><span class="chip"><img src="logos/aidome-logo-h.png" alt="AI Dome" class="tall"></span><small>A.I. adoption &amp; control</small></a>
+      </div>
+      </div>
+      <a class="bridge rv" href="#paths">
+        <span class="b-step hudt">Next step</span>
+        <span class="b-txt"><b>Choose the website made for your organisation</b><span>Four options. Pick the one that fits you best.</span></span>
+        <span class="b-go" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec pick" id="paths" aria-labelledby="paths-h">
+    <div class="wrap">
+      <div class="pick-h rv">
+        <span class="hudt">Next step // Choose one</span>
+        <h2 id="paths-h">Which best describes <em>your organisation?</em></h2>
+        <p>Each website is built for that type of organisation. Pick one to continue.</p>
       </div>
       <div class="paths">
         <a class="door t-start" href="startups/" aria-label="Visit the site for Startups and sole traders">
@@ -410,39 +467,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     </div>
   </section>
 
-
-  <section class="sec" id="group" aria-labelledby="group-h">
-    <div class="wrap cst">
-      <div class="cst-copy rv">
-        <span class="hudt" style="color:var(--syn)">One group // Six specialist teams</span>
-        <h2 id="group-h">One core. <em>Six specialist teams.</em> Every solution vetted.</h2>
-        
-        <ul class="rings">
-          <li><span class="ic"><img src="logos/cbg-mark-white.svg" alt="" width="22" height="22"></span><div><b>The outer ring: Code Black Group</b><span>One accountable group around every division, every project and every client.</span></div></li>
-          <li><span class="ic s"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z" fill="none" stroke="#7FE3FF" stroke-width="1.5"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="#7FE3FF" stroke-width="1.5"/></svg></span><div><b>The inner ring: Strikeforce Cyber</b><span>Our cyber security division security-vets every solution before it reaches you.</span></div></li>
-        </ul>
-      </div>
-      <div class="orb rv" id="orb">
-        <svg class="lines" viewBox="0 0 600 600" aria-hidden="true">
-          <defs><path id="sfp" d="M300 300 m-118 0 a118 118 0 1 1 236 0 a118 118 0 1 1 -236 0"/><path id="cbp" d="M300 300 m-262 0 a262 262 0 1 1 524 0 a262 262 0 1 1 -524 0"/></defs>
-          <circle class="ring-o" cx="300" cy="300" r="262"/>
-          <circle class="ring-o" cx="300" cy="300" r="282" stroke-dasharray="1 6" opacity=".7"/>
-          <g id="spokes"></g>
-          <circle class="ring-s2" cx="300" cy="300" r="118"/>
-          <circle class="ring-s" cx="300" cy="300" r="118"/>
-          <text class="ring-lbl"><textPath href="#sfp" startOffset="2%">STRIKEFORCE CYBER · SECURITY RING · EVERY SOLUTION VETTED ·</textPath></text>
-        </svg>
-        <div class="core"><img src="logos/cbg-mark-white.svg" alt="Code Black Group" width="80" height="80"></div>
-        <a class="node sf" data-a="-90" href="https://strikeforcecyber.com" target="_blank" rel="noopener"><span class="chip"><img src="logos/strikeforce-cyber-white.svg" alt="Strikeforce Cyber" class="tall"></span><small>Cyber security</small></a>
-        <a class="node" data-a="-30" href="https://midnightit.com.au" target="_blank" rel="noopener"><span class="chip"><img src="logos/color/midnight-it.png" alt="Midnight IT"></span><small>24/7 IT support</small></a>
-        <a class="node" data-a="30" href="https://rendr.com.au" target="_blank" rel="noopener"><span class="chip"><img src="assets/rendr-solid.png" alt="Rend'r"></span><small>Web &amp; digital</small></a>
-        <a class="node" data-a="90" href="https://3eyes.com.au" target="_blank" rel="noopener"><span class="chip"><img src="logos/color/3eyes.png" alt="3 Eyes Australia" class="tall eyes"></span><small>Surveillance &amp; security</small></a>
-        <a class="node" data-a="150" href="https://wizesolutions.com.au" target="_blank" rel="noopener"><span class="chip"><img src="logos/color/wize.png" alt="Wize Solutions" class="tall"></span><small>Connectivity</small></a>
-        <a class="node" data-a="210" href="https://aidome.com.au" target="_blank" rel="noopener"><span class="chip"><img src="logos/aidome-logo-h.png" alt="AI Dome" class="tall"></span><small>A.I. adoption &amp; control</small></a>
-      </div>
-    </div>
-  </section>
-
+  <a class="nudge" id="nudge" href="#paths" aria-hidden="true" tabindex="-1"><span class="d"></span>Choose your website<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
 </main>
 
 <footer>
@@ -695,5 +720,6 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
   </div>
 </dialog>
 <script src="assets/scam-help.js?v=4" defer></script>
+<script src="assets/home.js?v=3" defer></script>
 </body>
 </html>
