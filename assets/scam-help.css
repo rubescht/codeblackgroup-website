@@ -66,3 +66,13 @@ dialog.sh::backdrop{background:rgba(3,4,8,.6);backdrop-filter:blur(3px)}
   .sh-hd{padding:14px 14px 12px}.sh-body{padding:14px}
   .sh-open{font-size:14px;padding:9px 14px 9px 10px}
 }
+/* header SOS button (opens the Golden Shield panel) */
+header nav .sos{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;background:#DC2626;border:1px solid #F87171;color:#fff!important;
+  font:700 12px/1 var(--hud,system-ui);letter-spacing:.16em;text-decoration:none;white-space:nowrap;box-shadow:0 0 0 0 rgba(239,68,68,.6);animation:sosPulse 2.6s ease-out infinite}
+header nav .sos i{width:7px;height:7px;border-radius:50%;background:#fff}
+header nav .sos:hover,header nav .sos:focus-visible{background:#EF4444}
+@keyframes sosPulse{0%{box-shadow:0 0 0 0 rgba(239,68,68,.55)}70%{box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
+@media (prefers-reduced-motion:reduce){header nav .sos{animation:none}}
+@media (max-width:760px){header nav .sos{display:inline-flex!important;padding:8px 11px}}
+@media (max-width:380px){header nav .sos{padding:7px 9px;letter-spacing:.08em;gap:5px}header nav .sos i{width:6px;height:6px}}
+@media (max-width:760px){header nav{gap:8px}}
