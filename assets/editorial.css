@@ -498,3 +498,25 @@ body.nfp .role-c{border-top-color:var(--gold-mid)}
   .dl-res{padding:22px 18px}
 }
 .dl [hidden]{display:none!important}
+
+/* ---------- Government & NFP palette: civic navy and teal (in line with Australian Government sites) ---------- */
+body.nfp{
+  --paper:#F2F6F9; --white:#FFFFFF; --ink:#0B2340; --ink-2:#1C3556; --muted:#4A5D72; --faint:#7D8FA2;
+  --line:#D9E2EA; --line-2:#C3D0DC;
+  --gold:#00698F; --gold-mid:#1C8BA8; --gold-soft:#6FCFE0;
+  --night:#08203A; --night-2:#0E2B4A; --night-line:#23415F; --night-muted:#A8BCCF;
+}
+body.nfp .bg-night h2,body.nfp .bg-night h3,body.nfp .bg-night .ticks b,body.nfp .model .best b,body.nfp .foot h4,body.nfp .foot a:hover,body.nfp .details a,body.nfp .details div{color:#EEF4F9}
+body.nfp .btn.light,body.nfp .foot .logo,body.nfp .audbar nav a[aria-current="page"]{background:#EEF4F9;border-color:#EEF4F9}
+body.nfp .div:hover{background:#F7FAFC}
+body.nfp .secmodel .pts li,body.nfp .model ul,body.nfp .f label,body.nfp .audbar nav a{color:#CBD8E4}
+body.nfp .audbar nav a[aria-current="page"]{color:var(--ink)}
+body.nfp .person .ph{background:#DCE6EF}
+body.nfp .foot .tagline,body.nfp .bg-night .ticks li{color:#DCE6EF}
+body.nfp .f input,body.nfp .f textarea,body.nfp .f select{color:#EEF4F9;background:#061629}
+body.nfp .dl-res{color:#EEF4F9}
+body.nfp .dl-sum,body.nfp .dl-next p{color:#A9BBCC}
+body.nfp .dl-gc span,body.nfp .dl-legend,body.nfp .dl-row small,body.nfp .dl-st,body.nfp .dl-row.lv-l b,body.nfp .dl-row.lv-d b{color:#8FA3B8}
+body.nfp .dl-st{border-color:#2A4560}
+body.nfp .seg.lv-r{stroke:#4F6A85} body.nfp .dl-legend .lv-r{background:#4F6A85}
+body.nfp .dl-row.lv-r .dl-st{color:#DCE6EF;border-color:#4F6A85}

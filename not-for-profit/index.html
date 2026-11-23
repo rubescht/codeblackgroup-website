@@ -19,28 +19,28 @@
 .lf{position:relative;height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:480px;background:#060607;overflow:hidden}
 .lf video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#060607}
 .lf .ctl{position:absolute;left:0;right:0;bottom:0;padding:60px var(--gut,24px) 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;z-index:2;background:linear-gradient(0deg,rgba(6,6,7,.8),transparent)}
-.lf .pill{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 18px 0 8px;border-radius:999px;border:1px solid rgba(212,180,106,.55);background:rgba(10,10,12,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#F4F1EA;font:600 14.5px var(--sans);cursor:pointer;text-decoration:none}
-.lf .pill .ic{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--gold-soft);color:#121316}
+.lf .pill{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 18px 0 8px;border-radius:999px;border:1px solid rgba(111,207,224,.55);background:rgba(10,10,12,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#EEF4F9;font:600 14.5px var(--sans);cursor:pointer;text-decoration:none}
+.lf .pill .ic{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--gold-soft);color:#062033}
 .lf .pill.sm{padding:0 16px;border-color:rgba(255,255,255,.22)}
 .lf .pill:hover{border-color:var(--gold-soft)}
 .lf .sp{flex:1}
 .lf .bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08);z-index:3}
 .lf .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold-mid),var(--gold-soft))}
-.lf .hint{position:absolute;top:18px;right:var(--gut,24px);z-index:2;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#C9C3B6;background:rgba(10,10,12,.55);padding:7px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.lf .hint{position:absolute;top:18px;right:var(--gut,24px);z-index:2;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#C3D3E2;background:rgba(10,10,12,.55);padding:7px 12px;border-radius:999px;backdrop-filter:blur(6px)}
 .lf.sound .hint{display:none}
 .lf:fullscreen{height:100vh}
 @media (max-width:640px){.lf .pill{height:42px;font-size:13.5px}.lf .pill.fs{display:none}}
 .ap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:start}
-.ap-v{position:relative;border-radius:14px;overflow:hidden;background:#0C0D10;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
-.ap-v video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0C0D10}
+.ap-v{position:relative;border-radius:14px;overflow:hidden;background:#071A30;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.ap-v video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#071A30}
 .ap-v.port video{aspect-ratio:4/5}
-.ap-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 22px 0 8px;border-radius:999px;border:1px solid rgba(212,180,106,.6);background:rgba(12,13,16,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#F4F1EA;font:600 15.5px var(--sans);cursor:pointer;white-space:nowrap}
-.ap-play .ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--gold-soft);color:#121316}
+.ap-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 22px 0 8px;border-radius:999px;border:1px solid rgba(111,207,224,.6);background:rgba(12,13,16,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#EEF4F9;font:600 15.5px var(--sans);cursor:pointer;white-space:nowrap}
+.ap-play .ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--gold-soft);color:#062033}
 .ap-play[hidden]{display:none}
-.ap-snd{position:absolute;right:14px;top:14px;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px 0 6px;border-radius:999px;border:1px solid rgba(212,180,106,.6);background:rgba(12,13,16,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#F4F1EA;font:600 13.5px var(--sans);cursor:pointer;white-space:nowrap;animation:sndp 2.4s ease-out infinite}
-.ap-snd .ic{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--gold-soft);color:#121316}
+.ap-snd{position:absolute;right:14px;top:14px;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px 0 6px;border-radius:999px;border:1px solid rgba(111,207,224,.6);background:rgba(12,13,16,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#EEF4F9;font:600 13.5px var(--sans);cursor:pointer;white-space:nowrap;animation:sndp 2.4s ease-out infinite}
+.ap-snd .ic{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--gold-soft);color:#062033}
 .ap-snd[hidden]{display:none}
-@keyframes sndp{0%{box-shadow:0 0 0 0 rgba(212,180,106,.45)}70%{box-shadow:0 0 0 12px rgba(212,180,106,0)}100%{box-shadow:0 0 0 0 rgba(212,180,106,0)}}
+@keyframes sndp{0%{box-shadow:0 0 0 0 rgba(111,207,224,.45)}70%{box-shadow:0 0 0 12px rgba(111,207,224,0)}100%{box-shadow:0 0 0 0 rgba(111,207,224,0)}}
 @media (prefers-reduced-motion:reduce){.ap-snd{animation:none}}
 .ap-ch{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .ap-ch button{width:100%;display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:transparent;font:500 15px var(--sans);color:var(--ink);text-align:left;cursor:pointer;transition:background .2s,border-color .2s}
@@ -233,7 +233,7 @@
           <li><span><b>In-person support</b> and maintenance after installation</span></li>
         </ul>
       </div>
-      <figure class="rv" style="background:#111"><img src="../img/team/rick-scarra.jpg" alt="Rick Scarra, Head of Government and Public Safety" loading="lazy" style="object-position:50% 20%;filter:grayscale(1)"><figcaption style="padding:14px 0 0;font-size:14px;color:var(--night-muted)"><b style="color:#F4F1EA;font-weight:600">Rick Scarra</b> · Head of Government and Public Safety</figcaption></figure>
+      <figure class="rv" style="background:#111"><img src="../img/team/rick-scarra.jpg" alt="Rick Scarra, Head of Government and Public Safety" loading="lazy" style="object-position:50% 20%;filter:grayscale(1)"><figcaption style="padding:14px 0 0;font-size:14px;color:var(--night-muted)"><b style="color:#EEF4F9;font-weight:600">Rick Scarra</b> · Head of Government and Public Safety</figcaption></figure>
     </div>
   </section>
 
