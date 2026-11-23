@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-DqK66ygDXrOCs4cZVUBPQ+P0iWXuNWwy6hWndXBkHbo=' 'sha256-1hIkN2IFyJx2MFuHjx1phWkEFU9tD7YstZ/C/eE5TPw='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-DqK66ygDXrOCs4cZVUBPQ+P0iWXuNWwy6hWndXBkHbo=' 'sha256-yFmPNOx82RfjioKFNff2WH/P5YRgSlWOb0R4nlhE6bM='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="../assets/guard.js"></script>
 <!-- security:end -->
@@ -37,6 +37,11 @@
 .ap-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 22px 0 8px;border-radius:999px;border:1px solid rgba(212,180,106,.6);background:rgba(12,13,16,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#F4F1EA;font:600 15.5px var(--sans);cursor:pointer;white-space:nowrap}
 .ap-play .ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--gold-soft);color:#121316}
 .ap-play[hidden]{display:none}
+.ap-snd{position:absolute;right:14px;top:14px;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px 0 6px;border-radius:999px;border:1px solid rgba(212,180,106,.6);background:rgba(12,13,16,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#F4F1EA;font:600 13.5px var(--sans);cursor:pointer;white-space:nowrap;animation:sndp 2.4s ease-out infinite}
+.ap-snd .ic{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--gold-soft);color:#121316}
+.ap-snd[hidden]{display:none}
+@keyframes sndp{0%{box-shadow:0 0 0 0 rgba(212,180,106,.45)}70%{box-shadow:0 0 0 12px rgba(212,180,106,0)}100%{box-shadow:0 0 0 0 rgba(212,180,106,0)}}
+@media (prefers-reduced-motion:reduce){.ap-snd{animation:none}}
 .ap-ch{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .ap-ch button{width:100%;display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:transparent;font:500 15px var(--sans);color:var(--ink);text-align:left;cursor:pointer;transition:background .2s,border-color .2s}
 .ap-ch button .n{font-family:var(--serif);color:var(--gold);font-size:15px;min-width:22px}
@@ -137,6 +142,7 @@
             <track kind="captions" src="../media/gov-nfp-approach.vtt" srclang="en" label="English" default>
           </video>
           <button class="ap-play" type="button" id="ap-play" aria-label="Play the approach story with sound"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>Play the story · 1:28</button>
+          <button class="ap-snd" type="button" id="ap-snd" hidden><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>Tap for sound</button>
         </div>
         <ol class="ap-ch" aria-label="Jump to a step">
           <li><button type="button" data-t="8.5"><span class="n">01</span>Discovery</button></li>
@@ -376,15 +382,26 @@
 <script>
 (function(){
   var v=document.getElementById('apv'); if(!v) return;
-  var wrap=v.parentNode, play=document.getElementById('ap-play'), btns=[].slice.call(document.querySelectorAll('.ap-ch button'));
-  var port=window.matchMedia('(max-width:640px)').matches;
+  var wrap=v.parentNode, play=document.getElementById('ap-play'), snd=document.getElementById('ap-snd'), btns=[].slice.call(document.querySelectorAll('.ap-ch button'));
+  var port=window.matchMedia('(max-width:640px)').matches, RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   v.src=port?v.dataset.port:v.dataset.land; if(port){ v.poster=v.dataset.posterPort; wrap.classList.add('port'); }
-  function go(t){ if(typeof t==='number'){ v.currentTime=t; } var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
-  play.addEventListener('click',function(){ go(); });
+  var user=false, auto=false;
+  function go(t, sound){ if(typeof t==='number') v.currentTime=t; if(sound){ user=true; v.muted=false; snd.hidden=true; } var p=v.play(); if(p&&p.catch) p.catch(function(){ play.hidden=false; }); }
+  play.addEventListener('click',function(){ go(auto?0:undefined,true); });
+  snd.addEventListener('click',function(){ go(0,true); });
   v.addEventListener('play',function(){ play.hidden=true; var lf=document.getElementById('lfv'); if(lf&&!lf.paused) lf.pause(); });
   v.addEventListener('pause',function(){ if(v.currentTime<0.2) play.hidden=false; });
-  btns.forEach(function(b){ b.addEventListener('click',function(){ go(parseFloat(b.dataset.t)); }); });
+  v.addEventListener('volumechange',function(){ if(!v.muted){ user=true; snd.hidden=true; } });
+  v.addEventListener('ended',function(){ snd.hidden=true; play.hidden=false; });
+  btns.forEach(function(b){ b.addEventListener('click',function(){ go(parseFloat(b.dataset.t),true); }); });
   v.addEventListener('timeupdate',function(){ var t=v.currentTime, cur=-1; btns.forEach(function(b,i){ if(t>=parseFloat(b.dataset.t)-0.05) cur=i; }); btns.forEach(function(b,i){ b.classList.toggle('on',i===cur); b.setAttribute('aria-current',i===cur?'step':'false'); }); });
+  /* play automatically (muted, captions on) when scrolled into view; pause when scrolled away */
+  if(!RM && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(e){
+      if(e.isIntersecting){ if(v.ended) return; if(!user&&v.paused){ auto=true; v.muted=true; snd.hidden=false; go(); } else if(v.dataset.was==='1'){ v.dataset.was=''; go(); } }
+      else if(!v.paused){ v.dataset.was='1'; v.pause(); }
+    }); },{threshold:.55}).observe(v);
+  }
 })();
 </script>
 <script src="../assets/editorial.js"></script>
