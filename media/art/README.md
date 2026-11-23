@@ -1,5 +1,7 @@
 # Licensed artwork for the Government & NFP page
 
+Until then the page uses `gov-nfp-landscape.jpg` (an aerial outback landscape, not artwork) as an interim background.
+
 Place the licensed Aboriginal artwork here as `gov-nfp-artwork.jpg` (landscape, about 2000px wide, under 400KB).
 The page blends it softly into the hero, the Government section and the contact section, and only shows it once this file exists.
 

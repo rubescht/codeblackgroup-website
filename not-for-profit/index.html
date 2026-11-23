@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-DqK66ygDXrOCs4cZVUBPQ+P0iWXuNWwy6hWndXBkHbo=' 'sha256-yFmPNOx82RfjioKFNff2WH/P5YRgSlWOb0R4nlhE6bM=' 'sha256-WmXbe4G2ijS/XrTzdj10RShteNucjQJpr4HgCoQVmoU='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-DqK66ygDXrOCs4cZVUBPQ+P0iWXuNWwy6hWndXBkHbo=' 'sha256-yFmPNOx82RfjioKFNff2WH/P5YRgSlWOb0R4nlhE6bM=' 'sha256-f2fwTiD5ch9N7f1U29Jw9lTd21RoxOgTl7/6EgeNiHQ='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="../assets/guard.js"></script>
 <!-- security:end -->
@@ -429,15 +429,19 @@ body.has-art .aoc .art-credit.ready{display:block}
 })();
 </script>
 <script>
-/* Licensed artwork: drop the file at media/art/gov-nfp-artwork.jpg and fill in the credit below. Nothing shows until the file exists. */
+/* Background art. Licensed artwork: drop the file at media/art/gov-nfp-artwork.jpg and fill in the credit below; it replaces the
+   interim landscape texture automatically. Nothing is credited until an artist is named. */
 (function(){
   var ART={src:'../media/art/gov-nfp-artwork.jpg', title:'', artist:'', people:'', licence:'Used under licence'};
-  var img=new Image();
-  img.onload=function(){
-    [].forEach.call(document.querySelectorAll('.art-bg'),function(el){ el.style.backgroundImage='url('+ART.src+')'; });
+  var FALLBACK='../media/art/gov-nfp-landscape.jpg';
+  function apply(src, credit){
+    [].forEach.call(document.querySelectorAll('.art-bg'),function(el){ el.style.backgroundImage='url('+src+')'; });
     document.body.classList.add('has-art');
-    if(ART.artist){ var c=document.getElementById('art-credit'); c.textContent='Artwork: '+(ART.title?ART.title+' by ':'')+ART.artist+(ART.people?', '+ART.people:'')+'. '+ART.licence+'.'; c.classList.add('ready'); }
-  };
+    if(credit&&ART.artist){ var c=document.getElementById('art-credit'); c.textContent='Artwork: '+(ART.title?ART.title+' by ':'')+ART.artist+(ART.people?', '+ART.people:'')+'. '+ART.licence+'.'; c.classList.add('ready'); }
+  }
+  var img=new Image();
+  img.onload=function(){ apply(ART.src,true); };
+  img.onerror=function(){ var f=new Image(); f.onload=function(){ apply(FALLBACK,false); }; f.src=FALLBACK; };
   img.src=ART.src;
 })();
 </script>
