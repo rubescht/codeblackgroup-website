@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-naqlWXyC8JKXfiuWDqMVLnupt7QIjMaNicejcKcgKqE='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-brPg6H4pnMxrPFoIYguxgwAc4glD/BK2lRbfMCPlk+w='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/guard.js"></script>
 <!-- security:end -->
@@ -651,24 +651,6 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
         ctx.strokeStyle= i%9===0 ? 'rgba(241,217,154,'+(.35+m*.65)+')' : 'rgba(127,227,255,'+(.25+m*.7)+')'; ctx.lineWidth=2;
         ctx.beginPath(); ctx.moveTo(C.x+Math.cos(ang)*r0,C.y+Math.sin(ang)*r0); ctx.lineTo(C.x+Math.cos(ang)*r1,C.y+Math.sin(ang)*r1); ctx.stroke(); } }
     var cg=ctx.createRadialGradient(C.x,C.y,0,C.x,C.y,C.R*.9); cg.addColorStop(0,'rgba(200,245,255,'+(.35+VL*.4)+')'); cg.addColorStop(.35,'rgba(127,227,255,.12)'); cg.addColorStop(1,'rgba(127,227,255,0)'); ctx.fillStyle=cg; ctx.beginPath(); ctx.arc(C.x,C.y,C.R*.9,0,Math.PI*2); ctx.fill();
-    /* the eye: a star at the centre that pulses with every word and flares on the strobe */
-    strobe.env+=((VON?VL:0)-strobe.env)*((VON?VL:0)>strobe.env?.55:.18);
-    var E=strobe.env, FF=0, idle=.5+.08*Math.sin(t*2.3)+.04*Math.sin(t*5.1);
-    var I=Math.min(1.15,idle*(VON?.8:1)+E*.55);
-    var gx=0,gy=0; if(mouse.x>-999){ var mdx=mouse.x-C.x, mdy=mouse.y-C.y, md=Math.hypot(mdx,mdy)||1, mk=Math.min(1,md/420)*C.R*.1; gx=mdx/md*mk; gy=mdy/md*mk; }
-    strobe.ex+=(gx-strobe.ex)*.08; strobe.ey+=(gy-strobe.ey)*.08;
-    var ex0=C.x+strobe.ex, ey0=C.y+strobe.ey;
-    ctx.save(); ctx.globalCompositeOperation='lighter';
-    ctx.strokeStyle='rgba(127,227,255,'+(.22+.35*E+.3*FF)+')'; ctx.lineWidth=1.5; ctx.setLineDash([3,6]); ctx.lineDashOffset=-strobe.spin*40;
-    ctx.beginPath(); ctx.arc(ex0,ey0,C.R*(.3+.05*E),0,Math.PI*2); ctx.stroke(); ctx.setLineDash([]);
-    var eg=ctx.createRadialGradient(ex0,ey0,0,ex0,ey0,C.R*(.4+.6*I)); eg.addColorStop(0,'rgba(255,255,255,'+Math.min(1,.6*I)+')'); eg.addColorStop(.22,'rgba(205,245,255,'+Math.min(1,.38*I)+')'); eg.addColorStop(1,'rgba(127,227,255,0)');
-    ctx.fillStyle=eg; ctx.beginPath(); ctx.arc(ex0,ey0,C.R*(.4+.6*I),0,Math.PI*2); ctx.fill();
-    for(var sk=0;sk<8;sk++){ var main=sk%2===0, sl=C.R*(main?(.5+1.35*Math.min(I,1.3)):(.22+.55*Math.min(I,1.3))), sw=C.R*(main?(.016+.012*I):.012);
-      ctx.save(); ctx.translate(ex0,ey0); ctx.rotate(strobe.spin*.35+sk*Math.PI/4);
-      var sgr=ctx.createLinearGradient(-sl,0,sl,0); sgr.addColorStop(0,'rgba(200,240,255,0)'); sgr.addColorStop(.5,'rgba(255,255,255,'+Math.min(1,(main?.75:.45)*I)+')'); sgr.addColorStop(1,'rgba(200,240,255,0)');
-      ctx.fillStyle=sgr; ctx.beginPath(); ctx.ellipse(0,0,sl,sw,0,0,Math.PI*2); ctx.fill(); ctx.restore(); }
-    ctx.fillStyle='#fff'; ctx.shadowColor='rgba(255,255,255,1)'; ctx.shadowBlur=16+40*I;
-    ctx.beginPath(); ctx.arc(ex0,ey0,C.R*(.04+.035*I),0,Math.PI*2); ctx.fill(); ctx.shadowBlur=0; ctx.restore();
     /* orbit rings around the core */
     ctx.strokeStyle='rgba(216,180,95,.35)'; ctx.lineWidth=1;
     ctx.beginPath(); ctx.ellipse(C.x,C.y,C.R*1.45,C.R*.42,-.35,0,Math.PI*2); ctx.stroke();
