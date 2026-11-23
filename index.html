@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-jjbUAzo7wdaMC1pf//4ckt1dx+Cv1YpCX0PTTaDvSws='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-qh3QNTI5c6EfBgkgyrPFWRw9iI47QUevhEnEN5c9kz4='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/guard.js"></script>
 <!-- security:end -->
@@ -290,7 +290,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.door{opacity:1;transform:none;translate:none}}
 </style>
 <link rel="stylesheet" href="assets/scam-help.css?v=6">
-<link rel="stylesheet" href="assets/home.css?v=7">
+<link rel="stylesheet" href="assets/home.css?v=10">
 </head>
 <body>
 <div id="intro" hidden aria-hidden="true">
@@ -346,85 +346,64 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 </header>
 
 <main>
-  <section class="hero" aria-labelledby="h">
+  <section class="hero hv2" aria-labelledby="h">
     <canvas id="field" aria-hidden="true"></canvas>
     <div class="scan" aria-hidden="true"></div>
     <div class="ai-v" id="aiv">
-      <button class="ai-btn" type="button" id="ai-btn" aria-label="Hear a short welcome from our AI, with captions"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="ai-btn-t">Hear from our AI</span></button>
-      <div class="ai-cap" aria-live="polite"><span class="lbl hudt"><i></i>CBG // AI speaking</span><p id="ai-text"></p></div>
-      <audio id="ai-audio" src="media/ai-welcome.mp3" preload="none"></audio>
+      <button class="ai-btn" type="button" id="ai-btn" aria-controls="gv"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="ai-btn-t">Play the story</span></button>
     </div>
     <div class="frame hudt" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="coord">LAT −37.81 · LON 144.96 · MELBOURNE</span><span class="coord2" id="clock">SYS ONLINE</span></div>
     <div class="wrap">
-      <div class="h-in">
-        <span class="kick hudt"><b></b>Code Black Group // The intelligence era</span>
-        <h1 id="h"><span class="l1" data-text="Grow with the right partner.">Grow with the right partner.</span><span class="l2">Built for the age of intelligence.</span></h1>
-        <p class="lead">One group. Six specialist teams. Since 2005. <b>Start by choosing your website.</b></p>
-        <div class="acts">
-          <a class="btn gold" href="#paths">Choose your website
-            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
-          <a class="btn ghost" href="about/">About us</a>
+      <div class="hv-grid">
+        <div class="hv-orb" aria-hidden="true"></div>
+        <div class="hv-main">
+          <span class="kick hudt"><b></b>Code Black Group // The intelligence era</span>
+          <h1 id="h"><span class="l1" data-text="Grow with the right partner.">Grow with the right partner.</span><span class="l2">Built for the age of intelligence.</span></h1>
+          <div class="film" id="film">
+            <video id="gv" playsinline preload="metadata" poster="media/growth-story.jpg" aria-label="How organisations grow with Code Black Group: from sole trader to government, narrated by our AI"></video>
+            <span class="f-chap hudt" id="gv-ch">01 // Sole trader</span>
+            <p class="f-cap" id="gv-cap" aria-live="polite"></p>
+            <button class="f-snd" id="gv-snd" type="button" hidden><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Tap for sound</button>
+            <button class="f-play" id="gv-play" type="button" hidden aria-label="Play the story"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+            <span class="f-bar" aria-hidden="true"><i id="gv-pr"></i></span>
+          </div>
+          <div class="pick2" id="paths">
+            <p class="p-lbl hudt"><span>Step 1 // Choose your website</span></p>
+            <div class="tiles">
+          <a class="tile t-start" data-ch="0" href="startups/" aria-label="Visit the site for Startups and sole traders">
+            <img src="assets/img/door-start.jpg?v=2" alt="" width="900" height="1200" decoding="async">
+            <span class="num hudt">01</span><span class="dot" aria-hidden="true"></span>
+            <b>Startups &amp; sole traders</b>
+            <span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+          </a>
+          <a class="tile t-smb" data-ch="1" href="business/" aria-label="Visit the site for Small and medium businesses">
+            <img src="assets/img/door-smb.jpg?v=2" alt="" width="900" height="1200" decoding="async">
+            <span class="num hudt">02</span><span class="dot" aria-hidden="true"></span>
+            <b>Small &amp; medium businesses</b>
+            <span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+          </a>
+          <a class="tile t-corp" data-ch="2" href="corporate/" aria-label="Visit the site for Corporate and enterprise clients">
+            <img src="assets/img/door-corp.jpg?v=2" alt="" width="900" height="1200" decoding="async">
+            <span class="num hudt">03</span><span class="dot" aria-hidden="true"></span>
+            <b>Corporate &amp; enterprise</b>
+            <span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+          </a>
+          <a class="tile t-gov" data-ch="3" href="not-for-profit/" aria-label="Visit the site for Government and not-for-profit">
+            <img src="assets/img/door-gov.jpg?v=2" alt="" width="900" height="1200" decoding="async">
+            <span class="num hudt">04</span><span class="dot" aria-hidden="true"></span>
+            <b>Government &amp; not-for-profit</b>
+            <span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+          </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <a class="cue-l" href="#paths" aria-label="Scroll to choose your website"><span class="cue" aria-hidden="true"></span></a>
   </section>
 
 
 
-  <section class="sec pick" id="paths" aria-labelledby="paths-h">
-    <div class="wrap">
-      <div class="pick-h rv">
-        <span class="hudt">Step 1 // Choose your website</span>
-        <h2 id="paths-h">Which best describes <em>your organisation?</em></h2>
-        <p>Pick the one that fits you to continue.</p>
-      </div>
-      <div class="paths">
-        <a class="door t-start" href="startups/" aria-label="Visit the site for Startups and sole traders">
-          <img src="assets/img/door-start.jpg?v=2" alt="" width="900" height="1200" loading="lazy" decoding="async">
-          <span class="num hudt">01</span>
-          <span class="live hudt">Online</span>
-          <div class="tx">
-            <h3>Startups &amp; sole traders</h3>
-            <p>Just starting out or working for yourself.</p>
-            <span class="cta">Visit site <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
-          </div>
-        </a>
-        <a class="door t-smb" href="business/" aria-label="Visit the site for Small and medium businesses">
-          <img src="assets/img/door-smb.jpg?v=2" alt="" width="900" height="1200" loading="lazy" decoding="async">
-          <span class="num hudt">02</span>
-          <span class="live hudt">Online</span>
-          <div class="tx">
-            <h3>Small &amp; medium businesses</h3>
-            <p>A growing team that needs reliable IT.</p>
-            <span class="cta">Visit site <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
-          </div>
-        </a>
-        <a class="door t-corp" href="corporate/" aria-label="Visit the site for Corporate and enterprise clients">
-          <img src="assets/img/door-corp.jpg?v=2" alt="" width="900" height="1200" loading="lazy" decoding="async">
-          <span class="num hudt">03</span>
-          <span class="live hudt">Online</span>
-          <div class="tx">
-            <h3>Corporate &amp; enterprise clients</h3>
-            <p>Larger organisations, many sites, board-level risk.</p>
-            <span class="cta">Visit site <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
-          </div>
-        </a>
-        <a class="door t-gov" href="not-for-profit/" aria-label="Visit the site for Government and not-for-profit">
-          <img src="assets/img/door-gov.jpg?v=2" alt="" width="900" height="1200" loading="lazy" decoding="async">
-          <span class="num hudt">04</span>
-          <span class="live hudt">Online</span>
-          <div class="tx">
-            <h3>Government &amp; not-for-profit</h3>
-            <p>Councils, agencies, charities and community groups.</p>
-            <span class="cta">Visit site <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
 
-  <a class="nudge" id="nudge" href="#paths" aria-hidden="true" tabindex="-1"><span class="d"></span>Choose your website<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
 </main>
 
 <footer>
@@ -504,35 +483,89 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
   /* ===== intelligence field: neural network + rotating core ===== */
   /* ---- AI voice: drives the core sphere from the live audio level ---- */
   var V=window.CBG_VOICE={l:0,on:false,bins:null,update:function(){}};
+  /* ---- growth story: the film plays beside the sphere, and the sphere "speaks" its narration ---- */
   (function(){
-    var au=document.getElementById('ai-audio'), btn=document.getElementById('ai-btn'), bt=document.getElementById('ai-btn-t'), box=document.getElementById('aiv'), txt=document.getElementById('ai-text');
-    if(!au||!btn) return;
-    var CUES=[[0,2.9,"Hello, and welcome to Code Black Group."],[3.2,6.4,"I'm the intelligence at the centre of everything we do."],[6.5,14.4,"Whether you're just starting out, growing a business, leading a large organisation, or serving your community, we're here from day one."],[14.6,16.1,"We listen first."],[16.2,23.0,"Then we bring the right specialists together: IT support, cyber security, connectivity, surveillance, digital, and AI."],[23.0,25.8,"One partner. One point of contact."],[25.8,30.9,"And every solution security-vetted before it reaches you."],[31.1,35.2,"Choose your path below, and let's build what's next, together."]];
-    var ac=null, an=null, td=null, fd=null, last=-1;
-    function setup(){ try{ var AC=window.AudioContext||window.webkitAudioContext; if(!AC||ac) return; ac=new AC(); var src=ac.createMediaElementSource(au); an=ac.createAnalyser(); an.fftSize=256; an.smoothingTimeConstant=.45; src.connect(an); an.connect(ac.destination); td=new Uint8Array(an.fftSize); fd=new Uint8Array(an.frequencyBinCount); V.bins=fd; }catch(e){ ac=null; } }
+    var vid=document.getElementById('gv'); if(!vid) return;
+    var $=function(id){ return document.getElementById(id); };
+    var film=$('film'), cap=$('gv-cap'), chEl=$('gv-ch'), pr=$('gv-pr'), snd=$('gv-snd'), playB=$('gv-play'), btn=$('ai-btn'), bt=$('ai-btn-t'), box=$('aiv');
+    var tiles=[].slice.call(document.querySelectorAll('.tile[data-ch]'));
+    var NAMES=['01 // Sole trader','02 // Small business','03 // Corporate','04 // Government & NFP','05 // Your next step'];
+    var S=null, bins=new Uint8Array(64), lastCue=-1, lastN=-1, lastCh=-2, userPaused=false, started=false, inView=true, policyMuted=false;
+    V.bins=bins;
+    var small=(window.matchMedia&&matchMedia('(max-width:860px)').matches)||(navigator.connection&&navigator.connection.saveData);
+    vid.src=small?'media/growth-story-sm.mp4':'media/growth-story.mp4';
+    try{ fetch('media/growth-story.json').then(function(r){ return r.json(); }).then(function(j){ S=j; }).catch(function(){}); }catch(e){}
     V.update=function(){
-      var lv=0;
-      if(an&&V.on){ an.getByteTimeDomainData(td); var sum=0; for(var i=0;i<td.length;i++){ var x=(td[i]-128)/128; sum+=x*x; } lv=Math.min(1,Math.sqrt(sum/td.length)*2.6); an.getByteFrequencyData(fd); }
-      else if(V.on){ lv=.35+.25*Math.sin(performance.now()/90); }
-      V.l+= (lv-V.l)*(lv>V.l?.6:.2);
+      var lv=0, playing=!vid.paused&&!vid.ended;
+      if(S&&playing){ var i=Math.floor(vid.currentTime*S.fps); lv=((S.env[i]||0)+(S.env[i+1]||0))/200; }
+      V.on=playing&&lv>.03;
+      var tt=performance.now()/1000;
+      for(var k=0;k<bins.length;k++) bins[k]=Math.max(0,Math.min(255,lv*255*(.55+.45*Math.sin(k*.75+tt*9))*(1-k/90)));
+      V.l+=(lv-V.l)*(lv>V.l?.55:.18);
     };
-    function caps(){
-      var t=au.currentTime, c=-1; for(var k=0;k<CUES.length;k++) if(t>=CUES[k][0]-.05) c=k;
-      if(c>=0){ var q=CUES[c], f=Math.min(1,(t-q[0])/Math.max(.6,(q[1]-q[0])*.82)), n=Math.round(q[2].length*f);
-        if(c!==last||n!==V._n){ txt.textContent=q[2].slice(0,n); var cur=document.createElement('span'); cur.className='cur'; txt.appendChild(cur); last=c; V._n=n; } }
+    function ui(){
+      var t=vid.currentTime||0;
+      if(S){
+        var c=-1; for(var k=0;k<S.cues.length;k++) if(t>=S.cues[k][0]-.05) c=k;
+        if(c>=0&&t<=S.cues[c][1]+1.2){ var q=S.cues[c], f=Math.min(1,(t-q[0])/Math.max(.6,(q[1]-q[0])*.8)), n=Math.round(q[2].length*f);
+          if(c!==lastCue||n!==lastN){ cap.textContent=q[2].slice(0,n); lastCue=c; lastN=n; } cap.classList.add('on'); }
+        else { cap.classList.remove('on'); }
+        var ch=0; for(k=0;k<S.chapters.length;k++) if(t>=S.chapters[k]) ch=k;
+        if(vid.ended) ch=-1;
+        if(ch!==lastCh){ lastCh=ch;
+          if(ch>=0) chEl.textContent=NAMES[ch];
+          tiles.forEach(function(el,i){ el.classList.toggle('now',ch===i); el.classList.toggle('lit',ch===4); });
+        }
+        pr.style.transform='scaleX('+Math.min(1,t/(S.end||52))+')';
+      }
+      if(!vid.paused&&!vid.ended) requestAnimationFrame(ui);
     }
-    function capLoop(){ if(!V.on) return; caps(); requestAnimationFrame(capLoop); }
-    function stop(){ au.pause(); V.on=false; box.classList.remove('on'); bt.textContent='Hear from our AI'; btn.setAttribute('aria-label','Hear a short welcome from our AI, with captions'); }
-    btn.addEventListener('click',function(){
-      if(V.on){ stop(); return; }
-      setup(); if(ac&&ac.state==='suspended') ac.resume();
-      if(au.ended||au.currentTime>34) au.currentTime=0;
-      var p=au.play(); if(p&&p.catch) p.catch(function(){ stop(); });
-      V.on=true; box.classList.add('on'); requestAnimationFrame(capLoop); bt.textContent='Stop'; btn.setAttribute('aria-label','Stop the AI welcome'); last=-1;
-      if(window.CBG_KICK) window.CBG_KICK();
-    });
-    au.addEventListener('ended',function(){ setTimeout(function(){ stop(); txt.textContent=''; au.currentTime=0; },1600); });
-    document.addEventListener('visibilitychange',function(){ if(document.hidden&&V.on) stop(); });
+    function label(){
+      var st=vid.ended?'Replay the story':(vid.paused?(started?'Resume the story':'Play the story'):(vid.muted?'Tap for sound':'Pause the story'));
+      bt.textContent=st; btn.setAttribute('aria-label',st);
+      box.classList.toggle('on',!vid.paused&&!vid.ended);
+      snd.hidden=!(vid.muted&&!vid.paused&&!vid.ended);
+      playB.hidden=!(vid.paused&&!vid.ended&&!started);
+      film.classList.toggle('playing',!vid.paused&&!vid.ended);
+    }
+    function go(withSound){
+      started=true; userPaused=false; film.classList.remove('done');
+      if(vid.ended) vid.currentTime=0;
+      vid.muted=!withSound;
+      var p=vid.play();
+      if(p&&p.catch) p.catch(function(){
+        if(!vid.muted){ policyMuted=true; vid.muted=true; var p2=vid.play(); if(p2&&p2.catch) p2.catch(function(){ started=false; label(); }); }
+        else { started=false; label(); }
+      });
+    }
+    function unmute(){
+      if(!vid.muted) return; vid.muted=false; policyMuted=false;
+      /* start the current chapter again so no words are missed */
+      if(S){ var t=vid.currentTime, ch=0; for(var k=0;k<S.chapters.length;k++) if(t>=S.chapters[k]) ch=k; if(t-S.chapters[ch]>1.2) vid.currentTime=S.chapters[ch]; }
+      if(vid.paused) vid.play(); label();
+    }
+    vid.addEventListener('play',function(){ requestAnimationFrame(ui); label(); });
+    vid.addEventListener('pause',label);
+    vid.addEventListener('volumechange',label);
+    vid.addEventListener('ended',function(){ film.classList.add('done'); cap.classList.remove('on'); lastCh=-2; ui(); label();
+      tiles.forEach(function(el){ el.classList.add('invite'); }); setTimeout(function(){ tiles.forEach(function(el){ el.classList.remove('invite'); }); },2600); });
+    snd.addEventListener('click',function(e){ e.stopPropagation(); unmute(); });
+    playB.addEventListener('click',function(){ go(true); });
+    film.addEventListener('click',function(e){ if(e.target.closest('button')) return; if(vid.paused||vid.ended) go(true); else if(vid.muted) unmute(); else { userPaused=true; vid.pause(); } });
+    btn.addEventListener('click',function(){ if(vid.ended||vid.paused) go(true); else if(vid.muted) unmute(); else { userPaused=true; vid.pause(); } });
+    /* browsers block sound until the visitor interacts: the first tap or key anywhere turns it on */
+    function firstTouch(e){ if(e.target&&e.target.closest&&e.target.closest('#film,#ai-btn,#sh,.sh-open,[data-scam-help]')) return; if(policyMuted&&!vid.paused) unmute(); }
+    document.addEventListener('pointerdown',firstTouch,true); document.addEventListener('keydown',firstTouch,true);
+    /* pause off screen, resume when back */
+    if('IntersectionObserver' in window) new IntersectionObserver(function(es){ inView=es[0].isIntersecting;
+      if(!inView&&!vid.paused){ vid.pause(); vid._auto=true; }
+      else if(inView&&vid._auto&&!userPaused&&!vid.ended){ vid._auto=false; vid.play().catch(function(){}); } },{threshold:.35}).observe(film);
+    document.addEventListener('visibilitychange',function(){ if(document.hidden&&!vid.paused){ vid.pause(); vid._auto=true; } });
+    /* start once the opening logo reveal has finished (its click also counts as permission for sound) */
+    var RMq=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function begin(){ if(started||RMq){ label(); return; } go(true); }
+    if(window.CBG_INTRO) window.addEventListener('cbg-intro-done',begin,{once:true}); else setTimeout(begin,400);
+    label();
   })();
 
   var cv=document.getElementById('field'); if(!cv) return;
@@ -545,10 +578,13 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     core=[]; var N=W<760?220:340, ga=Math.PI*(3-Math.sqrt(5));
     for(var k=0;k<N;k++){ var y=1-(k/(N-1))*2, rr=Math.sqrt(1-y*y), th=ga*k; core.push([Math.cos(th)*rr,y,Math.sin(th)*rr]); }
   }
-  function corePos(){ return W<860 ? {x:W*.5,y:150,R:Math.min(W*.2,90)} : {x:W*.73,y:H*.46,R:Math.min(W*.15,H*.24)}; }
+  function corePos(){
+    var o=document.querySelector('.hv-orb'), c=cv.getBoundingClientRect();
+    if(o){ var r=o.getBoundingClientRect(); if(r.width>20&&r.height>20){ var R=W<860?Math.min(r.width*.19,r.height*.3,74):Math.min(r.width*.29,r.height*.3,210); return {x:r.left-c.left+r.width/2,y:r.top-c.top+r.height*(W<860?.46:.47),R:R}; } }
+    return W<860 ? {x:W*.5,y:150,R:Math.min(W*.2,90)} : {x:W*.27,y:H*.46,R:Math.min(W*.13,H*.24)}; }
   var aiv=document.getElementById('aiv');
-  function placeAI(){ if(!aiv) return; var C=corePos(); aiv.style.left=C.x+'px'; aiv.style.top=(W<860 ? C.y+C.R+34 : C.y+C.R+26)+'px'; }
-  addEventListener('resize',function(){ size(); placeAI(); }); size(); placeAI();
+  function placeAI(){ if(!aiv) return; var C=corePos(); aiv.style.left=C.x+'px'; aiv.style.top=(W<860 ? C.y+C.R*1.05+22 : C.y+C.R+34)+'px'; }
+  addEventListener('resize',function(){ size(); placeAI(); }); size(); placeAI(); setTimeout(placeAI,300); setTimeout(placeAI,1200); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(placeAI);
   window.CBG_KICK=function(){ if(!running||RM) return; };
   cv.parentElement.addEventListener('pointermove',function(e){ var r=cv.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; });
   cv.parentElement.addEventListener('pointerleave',function(){ mouse.x=mouse.y=-9999; });
@@ -563,7 +599,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
   });
   var brand={ang:0,next:0,copy:null};
   function copyRect(){ var h=document.getElementById('h'); if(!h||W<860){ brand.copy=null; return; } var a=h.parentElement.getBoundingClientRect(), c=cv.getBoundingClientRect(); brand.copy={l:a.left-c.left-10,t:a.top-c.top-10,r:a.right-c.left+10,b:a.bottom-c.top+10}; }
-  function orbitGeo(C){ var ch=W<860?24:Math.max(34,Math.min(42,C.R*.19)), rx=Math.min(C.R*1.8, W<860 ? W/2-ch*2.1 : W-C.x-ch*2.6); return {rx:rx,ry:rx*.32,tilt:W<860?-.08:-.2,ch:ch}; }
+  function orbitGeo(C){ var ch=W<860?24:Math.max(34,Math.min(42,C.R*.19)), rx=Math.min(C.R*1.8, W<860 ? W/2-ch*2.1 : Math.min(W-C.x,C.x)-ch*2.6); return {rx:rx,ry:rx*.32,tilt:W<860?-.08:-.2,ch:ch}; }
   function orbitPos(C,G,a){ var x=Math.cos(a)*G.rx, y=Math.sin(a)*G.ry, ct=Math.cos(G.tilt), st=Math.sin(G.tilt); return {x:C.x+x*ct-y*st, y:C.y+x*st+y*ct, z:Math.sin(a)}; }
   function farNode(C){ var best=null,bd=-1; for(var k=0;k<14;k++){ var n=nodes[Math.floor(Math.random()*nodes.length)]; if(!n) continue; var d=Math.hypot(n.x-C.x,n.y-C.y); if(n.x>10&&n.x<W-10&&n.y>10&&n.y<H-10&&d>bd&&(!brand.copy||!(n.x>brand.copy.l&&n.x<brand.copy.r&&n.y>brand.copy.t&&n.y<brand.copy.b))){ bd=d; best=n; } } return best||{x:W*.95,y:H*.1}; }
   function ease(p){ return p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2; }
