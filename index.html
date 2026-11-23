@@ -22,6 +22,7 @@
 @font-face{font-family:Orbitron;src:url(fonts/orbitron-900.woff2) format("woff2");font-weight:900;font-display:swap}
 @font-face{font-family:Newsreader;src:url(assets/fonts/newsreader-latin-400-italic.woff2) format("woff2");font-style:italic;font-weight:400;font-display:swap}
 @font-face{font-family:Newsreader;src:url(assets/fonts/newsreader-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Sora;src:url(assets/fonts/sora-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
 @font-face{font-family:Inter;src:url(assets/fonts/inter-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:Inter;src:url(assets/fonts/inter-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
 @font-face{font-family:Inter;src:url(assets/fonts/inter-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
@@ -159,7 +160,7 @@ h2 em{font-style:italic;color:var(--gold)}
 .door:nth-child(3) .live,.door:nth-child(3) .live::before{animation-delay:-1.2s}
 .door:nth-child(4) .live,.door:nth-child(4) .live::before{animation-delay:-1.8s}
 .door .tx{position:absolute;left:0;right:0;bottom:0;padding:22px}
-.door h3{margin:0 0 8px;font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.1;color:#fff}
+.door h3{margin:0 0 8px;font-family:Sora,var(--sans);font-weight:600;font-size:23px;line-height:1.18;letter-spacing:-.015em;color:#fff}
 .door p{margin:0 0 18px;color:#CCD5DF;font-size:14.5px;line-height:1.5}
 .door .cta{display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 16px 0 18px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font:600 14px var(--sans);color:#fff;transition:background .35s ease,color .35s ease,border-color .35s ease}
 .door .cta svg{transition:transform .35s ease}
@@ -170,7 +171,7 @@ h2 em{font-style:italic;color:var(--gold)}
 .door:hover .cta svg,.door:focus-visible .cta svg{transform:translateX(3px)}
 .door:focus-visible{outline:2px solid rgb(var(--tint));outline-offset:3px}
 @media (max-width:1100px){.paths{grid-template-columns:repeat(2,minmax(0,1fr))}.door{aspect-ratio:4/3.6}}
-@media (max-width:600px){.paths{grid-template-columns:1fr;gap:14px}.door{aspect-ratio:4/3.3}.door h3{font-size:23px}.door p{margin-bottom:14px;font-size:14px}.door .tx{padding:18px}.door .cta{height:38px;font-size:13.5px}}
+@media (max-width:600px){.paths{grid-template-columns:1fr;gap:14px}.door{aspect-ratio:4/3.3}.door h3{font-size:21px}.door p{margin-bottom:14px;font-size:14px}.door .tx{padding:18px}.door .cta{height:38px;font-size:13.5px}}
 
 
 /* ---------- evolution timeline ---------- */
@@ -253,11 +254,14 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 .f-top em{display:block;margin-top:16px;font-family:var(--serif);font-size:20px;color:var(--gold)}
 .f-top .hudt{color:var(--dim);display:block;margin-bottom:16px}
 .divs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.divs a{display:flex;align-items:center;justify-content:center;height:72px;border-radius:14px;border:1px solid var(--line2);background:rgba(255,255,255,.02);transition:border-color .3s ease,background .3s ease}
+.divs a{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:12px;min-height:118px;padding:18px 14px 16px;text-align:center;text-decoration:none;border-radius:14px;border:1px solid var(--line2);background:rgba(255,255,255,.02);transition:border-color .3s ease,background .3s ease}
 .divs a:hover{border-color:rgba(127,227,255,.45);background:rgba(127,227,255,.04)}
 .divs img{max-height:26px;max-width:70%;width:auto;opacity:.92;transition:opacity .3s}
 .divs img.tall{max-height:34px}
 .divs a:hover img{opacity:1}
+.divs .lg{height:40px;display:flex;align-items:center;justify-content:center;width:100%}
+.divs a span{font-size:13px;line-height:1.45;color:#AEB7C3}
+.divs a:hover span{color:#E8EEF5}
 .divs img.mit{max-height:20px}.divs img.eyes{max-height:40px}
 .node img.eyes{height:36px}
 .f-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:44px;color:var(--dim);font-size:13px}
@@ -450,12 +454,12 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
       <div>
         <span class="hudt">Our divisions</span>
         <div class="divs">
-          <a href="https://strikeforcecyber.com" target="_blank" rel="noopener"><img src="logos/strikeforce-cyber-white.svg" alt="Strikeforce Cyber" class="tall" loading="lazy"></a>
-          <a href="https://midnightit.com.au" target="_blank" rel="noopener"><img src="logos/color/midnight-it.png" alt="Midnight IT" class="mit" loading="lazy"></a>
-          <a href="https://rendr.com.au" target="_blank" rel="noopener"><img src="assets/rendr-solid.png" alt="Rend'r" loading="lazy"></a>
-          <a href="https://3eyes.com.au" target="_blank" rel="noopener"><img src="logos/color/3eyes.png" alt="3 Eyes Australia" class="tall eyes" loading="lazy"></a>
-          <a href="https://wizesolutions.com.au" target="_blank" rel="noopener"><img src="logos/color/wize.png" alt="Wize Solutions" class="tall" loading="lazy"></a>
-          <a href="https://aidome.com.au" target="_blank" rel="noopener"><img src="logos/aidome-logo-h.png" alt="AI Dome" class="tall" loading="lazy"></a>
+          <a href="https://strikeforcecyber.com" target="_blank" rel="noopener"><span class="lg"><img src="logos/strikeforce-cyber-white.svg" alt="Strikeforce Cyber" class="tall" loading="lazy"></span><span>Cyber security that vets every solution we deliver.</span></a>
+          <a href="https://midnightit.com.au" target="_blank" rel="noopener"><span class="lg"><img src="logos/color/midnight-it.png" alt="Midnight IT" class="mit" loading="lazy"></span><span>24/7 IT support and managed services, since 2005.</span></a>
+          <a href="https://rendr.com.au" target="_blank" rel="noopener"><span class="lg"><img src="assets/rendr-solid.png" alt="Rend'r" loading="lazy"></span><span>Websites, apps and digital platforms that perform.</span></a>
+          <a href="https://3eyes.com.au" target="_blank" rel="noopener"><span class="lg"><img src="logos/color/3eyes.png" alt="3 Eyes Australia" class="tall eyes" loading="lazy"></span><span>CCTV, access control and surveillance, supported in person.</span></a>
+          <a href="https://wizesolutions.com.au" target="_blank" rel="noopener"><span class="lg"><img src="logos/color/wize.png" alt="Wize Solutions" class="tall" loading="lazy"></span><span>Business internet and phones: fibre, 5G and Starlink.</span></a>
+          <a href="https://aidome.com.au" target="_blank" rel="noopener"><span class="lg"><img src="logos/aidome-logo-h.png" alt="AI Dome" class="tall" loading="lazy"></span><span>Safe A.I. adoption, with guardrails and control.</span></a>
         </div>
       </div>
     </div>
