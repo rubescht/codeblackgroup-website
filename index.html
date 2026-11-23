@@ -62,8 +62,6 @@ header nav .call:hover{border-color:var(--syn);box-shadow:0 0 18px rgba(127,227,
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate;padding:110px 0 120px}
 #field{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
 #paths{scroll-margin-top:84px}
-.ft .visit{display:inline-flex;align-items:center;font-family:var(--hud);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7FE3FF}
-.door:hover .ft .visit{color:#F1D99A}
 .cue-l{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:block;width:40px;height:52px}
 .cue-l .cue{position:static;margin:0 auto;transform:none;height:44px;width:2px}
 .hero .lead b{color:#E9EEF5;font-weight:600}
@@ -143,43 +141,35 @@ h2 em{font-style:italic;color:var(--gold)}
 @media (max-width:860px){.sec-h{grid-template-columns:1fr}}
 
 /* ---------- paths ---------- */
-.paths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.door{--tint:216,180,95;position:relative;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);border-radius:18px;background:linear-gradient(180deg,rgba(var(--tint),.07),rgba(14,18,28,.5) 40%);border:1px solid rgba(var(--tint),.22);overflow:hidden;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .4s ease,box-shadow .5s ease;opacity:0;translate:0 24px;animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
-.door:nth-child(2){animation-delay:.08s}.door:nth-child(3){animation-delay:.16s}.door:nth-child(4){animation-delay:.24s}
 @keyframes up{to{opacity:1;translate:0 0}}
-.door.t-start{--tint:224,160,150}.door.t-smb{--tint:206,146,96}.door.t-corp{--tint:216,180,95}.door.t-gov{--tint:150,200,170}
-.door:hover,.door:focus-visible{border-color:rgba(var(--tint),.7);box-shadow:0 30px 80px -30px rgba(var(--tint),.45),0 0 0 1px rgba(var(--tint),.25)}
-.door .ph{position:relative;aspect-ratio:5/4;overflow:hidden;margin:10px 10px 0;border-radius:12px}
-.door .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(1.08) brightness(.82);transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .6s ease}
-.door .ph::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 40%,rgba(5,6,10,.75)),linear-gradient(140deg,rgba(var(--tint),.25),transparent 55%);mix-blend-mode:normal}
-.door .ph::after{content:"";position:absolute;left:0;right:0;top:-40%;height:40%;z-index:2;background:linear-gradient(180deg,transparent,rgba(127,227,255,.18),transparent);opacity:0}
-.door:hover .ph::after{animation:sweep 1.4s ease-out}
-@keyframes sweep{0%{top:-40%;opacity:1}100%{top:110%;opacity:0}}
-.door:hover .ph img{transform:scale(1.06);filter:saturate(1) contrast(1.05) brightness(.95)}
-.door .br{position:absolute;inset:8px;z-index:3;pointer-events:none}
-.door .br i{position:absolute;width:14px;height:14px;border:1.5px solid rgba(var(--tint),.85)}
-.door .br i:nth-child(1){left:0;top:0;border-right:0;border-bottom:0}.door .br i:nth-child(2){right:0;top:0;border-left:0;border-bottom:0}
-.door .br i:nth-child(3){left:0;bottom:0;border-right:0;border-top:0}.door .br i:nth-child(4){right:0;bottom:0;border-left:0;border-top:0}
-.door .pid{position:absolute;left:16px;bottom:12px;z-index:3;color:rgb(var(--tint))}
-.door .live{position:absolute;right:14px;bottom:12px;z-index:3;display:flex;align-items:center;gap:6px;color:#C8D0DA}
-.door .live{animation:rec 2.4s ease-in-out infinite}
+@keyframes rec{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes recdot{0%,100%{opacity:1;box-shadow:0 0 12px rgba(255,59,48,.95)}50%{opacity:.15;box-shadow:0 0 0 rgba(255,59,48,0)}}
+.paths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.door{--tint:216,180,95;position:relative;display:block;aspect-ratio:3/4;border-radius:20px;overflow:hidden;isolation:isolate;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 60px -34px rgba(0,0,0,.9);transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .4s ease,box-shadow .5s ease;opacity:0;translate:0 24px;animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.door:nth-child(2){animation-delay:.08s}.door:nth-child(3){animation-delay:.16s}.door:nth-child(4){animation-delay:.24s}
+.door.t-start{--tint:238,150,140}.door.t-smb{--tint:120,210,240}.door.t-corp{--tint:222,186,104}.door.t-gov{--tint:110,207,190}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 32%;z-index:-2;filter:saturate(.85) brightness(.88);transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .6s ease}
+.door::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,6,10,.15) 0,rgba(5,6,10,0) 22%,rgba(5,6,10,.5) 52%,rgba(5,6,10,.94) 100%)}
+.door::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:rgb(var(--tint));transform:scaleX(.2);transform-origin:left;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.door .num{position:absolute;left:20px;top:20px;font-size:12px;letter-spacing:.22em;color:rgb(var(--tint));text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.door .live{position:absolute;right:14px;top:14px;display:flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(5,6,10,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-size:10px;letter-spacing:.18em;color:#E8EEF5;animation:rec 2.4s ease-in-out infinite}
 .door .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#FF3B30;box-shadow:0 0 10px rgba(255,59,48,.9);animation:recdot 2.4s ease-in-out infinite}
 .door:nth-child(2) .live,.door:nth-child(2) .live::before{animation-delay:-.6s}
 .door:nth-child(3) .live,.door:nth-child(3) .live::before{animation-delay:-1.2s}
 .door:nth-child(4) .live,.door:nth-child(4) .live::before{animation-delay:-1.8s}
-@keyframes rec{0%,100%{opacity:1}50%{opacity:.35}}
-@keyframes recdot{0%,100%{opacity:1;box-shadow:0 0 12px rgba(255,59,48,.95)}50%{opacity:.15;box-shadow:0 0 0 rgba(255,59,48,0)}}
-.door .tx{display:flex;flex-direction:column;flex:1;padding:20px 20px 18px}
-.door .for{color:var(--muted);font-size:13px}
-.door h3{margin:4px 0 10px;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.12}
-.door p{margin:0;color:#AEB7C3;font-size:14.5px;line-height:1.55}
-.door .ft{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:18px}
-.door .tags{display:flex;flex-wrap:wrap;gap:6px}
-.door .tags span{font-size:11.5px;padding:4px 9px;border-radius:999px;border:1px solid var(--line2);color:#C8D0DA}
-.door .go{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(var(--tint),.5);color:rgb(var(--tint));transition:all .35s ease}
-.door:hover .go{background:rgb(var(--tint));color:#0A0B0F;transform:rotate(-45deg)}
-@media (max-width:1100px){.paths{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:600px){.paths{grid-template-columns:1fr}.door h3{font-size:24px}.door .ph{aspect-ratio:16/9}}
+.door .tx{position:absolute;left:0;right:0;bottom:0;padding:22px}
+.door h3{margin:0 0 8px;font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.1;color:#fff}
+.door p{margin:0 0 18px;color:#CCD5DF;font-size:14.5px;line-height:1.5}
+.door .cta{display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 16px 0 18px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font:600 14px var(--sans);color:#fff;transition:background .35s ease,color .35s ease,border-color .35s ease}
+.door .cta svg{transition:transform .35s ease}
+.door:hover,.door:focus-visible{border-color:rgba(var(--tint),.65);box-shadow:0 34px 80px -34px rgba(var(--tint),.55)}
+.door:hover::after,.door:focus-visible::after{transform:scaleX(1)}
+.door:hover img,.door:focus-visible img{transform:scale(1.06);filter:saturate(1) brightness(.98)}
+.door:hover .cta,.door:focus-visible .cta{background:rgb(var(--tint));border-color:rgb(var(--tint));color:#0A0B0F}
+.door:hover .cta svg,.door:focus-visible .cta svg{transform:translateX(3px)}
+.door:focus-visible{outline:2px solid rgb(var(--tint));outline-offset:3px}
+@media (max-width:1100px){.paths{grid-template-columns:repeat(2,minmax(0,1fr))}.door{aspect-ratio:4/3.6}}
+@media (max-width:600px){.paths{grid-template-columns:1fr;gap:14px}.door{aspect-ratio:4/3.3}.door h3{font-size:23px}.door p{margin-bottom:14px;font-size:14px}.door .tx{padding:18px}.door .cta{height:38px;font-size:13.5px}}
 
 
 /* ---------- evolution timeline ---------- */
@@ -370,40 +360,44 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
         <p>Pick one to visit the website made for you.</p>
       </div>
       <div class="paths">
-        <a class="door t-start" href="startups/">
-          <div class="ph"><img src="assets/img/tile-startup.jpg" alt="" width="560" height="560" loading="lazy" decoding="async"><span class="br" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="pid hudt">Path_01</span><span class="live hudt">Online</span></div>
+        <a class="door t-start" href="startups/" aria-label="Visit the site for Startups and sole traders">
+          <img src="assets/img/door-start.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async">
+          <span class="num hudt">01</span>
+          <span class="live hudt">Online</span>
           <div class="tx">
-            <span class="for">For</span>
             <h3>Startups &amp; sole traders</h3>
             <p>Just starting out or working for yourself.</p>
-            <div class="ft"><span class="visit">Visit site</span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+            <span class="cta">Visit site <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
           </div>
         </a>
-        <a class="door t-smb" href="business/">
-          <div class="ph"><img src="assets/img/tile-smb.jpg" alt="" width="560" height="560" loading="lazy" decoding="async"><span class="br" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="pid hudt">Path_02</span><span class="live hudt">Online</span></div>
+        <a class="door t-smb" href="business/" aria-label="Visit the site for Small and medium businesses">
+          <img src="assets/img/door-smb.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async">
+          <span class="num hudt">02</span>
+          <span class="live hudt">Online</span>
           <div class="tx">
-            <span class="for">For</span>
             <h3>Small &amp; medium businesses</h3>
             <p>A growing team that needs reliable IT.</p>
-            <div class="ft"><span class="visit">Visit site</span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+            <span class="cta">Visit site <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
           </div>
         </a>
-        <a class="door t-corp" href="corporate/">
-          <div class="ph"><img src="assets/img/tile-corp.jpg" alt="" width="560" height="560" loading="lazy" decoding="async"><span class="br" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="pid hudt">Path_03</span><span class="live hudt">Online</span></div>
+        <a class="door t-corp" href="corporate/" aria-label="Visit the site for Corporate and enterprise clients">
+          <img src="assets/img/door-corp.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async">
+          <span class="num hudt">03</span>
+          <span class="live hudt">Online</span>
           <div class="tx">
-            <span class="for">For</span>
             <h3>Corporate &amp; enterprise clients</h3>
             <p>Larger organisations, many sites, board-level risk.</p>
-            <div class="ft"><span class="visit">Visit site</span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+            <span class="cta">Visit site <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
           </div>
         </a>
-        <a class="door t-gov" href="not-for-profit/">
-          <div class="ph"><img src="assets/img/tile-gov.jpg" alt="" width="560" height="560" loading="lazy" decoding="async"><span class="br" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="pid hudt">Path_04</span><span class="live hudt">Online</span></div>
+        <a class="door t-gov" href="not-for-profit/" aria-label="Visit the site for Government and not-for-profit">
+          <img src="assets/img/door-gov.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async">
+          <span class="num hudt">04</span>
+          <span class="live hudt">Online</span>
           <div class="tx">
-            <span class="for">For</span>
             <h3>Government &amp; not-for-profit</h3>
             <p>Councils, agencies, charities and community groups.</p>
-            <div class="ft"><span class="visit">Visit site</span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+            <span class="cta">Visit site <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
           </div>
         </a>
       </div>
