@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-A7LuPwulMoTXhQEJG46nAa2zsSHtTEnJvrGzEZ04XOY='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-E3runzxQvqgaBJKXlzhx22XLsBIGJ6zkoYbbwzqQJo8='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/guard.js"></script>
 <!-- security:end -->
@@ -61,6 +61,13 @@ header nav .call:hover{border-color:var(--syn);box-shadow:0 0 18px rgba(127,227,
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate;padding:110px 0 120px}
 #field{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+#paths{scroll-margin-top:84px}
+.ft .visit{display:inline-flex;align-items:center;font-family:var(--hud);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7FE3FF}
+.door:hover .ft .visit{color:#F1D99A}
+.cue-l{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:block;width:40px;height:52px}
+.cue-l .cue{position:static;margin:0 auto;transform:none;height:44px;width:2px}
+.hero .lead b{color:#E9EEF5;font-weight:600}
+
 .ai-v{position:absolute;z-index:3;width:0;display:flex;flex-direction:column;align-items:center;pointer-events:none}
 .ai-btn{pointer-events:auto;display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 16px 0 6px;border-radius:999px;border:1px solid rgba(127,227,255,.45);background:rgba(5,8,14,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#E8F7FF;font-family:var(--hud);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;white-space:nowrap;box-shadow:0 0 0 0 rgba(127,227,255,.35);animation:aiping 2.8s ease-out infinite}
 .ai-btn:hover{border-color:rgba(127,227,255,.85)}
@@ -71,7 +78,7 @@ header nav .call:hover{border-color:var(--syn);box-shadow:0 0 18px rgba(127,227,
 .ai-v.on .ai-btn .eq{background:linear-gradient(135deg,#F1D99A,#D8B45F)}
 @keyframes eqb{0%,100%{height:5px}50%{height:15px}}
 @keyframes aiping{0%{box-shadow:0 0 0 0 rgba(127,227,255,.35)}70%{box-shadow:0 0 0 14px rgba(127,227,255,0)}100%{box-shadow:0 0 0 0 rgba(127,227,255,0)}}
-.ai-cap{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:40;transform:translate(-50%,8px);width:min(600px,calc(100vw - 32px));pointer-events:none;padding:12px 18px 14px;border-radius:14px;border:1px solid rgba(127,227,255,.25);background:rgba(5,8,14,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);text-align:left;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
+.ai-cap{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:60;transform:translate(-50%,8px);width:min(600px,calc(100vw - 32px));pointer-events:none;padding:12px 18px 14px;border-radius:14px;border:1px solid rgba(127,227,255,.25);background:rgba(5,8,14,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);text-align:left;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
 .ai-v.on .ai-cap{opacity:1;transform:translate(-50%,0)}
 .ai-cap .lbl{display:flex;align-items:center;gap:8px;font-family:var(--hud);font-size:10px;letter-spacing:.22em;color:#7FE3FF;margin-bottom:6px}
 .ai-cap .lbl i{width:6px;height:6px;border-radius:50%;background:#7FE3FF;box-shadow:0 0 10px #7FE3FF;animation:recdot 1.2s ease-in-out infinite}
@@ -117,7 +124,7 @@ h1 .l2{display:block;margin-top:14px;font-family:var(--serif);font-style:italic;
 .cue{position:absolute;left:50%;bottom:-2px;transform:translateX(-50%);width:1px;height:28px;background:linear-gradient(var(--syn),transparent);animation:cue 2s ease-in-out infinite}
 @keyframes cue{0%,100%{opacity:.2;transform:translate(-50%,-6px)}50%{opacity:1;transform:translate(-50%,0)}}
 @media (max-width:860px){
-  .hero{align-items:stretch;flex-direction:column;padding-top:330px;padding-bottom:56px}
+  .hero{align-items:stretch;flex-direction:column;padding-top:330px;padding-bottom:110px}
   .readout{position:relative;left:auto;right:auto;bottom:auto;margin-top:48px;width:100%}
   .hero::before{background:linear-gradient(180deg,transparent 0,transparent 290px,rgba(5,6,10,.55) 340px,rgba(5,6,10,.65) 60%,var(--void))}
   .readout .wrap{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:10px}
@@ -323,7 +330,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
   <div class="wrap">
     <a class="logo" href="corporate/" aria-label="Code Black Group, group site"></a>
     <nav aria-label="Main">
-      <a href="#paths">Choose your path</a>
+      <a href="#paths">Choose your website</a>
       <a href="#group">Our divisions</a>
       <a href="corporate/">Group site</a>
       <a href="corporate/#leadership">Leadership</a>
@@ -346,30 +353,21 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
       <div class="h-in">
         <span class="kick hudt"><b></b>Code Black Group // The intelligence era</span>
         <h1 id="h"><span class="l1" data-text="Grow with the right partner.">Grow with the right partner.</span><span class="l2">Built for the age of intelligence.</span></h1>
-        <p class="lead">The organisations that succeed don’t just buy technology. They grow with the right technology partner. Since 2005 we’ve evolved with every shift in technology, and today we bring A.I. into how we secure, support and build for our clients, while preparing them for what comes next: super intelligence.</p>
+        <p class="lead">Six specialist teams, one group, since 2005. <b>Choose the website for your organisation to get started.</b></p>
         <div class="acts">
-          <a class="btn gold" href="#paths">Choose your path
+          <a class="btn gold" href="#paths">Choose your website
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
-          <a class="btn" href="#group">Meet the group</a>
         </div>
       </div>
     </div>
-    <div class="readout" aria-label="At a glance">
-      <div class="wrap">
-        <div class="ro"><b><em>06</em> Divisions</b><span>Specialist teams, one group</span></div>
-        <div class="ro"><b><em>24/7</em> Human</b><span>Real experts, around the clock</span></div>
-        <div class="ro"><b>Vetted</b><span>Every solution checked by Strikeforce Cyber</span></div>
-        <div class="ro"><b>Since <em>2005</em></b><span>Evolving with every technology shift</span></div>
-      </div>
-      <span class="cue" aria-hidden="true"></span>
-    </div>
+    <a class="cue-l" href="#paths" aria-label="Scroll to choose your website"><span class="cue" aria-hidden="true"></span></a>
   </section>
 
   <section class="sec" id="paths" aria-labelledby="paths-h" style="padding-top:clamp(60px,7vw,100px)">
     <div class="wrap">
       <div class="sec-h rv">
-        <div><span class="hudt">Select your path</span><h2 id="paths-h">Every organisation is different. <em>Start with yours.</em></h2></div>
-        <p>Wherever you are on the journey, from your first day of trading to the boardroom, the right partner grows with you. Tell us who you are and we’ll show you how.</p>
+        <div><span class="hudt">Step 1 // Choose one</span><h2 id="paths-h">Which best describes <em>your organisation?</em></h2></div>
+        <p>Pick one to visit the website made for you.</p>
       </div>
       <div class="paths">
         <a class="door t-start" href="startups/">
@@ -377,8 +375,8 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
           <div class="tx">
             <span class="for">For</span>
             <h3>Startups &amp; sole traders</h3>
-            <p>Get set up properly from day one: secure email, devices, a great website and help when you need it.</p>
-            <div class="ft"><span class="tags"><span>Set-up</span><span>Website</span><span>Grow</span></span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+            <p>Just starting out or working for yourself.</p>
+            <div class="ft"><span class="visit">Visit site</span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
           </div>
         </a>
         <a class="door t-smb" href="business/">
@@ -386,8 +384,8 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
           <div class="tx">
             <span class="for">For</span>
             <h3>Small &amp; medium businesses</h3>
-            <p>Reliable IT, security and a website that works, from one team that picks up the phone.</p>
-            <div class="ft"><span class="tags"><span>24/7 IT</span><span>Security</span><span>Web</span></span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+            <p>A growing team that needs reliable IT.</p>
+            <div class="ft"><span class="visit">Visit site</span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
           </div>
         </a>
         <a class="door t-corp" href="corporate/">
@@ -395,8 +393,8 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
           <div class="tx">
             <span class="for">For</span>
             <h3>Corporate &amp; enterprise clients</h3>
-            <p>Board-level cyber risk, fewer vendors and operations that keep running across every site.</p>
-            <div class="ft"><span class="tags"><span>Cyber risk</span><span>Consolidation</span><span>A.I.</span></span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+            <p>Larger organisations, many sites, board-level risk.</p>
+            <div class="ft"><span class="visit">Visit site</span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
           </div>
         </a>
         <a class="door t-gov" href="not-for-profit/">
@@ -404,37 +402,21 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
           <div class="tx">
             <span class="for">For</span>
             <h3>Government &amp; not-for-profit</h3>
-            <p>Technology that protects your mission and the people you serve, planned around budgets and funding.</p>
-            <div class="ft"><span class="tags"><span>Councils</span><span>Charities</span><span>Aged care</span></span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+            <p>Councils, agencies, charities and community groups.</p>
+            <div class="ft"><span class="visit">Visit site</span><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="evolution" aria-labelledby="evo-h" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-h rv">
-        <div><span class="hudt">Always evolving</span><h2 id="evo-h">We’ve grown with technology. <em>So you can grow with us.</em></h2></div>
-        <p>Choosing the right technology partner is one of the most important decisions an organisation makes. Ours started with one person in 2005 and has adapted to every shift since, from 24/7 support to A.I.</p>
-      </div>
-      <ol class="evo rv" style="list-style:none;padding:0">
-        <li class="ev"><span class="dot">2005</span><span class="when hudt">The start</span><h3>One person, 24/7 support</h3><p>Our founder starts out as a sole trader, looking after more than 30 clients around the clock.</p><span class="who">Midnight IT</span></li>
-        <li class="ev"><span class="dot">02</span><span class="when hudt">Then</span><h3>Security and connectivity</h3><p>Clients ask us for more, so we build the teams to deliver it to the same standard.</p><span class="who">3 Eyes Australia · Wize Solutions</span></li>
-        <li class="ev"><span class="dot">03</span><span class="when hudt">Then</span><h3>Web and digital</h3><p>Websites, platforms and the digital front door, built and secured in-house.</p><span class="who">Rend’r</span></li>
-        <li class="ev"><span class="dot">04</span><span class="when hudt">Then</span><h3>Cyber security at the centre</h3><p>A dedicated cyber division security-vets every solution before it reaches a client.</p><span class="who">Strikeforce Cyber</span></li>
-        <li class="ev now"><span class="dot">NOW</span><span class="when hudt">Today</span><h3>A.I., built in</h3><p>A.I. now runs through how we secure, support and build, and we help clients adopt it with guardrails.</p><span class="who">AI Dome · Strikeforce Cyber</span></li>
-        <li class="ev next"><span class="dot">NEXT</span><span class="when hudt">Tomorrow</span><h3>Ready for super intelligence</h3><p>As A.I. grows more capable, we’re preparing clients with the security, governance and people to use it safely.</p><span class="who">The whole group</span></li>
-      </ol>
-    </div>
-  </section>
 
   <section class="sec" id="group" aria-labelledby="group-h">
     <div class="wrap cst">
       <div class="cst-copy rv">
         <span class="hudt" style="color:var(--syn)">One group // Six specialist teams</span>
         <h2 id="group-h">One core. <em>Six specialist teams.</em> Every solution vetted.</h2>
-        <p>Intelligence on its own isn't enough. It has to be connected, secure and accountable. That's how Code Black Group is built.</p>
+        
         <ul class="rings">
           <li><span class="ic"><img src="logos/cbg-mark-white.svg" alt="" width="22" height="22"></span><div><b>The outer ring: Code Black Group</b><span>One accountable group around every division, every project and every client.</span></div></li>
           <li><span class="ic s"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z" fill="none" stroke="#7FE3FF" stroke-width="1.5"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="#7FE3FF" stroke-width="1.5"/></svg></span><div><b>The inner ring: Strikeforce Cyber</b><span>Our cyber security division security-vets every solution before it reaches you.</span></div></li>
@@ -461,23 +443,6 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     </div>
   </section>
 
-  <section class="sec" aria-labelledby="ai-h" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-h rv">
-        <div><span class="hudt">Ready for what's next</span><h2 id="ai-h">Get the benefits of A.I. <em>without the exposure.</em></h2></div>
-        <p>As A.I. moves toward super intelligence, the gap widens between organisations that adopt it safely and those that don’t. The right partner puts you on the right side of it.</p>
-      </div>
-      <div class="band">
-        <article class="card rv"><span class="n hudt">01 // Adopt</span><h3>A.I. with guardrails</h3><p>Put A.I. to work across your organisation with clear policies, controls and training, so productivity goes up and risk doesn't.</p><span class="by">AI Dome, secured by Strikeforce Cyber</span></article>
-        <article class="card rv"><span class="n hudt">02 // Defend</span><h3>Security that keeps pace</h3><p>Attackers are using A.I. too. Your defences, devices and data are protected and checked before anything goes live.</p><span class="by">Strikeforce Cyber</span></article>
-        <article class="card rv"><span class="n hudt">03 // Support</span><h3>Human experts, around the clock</h3><p>Technology moves fast. Real people who know your organisation pick up the phone, day or night.</p><span class="by">Midnight IT, 24/7</span></article>
-      </div>
-      <div class="help rv" style="margin-top:48px">
-        <p>Not sure where you fit? <i>Answer four quick questions.</i></p>
-        <div class="acts"><a class="btn gold" href="business/#discover">Take the 60-second discovery</a><a class="btn" href="tel:1300737562">Call 1300 737 562</a></div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -568,17 +533,20 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
       if(an&&V.on){ an.getByteTimeDomainData(td); var sum=0; for(var i=0;i<td.length;i++){ var x=(td[i]-128)/128; sum+=x*x; } lv=Math.min(1,Math.sqrt(sum/td.length)*2.6); an.getByteFrequencyData(fd); }
       else if(V.on){ lv=.35+.25*Math.sin(performance.now()/90); }
       V.l+= (lv-V.l)*(lv>V.l?.6:.2);
-      if(V.on){ var t=au.currentTime, c=-1; for(var k=0;k<CUES.length;k++) if(t>=CUES[k][0]-.05) c=k;
-        if(c>=0){ var q=CUES[c], f=Math.min(1,(t-q[0])/Math.max(.6,(q[1]-q[0])*.82)), n=Math.round(q[2].length*f);
-          if(c!==last||n!==V._n){ txt.textContent=q[2].slice(0,n); var cur=document.createElement('span'); cur.className='cur'; txt.appendChild(cur); last=c; V._n=n; } } }
     };
+    function caps(){
+      var t=au.currentTime, c=-1; for(var k=0;k<CUES.length;k++) if(t>=CUES[k][0]-.05) c=k;
+      if(c>=0){ var q=CUES[c], f=Math.min(1,(t-q[0])/Math.max(.6,(q[1]-q[0])*.82)), n=Math.round(q[2].length*f);
+        if(c!==last||n!==V._n){ txt.textContent=q[2].slice(0,n); var cur=document.createElement('span'); cur.className='cur'; txt.appendChild(cur); last=c; V._n=n; } }
+    }
+    function capLoop(){ if(!V.on) return; caps(); requestAnimationFrame(capLoop); }
     function stop(){ au.pause(); V.on=false; box.classList.remove('on'); bt.textContent='Hear from our AI'; btn.setAttribute('aria-label','Hear a short welcome from our AI, with captions'); }
     btn.addEventListener('click',function(){
       if(V.on){ stop(); return; }
       setup(); if(ac&&ac.state==='suspended') ac.resume();
       if(au.ended||au.currentTime>34) au.currentTime=0;
       var p=au.play(); if(p&&p.catch) p.catch(function(){ stop(); });
-      V.on=true; box.classList.add('on'); bt.textContent='Stop'; btn.setAttribute('aria-label','Stop the AI welcome'); last=-1;
+      V.on=true; box.classList.add('on'); requestAnimationFrame(capLoop); bt.textContent='Stop'; btn.setAttribute('aria-label','Stop the AI welcome'); last=-1;
       if(window.CBG_KICK) window.CBG_KICK();
     });
     au.addEventListener('ended',function(){ setTimeout(function(){ stop(); txt.textContent=''; au.currentTime=0; },1600); });
