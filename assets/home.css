@@ -291,3 +291,35 @@ footer.ft{padding:clamp(48px,5vw,72px) 0 28px;margin-top:0;border-top:1px solid 
 .ft-bot .ft-legal a{color:var(--dim);text-decoration:none}
 .ft-bot .ft-legal a:hover{color:var(--gold)}
 @media (max-width:760px){.ft-aoc{grid-template-columns:1fr}}
+/* mobile fit (v19): one sound control, sphere/film/tiles sized to the screen height */
+@media (max-width:860px){
+  .hero.hv2{padding-bottom:16px}
+  .hv2 .ai-v{display:none}
+  .hv-orb{height:clamp(120px,20svh,200px)}
+  .hv-main{gap:10px;margin-top:4px}
+  .film{aspect-ratio:auto;height:clamp(140px,23svh,230px)}
+  .pick2{margin-top:12px;gap:8px}
+  .tiles{gap:6px}
+  .tile{height:clamp(42px,5.9svh,50px)}
+}
+/* headline lives on the film as a title card, shown whenever the story isn't playing (v20) */
+.film .f-title{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:clamp(16px,2.2vw,28px);padding-top:48px;pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(5,6,10,.55) 35%,rgba(5,6,10,.88));transition:opacity .45s,transform .45s}
+.film .f-title h1{margin:0;text-shadow:0 2px 18px rgba(0,0,0,.85)}
+.film.playing .f-title{opacity:0;transform:translateY(8px)}
+.film:not(.playing) .f-cap{opacity:0}
+.film:not(.playing) .f-play{top:38%}
+@media (min-width:861px){.film{max-height:calc(100svh - 330px)}}
+@media (max-width:860px){
+  .hv-orb{height:clamp(110px,22svh,210px)}
+  .film{height:clamp(150px,30svh,280px)}
+  .film .f-title{padding:12px 14px;padding-top:36px}
+  .hv2 h1 .l1{font-size:clamp(19px,5.8vw,27px)}
+  .hv2 h1 .l2{font-size:clamp(17px,5.2vw,24px)}
+  .film:not(.playing) .f-play{width:54px;height:54px;margin:-27px 0 0 -27px;top:36%}
+}
+@media (max-width:860px) and (max-height:620px){
+  .hv-orb{height:18svh}
+  .film{height:26svh;min-height:140px}
+}
+@media (min-width:1181px){.hv-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}.hv-main{max-width:820px}}

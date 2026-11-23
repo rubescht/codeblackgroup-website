@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-bI778oPuaoDfHYucxPSVwJYqnOxhDJAc+fNXsTe7L7k='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-IhiRa5nImnsC0V7r1lCHVOmwxoCrVxg7tGkCvtsBp3M='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/guard.js"></script>
 <!-- security:end -->
@@ -290,7 +290,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.door{opacity:1;transform:none;translate:none}}
 </style>
 <link rel="stylesheet" href="assets/scam-help.css?v=6">
-<link rel="stylesheet" href="assets/home.css?v=18">
+<link rel="stylesheet" href="assets/home.css?v=20">
 </head>
 <body>
 <div id="intro" hidden aria-hidden="true">
@@ -358,10 +358,12 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
         <div class="hv-orb" aria-hidden="true"></div>
         <div class="hv-main">
           <span class="kick hudt"><b></b>Code Black Group // The intelligence era</span>
-          <h1 id="h"><span class="l1" data-text="Grow with the right partner.">Grow with the right partner.</span><span class="l2">Built for the age of intelligence.</span></h1>
           <div class="film" id="film">
             <video id="gv" playsinline preload="metadata" poster="media/growth-story.jpg?v=2" aria-label="How organisations grow with Code Black Group: from sole trader to government, narrated by our AI"></video>
             <span class="f-chap hudt" id="gv-ch">01 // Sole Trader</span>
+            <div class="f-title">
+            <h1 id="h"><span class="l1" data-text="Grow with the right partner.">Grow with the right partner.</span><span class="l2">Built for the age of intelligence.</span></h1>
+            </div>
             <p class="f-cap" id="gv-cap" aria-live="polite"></p>
             <button class="f-snd" id="gv-snd" type="button" hidden><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Tap for sound</button>
             <button class="f-play" id="gv-play" type="button" hidden aria-label="Play the story"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
@@ -606,7 +608,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
   }
   function corePos(){
     var o=document.querySelector('.hv-orb'), c=cv.getBoundingClientRect();
-    if(o){ var r=o.getBoundingClientRect(); if(r.width>20&&r.height>20){ var R=W<860?Math.min(r.width*.19,r.height*.3,74):Math.min(r.width*.29,r.height*.3,210); return {x:r.left-c.left+r.width/2,y:r.top-c.top+r.height*(W<860?.46:.47),R:R}; } }
+    if(o){ var r=o.getBoundingClientRect(); if(r.width>20&&r.height>20){ var R=W<860?Math.min(r.width*.19,r.height*.34,70):Math.min(r.width*.29,r.height*.3,210); return {x:r.left-c.left+r.width/2,y:r.top-c.top+r.height*(W<860?.46:.47),R:R}; } }
     return W<860 ? {x:W*.5,y:150,R:Math.min(W*.2,90)} : {x:W*.27,y:H*.46,R:Math.min(W*.13,H*.24)}; }
   var aiv=document.getElementById('aiv');
   function placeAI(){ if(!aiv) return; var C=corePos(); aiv.style.left=C.x+'px'; aiv.style.top=(W<860 ? C.y+C.R*1.05+22 : C.y+C.R+34)+'px'; }
