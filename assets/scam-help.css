@@ -132,3 +132,10 @@ a.sh-q:hover,a.sh-q:focus-visible{border-color:rgba(127,227,255,.35);background:
   .sh-blk{margin-bottom:22px}.sh-blk+.sh-blk{padding-top:20px}
 }
 @media (max-width:380px){.sh-q{flex-wrap:wrap;row-gap:4px}.sh-q>div{flex:1 1 calc(100% - 46px)}.sh-q .tel{margin-left:46px;padding-left:0;font-size:11px!important}.sh-badge{display:none}.sh-k{letter-spacing:.14em}.sh-hd h2{font-size:16.5px}.sh-row{grid-template-columns:1fr;gap:0}}
+/* "working" indicator */
+.sh-m.dots::after{content:"";display:inline-block;width:1.4em;text-align:left;animation:shDots 1.2s steps(4,end) infinite;vertical-align:bottom}
+@keyframes shDots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
+.sh-m.wait{position:relative;overflow:hidden}
+.sh-m.wait::before{content:"";position:absolute;left:0;bottom:0;height:2px;width:40%;background:linear-gradient(90deg,transparent,var(--gold,#D8B45F),transparent);animation:shScan 1.4s ease-in-out infinite}
+@keyframes shScan{from{transform:translateX(-100%)}to{transform:translateX(250%)}}
+@media (prefers-reduced-motion:reduce){.sh-m.dots::after{animation:none;content:"..."}.sh-m.wait::before{display:none}}
