@@ -4,452 +4,139 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-DqK66ygDXrOCs4cZVUBPQ+P0iWXuNWwy6hWndXBkHbo=' 'sha256-SFCIWmE/YKF3A2aQ6cXX0n7n9LU92uhImRF55nCCdmk='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="../assets/guard.js"></script>
 <!-- security:end -->
-<title>Code Black Group for Startups &amp; Sole Traders | Get the foundations right from day one</title>
+<title>Code Black Group for Startups &amp; Sole Traders | Start right, grow without starting again</title>
 <meta name="description" content="What a new business should sort out first: domain and business email, secure sign-ins, devices, backups, scam-proof payments and a website that grows with you. Practical help from Code Black Group.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="../logos/cbg-mark-white.svg" type="image/svg+xml">
-<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/newsreader-latin-500-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/newsreader-latin-400-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/inter-latin-400-normal.woff2" crossorigin>
-<link rel="stylesheet" href="../assets/editorial.css?v=2">
-<style>
-body.st{--paper:#F8F4EF;--line:#E8DFD4;--rose:#B8645A;--rose-soft:#E0A096}
-.hero h1 em{color:var(--rose)}
-.st .eyebrow{color:var(--rose)}
-.st .bg-night .eyebrow{color:var(--rose-soft)}
-.st .proof span::before{background:var(--rose)}
-
-/* hero launch card */
-.lc{position:relative;background:#121316;color:#F4F1EA;border-radius:22px;padding:30px 30px 26px;box-shadow:0 40px 80px -40px rgba(18,19,22,.55);overflow:hidden;isolation:isolate}
-.lc::before{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(224,160,150,.28),transparent 65%);z-index:-1}
-.lc::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(160deg,rgba(224,160,150,.7),transparent 45%,transparent 70%,rgba(224,160,150,.35));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.lc .hd{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
-.lc .hd small{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#9B978F}
-.lc .hd b{display:block;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.15;margin-top:6px}
-.ring{position:relative;flex:none;width:76px;height:76px}
-.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
-.ring circle{fill:none;stroke-width:5}
-.ring .bg{stroke:rgba(255,255,255,.1)}
-.ring .fg{stroke:var(--rose-soft);stroke-linecap:round;stroke-dasharray:201;stroke-dashoffset:201;transition:stroke-dashoffset .8s cubic-bezier(.2,.8,.2,1)}
-.ring span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--serif);font-size:20px}
-.lc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
-.lc li{display:grid;grid-template-columns:24px 1fr auto;gap:12px;align-items:center;padding:11px 0;border-top:1px solid rgba(255,255,255,.08);font-size:15px;color:#DAD7D0}
-.lc li i{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(224,160,150,.55);position:relative}
-.lc li.done i{background:var(--rose-soft);border-color:var(--rose-soft)}
-.lc li.done i::after{content:"";position:absolute;left:5px;top:3.5px;width:5px;height:8px;border:solid #121316;border-width:0 2px 2px 0;transform:rotate(45deg)}
-.lc li.done{color:#8F8B84}
-.lc li em{font-style:normal;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#77736C}
-.lc .ft{margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.5px;color:#9B978F}
-.lc .ft a{color:var(--rose-soft);text-decoration:none;border-bottom:1px solid rgba(224,160,150,.4);padding-bottom:2px}
-
-/* source note */
-.src{font-size:12.5px;color:var(--muted);padding:12px 0 18px}
-.src a{color:inherit}
-
-/* launch list */
-.phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;counter-reset:item}
-.phase{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:28px 26px 14px;display:flex;flex-direction:column}
-.phase .ph-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--ink)}
-.phase .ph-h b{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1}
-.phase .ph-h small{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
-.item{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:20px 0;border-bottom:1px solid var(--line);cursor:pointer}
-.item:last-child{border-bottom:0}
-.item input{position:absolute;opacity:0;pointer-events:none}
-.item .box{width:24px;height:24px;border-radius:7px;border:1.5px solid #C9B9AC;margin-top:2px;position:relative;transition:background .25s ease,border-color .25s ease}
-.item input:focus-visible+.box{outline:2px solid var(--rose);outline-offset:3px}
-.item input:checked+.box{background:var(--rose);border-color:var(--rose)}
-.item input:checked+.box::after{content:"";position:absolute;left:7.5px;top:3.5px;width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
-.item h3{font-family:var(--serif);font-weight:500;font-size:20px;line-height:1.25;margin:0 0 6px;counter-increment:item}
-.item h3::before{content:counter(item,decimal-leading-zero) "  ";font-size:14px;color:var(--rose);letter-spacing:.04em}
-.item p{margin:0;font-size:15px;color:var(--muted);line-height:1.55}
-.item .we{display:inline-block;margin-top:10px;font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--ink);background:#F3ECE4;border-radius:999px;padding:4px 10px}
-.item input:checked~div h3{text-decoration:line-through;text-decoration-color:rgba(184,100,90,.5);text-decoration-thickness:1.5px}
-.progress{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;justify-content:space-between;padding:22px 26px;background:#121316;color:#F4F1EA;border-radius:18px}
-.progress .bar{flex:1 1 260px;height:6px;border-radius:6px;background:rgba(255,255,255,.12);overflow:hidden}
-.progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rose),var(--rose-soft));transition:width .6s cubic-bezier(.2,.8,.2,1)}
-.progress p{margin:0;font-family:var(--serif);font-size:21px}
-.progress .acts{display:flex;gap:10px;flex-wrap:wrap}
-.progress button{font:inherit;font-size:13.5px;background:transparent;color:#B9B5AD;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:10px 16px;cursor:pointer}
-.progress .btn{background:var(--rose-soft);color:#121316;border-color:transparent}
-
-.st .model .tag{color:var(--rose-soft)}
-.st .model li::before{background:var(--rose-soft)}
-.freeh a{align-content:start}
-.st .steps .n{color:var(--rose)}
-.story cite{font-family:var(--sans,inherit)}
-
-/* mistakes */
-.st .real b{font-size:19px}
-
-/* free help */
-.freeh{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
-.freeh a{display:grid;grid-template-columns:1fr auto;gap:6px 20px;padding:24px 24px 24px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
-.freeh a:nth-child(even){padding-left:24px;border-left:1px solid var(--line)}
-.freeh b{font-family:var(--serif);font-weight:500;font-size:21px;line-height:1.25}
-.freeh span{grid-column:1;font-size:15px;color:var(--muted)}
-.freeh em{grid-row:1/3;grid-column:2;align-self:center;font-style:normal;color:var(--rose);font-size:20px;transition:transform .3s ease}
-.freeh a:hover em{transform:translate(3px,-3px)}
-.freeh small{grid-column:1;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--rose)}
-
-/* founder story */
-.story{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,6vw,88px);align-items:center}
-.story figure{margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:var(--r);background:#111}
-.story figure img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
-.story blockquote{margin:26px 0 0;padding-left:22px;border-left:2px solid var(--rose);font-family:var(--serif);font-size:24px;line-height:1.35}
-.story cite{display:block;margin-top:12px;font-style:normal;font-size:14px;color:var(--muted)}
-
-/* ===== artistic layer ===== */
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes marq{to{transform:translateX(-50%)}}
-body.st::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.045;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-/* dark header */
-.st .head{background:#0E0E10;border-bottom-color:rgba(255,255,255,.08)}
-.st .logo{background:#F4F1EA}
-.st .nav a{color:#CFCBC3}.st .nav a:hover{border-color:var(--rose-soft);color:#fff}
-.st .head-cta .tel{color:#F4F1EA}
-.st .head-cta .btn{background:var(--rose-soft);border-color:var(--rose-soft);color:#121316}
-.st .menu-btn{background:transparent;border-color:rgba(255,255,255,.2)}
-.st .menu-btn span,.st .menu-btn span::before,.st .menu-btn span::after{background:#F4F1EA}
-@media (max-width:920px){.st .mnav{background:#121316;border-color:rgba(255,255,255,.08)}.st .mnav a{color:#F4F1EA;border-color:rgba(255,255,255,.08)}.st .mnav .btn{background:var(--rose-soft);color:#121316;border-color:var(--rose-soft)}}
-/* hero */
-.ahero{position:relative;background:#0E0E10;color:#F4F1EA;overflow:hidden;isolation:isolate;padding-top:clamp(56px,8vw,120px)}
-.ahero::before{content:"";position:absolute;right:-10%;top:-20%;width:70%;height:120%;background:radial-gradient(closest-side,rgba(224,160,150,.16),transparent 70%);z-index:-2}
-.ahero .orbit{position:absolute;right:-22vmin;top:-26vmin;width:96vmin;height:96vmin;z-index:-1;opacity:.6;animation:spin 140s linear infinite;pointer-events:none}
-.ahero .orbit *{fill:none;stroke:#E0A096}
-.ahero .eyebrow{color:var(--rose-soft)}
-.ahero h1{color:#F4F1EA}
-.ahero h1 em{background:linear-gradient(95deg,#E0A096 0%,#F3CDB0 55%,#C97C6E 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
-.ahero .lead{color:#B9B5AD}
-.ahero .btn{background:var(--rose-soft);border-color:var(--rose-soft);color:#121316}.ahero .btn:hover{background:#F0B8AE}
-.ahero .textlink{color:#F4F1EA;border-color:rgba(255,255,255,.3)}
-.ahero .proof{border-color:rgba(255,255,255,.12);color:#9B978F}
-.hvis{position:relative;padding:0 0 70px 48px}
-.hvis::before{content:"";position:absolute;left:28px;top:-20px;right:-20px;bottom:50px;border:1px dashed rgba(224,160,150,.35);border-radius:999px 999px 28px 28px;pointer-events:none}
-.arch{position:relative;margin:0;aspect-ratio:4/5;border-radius:999px 999px 24px 24px;overflow:hidden;box-shadow:0 0 0 1px rgba(224,160,150,.35),0 60px 120px -40px rgba(0,0,0,.9)}
-.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 60%;filter:saturate(.9)}
-.arch::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(14,14,16,.55)),linear-gradient(160deg,rgba(224,160,150,.18),transparent 40%);mix-blend-mode:multiply}
-.hvis .lc{position:absolute;left:0;bottom:0;width:min(88%,390px);padding:24px 24px 20px}
-.hvis .lc li em{display:none}
-.hvis .lc li{grid-template-columns:24px 1fr}
-.hvis .lc .hd b{font-size:22px}
-.hvis .tagdot{position:absolute;right:6%;top:12%;display:flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:999px;background:rgba(14,14,16,.7);backdrop-filter:blur(8px);border:1px solid rgba(224,160,150,.35);font-size:12.5px;color:#F4F1EA}
-.hvis .tagdot i{width:8px;height:8px;border-radius:50%;background:var(--rose-soft);box-shadow:0 0 0 4px rgba(224,160,150,.2)}
-/* ribbon */
-.ribbon{overflow:hidden;background:#0E0E10;color:#F4F1EA;padding:20px 0;border-top:1px solid rgba(255,255,255,.06)}
-.ribbon .track{display:flex;width:max-content;animation:marq 48s linear infinite}
-.ribbon span{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3.6vw,46px);white-space:nowrap;letter-spacing:-.01em}
-.ribbon i{font-style:normal;color:var(--rose-soft);margin:0 .6em;font-size:.55em;vertical-align:.25em}
-/* figures */
-.st .fig b{font-style:italic;background:linear-gradient(95deg,#B8645A,#D98E7F);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
-/* phase drawings */
-.grow{display:block;height:70px;width:auto;margin:-4px 0 12px}
-.grow path,.grow ellipse{fill:none;stroke:var(--rose);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.8s cubic-bezier(.6,.1,.2,1) .2s}
-.grow .g{stroke:#CDBFB2;stroke-width:1.2}
-.grow .lf{fill:rgba(184,100,90,.08)}
-.phase.in .grow path,.phase.in .grow ellipse{stroke-dashoffset:0}
-.phase{transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease}
-.phase:hover{transform:translateY(-4px);box-shadow:0 30px 60px -40px rgba(120,60,50,.35)}
-/* mistakes numerals */
-.st .real{counter-reset:m}
-.st .real div::before{counter-increment:m;content:counter(m,decimal-leading-zero);display:block;font-family:var(--serif);font-size:58px;line-height:1;color:transparent;-webkit-text-stroke:1px var(--rose);margin-bottom:14px;letter-spacing:-.02em}
-/* founder arch */
-.story figure{border-radius:999px 999px 20px 20px;box-shadow:0 0 0 1px rgba(184,100,90,.35),0 0 0 14px #fff,0 0 0 15px rgba(184,100,90,.25)}
-@media (max-width:860px){
-  .hvis{padding:0 0 0 0;max-width:460px;margin-top:12px}
-  .hvis::before{left:-10px;right:-10px;top:-14px;bottom:auto;aspect-ratio:4/5}
-  .hvis .lc{position:relative;width:auto;margin:-120px 14px 0}
-}
-@media (prefers-reduced-motion:reduce){.ahero .orbit,.ribbon .track{animation:none}.grow path,.grow ellipse{stroke-dashoffset:0}}
-
-/* ===== opening film (full screen) ===== */
-.lf{position:relative;height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:480px;background:#09090B;overflow:hidden}
-.lf video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#09090B}
-.lf .ctl{position:absolute;left:0;right:0;bottom:0;padding:0 var(--gut,24px) 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;z-index:2;background:linear-gradient(0deg,rgba(9,9,11,.75),transparent);padding-top:60px}
-.lf .pill{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 18px 0 8px;border-radius:999px;border:1px solid rgba(224,160,150,.5);background:rgba(14,14,16,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#F4F1EA;font:600 14.5px var(--sans);cursor:pointer;text-decoration:none}
-.lf .pill .ic{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--rose-soft);color:#121316}
-.lf .pill.sm{padding:0 16px;border-color:rgba(255,255,255,.22)}
-.lf .pill:hover{border-color:var(--rose-soft)}
-.lf .sp{flex:1}
-.lf .bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08);z-index:3}
-.lf .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rose),var(--rose-soft))}
-.lf .hint{position:absolute;top:18px;right:var(--gut,24px);z-index:2;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#B9B5AD;background:rgba(14,14,16,.55);padding:7px 12px;border-radius:999px;backdrop-filter:blur(6px)}
-.lf.sound .hint{display:none}
-.lf:fullscreen{height:100vh}
-@media (max-width:640px){.lf .pill{height:42px;font-size:13.5px}.lf .pill.fs{display:none}}
-
-/* ===== full-screen film ===== */
-.ff{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:#0E0E10;color:#F4F1EA;display:flex;align-items:center;isolation:isolate}
-.ff .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.ff::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(14,14,16,.88) 0%,rgba(14,14,16,.55) 45%,rgba(14,14,16,.15) 100%),linear-gradient(0deg,rgba(14,14,16,.7),transparent 35%)}
-.ff .eyebrow{color:var(--rose-soft)}
-.ff h2{margin:18px 0 18px;font-size:clamp(40px,6vw,88px);line-height:1.02;letter-spacing:-.02em;max-width:14ch;color:#F4F1EA}
-.ff h2 em{font-style:italic;background:linear-gradient(95deg,#E0A096,#F3CDB0 60%,#C97C6E);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
-.ff p{max-width:46ch;color:#CFCBC3;font-size:clamp(16px,1.4vw,19px);margin:0 0 34px}
-.ff-play{display:inline-flex;align-items:center;gap:18px;background:none;border:0;padding:0;color:#F4F1EA;font:600 16px var(--sans);cursor:pointer}
-.ff-play .pr{position:relative;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:rgba(224,160,150,.95);color:#121316;box-shadow:0 0 0 0 rgba(224,160,150,.5);animation:ffpulse 2.4s ease-out infinite;transition:transform .3s ease}
-.ff-play:hover .pr{transform:scale(1.06)}
-.ff-play small{display:block;font-weight:400;font-size:13.5px;color:#9B978F;margin-top:3px}
-@keyframes ffpulse{0%{box-shadow:0 0 0 0 rgba(224,160,150,.55)}100%{box-shadow:0 0 0 28px rgba(224,160,150,0)}}
-.ff .meta{position:absolute;right:var(--gut,24px);bottom:26px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9B978F}
-.ffp{position:fixed;inset:0;z-index:200;background:#000;display:none;align-items:center;justify-content:center}
-.ffp.open{display:flex}
-.ffp video{width:100%;height:100%;object-fit:contain;background:#000}
-.ffp .x{position:absolute;top:18px;right:18px;z-index:2;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.5);color:#fff;font-size:24px;line-height:1;cursor:pointer}
-@media (max-width:640px){.ff{align-items:flex-end;padding-bottom:70px}.ff::before{background:linear-gradient(0deg,rgba(14,14,16,.92) 0%,rgba(14,14,16,.6) 55%,rgba(14,14,16,.2) 100%)}.ff .pr{width:68px;height:68px}}
-@media (prefers-reduced-motion:reduce){.ff-play .pr{animation:none}}
-
-@media (max-width:1024px){.phases{grid-template-columns:1fr 1fr}.phases .phase:last-child{grid-column:1/-1}}
-@media (max-width:860px){.story{grid-template-columns:1fr}.story figure{max-width:360px}.lc{max-width:520px}}
-@media (max-width:640px){
-  .phases{grid-template-columns:1fr}
-  .phase{padding:22px 18px 8px}
-  .freeh{grid-template-columns:1fr}
-  .freeh a:nth-child(even){padding-left:0;border-left:0}
-  .lc{padding:24px 20px 20px}.lc .hd b{font-size:22px}
-  .lc li em{display:none}
-  .progress{padding:20px}
-}
-</style>
+<link rel="stylesheet" href="../assets/startups.css?v=2">
+<link rel="stylesheet" href="../assets/scam-help.css?v=6">
 </head>
-<body class="st">
+<body id="top">
 <a class="skip" href="#main">Skip to content</a>
-
-<div class="audbar" role="navigation" aria-label="Choose your organisation type">
-  <div class="wrap">
-    <span class="lbl">Code Black Group for</span>
-    <nav><a href="../startups/" aria-current="page" aria-label="Startups" data-s="Startups"><span>Startups</span></a><a href="../business/" aria-label="Small Business" data-s="Small Biz"><span>Small Business</span></a><a href="../corporate/" aria-label="Corporates" data-s="Corporate"><span>Corporates</span></a><a href="../not-for-profit/" aria-label="Government &amp; NFP" data-s="Gov &amp; NFP"><span>Government &amp; NFP</span></a></nav>
-    <a class="alt" href="../">All client types ↗</a>
-  </div>
-</div>
-
 <header class="head">
-  <div class="wrap">
-    <a class="logo" href="#top" aria-label="Code Black Group home"></a>
+  <div class="w">
+    <a class="logo" href="../" aria-label="Code Black Group home"></a>
     <nav class="nav" aria-label="Main">
-      <a href="#first">Start here</a>
-      <a href="#mistakes">Common mistakes</a>
-      <a href="#discovery">Launch check</a>
-      <a href="#help">How we help</a>
-      <a href="#free">Free help</a>
+      <a href="#how">How we help</a>
+      <a href="#checklist">Launch checklist</a>
+      <a href="#story">Our story</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="head-cta">
-      <a class="tel" href="tel:1300737562">1300 737 562</a>
-      <a class="btn" href="#contact">Get set up</a>
+      <a class="sos" href="#scam-help" data-scam-help aria-label="SOS: been scammed? Get help now"><i aria-hidden="true"></i>SOS</a>
+      <a class="btn b2" href="tel:1300737562">1300 737 562</a>
+      <a class="btn b1" href="#contact">Get set up</a>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span></button>
     </div>
-    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span></button>
   </div>
   <nav class="mnav" id="mnav" aria-label="Mobile">
-    <a href="#first">Start here</a>
-    <a href="#mistakes">Common mistakes</a>
-    <a href="#help">How we help</a>
-    <a href="#free">Free help</a>
-    <a href="#discovery">Launch check</a>
+    <a href="#how">How we help</a>
+    <a href="#checklist">Launch checklist</a>
+    <a href="#story">Our story</a>
     <a href="tel:1300737562">Call 1300 737 562</a>
-    <a class="btn" href="#contact">Get set up</a>
+    <a class="btn b1" href="#contact">Get set up</a>
   </nav>
 </header>
 
 <main id="main">
-  <span id="top"></span>
-  <section class="lf" id="watch" aria-label="Film: get the foundations right from day one">
-    <video id="lfv" muted playsinline preload="auto" poster="../media/launch-film-land.jpg" data-land="../media/launch-film-land.mp4" data-port="../media/launch-film-port.mp4" data-poster-port="../media/launch-film-port.jpg"></video>
-    <span class="hint">▶ Playing · sound off</span>
+  <section class="film" id="watch" aria-label="Film: day one, told in 75 seconds">
+    <video id="lfv" playsinline preload="metadata" poster="../media/startup-story-land.jpg?v=2" data-land="../media/startup-story-land.mp4" data-port="../media/startup-story-port.mp4" data-poster-port="../media/startup-story-port.jpg?v=2"></video>
+    <button class="ov" type="button" id="lf-play" aria-label="Play the film with sound">
+      <span class="play" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"/></svg></span>
+      <b>Day one, told in 75 seconds.</b>
+      <small>Plays with sound · tap to start</small>
+    </button>
     <div class="ctl">
-      <button class="pill" type="button" id="lf-sound"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span id="lf-sound-t">Play with sound</span></button>
-      <button class="pill sm fs" type="button" id="lf-fs">Full screen</button>
+      <button type="button" id="lf-pause">Pause</button>
+      <button type="button" id="lf-mute">Mute</button>
+      <button type="button" class="fs" id="lf-fs">Full screen</button>
       <span class="sp"></span>
-      <a class="pill sm" href="#hero-h" id="lf-skip">Skip ↓</a>
+      <a href="#start" id="lf-skip">Skip ↓</a>
     </div>
     <span class="bar" aria-hidden="true"><i id="lf-bar"></i></span>
   </section>
 
-  <section class="hero ahero" aria-labelledby="hero-h">
-    <svg class="orbit" viewBox="0 0 600 600" aria-hidden="true"><circle cx="300" cy="300" r="290" stroke-opacity=".25" stroke-dasharray="2 7"/><circle cx="300" cy="300" r="220" stroke-opacity=".35"/><circle cx="300" cy="300" r="150" stroke-opacity=".2" stroke-dasharray="1 5"/><path d="M300 10v580M10 300h580M95 95l410 410M505 95L95 505" stroke-opacity=".12"/><circle cx="300" cy="80" r="5" fill="#E0A096" stroke="none"/><circle cx="455" cy="455" r="3" fill="#E0A096" stroke="none"/></svg>
-    <div class="wrap">
-      <div>
-        <span class="eyebrow">For startups and sole traders</span>
-        <h1 id="hero-h">Get the foundations right <em>from day one.</em></h1>
-        <p class="lead">Most new businesses set up their technology in a rush, then pay to fix it later. We help you get the essentials right the first time: your domain and business email, secure sign-ins, devices, backups and a website that works. All of it sized for a business of one, and ready for the team you'll grow into.</p>
-        <div class="hero-actions">
-          <a class="btn" href="#first">See what to do first
-            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
-          <a class="textlink" href="#discovery">Take the 60-second launch check</a>
-          <a class="textlink" href="#watch" id="replay">▶ Watch the 90-second guide</a>
-        </div>
-        <div class="proof">
-          <span>Founded by a sole trader in 2005</span>
-          <span>Help when you need it, 24/7</span>
-          <span>Payment plans available</span>
-        </div>
-      </div>
-      <div class="hvis rv">
-        <figure class="arch"><img src="../assets/img/startup-desk.jpg" alt="A sole trader's first desk by a sunny window, with a laptop, notebook and a seedling" width="928" height="1152"></figure>
-        <span class="tagdot"><i></i>Day one</span>
-        <div class="lc" aria-label="Your launch list progress">
-          <div class="hd">
-            <div><small>Your launch list</small><b>12 things to sort<br>before you grow</b></div>
-            <div class="ring" aria-hidden="true"><svg viewBox="0 0 76 76"><circle class="bg" cx="38" cy="38" r="32"/><circle class="fg" cx="38" cy="38" r="32"/></svg><span id="ring-n">0</span></div>
-          </div>
-          <ol id="lc-list">
-            <li data-k="domain"><i></i>Secure your .com.au domain<em>Week 1</em></li>
-            <li data-k="email"><i></i>Business email on your domain<em>Week 1</em></li>
-            <li data-k="mfa"><i></i>Multi-factor sign-in everywhere<em>Week 1</em></li>
-            
-            
-          </ol>
-          <div class="ft"><span><span id="lc-done">0</span> of 12 done</span><a href="#first">Open the full list</a></div>
-        </div>
-      </div>
+  <section class="w hero" id="start" aria-labelledby="hero-h">
+    <div class="rv">
+      <p class="k">For startups and sole traders</p>
+      <h1 class="h" id="hero-h">Start right.<br><em>Grow</em> without<br>starting again.</h1>
+    </div>
+    <div class="rv">
+      <p>Your domain, email, website, internet, security and A.I., set up properly the first time, by one team.</p>
+      <div class="acts"><a class="btn b1" href="#contact">Get set up →</a><a class="btn b2" href="#checklist">Free checklist</a></div>
+      <svg class="squig" width="220" height="40" viewBox="0 0 220 40" aria-hidden="true"><path d="M2 30 C 40 2, 70 38, 110 18 S 180 4, 218 22" fill="none" stroke="#A85A50" stroke-width="1.6" stroke-linecap="round"/></svg>
     </div>
   </section>
 
-  <section class="figures" aria-label="Why it matters">
-    <div class="wrap">
-      <div class="fig"><b>$55,400</b><span>Average self-reported cost of a cybercrime report for an Australian small business in 2025–26</span></div>
-      <div class="fig"><b>6 min</b><span>Roughly how often a cybercrime is reported to the Australian Signals Directorate</span></div>
-      <div class="fig"><b>1 in 3</b><span>Business cybercrime reports that involve email compromise, including fake invoices</span></div>
-      <div class="fig"><b>3</b><span>First steps the ACSC asks every small business to take: multi-factor sign-in, updates and backups</span></div>
-    </div>
-  </section>
-  <div class="wrap"><p class="src">Sources: Australian Signals Directorate, <a href="https://www.cyber.gov.au/publication/annual-cyber-threat-report-2025-26/year-in-review" target="_blank" rel="noopener">Annual Cyber Threat Report 2025–26</a> and 2024–25; Australian Cyber Security Centre, <a href="https://www.cyber.gov.au/publication/small-business-cyber-security-handbook" target="_blank" rel="noopener">Small business cyber security handbook</a>.</p></div>
-  <div class="ribbon" aria-hidden="true"><div class="track"><span>Your domain<i>✦</i>Business email<i>✦</i>Multi-factor sign-in<i>✦</i>Password manager<i>✦</i>Updates<i>✦</i>Backups<i>✦</i>A website you own<i>✦</i>Room to grow<i>✦</i></span><span>Your domain<i>✦</i>Business email<i>✦</i>Multi-factor sign-in<i>✦</i>Password manager<i>✦</i>Updates<i>✦</i>Backups<i>✦</i>A website you own<i>✦</i>Room to grow<i>✦</i></span></div></div>
-
-
-  <section class="sec bg-white" id="discovery" aria-labelledby="disc-h">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div><span class="eyebrow">Launch check</span><h2 id="disc-h">How launch-ready are you?</h2></div>
-        <p>Four quick questions, about a minute. See your launch readiness, what to do first and what can wait, built from what you already have in place.</p>
+  <section class="path" id="how" aria-labelledby="how-h">
+    <div class="w">
+      <div class="intro rv">
+        <div><p class="k">Your first year, step by step</p><h2 class="h h2" id="how-h">Six things to get right.<br><em>One team</em> to do them.</h2></div>
+        <p>Do them in order, or only the ones you need. Each step is handled by the specialist division for it, and payment plans are available.</p>
       </div>
-      <div id="dlab"></div>
-      <noscript><p>Call 1300 737 562 or email vip@codeblackgroup.com.au and we’ll walk you through it.</p></noscript>
-    </div>
-  </section>
-
-  <section class="sec" id="first" aria-labelledby="first-h">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div><span class="eyebrow">Start here</span><h2 id="first-h">What to look at first.</h2></div>
-        <p>Twelve steps, in the order we'd do them. The first four take an afternoon and protect you from the most common problems. Tick them off as you go; your progress is saved on this device.</p>
-      </div>
-      <div class="phases">
-        <div class="phase rv">
-          <svg class="grow" viewBox="0 0 140 70" aria-hidden="true"><path class="g" pathLength="1" d="M8 58h124"/><ellipse pathLength="1" cx="70" cy="50" rx="7" ry="5"/><path pathLength="1" d="M70 45q2-6 0-10M50 40l3 3M90 40l-3 3M70 26v4"/></svg><div class="ph-h"><b>Before you launch</b><small>Week 1</small></div>
-          <label class="item"><input type="checkbox" data-k="domain"><span class="box"></span><div><h3>Secure your name online</h3><p>Register your .com.au domain as soon as you've chosen a name, even if the website isn't ready. Keep it in an account you own, not your web designer's.</p><span class="we">We can do this for you</span></div></label>
-          <label class="item"><input type="checkbox" data-k="email"><span class="box"></span><div><h3>Get email on your own domain</h3><p>you@yourbusiness.com.au builds trust that a free address can't. Set it up properly so your emails land in inboxes and can't easily be faked by scammers.</p><span class="we">We can do this for you</span></div></label>
-          <label class="item"><input type="checkbox" data-k="mfa"><span class="box"></span><div><h3>Turn on multi-factor sign-in</h3><p>Do it for email, banking, accounting and social media. A stolen password alone then isn't enough to get in. It's the first thing the ACSC recommends.</p><span class="we">We'll set it up with you</span></div></label>
-          <label class="item"><input type="checkbox" data-k="pw"><span class="box"></span><div><h3>Use a password manager</h3><p>One strong, unique passphrase for every account, stored safely. Never reuse your personal passwords for the business, and never share logins.</p><span class="we">We'll set it up with you</span></div></label>
-        </div>
-        <div class="phase rv">
-          <svg class="grow" viewBox="0 0 140 70" aria-hidden="true"><path class="g" pathLength="1" d="M8 58h124"/><path pathLength="1" d="M70 58V30"/><path class="lf" pathLength="1" d="M70 44c-10 0-18-6-20-15 10-1 18 5 20 15z"/><path class="lf" pathLength="1" d="M70 36c4-11 12-16 23-16 0 11-9 17-23 16z"/></svg><div class="ph-h"><b>Your first month</b><small>Month 1</small></div>
-          <label class="item"><input type="checkbox" data-k="updates"><span class="box"></span><div><h3>Keep devices and apps updated</h3><p>Switch on automatic updates for laptops, phones and apps. Replace any device that no longer receives security updates; it can't be made safe.</p><span class="we">We can manage this</span></div></label>
-          <label class="item"><input type="checkbox" data-k="backup"><span class="box"></span><div><h3>Back up what you can't lose</h3><p>Automatic backups of your files, email and accounts, kept separately. Then test a restore, so you know it works before the day you need it.</p><span class="we">We can manage this</span></div></label>
-          <label class="item"><input type="checkbox" data-k="separate"><span class="box"></span><div><h3>Keep business and personal apart</h3><p>Separate accounts, and ideally separate devices, from personal and family use. It protects your business data and keeps your records clean.</p><span class="we">We'll advise you</span></div></label>
-          <label class="item"><input type="checkbox" data-k="pay"><span class="box"></span><div><h3>Set a rule for changed bank details</h3><p>If a supplier or customer says their bank details have changed, call them on a number you already have before paying. Fake invoices are one of the most common scams hitting new businesses.</p><span class="we">We'll show you how</span></div></label>
-        </div>
-        <div class="phase rv">
-          <svg class="grow" viewBox="0 0 140 70" aria-hidden="true"><path class="g" pathLength="1" d="M8 58h124"/><path pathLength="1" d="M70 58V34M70 46l-9-7M70 40l9-6"/><path class="lf" pathLength="1" d="M70 6c13 0 22 8 22 17 0 10-9 16-22 16s-22-6-22-16c0-9 9-17 22-17z"/><path class="g" pathLength="1" d="M40 58v-8M100 58v-12M104 50l-4-4-4 4"/></svg><div class="ph-h"><b>As you grow</b><small>Month 2+</small></div>
-          <label class="item"><input type="checkbox" data-k="web"><span class="box"></span><div><h3>A website that's yours and secure</h3><p>Fast, secure and kept up to date, with the domain, hosting and logins in your name. Built so you can add pages, bookings or a shop later without starting again.</p><span class="we">Built by Rend'r</span></div></label>
-          <label class="item"><input type="checkbox" data-k="cloud"><span class="box"></span><div><h3>Choose tools that scale</h3><p>Pick business-grade email, file storage and accounting tools, set up so you can add people without rebuilding everything.</p><span class="we">We'll recommend and set up</span></div></label>
-          <label class="item"><input type="checkbox" data-k="people"><span class="box"></span><div><h3>Add people safely</h3><p>Everyone gets their own account and only the access they need. When someone leaves, their access is removed the same day.</p><span class="we">We can manage this</span></div></label>
-          <label class="item"><input type="checkbox" data-k="plan"><span class="box"></span><div><h3>Know what to do on a bad day</h3><p>Know who to call if something goes wrong, how to report it to the ACSC through cyber.gov.au, and whether cyber insurance makes sense for you.</p><span class="we">We're a phone call away</span></div></label>
-        </div>
-      </div>
-      <div class="progress rv" aria-live="polite">
-        <p><span id="pg-n">0</span> of 12 done</p>
-        <div class="bar"><i id="pg-bar"></i></div>
-        <div class="acts"><button type="button" id="pg-reset">Reset</button><a class="btn" href="#contact">Get help with the rest</a></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec bg-white" id="mistakes" aria-labelledby="mis-h">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div><span class="eyebrow">What we fix most</span><h2 id="mis-h">Five mistakes that cost new businesses later.</h2></div>
-        <p>None of these are hard to avoid on day one. All of them are slow, stressful and expensive to untangle once the business is running.</p>
-      </div>
-      <div class="real">
-        <div class="rv"><b>Your domain in someone else's name</b><span>A former web designer, friend or relative holds the account, and getting it back takes weeks.</span></div>
-        <div class="rv"><b>Running the business from a personal inbox</b><span>Customers trust it less, and moving years of email later is painful.</span></div>
-        <div class="rv"><b>One password everywhere</b><span>When one site is breached, every account that shares that password is exposed.</span></div>
-        <div class="rv"><b>No backup until the laptop dies</b><span>Invoices, quotes and customer records gone, at the worst possible time.</span></div>
-        <div class="rv"><b>Paying a fake invoice</b><span>A convincing email with "new bank details", and the money is gone.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec bg-night" id="help" aria-labelledby="help-h">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div><span class="eyebrow">How we help</span><h2 id="help-h">Start small. Add more as you grow.</h2></div>
-        <p>Pick what you need now. Everything is set up so it scales with you, and security is checked by Strikeforce Cyber, our cyber security division, before it's handed over.</p>
-      </div>
-      <div class="models">
-        <article class="model rv"><span class="tag">Day one</span><h3>Business set-up</h3><p>Your technology foundations done properly, in one go, so you can get on with the business.</p><ul><li>Domain and business email on your name</li><li>Multi-factor sign-in and a password manager</li><li>Laptop and phone set up securely</li><li>Automatic backups, tested</li></ul><p class="best"><b>Best for:</b> sole traders and new businesses getting started.</p></article>
-        <article class="model rv"><span class="tag">Get found</span><h3>Website and online presence</h3><p>A fast, secure website that you own, built to grow with bookings, payments or a shop when you're ready.</p><ul><li>Designed and built by Rend'r</li><li>Domain, hosting and logins in your name</li><li>Kept updated and secure</li></ul><p class="best"><b>Best for:</b> businesses ready to be found online.</p></article>
-        <article class="model rv"><span class="tag">As you grow</span><h3>Support when you need it</h3><p>A team that picks up the phone, so technology never becomes your second job.</p><ul><li>Help 24/7 from Midnight IT</li><li>Devices, updates and backups looked after</li><li>New starters set up, leavers removed safely</li></ul><p class="best"><b>Best for:</b> growing teams that want one number to call.</p></article>
-      </div>
-      <p class="rv" style="margin-top:28px;color:var(--night-muted);font-size:15px">Need internet, phones or CCTV for a shopfront or first office? Wize Solutions, our connectivity division, and 3 Eyes Australia, our technology and R&amp;D arm, can add those too. Payment plans are available across the group through grenke.</p>
-    </div>
-  </section>
-
-  <section class="sec" id="free" aria-labelledby="free-h">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div><span class="eyebrow">Free help worth knowing</span><h2 id="free-h">Good free resources for new businesses.</h2></div>
-        <p>You don't need to pay for everything. These official and not-for-profit services are worth bookmarking from day one.</p>
-      </div>
-      <div class="freeh rv">
-        <a href="https://business.gov.au/planning/business-plans/starting-a-business-checklist" target="_blank" rel="noopener"><small>business.gov.au</small><b>Starting a business checklist</b><span>The Australian Government's step-by-step list: ABN, registrations, tax and more.</span><em aria-hidden="true">↗</em></a>
-        <a href="https://www.cyber.gov.au/publication/small-business-cyber-security-handbook" target="_blank" rel="noopener"><small>Australian Cyber Security Centre</small><b>Small business cyber security handbook</b><span>Plain-English guidance on protecting your accounts, devices and data.</span><em aria-hidden="true">↗</em></a>
-        <a href="https://www.scamwatch.gov.au/stop-check-protect/protect-your-small-business-from-scams" target="_blank" rel="noopener"><small>Scamwatch</small><b>Protect your business from scams</b><span>How fake invoice and payment redirection scams work, and scam alert emails.</span><em aria-hidden="true">↗</em></a>
-        <a href="https://www.idcare.org" target="_blank" rel="noopener"><small>IDCARE</small><b>Small business cyber resilience service</b><span>Free support for eligible small businesses with fewer than 20 staff.</span><em aria-hidden="true">↗</em></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec bg-white" aria-labelledby="story-h">
-    <div class="wrap story">
-      <figure class="rv"><img src="../img/team/rubesch-thananjeyan-lg.jpg" alt="Rubesch Thananjeyan, founder of Code Black Group" loading="lazy"></figure>
-      <div class="rv">
-        <span class="eyebrow">We started where you are</span>
-        <h2 id="story-h" style="margin:18px 0 22px">Our founder was a sole trader too.</h2>
-        <p class="lead">Rubesch Thananjeyan started Midnight IT in 2005 on his own, self-taught, looking after more than 30 clients himself. As those clients asked for help with websites, security and more, he built the specialist teams that became Code Black Group. We know what it's like to be the whole business.</p>
-        <blockquote>“Our clients are not just clients. They are part of our extended family, and we take care of them.”<cite>Rubesch Thananjeyan · Founder and Group CEO</cite></blockquote>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="approach" aria-labelledby="app-h">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div><span class="eyebrow">How it works</span><h2 id="app-h">Simple, quick and in plain English.</h2></div>
-        <p>No jargon and no long contracts to get started. Tell us where you're at and we'll take it from there.</p>
-      </div>
-      <ol class="steps s4">
-        <li class="rv"><span class="n">01</span><h3>A quick chat</h3><p>Tell us about your business and what you've already set up.</p></li>
-        <li class="rv"><span class="n">02</span><h3>Your list, prioritised</h3><p>We tell you what matters now and what can wait.</p></li>
-        <li class="rv"><span class="n">03</span><h3>We set it up with you</h3><p>Done properly, explained simply, in your name.</p></li>
-        <li class="rv"><span class="n">04</span><h3>Help as you grow</h3><p>One number to call when you need us.</p></li>
+      <div class="stepw">
+      <svg class="line" viewBox="0 0 1100 560" preserveAspectRatio="none" aria-hidden="true"><path d="M40 130 C 260 40, 420 220, 560 120 S 900 40, 1070 150 M 1070 150 C 1100 300, 900 330, 760 360 S 300 300, 60 420" fill="none" stroke="rgba(224,160,150,.35)" stroke-width="1.4" stroke-dasharray="3 7"/></svg>
+      <ol class="steps">
+        <li class="st rv"><img class="lg" src="../logos/rendr-white.png" alt="Rend'r" style="height:24px" loading="lazy"><span class="n">01</span><h3>Your name, online</h3><p>A domain you own and a website that wins enquiries.</p><a class="go" href="https://rendr.com.au" target="_blank" rel="noopener">Visit Rend'r ↗</a></li>
+        <li class="st rv"><img class="lg" src="../logos/color/midnight-it.png" alt="Midnight IT" style="height:18px" loading="lazy"><span class="n">02</span><h3>Email + devices</h3><p>Business email with your name on it, laptops set up, backups running, and help 24/7.</p><a class="go" href="https://midnightit.com.au" target="_blank" rel="noopener">Visit Midnight IT ↗</a></li>
+        <li class="st rv"><img class="lg" src="../logos/color/wize.png" alt="Wize Solutions" style="height:30px;top:26px" loading="lazy"><span class="n">03</span><h3>Always reachable</h3><p>Reliable internet and A.I. phone answering while you're on the tools.</p><a class="go" href="https://wizesolutions.com.au" target="_blank" rel="noopener">Visit Wize Solutions ↗</a></li>
+        <li class="st rv"><img class="lg" src="../logos/strikeforce-cyber-white.svg" alt="Strikeforce Cyber" style="height:24px" loading="lazy"><span class="n">04</span><h3>Safe from scams</h3><p>Two-step sign-in, scam protection and backups, before anyone comes knocking.</p><a class="go" href="https://strikeforcecyber.com" target="_blank" rel="noopener">Visit Strikeforce Cyber ↗</a></li>
+        <li class="st rv"><img class="lg" src="../logos/aidome-logo-h.png" alt="AI Dome" style="height:30px;top:26px" loading="lazy"><span class="n">05</span><h3>Smarter with A.I.</h3><p>Use A.I. safely for quotes, posts and follow-ups, and get your evenings back.</p><a class="go" href="https://aidome.com.au" target="_blank" rel="noopener">Visit AI Dome ↗</a></li>
+        <li class="st rv"><img class="lg" src="../logos/color/3eyes.png" alt="3 Eyes Australia" style="height:36px;top:22px" loading="lazy"><span class="n">06</span><h3>Tested tech</h3><p>Our technology and R&amp;D arm trials new tech in our own businesses first, from energy to shopfront security.</p><a class="go" href="https://3eyes.com.au" target="_blank" rel="noopener">Visit 3 Eyes Australia ↗</a></li>
       </ol>
+      </div>
     </div>
   </section>
 
-  <section class="sec bg-night contact" id="contact" aria-labelledby="contact-h">
-    <div class="wrap">
+  <section class="w check" id="checklist" aria-labelledby="check-h">
+    <div class="rv">
+      <p class="k">Free launch checklist</p>
+      <h2 class="h h2" id="check-h">How <em>launch-ready</em> are you?</h2>
+      <p class="lead">Tick what you've already done. It saves in this browser, and we'll help with the rest at your pace.</p>
+      <div class="meter"><span><b id="pg-n">0</b> of 8</span><span class="tr"><b id="pg-bar"></b></span><button type="button" id="pg-reset">Reset</button></div>
+    </div>
+    <div class="list rv">
+        <label><input type="checkbox" data-k="domain"><span class="bx" aria-hidden="true"></span><span><b>Domain name</b><small>Register it now, in an account you own.</small></span></label>
+        <label><input type="checkbox" data-k="email"><span class="bx" aria-hidden="true"></span><span><b>Business email</b><small>you@yourbusiness.com.au, set up so it can&#39;t be faked.</small></span></label>
+        <label><input type="checkbox" data-k="web"><span class="bx" aria-hidden="true"></span><span><b>Website</b><small>Fast, secure and yours, not your designer&#39;s.</small></span></label>
+        <label><input type="checkbox" data-k="mfa"><span class="bx" aria-hidden="true"></span><span><b>Two-step sign-in</b><small>On for email, banking, accounting and socials.</small></span></label>
+        <label><input type="checkbox" data-k="pw"><span class="bx" aria-hidden="true"></span><span><b>Password manager</b><small>One strong, unique password per account.</small></span></label>
+        <label><input type="checkbox" data-k="backup"><span class="bx" aria-hidden="true"></span><span><b>Backups</b><small>Automatic, and tested, for what you can&#39;t lose.</small></span></label>
+        <label><input type="checkbox" data-k="pay"><span class="bx" aria-hidden="true"></span><span><b>A rule for changed bank details</b><small>Always confirm by phone before paying.</small></span></label>
+        <label><input type="checkbox" data-k="ai"><span class="bx" aria-hidden="true"></span><span><b>A.I. used safely</b><small>Know what client data never goes into A.I. tools.</small></span></label>
+    </div>
+  </section>
+
+  <section class="w" aria-label="How it works">
+    <ol class="how rv">
+      <li><b>one</b><h3>A free chat</h3><p>Tell us where you're at. Plain English, no jargon, no obligation.</p></li>
+      <li><b>two</b><h3>We set it up</h3><p>The essentials, done properly, sized for a business of one.</p></li>
+      <li><b>three</b><h3>Grow with us</h3><p>Add more as you grow, with payment plans through grenke.</p></li>
+    </ol>
+  </section>
+
+  <section class="w founder" id="story" aria-labelledby="story-h">
+    <div class="rv"><img src="../img/team/rubesch-thananjeyan-lg.jpg" alt="Rubesch Thananjeyan, founder of Code Black Group" loading="lazy"></div>
+    <div class="rv">
+      <p class="k" id="story-h">Our founder was a sole trader too</p>
+      <p class="q">Rubesch started Midnight IT in 2005 on his own, looking after more than 30 clients himself. <em>He knows what day one feels like.</em></p>
+      <p class="by">Rubesch Thananjeyan, founder, Code Black Group</p>
+    </div>
+  </section>
+
+  <section class="ct" id="contact" aria-labelledby="contact-h">
+    <div class="w g">
       <div class="rv">
-        <span class="eyebrow">Get set up</span>
-        <h2 id="contact-h">Tell us where you're at.</h2>
-        <p class="lead">Just starting, or already trading and wanting to tidy things up? Send us a few details and we'll come back with practical next steps. No obligation.</p>
-        <div class="details">
-          <a href="tel:1300737562"><span>Phone</span>1300 737 562</a>
-          <a href="mailto:vip@codeblackgroup.com.au"><span>Email</span>vip@codeblackgroup.com.au</a>
-          <div><span>Payment</span>Plans available through grenke</div>
-        </div>
+        <p class="k">Get set up</p>
+        <h2 class="h h2" id="contact-h">Tell us where<br>you're <em>at.</em></h2>
+        <p class="lead">Just starting, or already trading and wanting to tidy things up? Send a few details and we'll come back with practical next steps.</p>
+        <div class="det"><a href="tel:1300737562">1300 737 562</a><span><a href="mailto:vip@codeblackgroup.com.au">vip@codeblackgroup.com.au</a></span></div>
       </div>
       <form id="enq" class="rv" data-source="Startups site" novalidate>
         <div class="f"><label for="f-first">First name</label><input id="f-first" name="first" autocomplete="given-name" required></div>
@@ -457,88 +144,86 @@ body.st::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;
         <div class="f"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div class="f"><label for="f-phone">Phone <i>(optional)</i></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
         <div class="f"><label for="f-company">Business name <i>(if you have one)</i></label><input id="f-company" name="company" autocomplete="organization"></div>
-        <div class="f"><label for="f-topic">What do you need first?</label><select id="f-topic" name="topic"><option value="">Choose one</option><option>Domain and business email</option><option>Security set-up</option><option>A website</option><option>Laptop and phone set-up</option><option>Ongoing IT support</option><option>Not sure where to start</option></select></div>
-        <div class="f full"><label for="f-message">Tell us a little about your business</label><textarea id="f-message" name="message" placeholder="For example: what you do, when you're launching, and what you've already set up."></textarea></div>
+        <div class="f"><label for="f-topic">What do you need first?</label><select id="f-topic" name="topic"><option value="">Choose one</option><option>Domain and business email</option><option>A website</option><option>Internet and phone</option><option>Security set-up</option><option>Laptop and phone set-up</option><option>Using A.I. safely</option><option>Ongoing IT support</option><option>Not sure where to start</option></select></div>
+        <div class="f full"><label for="f-message">What are you starting?</label><textarea id="f-message" name="message" placeholder="What you do, when you're launching, and what you've already set up."></textarea></div>
         <div class="hp" aria-hidden="true"><label for="f-hp">Leave this empty</label><input id="f-hp" name="website" tabindex="-1" autocomplete="off"></div>
         <p class="msg" id="form-msg" role="status" aria-live="polite"></p>
-        <div class="form-foot"><small>We use these details only to respond to your enquiry. No obligation.</small><button class="btn light" id="send" type="submit">Send enquiry</button></div>
+        <div class="ff"><small>We use these details only to respond to your enquiry.</small><button class="btn b1" id="send" type="submit">Send enquiry →</button></div>
       </form>
     </div>
   </section>
 </main>
 
-<footer class="foot">
-  <div class="wrap">
-    <div class="top">
-      <div>
-        <span class="logo" role="img" aria-label="Code Black Group"></span>
-        <p class="tagline">One Code. One Strategy. One Outcome.</p>
-        <p>Integrated technology, security and digital solutions. Six specialist divisions, one accountable group.</p>
-      </div>
-      <div><h4>Divisions</h4><ul><li><a href="https://strikeforcecyber.com" target="_blank" rel="noopener">Strikeforce Cyber</a></li><li><a href="https://midnightit.com.au" target="_blank" rel="noopener">Midnight IT</a></li><li><a href="https://rendr.com.au" target="_blank" rel="noopener">Rend'r</a></li><li><a href="https://3eyes.com.au" target="_blank" rel="noopener">3 Eyes Australia</a></li><li><a href="https://wizesolutions.com.au" target="_blank" rel="noopener">Wize Solutions</a></li><li><a href="https://aidome.com.au" target="_blank" rel="noopener">AI Dome</a></li></ul></div>
-      <div><h4>For</h4><ul><li><a href="../startups/">Startups &amp; Sole Traders</a></li><li><a href="../business/">Small &amp; Medium Business</a></li><li><a href="../corporate/">Corporates</a></li><li><a href="../not-for-profit/">Government &amp; Not-for-Profit</a></li><li><a href="../">All client types</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li><a href="tel:1300737562">1300 737 562</a></li><li><a href="mailto:vip@codeblackgroup.com.au">vip@codeblackgroup.com.au</a></li><li><a href="#contact">Send an enquiry</a></li></ul></div>
-    </div>
-    <div class="aoc-ft"><b>Acknowledgement of Country</b><p>Code Black Group acknowledges the Traditional Custodians of the lands on which we live and work throughout Australia, and their continuing connection to land, waters and community. We pay our respects to Elders past and present, and extend that respect to all Aboriginal and Torres Strait Islander peoples.</p></div>
-    <div class="bottom"><span>© 2026 Code Black Group Global Pty Ltd · ABN 62 315 213 466</span><span class="legal"><a href="../privacy/">Privacy policy</a><a href="#top">Back to top ↑</a></span></div>
+<footer class="w foot">
+  <div class="top">
+    <div><span class="logo" role="img" aria-label="Code Black Group"></span><p style="margin:14px 0 0;max-width:34ch">One Code. One Strategy. One Outcome.</p></div>
+    <div><h4>Divisions</h4><ul><li><a href="https://strikeforcecyber.com" target="_blank" rel="noopener">Strikeforce Cyber</a></li><li><a href="https://midnightit.com.au" target="_blank" rel="noopener">Midnight IT</a></li><li><a href="https://rendr.com.au" target="_blank" rel="noopener">Rend'r</a></li><li><a href="https://3eyes.com.au" target="_blank" rel="noopener">3 Eyes Australia</a></li><li><a href="https://wizesolutions.com.au" target="_blank" rel="noopener">Wize Solutions</a></li><li><a href="https://aidome.com.au" target="_blank" rel="noopener">AI Dome</a></li></ul></div>
+    <div><h4>For</h4><ul><li><a href="../startups/">Startups &amp; Sole Traders</a></li><li><a href="../business/">Small &amp; Medium Business</a></li><li><a href="../corporate/">Corporates</a></li><li><a href="../not-for-profit/">Government &amp; Not-for-Profit</a></li><li><a href="../">All client types</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="tel:1300737562">1300 737 562</a></li><li><a href="mailto:vip@codeblackgroup.com.au">vip@codeblackgroup.com.au</a></li><li><a href="#contact">Send an enquiry</a></li></ul></div>
   </div>
+  <p class="aoc"><b>Acknowledgement of Country.</b> Code Black Group acknowledges the Traditional Custodians of the lands on which we live and work throughout Australia, and their continuing connection to land, waters and community. We pay our respects to Elders past and present, and extend that respect to all Aboriginal and Torres Strait Islander peoples.</p>
+  <div class="bot"><span>© 2026 Code Black Group Global Pty Ltd · ABN 62 315 213 466</span><span><a href="../privacy/">Privacy policy</a> · <a href="#top">Back to top ↑</a></span></div>
 </footer>
 
-<script>
-(function(){
-  var v=document.getElementById('lfv'), sec=document.getElementById('watch'); if(!v) return;
-  function fit(){ var top=sec.getBoundingClientRect().top+window.scrollY; sec.style.height=Math.max(480, window.innerHeight-top)+'px'; }
-  fit(); addEventListener('resize',fit);
-  var port = window.innerHeight > window.innerWidth*1.05;
-  v.src = port ? v.dataset.port : v.dataset.land; if(port) v.poster=v.dataset.posterPort;
-  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var sbtn=document.getElementById('lf-sound'), st=document.getElementById('lf-sound-t'), bar=document.getElementById('lf-bar');
-  function tryPlay(){ var p=v.play(); if(p&&p.catch) p.catch(function(){ sec.classList.add('paused'); st.textContent='Play with sound'; }); }
-  v.loop=true;
-  if(!RM){ tryPlay(); } else { sec.querySelector('.hint').textContent='Press play to watch'; }
-  function setLabel(){ st.textContent = v.muted ? (v.paused?'Play with sound':'Play with sound') : (v.paused?'Resume':'Sound on · mute'); }
-  sbtn.addEventListener('click',function(){
-    if(v.muted || v.paused){ if(v.muted){ v.currentTime=0; } v.muted=false; sec.classList.add('sound'); tryPlay(); }
-    else { v.muted=true; sec.classList.remove('sound'); }
-    setLabel();
-  });
-  document.getElementById('lf-fs').addEventListener('click',function(){
-    if(document.fullscreenElement){ document.exitFullscreen(); return; }
-    if(sec.requestFullscreen) sec.requestFullscreen().catch(function(){}); else if(v.webkitEnterFullscreen) v.webkitEnterFullscreen();
-    if(v.muted){ v.currentTime=0; v.muted=false; sec.classList.add('sound'); tryPlay(); setLabel(); }
-  });
-  v.addEventListener('timeupdate',function(){ if(v.duration) bar.style.width=(v.currentTime/v.duration*100)+'%'; });
-  v.addEventListener('play',setLabel); v.addEventListener('pause',setLabel);
-  /* pause when scrolled away, resume when back */
-  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting){ if(!v.paused){ v.dataset.was='1'; v.pause(); } } else if(v.dataset.was==='1'){ v.dataset.was=''; tryPlay(); } }); },{threshold:.25}).observe(sec); }
-  var rp=document.getElementById('replay');
-  if(rp) rp.addEventListener('click',function(e){ e.preventDefault(); sec.scrollIntoView({behavior:'smooth'}); v.currentTime=0; v.muted=false; sec.classList.add('sound'); tryPlay(); setLabel(); });
-})();
-</script>
-<script src="../assets/editorial.js"></script>
-<script src="../assets/disc/startups.js"></script>
-<script src="../assets/discovery.js"></script>
-<script>
-(function(){
-  var KEY='cbg-launch-list', boxes=[].slice.call(document.querySelectorAll('.item input')), total=boxes.length, saved={};
-  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){saved={}}
-  boxes.forEach(function(b){b.checked=!!saved[b.dataset.k]});
-  var fg=document.querySelector('.ring .fg'), C=2*Math.PI*32;
-  function render(){
-    var n=0,state={};
-    boxes.forEach(function(b){if(b.checked){n++;state[b.dataset.k]=1}});
-    document.getElementById('pg-n').textContent=n;
-    document.getElementById('lc-done').textContent=n;
-    document.getElementById('ring-n').textContent=n;
-    document.getElementById('pg-bar').style.width=(n/total*100)+'%';
-    if(fg){fg.style.strokeDasharray=C;fg.style.strokeDashoffset=C*(1-n/total)}
-    document.querySelectorAll('#lc-list li').forEach(function(li){li.classList.toggle('done',!!state[li.dataset.k])});
-    try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}
-  }
-  boxes.forEach(function(b){b.addEventListener('change',render)});
-  document.getElementById('pg-reset').addEventListener('click',function(){boxes.forEach(function(b){b.checked=false});render()});
-  render();
-})();
-</script>
+<dialog class="sh" id="sh" aria-labelledby="sh-t">
+  <span class="sh-fr" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <div class="sh-hd">
+    <span class="sh-badge"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <div class="sh-ttl"><span class="sh-k hudt"><b></b>SOS // Golden Shield</span><h2 id="sh-t">Been scammed? We&rsquo;ve got you.</h2></div>
+    <button class="sh-x" id="sh-x" type="button" aria-label="Close scam help"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  </div>
+  <div class="sh-body">
+    <section class="sh-blk">
+      <p class="sh-lab hudt"><span>01</span>Act now</p>
+      <div class="sh-quick">
+        <div class="sh-q urgent"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 10h19" stroke="currentColor" stroke-width="1.6"/></svg></span><div><b>Call your bank or card provider</b><span>Use the number on the back of your card. Ask them to stop payments and freeze cards.</span></div></div>
+        <a class="sh-q" href="tel:1300737562"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span><div><b>Code Black Group</b><span>Lock down devices, email and accounts</span></div><span class="tel">1300 737 562</span></a>
+        <a class="sh-q" href="tel:1800595160"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="11" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5.8 16.5c.6-1.7 1.8-2.5 3.2-2.5s2.6.8 3.2 2.5M14 9.5h4M14 13h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><div><b>IDCARE</b><span>Free help if ID documents were shared</span></div><span class="tel">1800 595 160</span></a>
+        <a class="sh-q" href="https://www.cyber.gov.au/" target="_blank" rel="noopener noreferrer"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><div><b>Report it</b><span>ReportCyber at cyber.gov.au, and Scamwatch</span></div><span class="tel">Open <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" style="display:inline"><path d="M3 1h6v6M9 1L1 9" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></a>
+      </div>
+    </section>
+    <section class="sh-blk">
+      <p class="sh-lab hudt"><span>02</span>Ask Golden Shield AI</p>
+      <p class="sh-intro">Tell us what happened and get clear next steps for your situation.</p>
+      <div class="sh-chips" id="sh-chips">
+        <button type="button">I gave my bank or card details</button>
+        <button type="button">I sent money to someone</button>
+        <button type="button">Someone accessed my computer</button>
+        <button type="button">I clicked a link in a message</button>
+        <button type="button">My email or social account was taken</button>
+      </div>
+      <div class="sh-log" id="sh-log" aria-live="polite"></div>
+      <form class="sh-form" id="sh-form">
+        <label for="sh-in" class="sh-sr">Describe what happened</label>
+        <textarea id="sh-in" rows="2" maxlength="800" placeholder="Describe what happened&hellip;"></textarea>
+        <button class="sh-send" id="sh-send" type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </form>
+      <p class="sh-fine">AI guidance only, not legal or financial advice. Never share card numbers, passwords or codes here. In danger? Call 000.</p>
+    </section>
+    <section class="sh-blk">
+      <p class="sh-lab hudt"><span>03</span>Talk to a person</p>
+      <details class="sh-cb">
+        <summary><span>Request an urgent call back</span><i aria-hidden="true"></i></summary>
+        <form id="sh-cbf" novalidate>
+          <p>Our team is alerted straight away and will call you as soon as possible.</p>
+          <input class="hp" id="sh-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="sh-row">
+            <div><label for="sh-name">Your name</label><input id="sh-name" maxlength="80" autocomplete="name"></div>
+            <div><label for="sh-phone">Phone number</label><input id="sh-phone" type="tel" maxlength="20" autocomplete="tel"></div>
+          </div>
+          <label for="sh-when">Best time to call <em>(optional)</em></label><input id="sh-when" maxlength="60" placeholder="e.g. Now, or after 3pm">
+          <label for="sh-what">What happened? <em>(optional, no card numbers)</em></label><textarea id="sh-what" maxlength="600"></textarea>
+          <button class="sh-btn" type="submit">Call me back</button>
+          <p id="sh-cbmsg" aria-live="polite"></p>
+        </form>
+      </details>
+    </section>
+    <div class="sh-links"><a href="https://www.scamwatch.gov.au/" target="_blank" rel="noopener noreferrer">Scamwatch</a><a href="https://www.cyber.gov.au/" target="_blank" rel="noopener noreferrer">cyber.gov.au</a><a href="https://moneysmart.gov.au/" target="_blank" rel="noopener noreferrer">Moneysmart</a></div>
+  </div>
+</dialog>
+
+<script src="../assets/editorial.js?v=2"></script>
+<script src="../assets/startups.js?v=1"></script>
+<script src="../assets/scam-help.js?v=4" defer></script>
 </body>
 </html>
