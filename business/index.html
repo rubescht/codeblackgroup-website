@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-iDWX9K8QZwXP5KxYfQRbLWJ7Bxq0qfGD/qTuGdXlup8=' 'sha256-P14QSvJe4CnHMQJQ6L7VvJRkuqlFqhQl/doTKHkUGMw=' https://*.hs-scripts.com https://*.hs-analytics.net https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsadspixel.net https://*.usemessages.com https://*.hubspot.com https://*.hsforms.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://codeblackgroup.com.au https://*.hubspot.com https://*.hubspot.net https://*.hsforms.com https://*.hs-analytics.net https://*.hs-banner.com; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com https://*.hubspot.com https://*.hubapi.com https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsforms.com https://*.hs-analytics.net https://*.hubspot.net https://*.usemessages.com; worker-src 'self' blob:; frame-src https://*.hubspot.com https://*.hsforms.net https://*.hsforms.com https://*.usemessages.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-LUwEIx4wpVZU0n/FF6vd0tcggKOgCAoKPhL05O3lNcM=' 'sha256-P14QSvJe4CnHMQJQ6L7VvJRkuqlFqhQl/doTKHkUGMw=' https://*.hs-scripts.com https://*.hs-analytics.net https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsadspixel.net https://*.usemessages.com https://*.hubspot.com https://*.hsforms.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://codeblackgroup.com.au https://*.hubspot.com https://*.hubspot.net https://*.hsforms.com https://*.hs-analytics.net https://*.hs-banner.com; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com https://*.hubspot.com https://*.hubapi.com https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsforms.com https://*.hs-analytics.net https://*.hubspot.net https://*.usemessages.com; worker-src 'self' blob:; frame-src https://*.hubspot.com https://*.hsforms.net https://*.hsforms.com https://*.usemessages.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="../assets/guard.js"></script>
 <!-- security:end -->
@@ -888,6 +888,17 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 .hb2-journey{display:none!important}
 .hb2-more{margin:28px 0 8px;text-align:center}
 div:has(> #r-watch){display:none!important}
+/* ===== flat (no 3D) ===== */
+.metal{text-shadow:none!important}
+.metal::after{display:none!important}
+.metal,.metal:not([data-text]){color:transparent;-webkit-text-fill-color:transparent;background:linear-gradient(180deg,#f1dc9e,#c9a24a 70%,#a8822f);-webkit-background-clip:text;background-clip:text}
+.person .mono.metal{text-shadow:none!important}
+.tilt,.screen,.screen.flat{transform:none!important;transform-style:flat!important}
+.tilt::after,.screen .reflect,.screen .glare{display:none!important}
+.stage,.proof,.uses,.team,.eco .col,.orbit{perspective:none!important}
+.goldwrap,.goldwrap *{filter:none!important}
+.hero h1.aac.fx .fx-angles{text-shadow:none!important}
+.fx-angles::before,.fx-angles::after{display:none!important}
 /* ===== simplified page (Nov 2026) ===== */
 .hero .fx-tag,.hero .fx-bar,.hero .fx-br,.cine-bar,.cine-timer{display:none!important}
 .diff-film,#difference .toggle{display:none!important}
@@ -1573,7 +1584,7 @@ div:has(> #r-watch){display:none!important}
       ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
       // perspective floor grid
       ctx.lineWidth=1;
-      var rows=22, speed=reduce?0:(t*.18)%1;
+      var rows=0 /* flat: no 3D floor */, speed=reduce?0:(t*.18)%1;
       for(var r=0;r<rows;r++){
         var p=(r+speed)/rows;                 // 0 near horizon -> 1 near viewer
         var y=hy + Math.pow(p,2.2)*(H-hy+80);
@@ -1583,14 +1594,14 @@ div:has(> #r-watch){display:none!important}
         ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
       }
       var cols=28;
-      for(var k=-cols;k<=cols;k++){
+      for(var k=-cols;k<=cols&&false;k++){
         var xb=vx + k*(W/cols)*2.2;
         var a2=.20*(1-Math.abs(k)/cols);
         ctx.strokeStyle='rgba(201,162,74,'+a2.toFixed(3)+')';
         ctx.beginPath(); ctx.moveTo(vx + k*2, hy); ctx.lineTo(xb, H+80); ctx.stroke();
       }
       // light streaks along the floor
-      for(var s=0;s<5;s++){
+      for(var s=0;s<0;s++){
         var ph=((t*.22 + s*.2)%1); if(reduce) ph=.4+s*.1;
         var kk=(s*7%11)-5; var xb2=vx + kk*(W/cols)*2.2;
         var pp=Math.pow(ph,2.2), x=vx+(xb2-vx)*pp, y2=hy+pp*(H-hy+80);
@@ -1884,7 +1895,7 @@ div:has(> #r-watch){display:none!important}
 
   /* ================= 3D tilt ================= */
   function bindTilt(node, max){
-    if(!finePointer || reduce) return;
+    return; /* 3D tilt switched off: flat design */
     max=max||6;
     node.addEventListener('pointermove', function(e){
       var r=node.getBoundingClientRect(), x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
@@ -1898,7 +1909,7 @@ div:has(> #r-watch){display:none!important}
 
   // screens follow the cursor a little
   function bindScreen(scr){
-    if(!finePointer || reduce || scr.classList.contains('seam')) return;
+    return; /* 3D screens switched off: flat design */
     var base=getComputedStyle(scr);
     scr.addEventListener('pointermove', function(e){
       var r=scr.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
