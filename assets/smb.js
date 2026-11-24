@@ -17,8 +17,17 @@
   }
   /* "I'm looking for help with" chips pre-fill the form */
   var need=$('f-need');
-  var MAP={'Day-to-day IT':'Day-to-day IT support','A cyber scare':'A cyber scare','A new website':'Website or digital','Cameras + security':'CCTV or access control','Faster internet':'Internet or phones','Using A.I. safely':'Using A.I. safely'};
-  [].forEach.call(document.querySelectorAll('[data-need]'),function(a){ a.addEventListener('click',function(){ var v=MAP[a.textContent.trim()]; if(need&&v) need.value=v; }); });
+  [].forEach.call(document.querySelectorAll('[data-need]'),function(a){ a.addEventListener('click',function(){ var v=a.getAttribute('data-need'); if(need&&v) need.value=v; }); });
+  /* "Ask the group" prompt: carries the visitor's words into the enquiry form */
+  var ask=$('ask'), q=$('ask-q');
+  if(ask&&q){
+    ask.addEventListener('submit',function(e){
+      e.preventDefault(); var t=q.value.trim(), msg=$('f-msg');
+      if(t&&msg&&!msg.value) msg.value=t;
+      var s=$('start'); if(s) s.scrollIntoView({behavior:'smooth'});
+      setTimeout(function(){ var f=$('f-first'); if(f) f.focus({preventScroll:true}); },500);
+    });
+  }
 
   /* enquiry form: same anti-spam check and server as before, emailed to vip@ */
   var form=$('enq'); if(!form) return;
