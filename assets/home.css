@@ -453,3 +453,11 @@ footer.ft2{padding:clamp(32px,3.6vw,48px) 0 22px}
   .f2-sos-t{display:none}
 }
 .f2-sos-t{display:none}
+/* the film glows where the sphere's beam lands (v36) */
+.film{transition:box-shadow .6s ease,border-color .6s ease}
+@media (min-width:861px){.film.playing{border-color:rgba(160,235,255,.55);box-shadow:-24px 0 70px -24px rgba(127,227,255,.5),0 30px 80px -30px rgba(0,0,0,.9)}}
+@media (max-width:860px){.film.playing{border-color:rgba(160,235,255,.55);box-shadow:0 -20px 60px -24px rgba(127,227,255,.5),0 20px 60px -30px rgba(0,0,0,.9)}}
+.film::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .6s;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px)}
+.film.playing::before{opacity:1;animation:projflk 3.2s steps(2) infinite}
+@keyframes projflk{0%,100%{opacity:1}50%{opacity:.75}}
+@media (prefers-reduced-motion:reduce){.film.playing::before{animation:none}}

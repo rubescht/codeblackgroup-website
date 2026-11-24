@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-OstONha+WRYMJfG0PagOFWAjkJUVr+eoz9VQPta5RRw='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-nVoNH61M6Er1vIUmBBeHvSjm2zHM0d/umRmCIdDaQtc='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/guard.js"></script>
 <!-- security:end -->
@@ -291,7 +291,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.door{opacity:1;transform:none;translate:none}}
 </style>
 <link rel="stylesheet" href="assets/scam-help.css?v=6">
-<link rel="stylesheet" href="assets/home.css?v=35">
+<link rel="stylesheet" href="assets/home.css?v=36">
 </head>
 <body>
 <div id="intro" hidden aria-hidden="true">
@@ -713,6 +713,32 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     for(i=sig.length-1;i>=0;i--){ var s=sig[i]; s.p+=.02; if(s.p>=1){ sig.splice(i,1); continue; }
       var x=s.a.x+(s.b.x-s.a.x)*s.p, y=s.a.y+(s.b.y-s.a.y)*s.p;
       ctx.fillStyle='rgba(241,217,154,.95)'; ctx.shadowColor='rgba(241,217,154,.9)'; ctx.shadowBlur=10; ctx.beginPath(); ctx.arc(x,y,1.8,0,Math.PI*2); ctx.fill(); ctx.shadowBlur=0; }
+    /* projector beam: the sphere casts the story onto the film frame */
+    (function(){
+      var fe=document.getElementById('film'); if(!fe) return;
+      var r=fe.getBoundingClientRect(), c=cv.getBoundingClientRect(); if(r.width<40||r.bottom<c.top||r.top>c.bottom) return;
+      var L=r.left-c.left, T=r.top-c.top, Rr=r.right-c.left, B=r.bottom-c.top, side=L>C.x+C.R*.6;
+      var e1x,e1y,e2x,e2y; if(side){ e1x=e2x=L+2; e1y=T+10; e2y=B-10; } else { e1y=e2y=T+2; e1x=L+12; e2x=Rr-12; }
+      var mx=(e1x+e2x)/2, my=(e1y+e2y)/2, dx=mx-C.x, dy=my-C.y, len=Math.hypot(dx,dy)||1, nx=-dy/len, ny=dx/len, w0=C.R*.16;
+      var play=fe.classList.contains('playing'), I=(play?.75:.38)+VL*.6+.04*Math.sin(t*7.3)*(play?1:0);
+      ctx.save(); ctx.globalCompositeOperation='lighter';
+      var lg=ctx.createLinearGradient(C.x,C.y,mx,my);
+      lg.addColorStop(0,'rgba(210,248,255,'+(.22*I)+')'); lg.addColorStop(.35,'rgba(127,227,255,'+(.09*I)+')'); lg.addColorStop(.85,'rgba(127,227,255,'+(.05*I)+')'); lg.addColorStop(1,'rgba(200,245,255,'+(.16*I)+')');
+      ctx.fillStyle=lg; ctx.beginPath(); ctx.moveTo(C.x+nx*w0,C.y+ny*w0); ctx.lineTo(e1x,e1y); ctx.lineTo(e2x,e2y); ctx.lineTo(C.x-nx*w0,C.y-ny*w0); ctx.closePath(); ctx.fill();
+      /* edges of the cone */
+      ctx.strokeStyle='rgba(160,235,255,'+(.22*I)+')'; ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(C.x,C.y); ctx.lineTo(e1x,e1y); ctx.moveTo(C.x,C.y); ctx.lineTo(e2x,e2y); ctx.stroke();
+      /* flickering rays */
+      if(!RM){ for(var k=0;k<5;k++){ var u=(Math.sin(t*(.7+k*.31)+k*2.1)+1)/2, tx=e1x+(e2x-e1x)*u, ty=e1y+(e2y-e1y)*u, al=(.05+.09*Math.abs(Math.sin(t*3.1+k)))*I;
+        ctx.strokeStyle='rgba(220,250,255,'+al+')'; ctx.lineWidth=.8; ctx.beginPath(); ctx.moveTo(C.x,C.y); ctx.lineTo(tx,ty); ctx.stroke(); }
+      /* dust motes drifting through the light, from the sphere to the screen */
+        for(k=0;k<26;k++){ var ph=((t*(.10+(k%5)*.025)+k*.137)%1), sp=((k*.618)%1), px=C.x+(e1x-C.x)*ph+(e2x-e1x)*sp*ph, py=C.y+(e1y-C.y)*ph+(e2y-e1y)*sp*ph;
+          ctx.fillStyle='rgba(225,250,255,'+(Math.sin(ph*Math.PI)*.5*I)+')'; ctx.beginPath(); ctx.arc(px,py,.6+((k*7)%3)*.35,0,Math.PI*2); ctx.fill(); } }
+      /* the lit edge where the beam lands */
+      var hg=ctx.createLinearGradient(e1x,e1y,e2x,e2y); hg.addColorStop(0,'rgba(200,245,255,0)'); hg.addColorStop(.5,'rgba(200,245,255,'+(.5*I)+')'); hg.addColorStop(1,'rgba(200,245,255,0)');
+      ctx.strokeStyle=hg; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(e1x,e1y); ctx.lineTo(e2x,e2y); ctx.stroke();
+      ctx.restore();
+    })();
     var BG=brandsStep(C,t,RM?0:dt,VL);
     ctx.save(); ctx.translate(C.x,C.y); ctx.rotate(BG.tilt); ctx.setLineDash([1,7]); ctx.strokeStyle='rgba(127,227,255,.12)'; ctx.lineWidth=1; ctx.beginPath(); ctx.ellipse(0,0,BG.rx,BG.ry,0,0,Math.PI*2); ctx.stroke(); ctx.restore();
     brandsDraw(BG,'back',t);
