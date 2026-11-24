@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-JbomwF2U3lkYGYpD03/Z7qVsLpiuhVUrcs9IWOL+ivA=' 'sha256-P14QSvJe4CnHMQJQ6L7VvJRkuqlFqhQl/doTKHkUGMw=' https://*.hs-scripts.com https://*.hs-analytics.net https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsadspixel.net https://*.usemessages.com https://*.hubspot.com https://*.hsforms.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://codeblackgroup.com.au https://*.hubspot.com https://*.hubspot.net https://*.hsforms.com https://*.hs-analytics.net https://*.hs-banner.com; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com https://*.hubspot.com https://*.hubapi.com https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsforms.com https://*.hs-analytics.net https://*.hubspot.net https://*.usemessages.com; worker-src 'self' blob:; frame-src https://*.hubspot.com https://*.hsforms.net https://*.hsforms.com https://*.usemessages.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-iDWX9K8QZwXP5KxYfQRbLWJ7Bxq0qfGD/qTuGdXlup8=' 'sha256-P14QSvJe4CnHMQJQ6L7VvJRkuqlFqhQl/doTKHkUGMw=' https://*.hs-scripts.com https://*.hs-analytics.net https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsadspixel.net https://*.usemessages.com https://*.hubspot.com https://*.hsforms.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://codeblackgroup.com.au https://*.hubspot.com https://*.hubspot.net https://*.hsforms.com https://*.hs-analytics.net https://*.hs-banner.com; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com https://*.hubspot.com https://*.hubapi.com https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsforms.com https://*.hs-analytics.net https://*.hubspot.net https://*.usemessages.com; worker-src 'self' blob:; frame-src https://*.hubspot.com https://*.hsforms.net https://*.hsforms.com https://*.usemessages.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="../assets/guard.js"></script>
 <!-- security:end -->
@@ -884,6 +884,19 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
 @media (max-width:640px){.audbar nav a span{display:none}.audbar nav a::after{content:attr(data-s)}}
 @media (max-width:360px){.audbar nav{gap:2px}.audbar nav a{padding:5px 8px;font-size:12px}}
 @media (max-width:360px){.audbar nav a{padding:5px 7px;font-size:11.5px;letter-spacing:-.01em}}
+
+.hb2-journey{display:none!important}
+.hb2-more{margin:28px 0 8px;text-align:center}
+div:has(> #r-watch){display:none!important}
+/* ===== simplified page (Nov 2026) ===== */
+.hero .fx-tag,.hero .fx-bar,.hero .fx-br,.cine-bar,.cine-timer{display:none!important}
+.diff-film,#difference .toggle{display:none!important}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.svc{display:flex;flex-direction:column;gap:10px;padding:26px 24px;border-radius:16px;text-decoration:none;color:var(--soft);transition:border-color .3s,transform .3s}
+.svc:hover,.svc:focus-visible{border-color:var(--gold);transform:translateY(-2px)}
+.svc h3{margin:0;font-family:var(--display);font-size:20px;line-height:1.25;color:var(--ivory)}
+.svc p{margin:0;font-size:15.5px;line-height:1.55;color:var(--muted)}
+.svc-go{margin-top:auto;padding-top:6px;font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--gold-hi)}
 </style>
 
 <style>html,body{margin:0}</style>
@@ -907,17 +920,15 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
       <canvas class="saturn front" id="sat-head-f" aria-hidden="true"></canvas>
     </a>
     <nav class="nav" id="main-nav" aria-label="Main">
-      <a href="#difference">Why us</a>
-      <a href="#ecosystem">Ecosystem</a>
-      <a href="#discover">Discovery</a>
-      <a href="#how">How we work</a>
-      <a href="#ai">A.I.</a>
-      <a href="#watch">Watch</a>
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#clients">Our work</a>
+      <a href="#story">Our story</a>
       <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
+      <a href="#discover">Contact</a>
     </nav>
     <a class="head-phone" href="tel:1300737562"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>1300 737 562</a>
-    <a class="btn" href="#discover">Start discovery</a>
+    <a class="btn" href="#discover">Book a free consult</a>
     <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span><b class="sr">Menu</b></button>
   </div>
 </header>
@@ -951,10 +962,10 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
           <li><b>Since 2005</b><span>24/7 support from a team that treats clients like family</span></li>
         </ul>
         <div class="ctas">
-          <a class="btn" href="#discover">Find your path in 60 seconds</a>
+          <a class="btn" href="#discover">Book a free consult</a>
           <button class="film-card" type="button" id="cine-watch" aria-label="Watch the one-minute brand film">
             <span class="fc-thumb" aria-hidden="true"><img src="../media/brand-film-v5.jpg" alt="" width="112" height="63" loading="eager"><i class="fc-play"></i></span>
-            <span class="fc-txt"><b>Watch the film</b><small class="fc-when">1 minute · with sound<span class="fc-count"> · starts in <em id="cine-count">5</em>s</span></small></span>
+            <span class="fc-txt"><b>Watch the film</b><small class="fc-when">1 minute · with sound<span class="fc-count" hidden> · starts in <em id="cine-count">5</em>s</span></small></span>
           </button>
         </div>
         <div class="cine-timer" aria-hidden="true"><i></i></div>
@@ -978,6 +989,24 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   </div>
 
   <!-- DIFFERENCE -->
+  <!-- SERVICES (simple) -->
+  <section class="section" id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="svc-h">What we look after</h2>
+        <p>Choose one service or bring them together under one plan. Either way, you deal with one team and one account manager.</p>
+      </div>
+      <div class="svc-grid">
+        <a class="svc glass" href="https://midnightit.com.au" target="_blank" rel="noopener"><span class="label">Midnight IT</span><h3>IT support + managed services</h3><p>24/7 helpdesk, devices, Microsoft 365, backups and onsite support.</p><span class="svc-go">Visit Midnight IT <span aria-hidden="true">&rarr;</span></span></a>
+        <a class="svc glass" href="https://strikeforcecyber.com" target="_blank" rel="noopener"><span class="label">Strikeforce Cyber</span><h3>Cyber security</h3><p>Monitoring, email security and incident response. Every group solution is security-vetted here first.</p><span class="svc-go">Visit Strikeforce <span aria-hidden="true">&rarr;</span></span></a>
+        <a class="svc glass" href="https://rendr.com.au" target="_blank" rel="noopener"><span class="label">Rend'r</span><h3>Websites + digital</h3><p>Websites, online platforms and integrations, built secure from day one.</p><span class="svc-go">Visit Rend'r <span aria-hidden="true">&rarr;</span></span></a>
+        <a class="svc glass" href="https://3eyes.com.au" target="_blank" rel="noopener"><span class="label">3 Eyes Australia</span><h3>CCTV + surveillance</h3><p>Cameras and access control, with in-person maintenance after installation.</p><span class="svc-go">Visit 3 Eyes <span aria-hidden="true">&rarr;</span></span></a>
+        <a class="svc glass" href="https://wizesolutions.com.au" target="_blank" rel="noopener"><span class="label">Wize Solutions</span><h3>Internet + phones</h3><p>Business fibre, 5G backup, Starlink and phone systems for every site.</p><span class="svc-go">Visit Wize <span aria-hidden="true">&rarr;</span></span></a>
+        <a class="svc glass" href="https://aidome.com.au" target="_blank" rel="noopener"><span class="label">AI Dome</span><h3>A.I. adoption + control</h3><p>Use A.I. safely: policies, staff training and custom agents, with guardrails built by Strikeforce Cyber.</p><span class="svc-go">Visit AI Dome <span aria-hidden="true">&rarr;</span></span></a>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="difference" aria-labelledby="diff-h">
     <div class="wrap">
       <div class="sec-head">
@@ -1049,7 +1078,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   </section>
 
   <!-- ECOSYSTEM -->
-  <section class="section" id="ecosystem" aria-labelledby="eco-h">
+  <section class="section" id="ecosystem" hidden aria-labelledby="eco-h">
     <div class="wrap">
       <div class="sec-head">
         <h2 id="eco-h">One connected ecosystem</h2>
@@ -1100,86 +1129,13 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   </section>
 
   <!-- DISCOVERY -->
-  <section class="section" id="discover" aria-labelledby="disc-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 id="disc-h">Discovery lab</h2>
-        <p>Four quick questions, about a minute. Your coverage map builds live as you answer, showing which specialists matter most and what happens next.</p>
-      </div>
-      <div class="lab" id="lab">
-        <div class="wiz">
-          <div class="wiz-top">
-            <div class="wiz-meta"><span class="wiz-count" id="wiz-count">Step 1 of 5</span><span class="wiz-time">About 60 seconds</span></div>
-            <ol class="wiz-steps" id="wiz-steps">
-              <li><button type="button" data-go="0"><i>1</i><span>Team</span></button></li>
-              <li><button type="button" data-go="1"><i>2</i><span>Industry</span></button></li>
-              <li><button type="button" data-go="2"><i>3</i><span>Priorities</span></button></li>
-              <li><button type="button" data-go="3"><i>4</i><span>Timing</span></button></li>
-              <li><button type="button" data-go="4"><i>5</i><span>Your map</span></button></li>
-            </ol>
-          </div>
-          <div class="wiz-body">
-            <fieldset class="qstep" data-step="0"><legend tabindex="-1">How big is your team?<small>Counting staff, contractors and volunteers.</small></legend><div class="opts cols-2" id="q-size"></div></fieldset>
-            <fieldset class="qstep" data-step="1" hidden><legend tabindex="-1">What industry are you in?<small>So we bring people who know your world.</small></legend><div class="opts cols-2" id="q-ind"></div></fieldset>
-            <fieldset class="qstep" data-step="2" hidden><legend tabindex="-1">What's on your mind?<small>Choose all that apply.</small></legend><div class="opts cols-2" id="q-ch"></div></fieldset>
-            <fieldset class="qstep" data-step="3" hidden><legend tabindex="-1">How soon do you need help?<small>This sets the pace of your next step.</small></legend><div class="opts cols-1" id="q-urg"></div></fieldset>
-            <div class="qstep" data-step="4" hidden>
-              <h3 class="qstep-h" tabindex="-1">Your map is ready</h3>
-              <p class="qstep-sub">Send it to an account manager and they'll come back to you with the right specialists. No obligation.</p>
-              <form class="sendmap" id="map-form" novalidate>
-                <div class="fgrid">
-                  <label for="f-first">First name<input id="f-first" name="firstname" autocomplete="given-name" required></label>
-                  <label for="f-last">Last name<input id="f-last" name="lastname" autocomplete="family-name"></label>
-                  <label for="f-email">Work email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
-                  <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
-                  <label for="f-company" class="full">Organisation<input id="f-company" name="company" autocomplete="organization"></label>
-                  <input type="text" id="f-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-                  <label for="f-message" class="full">Your map, plus anything you'd like to add<textarea id="f-message" name="message" rows="4"></textarea></label>
-                </div>
-                <div class="acts">
-                  <button class="btn" type="submit" id="send-map">Send my map</button>
-                  <button class="btn ghost" type="button" id="copy-map">Copy it instead</button>
-                </div>
-                <p class="formmsg" id="form-msg" role="status" aria-live="polite"></p>
-                <p class="copied" id="copy-msg" hidden></p>
-                <p class="fine">We use these details only to respond to your enquiry. Prefer to talk? Call 1300 737 562 or email vip@codeblackgroup.com.au.</p>
-              </form>
-            </div>
-          </div>
-          <div class="wiz-nav">
-            <button type="button" class="wiz-back" id="wiz-back"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3.5 5.5 8 10 12.5"/></svg>Back</button>
-            <button type="button" class="btn" id="wiz-next">Continue</button>
-          </div>
-        </div>
-        <aside class="res" aria-live="polite">
-          <div class="res-head"><span class="label">Live coverage map</span><p class="summary" id="r-sum"></p></div>
-          <div class="gauge">
-            <svg viewBox="0 0 200 200" id="r-ring" aria-hidden="true"></svg>
-            <div class="gauge-c"><b id="r-count">0</b><span>priority<br>areas</span></div>
-          </div>
-          <div class="legend"><span><i class="lv-priority"></i>Priority</span><span><i class="lv-check"></i>Review</span><span><i class="lv-later"></i>Later</span></div>
-          <div class="covbar" id="r-bar" hidden></div>
-          <div class="rows" id="r-rows"></div>
-          <div class="next">
-            <span class="label">Your next step</span>
-            <div class="big" id="r-next"></div>
-            <p id="r-team"></p>
-          </div>
-          <div>
-            <span class="label">Watch next</span>
-            <div class="watchnext" id="r-watch" style="margin-top:8px"></div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
 
   <!-- HOW WE WORK -->
   <section class="section" id="how" aria-labelledby="how-h">
     <div class="wrap">
       <div class="sec-head">
         <h2 id="how-h">What happens after you call</h2>
-        <p>Instead of weeks writing an RFP and lining up vendors, bring us the problem and what success looks like. Choose a step to jump to it in the film.</p>
+        <p>Instead of weeks writing an RFP and lining up vendors, bring us the problem and what success looks like.</p>
       </div>
       <div class="how">
         <ol class="steps" id="steps"></ol>
@@ -1199,7 +1155,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   </section>
 
   <!-- AI -->
-  <section class="section" id="ai" aria-labelledby="ai-h">
+  <section class="section" id="ai" hidden aria-labelledby="ai-h">
     <div class="ai-band">
       <div class="wrap ai">
         <div>
@@ -1228,7 +1184,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   </section>
 
   <!-- WATCH -->
-  <section class="section" id="watch" aria-labelledby="watch-h">
+  <section class="section" id="watch" hidden aria-labelledby="watch-h">
     <div class="wrap">
       <div class="sec-head">
         <h2 id="watch-h">Watch how we work</h2>
@@ -1318,6 +1274,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
             </div>
           </div>
         </div>
+        <p class="hb2-more"><a class="btn ghost" href="../about/">Read our full story</a></p>
         <div class="hb2-journey">
           <div class="hb2-line" aria-hidden="true"><i class="hb2-fill"></i></div>
           <article class="ch">
@@ -1428,7 +1385,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
   </section>
 
   <!-- LEADERSHIP -->
-  <section class="section" aria-labelledby="lead-h">
+  <section class="section" aria-labelledby="lead-h" hidden>
     <div class="wrap">
       <div class="lead-card glass">
         <div class="ph" role="img" aria-label="Security operator at work in front of monitoring screens"></div>
@@ -1442,6 +1399,80 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     </div>
   </section>
 
+  <section class="section" id="discover" aria-labelledby="disc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="disc-h">Book a free consult</h2>
+        <p>Answer four quick questions (about a minute) and send them to an account manager. They will come back to you with the right specialists. No obligation.</p>
+      </div>
+      <div class="lab" id="lab">
+        <div class="wiz">
+          <div class="wiz-top">
+            <div class="wiz-meta"><span class="wiz-count" id="wiz-count">Step 1 of 5</span><span class="wiz-time">About 60 seconds</span></div>
+            <ol class="wiz-steps" id="wiz-steps">
+              <li><button type="button" data-go="0"><i>1</i><span>Team</span></button></li>
+              <li><button type="button" data-go="1"><i>2</i><span>Industry</span></button></li>
+              <li><button type="button" data-go="2"><i>3</i><span>Priorities</span></button></li>
+              <li><button type="button" data-go="3"><i>4</i><span>Timing</span></button></li>
+              <li><button type="button" data-go="4"><i>5</i><span>Your map</span></button></li>
+            </ol>
+          </div>
+          <div class="wiz-body">
+            <fieldset class="qstep" data-step="0"><legend tabindex="-1">How big is your team?<small>Counting staff, contractors and volunteers.</small></legend><div class="opts cols-2" id="q-size"></div></fieldset>
+            <fieldset class="qstep" data-step="1" hidden><legend tabindex="-1">What industry are you in?<small>So we bring people who know your world.</small></legend><div class="opts cols-2" id="q-ind"></div></fieldset>
+            <fieldset class="qstep" data-step="2" hidden><legend tabindex="-1">What's on your mind?<small>Choose all that apply.</small></legend><div class="opts cols-2" id="q-ch"></div></fieldset>
+            <fieldset class="qstep" data-step="3" hidden><legend tabindex="-1">How soon do you need help?<small>This sets the pace of your next step.</small></legend><div class="opts cols-1" id="q-urg"></div></fieldset>
+            <div class="qstep" data-step="4" hidden>
+              <h3 class="qstep-h" tabindex="-1">Your map is ready</h3>
+              <p class="qstep-sub">Send it to an account manager and they'll come back to you with the right specialists. No obligation.</p>
+              <form class="sendmap" id="map-form" novalidate>
+                <div class="fgrid">
+                  <label for="f-first">First name<input id="f-first" name="firstname" autocomplete="given-name" required></label>
+                  <label for="f-last">Last name<input id="f-last" name="lastname" autocomplete="family-name"></label>
+                  <label for="f-email">Work email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+                  <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+                  <label for="f-company" class="full">Organisation<input id="f-company" name="company" autocomplete="organization"></label>
+                  <input type="text" id="f-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+                  <label for="f-message" class="full">Your map, plus anything you'd like to add<textarea id="f-message" name="message" rows="4"></textarea></label>
+                </div>
+                <div class="acts">
+                  <button class="btn" type="submit" id="send-map">Send my map</button>
+                  <button class="btn ghost" type="button" id="copy-map">Copy it instead</button>
+                </div>
+                <p class="formmsg" id="form-msg" role="status" aria-live="polite"></p>
+                <p class="copied" id="copy-msg" hidden></p>
+                <p class="fine">We use these details only to respond to your enquiry. Prefer to talk? Call 1300 737 562 or email vip@codeblackgroup.com.au.</p>
+              </form>
+            </div>
+          </div>
+          <div class="wiz-nav">
+            <button type="button" class="wiz-back" id="wiz-back"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3.5 5.5 8 10 12.5"/></svg>Back</button>
+            <button type="button" class="btn" id="wiz-next">Continue</button>
+          </div>
+        </div>
+        <aside class="res" aria-live="polite">
+          <div class="res-head"><span class="label">Live coverage map</span><p class="summary" id="r-sum"></p></div>
+          <div class="gauge">
+            <svg viewBox="0 0 200 200" id="r-ring" aria-hidden="true"></svg>
+            <div class="gauge-c"><b id="r-count">0</b><span>priority<br>areas</span></div>
+          </div>
+          <div class="legend"><span><i class="lv-priority"></i>Priority</span><span><i class="lv-check"></i>Review</span><span><i class="lv-later"></i>Later</span></div>
+          <div class="covbar" id="r-bar" hidden></div>
+          <div class="rows" id="r-rows"></div>
+          <div class="next">
+            <span class="label">Your next step</span>
+            <div class="big" id="r-next"></div>
+            <p id="r-team"></p>
+          </div>
+          <div>
+            <span class="label">Watch next</span>
+            <div class="watchnext" id="r-watch" style="margin-top:8px"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" aria-labelledby="contact-h">
     <div class="wrap">
@@ -1450,8 +1481,8 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
           <h2 id="contact-h">Bring us <span class="metal">the problem.</span></h2>
           <p class="lead">Skip the RFP. Tell us what success looks like and your account manager will come back with a clear plan, options and phases. No pressure and no obligation.</p>
           <div class="ctas">
-            <a class="btn" href="#discover">Start discovery</a>
-            <a class="btn ghost" href="#how">See how it works</a>
+            <a class="btn" href="tel:1300737562">Call 1300 737 562</a>
+            <a class="btn ghost" href="mailto:vip@codeblackgroup.com.au">Email us</a>
           </div>
         </div>
         <div class="cbox">
@@ -1484,20 +1515,19 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     </nav>
     <nav class="foot-col" aria-label="Explore">
       <h4>Explore</h4>
-      <a href="#difference">Why us</a>
-      <a href="#ecosystem">Ecosystem</a>
-      <a href="#discover">Discovery lab</a>
-      <a href="#how">How we work</a>
-      <a href="#watch">Films</a>
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#clients">Our work</a>
       <a href="#story">Our story</a>
       <a href="#team">Leadership</a>
+      <a href="#discover">Book a free consult</a>
     </nav>
     <div class="foot-col">
       <h4>Contact</h4>
       <span class="sel">1300 737 562</span>
       <span class="sel">vip@codeblackgroup.com.au</span>
       <span>codeblackgroup.com.au</span>
-      <a class="btn" href="#discover" style="margin-top:10px">Start discovery</a>
+      <a class="btn" href="#discover" style="margin-top:10px">Book a free consult</a>
     </div>
   </div>
   <div class="wrap foot-aoc"><b>Acknowledgement of Country</b><p>Code Black Group acknowledges the Traditional Custodians of the lands on which we live and work throughout Australia, and their continuing connection to land, waters and community. We pay our respects to Elders past and present, and extend that respect to all Aboriginal and Torres Strait Islander peoples.</p></div>
@@ -1997,7 +2027,7 @@ textarea.fallback{width:100%;min-height:120px;background:#000;color:var(--ivory)
     HP.restartAt=function(){ return 0.85; };  /* the backdrop is already on screen, so skip the film's fade-in: a seamless dissolve */
     function rest(){ var v=HP.v, far=v.currentTime>1.5; if(far) hero.classList.add('resetting'); var go=function(){ try{ v.currentTime=0.85; }catch(e){} }; if(v.readyState>=1) go(); else v.addEventListener('loadedmetadata',go,{once:true}); if(far) v.addEventListener('seeked',function(){ requestAnimationFrame(function(){ hero.classList.remove('resetting'); }); },{once:true}); }
     function introText(){ clearTimeout(timer); var wasPlaying=hero.classList.contains('playing'); hero.classList.remove('playing'); HP.v.pause(); rest(); setTimeout(fxDecode, wasPlaying?700:0); hero.classList.remove('counting'); void hero.offsetWidth;
-      if(reduce) return; hero.classList.add('counting'); countdown(); timer=setTimeout(film, INTRO); }
+      /* simplified: the film plays only when the visitor chooses Watch */ }
     function begin(){ if(started) return; started=true; HP.ensure(); introText(); }
     HP.v.addEventListener('ended', introText);
     document.getElementById('cine-watch').addEventListener('click', film);
