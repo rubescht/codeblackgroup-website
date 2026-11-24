@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8qI11gXNIdQ8fW6FfxZyqVwAx413Zy0ftv9EHbf8TEs='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Zoo69UkTUGFSZxDxhJQhQpLuVjR4jRd6eRt6iT13amw='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="../assets/guard.js"></script>
 <!-- security:end -->
@@ -30,6 +30,12 @@
 .lf .hint{position:absolute;top:18px;right:var(--gut,24px);z-index:2;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#C9C3B6;background:rgba(10,10,12,.55);padding:7px 12px;border-radius:999px;backdrop-filter:blur(6px)}
 .lf.sound .hint{display:none}
 .lf:fullscreen{height:100vh}
+.lf.port{background:#0A121B;min-height:0}
+.lf.port video{object-fit:contain;background:#0A121B}
+.lf.port video{bottom:auto}
+.lf.port .ctl{height:64px;padding:0 var(--gut,16px);background:#0A121B;border-top:1px solid rgba(255,255,255,.06);flex-wrap:nowrap}
+.lf.port .hint{display:none}
+.lf.port .sp{order:0}.lf.port #lf-skip{order:2}.lf.port #lf-sound{order:3}
 @media (max-width:640px){.lf .pill{height:42px;font-size:13.5px}.lf .pill.fs{display:none}}
 .pains{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid rgba(255,255,255,.18)}
 .pain{padding:30px 26px 10px 0;min-width:0}
@@ -444,9 +450,12 @@
 <script>
 (function(){
   var v=document.getElementById('lfv'), sec=document.getElementById('watch'); if(!v) return;
-  function fit(){ var top=sec.getBoundingClientRect().top+window.scrollY; sec.style.height=Math.max(480, window.innerHeight-top)+'px'; }
-  fit(); addEventListener('resize',fit);
   var port = window.innerHeight > window.innerWidth*1.05;
+  if(port) sec.classList.add('port');
+  function fit(){ var top=sec.getBoundingClientRect().top+window.scrollY, avail=window.innerHeight-top;
+    if(port){ var vh=Math.round(Math.min(sec.clientWidth*16/9, Math.max(avail-64,320))); v.style.height=vh+'px'; sec.style.height=(vh+64)+'px'; }
+    else { sec.style.height=Math.max(480, avail)+'px'; } }
+  fit(); addEventListener('resize',fit);
   v.src = port ? v.dataset.port : v.dataset.land; if(port) v.poster=v.dataset.posterPort;
   var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var sbtn=document.getElementById('lf-sound'), st=document.getElementById('lf-sound-t'), bar=document.getElementById('lf-bar');
