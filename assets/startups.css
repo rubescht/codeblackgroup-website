@@ -213,3 +213,6 @@ dialog.sh{--void:#05060A;--deep:#0A0D14;--ink:#EEF2F7;--muted:#9AA4B2;--dim:#5E6
 .diff-pts h3{font:400 27px/1.15 var(--serif);margin:10px 0 8px;letter-spacing:-.01em}
 .diff-pts p{margin:0;color:var(--mut);font-size:15.5px}
 @media (max-width:700px){.diff{padding-bottom:60px}.diff-lead{font-size:17px}.diff-pts{grid-template-columns:1fr;margin-top:28px}.diff-pts li{border-right:0;margin-right:0;padding:22px 0;border-bottom:1px solid var(--line)}.diff-pts li:last-child{border-bottom:0}}
+/* founder photo: keep the whole head inside the arch */
+.founder img{object-position:50% 0;background:#0d0d0d;padding-top:34px;box-sizing:border-box}
+@media (max-width:760px){.founder img{aspect-ratio:4/5;max-width:340px;margin:0 auto;padding-top:30px}}
