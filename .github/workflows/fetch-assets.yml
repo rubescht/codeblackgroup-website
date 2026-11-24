@@ -1,0 +1,14 @@
+name: fetch-assets
+on: push
+jobs:
+  f:
+    runs-on: ubuntu-latest
+    permissions: {contents: write}
+    steps:
+      - run: |
+          mkdir out && cd out
+          B=https://codeblackgroup.com.au/wp-content/uploads
+          for p in 2026/02/Sharon-Scheffer 2026/02/Phonz-Silvany 2026/02/Daniel-Cocco 2026/02/Anthony-Fonti 2026/06/Josh-Wallace 2026/02/Khaled-Shaheen 2026/02/Trish-Kamboj 2026/02/Iresha-Dulanjali 2026/02/Ajit-Kumar; do curl -fsSL -A "Mozilla/5.0" -o "$(basename $p).png" "$B/$p.png" || echo "fail $p"; done
+          ls -la
+          git init -q && git checkout -q -b assets-fetch && git add . && git -c user.name=bot -c user.email=bot@x commit -qm assets
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" assets-fetch
