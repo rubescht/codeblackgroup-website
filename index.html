@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-CYuoA0rjaZ8knwJo+QSbnNRj8UuGtQ4Gt3hcKscxnmc='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-G6T1lgw2UqZ8mOG6OdNY9N5FRiQ+DgxONMg86iQB8lo='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/guard.js"></script>
 <!-- security:end -->
@@ -522,8 +522,8 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     var S=null, bins=new Uint8Array(64), lastCue=-1, lastN=-1, lastCh=-2, userPaused=false, started=false, inView=true, policyMuted=false;
     V.bins=bins;
     var small=(window.matchMedia&&matchMedia('(max-width:860px)').matches)||(navigator.connection&&navigator.connection.saveData);
-    vid.src=small?'media/growth-story-sm.mp4?v=3':'media/growth-story.mp4?v=3';
-    try{ fetch('media/growth-story.json?v=3').then(function(r){ return r.json(); }).then(function(j){ S=j; }).catch(function(){}); }catch(e){}
+    vid.src=small?'media/growth-story-sm.mp4?v=4':'media/growth-story.mp4?v=4';
+    try{ fetch('media/growth-story.json?v=4').then(function(r){ return r.json(); }).then(function(j){ S=j; }).catch(function(){}); }catch(e){}
     V.update=function(){
       var lv=0, playing=!vid.paused&&!vid.ended;
       if(S&&playing){ var i=Math.floor(vid.currentTime*S.fps); lv=((S.env[i]||0)+(S.env[i+1]||0))/200; }
