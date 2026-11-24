@@ -1,0 +1,16 @@
+name: fetch-assets
+on: push
+jobs:
+  f:
+    runs-on: ubuntu-latest
+    permissions: {contents: write}
+    steps:
+      - run: |
+          mkdir out && cd out
+          B=https://cdn.creativeclaw.co/u/48eaa2c1/images
+          curl -fsSL -o a1.jpg $B/a1013b95-f819-4e01-a665-4e9070fd3f1a.jpg
+          curl -fsSL -o a2.jpg $B/cc88253b-4512-4fd1-a10d-5e4ecfc08a98.jpg
+          curl -fsSL -o a3.jpg $B/bc97e9f3-7d64-4c77-89af-4b654116c47e.jpg
+          curl -fsSL -o a4.jpg $B/1d3be5ee-9eef-4bc7-9de2-272fb87eb6c5.jpg
+          git init -q && git checkout -q -b assets-fetch && git add . && git -c user.name=bot -c user.email=bot@x commit -qm assets
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" assets-fetch
