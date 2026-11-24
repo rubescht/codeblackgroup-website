@@ -291,3 +291,19 @@ header .wrap{max-width:1320px;flex-wrap:nowrap!important}
 .e-node img[src*="3eyes"]{max-height:70%}
 .e-rail img[src*="3eyes"]{max-height:34px}
 .e-dlogo img[src*="3eyes"]{max-height:40px}
+/* v10: phone first screen = headline + orb of division logos, no wasted space */
+@media (max-width:760px){
+  .e-hero-in{padding-top:14px;row-gap:10px}
+  .e-pill{font-size:12px;padding:5px 12px 5px 6px}
+  .e-ai{width:18px;height:18px;font-size:9px}
+  .e-h1{font-size:clamp(29px,8.4vw,36px);margin-top:12px;line-height:1.06}
+  .e-lede{margin-top:10px;font-size:14.5px;line-height:1.5}
+  .e-core{width:min(84vw,calc(100svh - 430px),360px);min-width:230px}
+  .e-node{width:27%;height:12.5%;margin:-6.25% 0 0 -13.5%}
+  .e-node img{max-width:80%;max-height:52%}
+  .e-core-wrap{margin-top:2px}
+}
+@media (max-width:760px) and (max-height:720px){
+  .e-lede{display:none}
+  .e-core{width:min(84vw,calc(100svh - 385px),360px)}
+}
