@@ -536,3 +536,16 @@ body.nfp .dl-row.lv-r .dl-st{color:#DCE6EF;border-color:#4F6A85}
 .foot .aoc-ft b{display:block;margin-bottom:6px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
 .foot .aoc-ft p{margin:0;max-width:96ch;font-size:13.5px;line-height:1.65;opacity:.85}
 .foot .bottom .legal{display:inline-flex;gap:18px}
+
+/* the difference (opening statement on each client-type site) */
+.diff{padding-top:clamp(40px,6vw,72px)}
+.diff-top{max-width:880px}
+.diff h2{margin:18px 0 20px;font-size:clamp(32px,4vw,52px)}
+.diff-pts{list-style:none;margin:44px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.diff-pts li{display:grid;grid-template-columns:44px 1fr;gap:6px;padding:28px 28px 8px 0}
+.diff-pts li+li{padding-left:28px;border-left:1px solid var(--line)}
+.diff-pts span{font-family:var(--serif);color:var(--gold);font-size:20px}
+.diff-pts h3{font-size:24px;line-height:1.2;margin:0 0 8px}
+.diff-pts p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.6}
+@media (max-width:860px){.diff-pts{grid-template-columns:1fr}.diff-pts li,.diff-pts li+li{padding:22px 0;border-left:0;border-bottom:1px solid var(--line)}}
+.diff h2 em{font-style:italic;color:var(--gold)}
