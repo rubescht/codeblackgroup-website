@@ -459,3 +459,19 @@ footer.ft2{padding:clamp(32px,3.6vw,48px) 0 22px}
 @media (max-width:860px){.film.playing{border-color:rgba(160,235,255,.55);box-shadow:0 -20px 60px -24px rgba(127,227,255,.5),0 20px 60px -30px rgba(0,0,0,.9)}}
 /* no scan effects on the start page (v37) */
 .hv2 .scan{display:none!important}
+/* mobile: when sound is blocked, a big centred "Tap for sound" button over the video (v38) */
+.f-snd-sub{display:none}
+@media (max-width:860px){
+  .film .f-snd:not([hidden]){top:50%;left:50%;right:auto;transform:translate(-50%,-50%);height:auto;flex-direction:column;gap:4px;padding:14px 22px;border-radius:18px;font-size:16px;font-weight:700;text-align:center;box-shadow:0 0 0 0 rgba(241,217,154,.6),0 14px 40px rgba(0,0,0,.6)}
+  .film .f-snd svg{width:28px;height:28px}
+  .f-snd-sub{display:block;font-size:11.5px;font-weight:500;opacity:.8;white-space:nowrap}
+  .film:has(.f-snd:not([hidden]))::after{background:linear-gradient(180deg,rgba(5,6,10,.45),rgba(5,6,10,.25) 50%,rgba(5,6,10,.82))}
+  .film:has(.f-snd:not([hidden])) .f-cap{opacity:0}
+}
+@media (max-width:360px){.f-snd-sub{white-space:normal;max-width:180px}}
+@media (max-width:860px){
+  .film .f-snd:not([hidden]){top:36%;flex-direction:row;flex-wrap:wrap;justify-content:center;column-gap:8px;row-gap:2px;padding:10px 18px;border-radius:16px;font-size:15px;max-width:calc(100% - 32px);white-space:nowrap}
+  .film .f-snd svg{width:20px;height:20px}
+  .f-snd-sub{flex-basis:100%;font-size:11px}
+}
+@media (max-width:360px){.f-snd-sub{white-space:nowrap;max-width:none}.film .f-snd:not([hidden]){top:34%;padding:9px 14px}}
