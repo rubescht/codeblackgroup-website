@@ -424,3 +424,32 @@ footer.ft2{padding:clamp(32px,3.6vw,48px) 0 22px}
 }
 @media (max-width:860px){.tile img{opacity:1;filter:brightness(1.2)}}
 @media (min-width:1021px) and (max-width:1200px){header .logo{width:212px;height:32px}}
+/* footer logo: one line "CODE BLACK GROUP" (v32) */
+.ft2 .f2-logo{width:240px;height:auto}
+@media (max-width:760px){.ft2 .f2-logo{width:180px}}
+@media (max-width:360px){.ft2 .f2-logo{width:150px}}
+/* typed motto (v33): the untyped part is held invisibly so the line never shifts */
+.ft2 .ft-tag{position:relative}
+.ft-tag .tw-text{color:inherit}
+.ft-tag .tw-ghost{visibility:hidden}
+.ft-tag .tw-caret{display:inline-block;width:2px;height:1em;margin:0 -2px 0 0;vertical-align:-2px;background:var(--gold-hi);opacity:0}
+.ft-tag.typing .tw-caret{opacity:1;animation:twc .8s steps(2) infinite}
+@keyframes twc{50%{opacity:0}}
+/* footer SOS + phone capsule, matching the header (v34) */
+.f2-hot{display:inline-flex;align-items:stretch;width:fit-content;border:1px solid rgba(127,227,255,.35);border-radius:999px;overflow:hidden;margin-bottom:6px;transition:border-color .3s,box-shadow .3s}
+.f2-hot:hover{border-color:rgba(127,227,255,.6);box-shadow:0 0 18px rgba(127,227,255,.15)}
+.f2-hot a{text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap}
+.f2-sos{gap:8px;padding:9px 13px 9px 14px;background:rgba(239,68,68,.14);border-right:1px solid rgba(127,227,255,.22);color:#FFD5D5;font:600 11.5px/1 var(--hud);letter-spacing:.16em;text-transform:uppercase;transition:background .25s,color .25s}
+.f2-sos:hover,.f2-sos:focus-visible{background:#DC2626;color:#fff}
+.f2-sos i{position:relative;width:7px;height:7px;border-radius:50%;background:#EF4444;box-shadow:0 0 8px #EF4444;flex:none}
+.f2-sos:hover i{background:#fff;box-shadow:0 0 8px #fff}
+.f2-sos i::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid #EF4444;animation:sosRing 2.4s ease-out infinite}
+.f2-call{padding:9px 14px;color:#fff;font:600 14px/1 var(--hud);letter-spacing:.06em;transition:background .25s}
+.f2-call:hover{background:rgba(127,227,255,.08)}
+@media (prefers-reduced-motion:reduce){.f2-sos i::after{animation:none;opacity:0}}
+@media (max-width:760px){
+  .f2-brand{grid-template-columns:1fr}
+  .f2-contact{grid-column:1;grid-row:3;align-items:flex-start;margin-top:12px}
+  .f2-sos-t{display:none}
+}
+.f2-sos-t{display:none}
