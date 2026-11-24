@@ -56,7 +56,7 @@
 .dv-c:hover{border-color:rgba(127,227,255,.4);transform:translateY(-3px);box-shadow:0 20px 50px -24px rgba(127,227,255,.35)}
 .dv-l{display:flex;align-items:center;height:40px}
 .dv-l img{height:22px;width:auto;max-width:170px}
-.dv-l img.tall{height:34px}.dv-l img.eyes{height:30px}.dv-l img.mit{height:19px}
+.dv-l img.tall{height:34px}.dv-l img.eyes{height:42px}.dv-l img.mit{height:19px}
 .dv-k{color:var(--syn);font-size:10.5px;letter-spacing:.2em}
 .dv-c p{margin:0;font-size:15px;flex:1}
 .dv-go{color:var(--muted);font-size:13px}
@@ -97,4 +97,4 @@ blockquote cite{display:block;margin-top:14px;font:500 13px var(--sans);font-sty
   .cta-acts{width:100%}.cta-acts .btn{flex:1 1 100%;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){.rings-art span{animation:none}}
-.dv-l img.rd{height:30px}
+.dv-l img.rd{height:27px}

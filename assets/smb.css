@@ -307,3 +307,12 @@ header .wrap{max-width:1320px;flex-wrap:nowrap!important}
   .e-lede{display:none}
   .e-core{width:min(84vw,calc(100svh - 385px),360px)}
 }
+
+/* v11: consistent division logo sizes (3 Eyes has a small wordmark, Rend'r is a full-height wordmark) */
+.e-rail img[src*="3eyes"]{max-height:44px;max-width:80%}
+.e-rail img[src*="rendr"]{max-height:18px}
+.e-dlogo img[src*="3eyes"]{max-height:50px}
+.e-dlogo img[src*="rendr"]{max-height:21px}
+.e-node img[src*="3eyes"]{max-height:82%;max-width:86%}
+.e-node img[src*="rendr"]{max-height:36%}
+@media (max-width:760px){.e-rail img[src*="3eyes"]{max-height:38px}.e-rail img[src*="rendr"]{max-height:16px}}

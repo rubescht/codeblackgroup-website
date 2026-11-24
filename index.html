@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-bA+dzX16byfWE5bbeOzcku/J+f2/sXN7BxZyYV3nRPQ='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-Xz0F8H61a+iYPjzYMP26dOUec+t8lHl5AucACRHDSk8='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/guard.js"></script>
 <!-- security:end -->
@@ -291,7 +291,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.door{opacity:1;transform:none;translate:none}}
 </style>
 <link rel="stylesheet" href="assets/scam-help.css?v=6">
-<link rel="stylesheet" href="assets/home.css?v=43">
+<link rel="stylesheet" href="assets/home.css?v=44">
 </head>
 <body>
 <div id="intro" hidden aria-hidden="true">
@@ -439,7 +439,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
         <div class="f2-grid">
           <a href="https://strikeforcecyber.com" target="_blank" rel="noopener" title="Cyber security"><img src="logos/strikeforce-cyber-white.svg" alt="Strikeforce Cyber" class="tall" loading="lazy"><span>Cyber security</span></a>
           <a href="https://midnightit.com.au" target="_blank" rel="noopener" title="24/7 IT support"><img src="logos/color/midnight-it.png" alt="Midnight IT" class="mit" loading="lazy"><span>24/7 IT</span></a>
-          <a href="https://rendr.com.au" target="_blank" rel="noopener" title="Web &amp; digital"><img src="assets/rendr-solid.png" alt="Rend'r" class="rd" loading="lazy"><span>Web &amp; digital</span></a>
+          <a href="https://rendr.com.au" target="_blank" rel="noopener" title="Web &amp; digital"><img src="assets/rendr-solid.png?v=2" alt="Rend'r" class="rd" loading="lazy"><span>Web &amp; digital</span></a>
           <a href="https://3eyes.com.au" target="_blank" rel="noopener" title="Technology + R&amp;D: off-grid, energy efficiency and security"><img src="logos/color/3eyes.png" alt="3 Eyes Australia" class="tall eyes" loading="lazy"><span>Tech + R&amp;D</span></a>
           <a href="https://wizesolutions.com.au" target="_blank" rel="noopener" title="Connectivity"><img src="logos/color/wize.png" alt="Wize Solutions" class="tall" loading="lazy"><span>Connectivity</span></a>
           <a href="https://aidome.com.au" target="_blank" rel="noopener" title="A.I. adoption &amp; control"><img src="logos/aidome-logo-h.png" alt="AI Dome" class="tall" loading="lazy"><span>A.I. adoption</span></a>
@@ -637,9 +637,9 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 
 
   /* ---- brand ring: each division emerges from a distant dot, flies in and joins the orbit ---- */
-  var BR=[['logos/strikeforce-cyber-white.svg',3.52],['logos/color/midnight-it.png',7.04],['logos/rendr-white.png',3.09],['logos/color/3eyes.png',2.35],['logos/color/wize.png',2.22],['logos/aidome-logo-h.png',3.68]].map(function(b,i){
+  var BR=[['logos/strikeforce-cyber-white.svg',3.52],['logos/color/midnight-it.png',7.04],['logos/rendr-white.png?v=2',3.09],['logos/color/3eyes.png',2.35,1.3],['logos/color/wize.png',2.22],['logos/aidome-logo-h.png',3.68]].map(function(b,i){
     var im=new Image(); im.decoding='async'; im.src=b[0];
-    return {im:im,ar:b[1],slot:i/6*Math.PI*2,st:'wait',p:0,at:1.4+i*.6,o:null,trail:[],x:0,y:0};
+    return {im:im,ar:b[1],k:b[2]||1,slot:i/6*Math.PI*2,st:'wait',p:0,at:1.4+i*.6,o:null,trail:[],x:0,y:0};
   });
   var brand={ang:0,next:0,copy:null};
   function copyRect(){ var h=document.getElementById('h'); if(!h||W<860){ brand.copy=null; return; } var a=h.parentElement.getBoundingClientRect(), c=cv.getBoundingClientRect(); brand.copy={l:a.left-c.left-10,t:a.top-c.top-10,r:a.right-c.left+10,b:a.bottom-c.top+10}; }
@@ -650,7 +650,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
   function rrect(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
   function chip(b,x,y,sc,al,G){
     if(al<=.01||sc<=.02) return;
-    var h=G.ch*sc, lh=h*.52, lw=Math.min(lh*b.ar,h*3.6), w=lw+h*.9;
+    var h=G.ch*sc, lh=h*.52*b.k, lw=Math.min(lh*b.ar,h*3.6), w=lw+h*.9;
     if(lw===h*3.6) lh=lw/b.ar;
     var c=brand.copy, hide=c&&x+w/2>c.l&&x-w/2<c.r&&y+h/2>c.t&&y-h/2<c.b;
     b.vis=(b.vis==null?1:b.vis)+((hide?0:1)-(b.vis==null?1:b.vis))*Math.min(1,brand.dt*5); al*=b.vis;
