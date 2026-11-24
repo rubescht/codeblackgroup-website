@@ -124,3 +124,56 @@ body.corp-ig{--paper:#F5F4F0;--ink:#101418;--muted:#5C636D;--line:#E2DFD8;--gold
   .ci-flex{flex-direction:column;align-items:flex-start}
 }
 @media (prefers-reduced-motion:reduce){.ci-tr i,.ci-tr2 i,.ci-ring,.ci-arc,.ci-range span,.ci-waffle i{transition:none}}
+
+/* v2: division logos + tighter rhythm */
+body.corp-ig{--sec:clamp(52px,6.2vw,92px)}
+.corp-ig .nav a{white-space:nowrap}
+.corp-ig .sec-head{margin-bottom:clamp(24px,3vw,36px)}
+.ci-sec .sec-head{margin-bottom:clamp(24px,3vw,36px)}
+.ci-hero{padding:clamp(40px,5vw,72px) 0 clamp(28px,3.5vw,44px)}
+.ci-band{padding:0 0 clamp(20px,2.6vw,32px)}
+.ci-band-in{background:var(--navy);border-radius:20px;padding:22px 28px}
+.ci-band-k{margin:0 0 14px;font:500 11px ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft)}
+.ci-band-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.ci-band-row a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:14px 8px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);text-decoration:none;transition:background .2s,border-color .2s}
+.ci-band-row a:hover{background:rgba(255,255,255,.08);border-color:rgba(127,166,227,.4)}
+.ci-band-row img{display:block;height:24px;width:auto;max-width:100%}
+.ci-band-row img.lg-mit{height:15px}
+.ci-band-row img.lg-eyes{height:33px;margin:-4px 0 -5px}
+.ci-band-row img.lg-rr{height:20px}
+.ci-band-row img.lg-wize{height:28px;margin:-2px 0}
+.ci-band-row span{font:500 10.5px ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:#A9B8C8;text-align:center}
+.ci-why{padding-top:0}
+.ci-by{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ci-lgs{display:flex;gap:6px;flex-wrap:wrap}
+.ci-chip{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 12px;border-radius:9px;background:var(--navy)}
+.ci-chip img{display:block;height:16px;width:auto}
+.ci-chip img.lg-mit{height:10px}
+.ci-chip img.lg-eyes{height:23px}
+.ci-chip img.lg-wize{height:20px}
+.ci-chip img.lg-rr{height:14px}
+.ci-chip img.lg-cbg{height:14px}
+.ci-lv{gap:8px}
+@media (max-width:980px){
+  .ci-band-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  body.corp-ig{--sec:44px}
+  .ci-hero{padding:32px 0 24px}
+  .ci-hero .lead{margin:14px 0 20px}
+  .ci-band-in{border-radius:16px;padding:16px 12px}
+  .ci-band-row{gap:8px}
+  .ci-band-row a{padding:12px 4px;gap:7px}
+  .ci-band-row img{height:20px}.ci-band-row img.lg-mit{height:11px}.ci-band-row img.lg-eyes{height:28px}.ci-band-row img.lg-wize{height:24px}.ci-band-row img.lg-rr{height:16px}
+  .ci-band-row span{font-size:9.5px;letter-spacing:.04em}
+  .ci-waffle{max-width:160px;gap:3px}
+  .ci-card{padding:20px}.ci-ig .ci-src{left:20px}
+  .ci-lv{padding:20px}
+  .ci-role{padding:22px}
+}
+.ci-band-row a{display:grid;grid-template-rows:34px auto;justify-items:center;align-items:center}
+.ci-band-row img.lg-eyes,.ci-band-row img.lg-wize{margin:0}
+.ci-band-row img.lg-rr{height:22px}
+@media (max-width:560px){.ci-band-row a{grid-template-rows:28px auto}.ci-band-row img.lg-rr{height:17px}}
+.corp-ig .founder{margin-bottom:clamp(44px,5.5vw,72px)}
+@media (max-width:560px){.corp-ig .founder{gap:20px}.corp-ig .founder figure{aspect-ratio:1/1;max-height:340px}.corp-ig .founder blockquote{margin:14px 0 18px}}
