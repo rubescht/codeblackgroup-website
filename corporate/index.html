@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-DqK66ygDXrOCs4cZVUBPQ+P0iWXuNWwy6hWndXBkHbo='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8qI11gXNIdQ8fW6FfxZyqVwAx413Zy0ftv9EHbf8TEs='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="../assets/guard.js"></script>
 <!-- security:end -->
@@ -15,6 +15,7 @@
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/newsreader-latin-500-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/inter-latin-400-normal.woff2" crossorigin>
 <link rel="stylesheet" href="../assets/editorial.css?v=3">
+<link rel="stylesheet" href="../assets/corp.css?v=1">
 <style>
 .lf{position:relative;height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:480px;background:#060607;overflow:hidden}
 .lf video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#060607}
@@ -47,7 +48,7 @@
 </style>
 <link rel="stylesheet" href="../assets/sos.css?v=1">
 </head>
-<body>
+<body class="corp-ig">
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="audbar" role="navigation" aria-label="Choose your organisation type">
@@ -91,8 +92,8 @@
 
 <main id="main">
   <span id="top"></span>
-  <section class="lf" id="watch" aria-label="Film: every boardroom, every city">
-    <video id="lfv" muted playsinline preload="auto" poster="../media/corp-trailer-land.jpg" data-land="../media/corp-trailer-land.mp4" data-port="../media/corp-trailer-port.mp4" data-poster-port="../media/corp-trailer-port.jpg"></video>
+  <section class="lf" id="watch" aria-label="Film: technology that performs, at board level">
+    <video id="lfv" muted playsinline preload="auto" poster="../media/corp-performance-land.jpg" data-land="../media/corp-performance-land.mp4" data-port="../media/corp-performance-port.mp4" data-poster-port="../media/corp-performance-port.jpg"></video>
     <span class="hint">▶ Playing · sound off</span>
     <div class="ctl">
       <button class="pill" type="button" id="lf-sound"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span id="lf-sound-t">Play with sound</span></button>
@@ -102,115 +103,155 @@
     </div>
     <span class="bar" aria-hidden="true"><i id="lf-bar"></i></span>
   </section>
-  <section class="hero" aria-labelledby="hero-h">
+  <section class="ci-hero" aria-labelledby="hero-h">
     <div class="wrap">
-      <div>
-        <span class="eyebrow">For corporate and enterprise organisations</span>
-        <h1 id="hero-h">Technology and risk your board can rely on, <em>from every angle.</em></h1>
-        <p class="lead">Code Black Group gives leadership teams one accountable partner across cyber security, managed IT, A.I., digital platforms, surveillance and connectivity: one agreement, one point of contact and one escalation path.</p>
+      <div class="rv">
+        <span class="eyebrow">For corporate and enterprise</span>
+        <h1 id="hero-h">Technology that <span class="ci-b">performs</span> at board level.</h1>
+        <p class="lead">One accountable partner across cyber security, managed IT, A.I., digital platforms, connectivity and physical security, measured on the outcomes your leadership team cares about.</p>
         <div class="hero-actions">
           <a class="btn" href="#contact">Book an executive briefing
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
           <a class="textlink" href="#discovery">Take the 60-second discovery</a>
-          <a class="textlink" href="#watch" id="replay">▶ Watch the 70-second trailer</a>
-        </div>
-        <div class="proof">
-          <span>Established 2005</span>
-          <span>24/7 support and monitoring</span>
-          <span>Every solution security-vetted</span>
+          <a class="textlink" href="#watch" id="replay">▶ Watch the film with sound</a>
         </div>
       </div>
-      <div class="hero-media rv">
-        <figure><img src="../assets/img/corp-boardroom.jpg" alt="Boardroom overlooking the Melbourne skyline at dusk" width="1200" height="1490"></figure>
-        <button class="play-chip" type="button" data-film="../media/brand-film-v5.mp4" data-poster="../media/brand-film-v5.jpg"><i></i>Watch our film · 1 min</button>
-        <div class="cap"><b>All angles covered.</b><span>One partner, one agreement and one escalation path across your technology.</span></div>
+      <div class="ci-dash rv" role="group" aria-label="Code Black Group at a glance">
+        <div class="ci-dash-h"><b>Group at a glance</b><span class="ci-live"><i></i>24/7</span></div>
+        <div class="ci-kpis">
+          <div class="ci-kpi"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="5"/><circle class="ci-ring" cx="24" cy="24" r="20" fill="none" stroke="#C9A24D" stroke-width="5" stroke-dasharray="125.6" transform="rotate(-90 24 24)"/></svg><div><b>2005</b><span>Supporting Australian organisations since</span></div></div>
+          <div class="ci-kpi"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="5"/><circle class="ci-ring" cx="24" cy="24" r="20" fill="none" stroke="#7FA6E3" stroke-width="5" stroke-dasharray="125.6" transform="rotate(-90 24 24)"/></svg><div><b>24/7</b><span>Support and monitoring</span></div></div>
+          <div class="ci-kpi"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><g fill="#C9A24D"><rect x="6" y="8" width="10" height="10" rx="2"/><rect x="19" y="8" width="10" height="10" rx="2"/><rect x="32" y="8" width="10" height="10" rx="2"/><rect x="6" y="22" width="10" height="10" rx="2"/><rect x="19" y="22" width="10" height="10" rx="2"/><rect x="32" y="22" width="10" height="10" rx="2"/></g></svg><div><b>6</b><span>Specialist divisions in one group</span></div></div>
+          <div class="ci-kpi"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="8" fill="#7FA6E3"/><g stroke="#7FA6E3" stroke-width="2"><line x1="24" y1="4" x2="24" y2="14"/><line x1="24" y1="34" x2="24" y2="44"/><line x1="4" y1="24" x2="14" y2="24"/><line x1="34" y1="24" x2="44" y2="24"/></g></svg><div><b>1</b><span>Agreement and escalation path</span></div></div>
+        </div>
+        <div class="ci-bars">
+          <div class="ci-cap">Average cost per cybercrime report · FY25</div>
+          <div class="ci-row"><span>Small business</span><span class="ci-tr"><i style="--w:28%"></i></span><span>$56.6k</span></div>
+          <div class="ci-row"><span>Medium</span><span class="ci-tr"><i style="--w:48%"></i></span><span>$97.2k</span></div>
+          <div class="ci-row"><span>Large</span><span class="ci-tr"><i class="hot" style="--w:100%"></i></span><span>$202.7k</span></div>
+          <div class="ci-src">ASD Annual Cyber Threat Report 2024–25 · large business cost up 219%</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="sec diff" id="the-difference" aria-labelledby="diff-h">
+  <section class="ci-why" id="the-difference" aria-labelledby="diff-h">
     <div class="wrap">
-      <div class="diff-top rv">
-        <span class="eyebrow">Why Code Black Group</span>
-        <h2 id="diff-h">Your team is strong. The <em>gaps</em> are the problem: finding someone capable who understands your pain points.</h2>
-        <p class="lead">We fill the gaps your team can&#39;t cover, from cyber security and A.I. governance to 24/7 support and digital platforms, with specialists who start from your pressures, not our catalogue.</p>
+      <div class="ci-card ci-why-in rv">
+        <div><span class="eyebrow">Why Code Black Group</span><h2 id="diff-h">Your team is strong. The <span class="ci-b">gaps</span> are the problem.</h2></div>
+        <p>Finding someone capable who understands your pain points is hard. We fill the gaps your team can&#39;t cover, from cyber security and A.I. governance to 24/7 support and digital platforms, with specialists who start from your pressures, not our catalogue.</p>
       </div>
-      <ol class="diff-pts rv"><li><span>01</span><div><h3>We fill gaps, not seats</h3><p>Specialists slot in alongside your people, so your team stays in control.</p></div></li><li><span>02</span><div><h3>Pain points first</h3><p>Every engagement starts with an executive briefing on what is really slowing you down.</p></div></li><li><span>03</span><div><h3>Accountable from day one</h3><p>One agreement, one point of contact and one escalation path across every division.</p></div></li></ol>
     </div>
   </section>
 
-
-  <section class="figures" aria-label="Code Black Group at a glance">
-    <div class="wrap">
-      <div class="fig rv"><b>2005</b><span>Supporting Australian organisations since Midnight IT began</span></div>
-      <div class="fig rv"><b>24/7</b><span>Support and monitoring around the clock</span></div>
-      <div class="fig rv"><b>6</b><span>Specialist divisions within one group</span></div>
-      <div class="fig rv"><b>1</b><span>Point of contact and escalation path for every client</span></div>
-    </div>
-  </section>
-
-  <section class="sec bg-night" id="pressures" aria-labelledby="pain-h">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div><span class="eyebrow">Why we're here</span><h2 id="pain-h">The pressures on every leadership team.</h2></div>
-        <p>The research is consistent across every major market: breaches cost more, A.I. is under-delivering, skills are short and old technology quietly eats the budget. These are the problems we start with.</p>
-      </div>
-      <div class="pains">
-        <article class="pain rv"><b>$4.22M</b><h3>The cost of a breach</h3><p>The average cost of a data breach for an Australian organisation. Breaches contained in under 200 days cost about $1.9M less.</p><small>IBM / Ponemon, Cost of a Data Breach 2026</small></article>
-        <article class="pain rv"><b>13%</b><h3>A.I. that isn't paying off</h3><p>Only 13% of CIOs say A.I. has delivered significant value so far, despite rising investment.</p><small>Gartner survey of 2,002 CIOs, 2026</small></article>
-        <article class="pain rv"><b>94%</b><h3>Not enough skilled people</h3><p>Of Australian organisations report cyber security skills shortages, leaving gaps in detection and response.</p><small>Barracuda Cybersecurity Skills Gap Report 2026</small></article>
-        <article class="pain rv"><b>20–40%</b><h3>Tech debt and tool sprawl</h3><p>Of a technology estate's value is tied up in technical debt, and 86% of IT leaders say tool sprawl has a real financial impact.</p><small>McKinsey CIO survey · Nintex research via ITPro</small></article>
-      </div>
-      <p class="pain-note rv">What if a partner started with the problem, <em>not the product?</em></p>
-    </div>
-  </section>
-
-  <section class="sec" aria-labelledby="roles-h">
+  <section class="sec ci-sec" id="pressures" aria-labelledby="pain-h">
     <div class="wrap">
       <div class="sec-head rv">
-        <div><span class="eyebrow">Built for leadership teams</span><h2 id="roles-h">What changes for each of your leaders.</h2></div>
-        <p>Technology decisions now sit with the whole leadership team. We give each of them what they need: confidence the risk is owned, spend they can predict, and operations that keep running.</p>
+        <div><span class="eyebrow">The cost of underperformance</span><h2 id="pain-h">Where technology quietly drags performance.</h2></div>
+        <p>Four pressures show up on every leadership agenda. Each one is measurable, and each one is where we start.</p>
       </div>
-      <div class="roles">
-        <article class="role-c rv"><span class="who">Board and CEO</span><h3>Confidence that the risk is owned</h3><ul><li>A clear view of cyber and technology risk, explained in plain English</li><li>One accountable partner rather than a chain of vendors</li><li>Security reviewed on every engagement, not only security projects</li></ul></article>
-        <article class="role-c rv"><span class="who">CFO</span><h3>Consolidated, predictable spend</h3><ul><li>One agreement and one relationship across services</li><li>Plans with options and phases, so you set the pace</li><li>Payment plans through our finance partner, grenke</li></ul></article>
-        <article class="role-c rv"><span class="who">COO and technology leaders</span><h3>Operations that keep running</h3><ul><li>24/7 support and monitoring</li><li>Multi-site IT, connectivity and physical security under one plan</li><li>One escalation path when something breaks, and we coordinate the fix</li></ul></article>
+      <div class="ci-ig">
+        <div class="ci-card s7 rv">
+          <div class="ci-big">$4.22M</div>
+          <h3>The cost of a breach in Australia</h3>
+          <p>Speed is the performance lever. Breaches contained in under 200 days cost about $1.9M less.</p>
+          <div class="ci-cmp">
+            <div class="ci-crow"><span>Average breach</span><span class="ci-tr2"><i class="red" style="--w:100%">$4.22M</i></span></div>
+            <div class="ci-crow"><span>Contained &lt; 200 days</span><span class="ci-tr2"><i class="blue" style="--w:55%">≈ $2.3M</i></span></div>
+          </div>
+          <span class="ci-src">IBM / Ponemon, Cost of a Data Breach 2026</span>
+        </div>
+        <div class="ci-card s5 rv">
+          <div class="ci-big ci-b">94%</div>
+          <h3>Not enough skilled people</h3>
+          <p>Of Australian organisations report cyber security skills shortages.</p>
+          <div class="ci-waffle" role="img" aria-label="94 out of 100"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i></div>
+          <span class="ci-src">Barracuda Cybersecurity Skills Gap Report 2026</span>
+        </div>
+        <div class="ci-card s5 ci-flex rv">
+          <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="13%"><circle cx="60" cy="60" r="48" fill="none" stroke="#EEEBE4" stroke-width="16"/><circle class="ci-arc" cx="60" cy="60" r="48" fill="none" stroke="#C9A24D" stroke-width="16" stroke-dasharray="39.2 301.6" transform="rotate(-90 60 60)"/><text x="60" y="67" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600" font-size="24" fill="#101418">13%</text></svg>
+          <div><h3>A.I. that isn&#39;t paying off</h3><p>Only 13% of CIOs say A.I. has delivered significant value so far, despite rising investment.</p></div>
+          <span class="ci-src">Gartner survey of 2,002 CIOs, 2026</span>
+        </div>
+        <div class="ci-card s7 rv">
+          <div class="ci-big">20–40%</div>
+          <h3>Tied up in tech debt</h3>
+          <p>Of a technology estate&#39;s value. 86% of IT leaders say tool sprawl has a real financial impact.</p>
+          <div class="ci-range" aria-hidden="true"><span></span><em style="left:0">0%</em><em style="left:20%">20%</em><em style="left:40%">40%</em><em style="right:0">100%</em></div>
+          <span class="ci-src">McKinsey CIO survey · Nintex research via ITPro</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="sec bg-white" id="priorities" aria-labelledby="prio-h">
+  <section class="sec ci-sec ci-tight" id="why" aria-labelledby="why-h">
     <div class="wrap">
       <div class="sec-head rv">
-        <div><span class="eyebrow">Corporate priorities</span><h2 id="prio-h">The problems we're asked to solve.</h2></div>
-        <p>Each priority is delivered by the right specialist division, coordinated by one account manager and secured by Strikeforce Cyber.</p>
+        <div><span class="eyebrow">Where performance leaks</span><h2 id="why-h">Six vendors, six handovers. Or one owner.</h2></div>
+        <p>When something breaks between providers, your team becomes the project manager. Every handover is a delay, and every delay costs.</p>
       </div>
-      <div class="prio">
-        <article class="rv"><span class="n">01</span><h3>Cyber risk and resilience</h3><p>Protection, detection and response across your environment, with the assurance your leadership team needs.</p><ul><li>Managed detection and response (MDR) and AI SecOps</li><li>Offensive security testing</li><li>Email security and monitoring built into support</li><li>Compliance support and plain-English reporting</li></ul><p class="by">Delivered by <b>Strikeforce Cyber</b></p></article>
-        <article class="rv"><span class="n">02</span><h3>Vendor consolidation</h3><p>Replace separate contracts, invoices and helpdesks with one relationship and one owner of the whole picture.</p><ul><li>One agreement across services</li><li>One account manager and escalation path</li><li>Transition planned in phases, without disruption</li></ul><p class="by">Coordinated by <b>Code Black Group</b></p></article>
-        <article class="rv"><span class="n">03</span><h3>Secure A.I. adoption</h3><p>Adopt A.I. quickly without losing control of your data, people or reputation.</p><ul><li>Governance and frameworks</li><li>Custom A.I. agents</li><li>Staff training and change management</li><li>Guardrails built by Strikeforce Cyber</li></ul><p class="by">Delivered by <b>AI Dome</b> with <b>Strikeforce Cyber</b></p></article>
-        <article class="rv"><span class="n">04</span><h3>Multi-site and hybrid operations</h3><p>Every office, venue and remote worker supported, connected and secured to the same standard.</p><ul><li>Managed IT, cloud and workplace technology</li><li>Business-grade internet, fibre and networks</li><li>A.I. phone agents in place of IVR menus</li></ul><p class="by">Delivered by <b>Midnight IT</b> and <b>Wize Solutions</b></p></article>
-        <article class="rv"><span class="n">05</span><h3>Modernising legacy systems</h3><p>Move critical systems from legacy platforms to modern architecture, with security designed in from the start.</p><ul><li>Platforms, portals and custom software</li><li>Integration of legacy data and processes</li><li>Change management for the people who use them</li></ul><p class="by">Delivered by <b>Rend'r</b>, <b>Midnight IT</b> and <b>Strikeforce Cyber</b></p></article>
-        <article class="rv"><span class="n">06</span><h3>Physical security</h3><p>Protect people, assets and sites with security technology that is maintained alongside your IT.</p><ul><li>CCTV, surveillance and access control</li><li>Body-worn cameras and evidence management, hosted in Australia</li><li>In-person maintenance and after-sales support</li><li>Latest technology tried and tested in our own divisions first</li></ul><p class="by">Delivered by <b>3 Eyes Australia</b>, our technology and R&amp;D arm</p></article>
+      <div class="ci-vd">
+        <div class="ci-card rv">
+          <span class="ci-tag bad">● Typical model</span>
+          <svg viewBox="0 0 520 260" role="img" aria-label="Six separate vendors, each connected to your team separately">
+            <g stroke="#E2B5AE" stroke-width="1.5" stroke-dasharray="4 5" fill="none"><path d="M260 130 L70 50"/><path d="M260 130 L260 30"/><path d="M260 130 L450 50"/><path d="M260 130 L70 210"/><path d="M260 130 L260 232"/><path d="M260 130 L450 210"/><path d="M70 50 L260 30"/><path d="M450 50 L450 210"/><path d="M70 210 L260 232"/></g>
+            <g font-family="Inter,sans-serif" font-size="12" fill="#2A3038">
+              <rect x="20" y="32" width="100" height="36" rx="8" fill="#fff" stroke="#E2DFD8"/><text x="70" y="55" text-anchor="middle">IT provider</text>
+              <rect x="205" y="12" width="110" height="36" rx="8" fill="#fff" stroke="#E2DFD8"/><text x="260" y="35" text-anchor="middle">Security vendor</text>
+              <rect x="400" y="32" width="100" height="36" rx="8" fill="#fff" stroke="#E2DFD8"/><text x="450" y="55" text-anchor="middle">Web agency</text>
+              <rect x="20" y="192" width="100" height="36" rx="8" fill="#fff" stroke="#E2DFD8"/><text x="70" y="215" text-anchor="middle">Telco</text>
+              <rect x="205" y="214" width="110" height="36" rx="8" fill="#fff" stroke="#E2DFD8"/><text x="260" y="237" text-anchor="middle">CCTV installer</text>
+              <rect x="400" y="192" width="100" height="36" rx="8" fill="#fff" stroke="#E2DFD8"/><text x="450" y="215" text-anchor="middle">A.I. consultant</text>
+              <circle cx="260" cy="130" r="40" fill="#F7E6E3"/><text x="260" y="127" text-anchor="middle" font-weight="600">Your team</text><text x="260" y="143" text-anchor="middle" font-size="11" fill="#B4473A">coordinates</text>
+            </g>
+          </svg>
+          <ul class="ci-ul"><li><b>6</b>contracts, invoices and helpdesks</li><li><b>6</b>sets of security standards</li><li><b>∞</b>handovers when something breaks</li></ul>
+        </div>
+        <div class="ci-card rv">
+          <span class="ci-tag good">● Code Black Group</span>
+          <svg viewBox="0 0 520 260" role="img" aria-label="Six divisions connected through one account manager to your team">
+            <g stroke="#7FA6E3" stroke-width="1.5" fill="none"><path d="M330 130 L440 40"/><path d="M330 130 L470 100"/><path d="M330 130 L470 160"/><path d="M330 130 L440 220"/><path d="M330 130 L380 30"/><path d="M330 130 L380 232"/></g>
+            <line x1="110" y1="130" x2="292" y2="130" stroke="#1E5BB8" stroke-width="3"/>
+            <g font-family="Inter,sans-serif" font-size="12">
+              <circle cx="380" cy="30" r="16" fill="#E3ECFA"/><circle cx="440" cy="40" r="16" fill="#E3ECFA"/><circle cx="470" cy="100" r="16" fill="#E3ECFA"/><circle cx="470" cy="160" r="16" fill="#E3ECFA"/><circle cx="440" cy="220" r="16" fill="#E3ECFA"/><circle cx="380" cy="232" r="16" fill="#E3ECFA"/>
+              <circle cx="330" cy="130" r="40" fill="#1E5BB8"/><text x="330" y="127" text-anchor="middle" font-weight="600" fill="#fff">Account</text><text x="330" y="143" text-anchor="middle" font-weight="600" fill="#fff">manager</text>
+              <circle cx="70" cy="130" r="40" fill="#F2EFE7"/><text x="70" y="134" text-anchor="middle" font-weight="600" fill="#2A3038">Your team</text>
+              <text x="200" y="120" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#1E5BB8">ONE ESCALATION PATH</text>
+            </g>
+          </svg>
+          <ul class="ci-ul"><li><b>1</b>agreement, relationship and invoice</li><li><b>1</b>security standard, set by Strikeforce Cyber</li><li><b>1</b>escalation path, and we coordinate the fix</li></ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="why" aria-labelledby="why-h">
-    <div class="wrap why-grid">
-      <div class="rv">
-        <span class="eyebrow">Why Code Black Group</span>
-        <h2 id="why-h">Fewer vendors. Clear accountability.</h2>
-        <p>Most organisations manage a separate provider for IT, security, web, cameras, connectivity and A.I. When something breaks between them, your team becomes the project manager. We bring those specialists together under one agreement and one owner.</p>
+  <section class="sec ci-sec ci-tight" id="priorities" aria-labelledby="prio-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">Six performance levers</span><h2 id="prio-h">What we&#39;re asked to improve.</h2></div>
+        <p>Each lever is delivered by the right specialist division, coordinated by one account manager and secured by Strikeforce Cyber.</p>
       </div>
-      <div class="compare rv" role="table" aria-label="Typical multi-vendor model compared with Code Black Group">
-        <div class="row hd" role="row"><span class="k" role="columnheader">&nbsp;</span><span class="them" role="columnheader">Typical model</span><span class="us" role="columnheader">Code Black Group</span></div>
-        <div class="row" role="row"><span class="k" role="cell">Contracts and invoices</span><span class="them" role="cell">One per vendor</span><span class="us" role="cell">One relationship across every service</span></div>
-        <div class="row" role="row"><span class="k" role="cell">Accountability</span><span class="them" role="cell">Split across providers</span><span class="us" role="cell">One owner of the whole picture</span></div>
-        <div class="row" role="row"><span class="k" role="cell">When something breaks</span><span class="them" role="cell">Separate helpdesks, you coordinate</span><span class="us" role="cell">One escalation path, we coordinate</span></div>
-        <div class="row" role="row"><span class="k" role="cell">Security</span><span class="them" role="cell">Added vendor by vendor</span><span class="us" role="cell">Every solution vetted by Strikeforce Cyber</span></div>
-        <div class="row" role="row"><span class="k" role="cell">Planning</span><span class="them" role="cell">Separate quotes and timelines</span><span class="us" role="cell">One plan with options and phases</span></div>
-        <div class="row" role="row"><span class="k" role="cell">Adoption</span><span class="them" role="cell">Left to your people</span><span class="us" role="cell">Change management on every engagement</span></div>
+      <div class="ci-levers">
+        <div class="ci-lv rv"><div class="ci-lv-top"><span>01</span><span class="ci-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5BB8" stroke-width="1.8" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span></div><h3>Cyber risk + resilience</h3><p>Detection and response across your environment: MDR and A.I. SecOps, offensive testing and plain-English reporting for the board.</p><div class="ci-by">Delivered by <b>Strikeforce Cyber</b></div></div>
+        <div class="ci-lv rv"><div class="ci-lv-top"><span>02</span><span class="ci-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5BB8" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg></span></div><h3>Vendor consolidation</h3><p>One relationship and one owner of the whole picture, with the transition planned in phases, without disruption.</p><div class="ci-by">Coordinated by <b>Code Black Group</b></div></div>
+        <div class="ci-lv rv"><div class="ci-lv-top"><span>03</span><span class="ci-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5BB8" stroke-width="1.8" aria-hidden="true"><path d="M4 18l5-6 4 3 7-9"/><path d="M15 6h5v5"/></svg></span></div><h3>A.I. that pays off</h3><p>Governance, custom A.I. agents and staff training, so adoption turns into value, inside guardrails built by Strikeforce.</p><div class="ci-by">Delivered by <b>AI Dome</b></div></div>
+        <div class="ci-lv rv"><div class="ci-lv-top"><span>04</span><span class="ci-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5BB8" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span></div><h3>Multi-site uptime</h3><p>Every office, venue and remote worker supported, connected and secured to one standard, 24/7.</p><div class="ci-by">Delivered by <b>Midnight IT + Wize</b></div></div>
+        <div class="ci-lv rv"><div class="ci-lv-top"><span>05</span><span class="ci-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5BB8" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M17 14l3 3-3 3"/></svg></span></div><h3>Legacy modernisation</h3><p>Critical systems moved to modern platforms and portals, with security designed in from the start.</p><div class="ci-by">Delivered by <b>Rend'r + Strikeforce</b></div></div>
+        <div class="ci-lv rv"><div class="ci-lv-top"><span>06</span><span class="ci-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5BB8" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span></div><h3>Sites, energy + security</h3><p>CCTV, access control, body-worn cameras and energy efficiency, tested in our own divisions first and maintained in person.</p><div class="ci-by">Delivered by <b>3 Eyes Australia</b></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ci-sec ci-tight" aria-labelledby="roles-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">Performance, by leader</span><h2 id="roles-h">What each of your leaders gets.</h2></div>
+        <p>Technology decisions sit with the whole leadership team, and each role measures performance differently.</p>
+      </div>
+      <div class="ci-roles rv">
+        <div class="ci-role"><span class="eyebrow">Board + CEO</span><h3>Risk that is owned</h3><ul><li>Cyber and technology risk explained in plain English</li><li>One accountable partner rather than a chain of vendors</li><li>Security reviewed on every engagement</li></ul></div>
+        <div class="ci-role"><span class="eyebrow">CFO</span><h3>Spend you can predict</h3><ul><li>One agreement and one relationship across services</li><li>Plans with options and phases, so you set the pace</li><li>Payment plans through our finance partner, grenke</li></ul></div>
+        <div class="ci-role"><span class="eyebrow">COO + technology leaders</span><h3>Operations that keep running</h3><ul><li>24/7 support and monitoring</li><li>Multi-site IT, connectivity and physical security in one plan</li><li>One escalation path when something breaks; we coordinate the fix</li></ul></div>
       </div>
     </div>
   </section>
@@ -398,7 +439,7 @@
   var sbtn=document.getElementById('lf-sound'), st=document.getElementById('lf-sound-t'), bar=document.getElementById('lf-bar');
   function tryPlay(){ var p=v.play(); if(p&&p.catch) p.catch(function(){ sec.classList.add('paused'); st.textContent='Play with sound'; }); }
   v.loop=true;
-  if(!RM){ tryPlay(); } else { sec.querySelector('.hint').textContent='Press play to watch'; }
+  if(!RM){ v.muted=false; var p0=v.play(); if(p0&&p0.then){ p0.then(function(){ sec.classList.add('sound'); setLabel(); }).catch(function(){ v.muted=true; tryPlay(); }); } } else { sec.querySelector('.hint').textContent='Press play to watch'; }
   function setLabel(){ st.textContent = v.muted ? (v.paused?'Play with sound':'Play with sound') : (v.paused?'Resume':'Sound on · mute'); }
   sbtn.addEventListener('click',function(){
     if(v.muted || v.paused){ if(v.muted){ v.currentTime=0; } v.muted=false; sec.classList.add('sound'); tryPlay(); }

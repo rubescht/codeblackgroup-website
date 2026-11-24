@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- security:start -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-DqK66ygDXrOCs4cZVUBPQ+P0iWXuNWwy6hWndXBkHbo='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script src="../assets/guard.js"></script>
+<!-- security:end -->
+<title>Code Black Group for Corporates | Technology, security and risk, owned by one partner</title>
+<meta name="description" content="One accountable partner for cyber security, managed IT, A.I., digital platforms, surveillance and connectivity. Built for leadership teams. Melbourne, since 2005.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../logos/cbg-mark-white.svg" type="image/svg+xml">
+<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/newsreader-latin-500-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/inter-latin-400-normal.woff2" crossorigin>
+<link rel="stylesheet" href="../assets/editorial.css?v=3">
+<style>
+.lf{position:relative;height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:480px;background:#060607;overflow:hidden}
+.lf video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#060607}
+.lf .ctl{position:absolute;left:0;right:0;bottom:0;padding:60px var(--gut,24px) 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;z-index:2;background:linear-gradient(0deg,rgba(6,6,7,.8),transparent)}
+.lf .pill{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 18px 0 8px;border-radius:999px;border:1px solid rgba(212,180,106,.55);background:rgba(10,10,12,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#F4F1EA;font:600 14.5px var(--sans);cursor:pointer;text-decoration:none}
+.lf .pill .ic{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--gold-soft);color:#121316}
+.lf .pill.sm{padding:0 16px;border-color:rgba(255,255,255,.22)}
+.lf .pill:hover{border-color:var(--gold-soft)}
+.lf .sp{flex:1}
+.lf .bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08);z-index:3}
+.lf .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold-mid),var(--gold-soft))}
+.lf .hint{position:absolute;top:18px;right:var(--gut,24px);z-index:2;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#C9C3B6;background:rgba(10,10,12,.55);padding:7px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.lf.sound .hint{display:none}
+.lf:fullscreen{height:100vh}
+@media (max-width:640px){.lf .pill{height:42px;font-size:13.5px}.lf .pill.fs{display:none}}
+.pains{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid rgba(255,255,255,.18)}
+.pain{padding:30px 26px 10px 0;min-width:0}
+.pain+.pain{padding-left:26px;border-left:1px solid rgba(255,255,255,.12)}
+.pain b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,60px);line-height:1;letter-spacing:-.02em;color:var(--gold-soft);margin-bottom:14px}
+.pain h3{font-size:19px;margin-bottom:8px;color:#F4F1EA}
+.pain p{font-size:15px;color:#B9B5AD;line-height:1.5}
+.pain small{display:block;margin-top:14px;font-size:12px;letter-spacing:.04em;color:#8E8A82}
+.pain small a{color:inherit}
+.pain-note{margin-top:42px;font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);line-height:1.3;color:#F4F1EA;max-width:34ch}
+.pain-note em{color:var(--gold-soft)}
+@media (min-width:1025px){.steps.s6{grid-template-columns:repeat(3,minmax(0,1fr))}.steps.s6 li:nth-child(3n+1){padding-left:0;border-left:0}.steps.s6 li:nth-child(n+4){border-top:1px solid var(--line);margin-top:6px}}
+.steps .src{display:block;margin-top:10px;font-size:12.5px;color:var(--gold);letter-spacing:.02em}
+@media (max-width:1024px){.pains{grid-template-columns:repeat(2,minmax(0,1fr))}.pain,.pain+.pain{padding:26px 20px 18px 0;border-left:0;border-bottom:1px solid rgba(255,255,255,.12)}.pain:nth-child(even){padding-left:20px;border-left:1px solid rgba(255,255,255,.12)}}
+@media (max-width:560px){.pains{grid-template-columns:1fr}.pain:nth-child(even){padding-left:0;border-left:0}}
+</style>
+<link rel="stylesheet" href="../assets/sos.css?v=1">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="audbar" role="navigation" aria-label="Choose your organisation type">
+  <div class="wrap">
+    <span class="lbl">Code Black Group for</span>
+    <nav><a href="../startups/" aria-label="Startups" data-s="Startups"><span>Startups</span></a><a href="../business/" aria-label="Small Business" data-s="Small Biz"><span>Small Business</span></a><a href="../corporate/" aria-current="page" aria-label="Corporates" data-s="Corporate"><span>Corporates</span></a><a href="../not-for-profit/" aria-label="Government &amp; NFP" data-s="Gov &amp; NFP"><span>Government &amp; NFP</span></a></nav>
+    <a class="alt" href="../">All client types ↗</a>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Code Black Group home"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#priorities">Priorities</a>
+      <a href="#why">Why us</a>
+      <a href="#discovery">Discovery</a>
+      <a href="#engage">Engagement</a>
+      <a href="#work">Work</a>
+      <a href="#leadership">Leadership</a>
+    </nav>
+    <div class="head-cta">
+      <a class="tel" href="#scam-help" data-scam-help style="color:#E0605A">SOS: scam help</a>
+      <a class="tel" href="tel:1300737562">1300 737 562</a>
+      <a class="btn" href="#contact">Book a briefing</a>
+    </div>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Mobile">
+    <a href="#scam-help" data-scam-help style="color:#E0605A">SOS: been scammed? Get help now</a>
+    <a href="#priorities">Priorities</a>
+    <a href="#why">Why us</a>
+    <a href="#engage">Engagement</a>
+    <a href="#work">Work</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#discovery">Discovery</a>
+    <a href="tel:1300737562">Call 1300 737 562</a>
+    <a class="btn" href="#contact">Book a briefing</a>
+  </nav>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+  <section class="lf" id="watch" aria-label="Film: every boardroom, every city">
+    <video id="lfv" muted playsinline preload="auto" poster="../media/corp-trailer-land.jpg" data-land="../media/corp-trailer-land.mp4" data-port="../media/corp-trailer-port.mp4" data-poster-port="../media/corp-trailer-port.jpg"></video>
+    <span class="hint">▶ Playing · sound off</span>
+    <div class="ctl">
+      <button class="pill" type="button" id="lf-sound"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span id="lf-sound-t">Play with sound</span></button>
+      <button class="pill sm fs" type="button" id="lf-fs">Full screen</button>
+      <span class="sp"></span>
+      <a class="pill sm" href="#hero-h" id="lf-skip">Skip ↓</a>
+    </div>
+    <span class="bar" aria-hidden="true"><i id="lf-bar"></i></span>
+  </section>
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">For corporate and enterprise organisations</span>
+        <h1 id="hero-h">Technology and risk your board can rely on, <em>from every angle.</em></h1>
+        <p class="lead">Code Black Group gives leadership teams one accountable partner across cyber security, managed IT, A.I., digital platforms, surveillance and connectivity: one agreement, one point of contact and one escalation path.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contact">Book an executive briefing
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          <a class="textlink" href="#discovery">Take the 60-second discovery</a>
+          <a class="textlink" href="#watch" id="replay">▶ Watch the 70-second trailer</a>
+        </div>
+        <div class="proof">
+          <span>Established 2005</span>
+          <span>24/7 support and monitoring</span>
+          <span>Every solution security-vetted</span>
+        </div>
+      </div>
+      <div class="hero-media rv">
+        <figure><img src="../assets/img/corp-boardroom.jpg" alt="Boardroom overlooking the Melbourne skyline at dusk" width="1200" height="1490"></figure>
+        <button class="play-chip" type="button" data-film="../media/brand-film-v5.mp4" data-poster="../media/brand-film-v5.jpg"><i></i>Watch our film · 1 min</button>
+        <div class="cap"><b>All angles covered.</b><span>One partner, one agreement and one escalation path across your technology.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec diff" id="the-difference" aria-labelledby="diff-h">
+    <div class="wrap">
+      <div class="diff-top rv">
+        <span class="eyebrow">Why Code Black Group</span>
+        <h2 id="diff-h">Your team is strong. The <em>gaps</em> are the problem: finding someone capable who understands your pain points.</h2>
+        <p class="lead">We fill the gaps your team can&#39;t cover, from cyber security and A.I. governance to 24/7 support and digital platforms, with specialists who start from your pressures, not our catalogue.</p>
+      </div>
+      <ol class="diff-pts rv"><li><span>01</span><div><h3>We fill gaps, not seats</h3><p>Specialists slot in alongside your people, so your team stays in control.</p></div></li><li><span>02</span><div><h3>Pain points first</h3><p>Every engagement starts with an executive briefing on what is really slowing you down.</p></div></li><li><span>03</span><div><h3>Accountable from day one</h3><p>One agreement, one point of contact and one escalation path across every division.</p></div></li></ol>
+    </div>
+  </section>
+
+
+  <section class="figures" aria-label="Code Black Group at a glance">
+    <div class="wrap">
+      <div class="fig rv"><b>2005</b><span>Supporting Australian organisations since Midnight IT began</span></div>
+      <div class="fig rv"><b>24/7</b><span>Support and monitoring around the clock</span></div>
+      <div class="fig rv"><b>6</b><span>Specialist divisions within one group</span></div>
+      <div class="fig rv"><b>1</b><span>Point of contact and escalation path for every client</span></div>
+    </div>
+  </section>
+
+  <section class="sec bg-night" id="pressures" aria-labelledby="pain-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">Why we're here</span><h2 id="pain-h">The pressures on every leadership team.</h2></div>
+        <p>The research is consistent across every major market: breaches cost more, A.I. is under-delivering, skills are short and old technology quietly eats the budget. These are the problems we start with.</p>
+      </div>
+      <div class="pains">
+        <article class="pain rv"><b>$4.22M</b><h3>The cost of a breach</h3><p>The average cost of a data breach for an Australian organisation. Breaches contained in under 200 days cost about $1.9M less.</p><small>IBM / Ponemon, Cost of a Data Breach 2026</small></article>
+        <article class="pain rv"><b>13%</b><h3>A.I. that isn't paying off</h3><p>Only 13% of CIOs say A.I. has delivered significant value so far, despite rising investment.</p><small>Gartner survey of 2,002 CIOs, 2026</small></article>
+        <article class="pain rv"><b>94%</b><h3>Not enough skilled people</h3><p>Of Australian organisations report cyber security skills shortages, leaving gaps in detection and response.</p><small>Barracuda Cybersecurity Skills Gap Report 2026</small></article>
+        <article class="pain rv"><b>20–40%</b><h3>Tech debt and tool sprawl</h3><p>Of a technology estate's value is tied up in technical debt, and 86% of IT leaders say tool sprawl has a real financial impact.</p><small>McKinsey CIO survey · Nintex research via ITPro</small></article>
+      </div>
+      <p class="pain-note rv">What if a partner started with the problem, <em>not the product?</em></p>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="roles-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">Built for leadership teams</span><h2 id="roles-h">What changes for each of your leaders.</h2></div>
+        <p>Technology decisions now sit with the whole leadership team. We give each of them what they need: confidence the risk is owned, spend they can predict, and operations that keep running.</p>
+      </div>
+      <div class="roles">
+        <article class="role-c rv"><span class="who">Board and CEO</span><h3>Confidence that the risk is owned</h3><ul><li>A clear view of cyber and technology risk, explained in plain English</li><li>One accountable partner rather than a chain of vendors</li><li>Security reviewed on every engagement, not only security projects</li></ul></article>
+        <article class="role-c rv"><span class="who">CFO</span><h3>Consolidated, predictable spend</h3><ul><li>One agreement and one relationship across services</li><li>Plans with options and phases, so you set the pace</li><li>Payment plans through our finance partner, grenke</li></ul></article>
+        <article class="role-c rv"><span class="who">COO and technology leaders</span><h3>Operations that keep running</h3><ul><li>24/7 support and monitoring</li><li>Multi-site IT, connectivity and physical security under one plan</li><li>One escalation path when something breaks, and we coordinate the fix</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bg-white" id="priorities" aria-labelledby="prio-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">Corporate priorities</span><h2 id="prio-h">The problems we're asked to solve.</h2></div>
+        <p>Each priority is delivered by the right specialist division, coordinated by one account manager and secured by Strikeforce Cyber.</p>
+      </div>
+      <div class="prio">
+        <article class="rv"><span class="n">01</span><h3>Cyber risk and resilience</h3><p>Protection, detection and response across your environment, with the assurance your leadership team needs.</p><ul><li>Managed detection and response (MDR) and AI SecOps</li><li>Offensive security testing</li><li>Email security and monitoring built into support</li><li>Compliance support and plain-English reporting</li></ul><p class="by">Delivered by <b>Strikeforce Cyber</b></p></article>
+        <article class="rv"><span class="n">02</span><h3>Vendor consolidation</h3><p>Replace separate contracts, invoices and helpdesks with one relationship and one owner of the whole picture.</p><ul><li>One agreement across services</li><li>One account manager and escalation path</li><li>Transition planned in phases, without disruption</li></ul><p class="by">Coordinated by <b>Code Black Group</b></p></article>
+        <article class="rv"><span class="n">03</span><h3>Secure A.I. adoption</h3><p>Adopt A.I. quickly without losing control of your data, people or reputation.</p><ul><li>Governance and frameworks</li><li>Custom A.I. agents</li><li>Staff training and change management</li><li>Guardrails built by Strikeforce Cyber</li></ul><p class="by">Delivered by <b>AI Dome</b> with <b>Strikeforce Cyber</b></p></article>
+        <article class="rv"><span class="n">04</span><h3>Multi-site and hybrid operations</h3><p>Every office, venue and remote worker supported, connected and secured to the same standard.</p><ul><li>Managed IT, cloud and workplace technology</li><li>Business-grade internet, fibre and networks</li><li>A.I. phone agents in place of IVR menus</li></ul><p class="by">Delivered by <b>Midnight IT</b> and <b>Wize Solutions</b></p></article>
+        <article class="rv"><span class="n">05</span><h3>Modernising legacy systems</h3><p>Move critical systems from legacy platforms to modern architecture, with security designed in from the start.</p><ul><li>Platforms, portals and custom software</li><li>Integration of legacy data and processes</li><li>Change management for the people who use them</li></ul><p class="by">Delivered by <b>Rend'r</b>, <b>Midnight IT</b> and <b>Strikeforce Cyber</b></p></article>
+        <article class="rv"><span class="n">06</span><h3>Physical security</h3><p>Protect people, assets and sites with security technology that is maintained alongside your IT.</p><ul><li>CCTV, surveillance and access control</li><li>Body-worn cameras and evidence management, hosted in Australia</li><li>In-person maintenance and after-sales support</li><li>Latest technology tried and tested in our own divisions first</li></ul><p class="by">Delivered by <b>3 Eyes Australia</b>, our technology and R&amp;D arm</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="why" aria-labelledby="why-h">
+    <div class="wrap why-grid">
+      <div class="rv">
+        <span class="eyebrow">Why Code Black Group</span>
+        <h2 id="why-h">Fewer vendors. Clear accountability.</h2>
+        <p>Most organisations manage a separate provider for IT, security, web, cameras, connectivity and A.I. When something breaks between them, your team becomes the project manager. We bring those specialists together under one agreement and one owner.</p>
+      </div>
+      <div class="compare rv" role="table" aria-label="Typical multi-vendor model compared with Code Black Group">
+        <div class="row hd" role="row"><span class="k" role="columnheader">&nbsp;</span><span class="them" role="columnheader">Typical model</span><span class="us" role="columnheader">Code Black Group</span></div>
+        <div class="row" role="row"><span class="k" role="cell">Contracts and invoices</span><span class="them" role="cell">One per vendor</span><span class="us" role="cell">One relationship across every service</span></div>
+        <div class="row" role="row"><span class="k" role="cell">Accountability</span><span class="them" role="cell">Split across providers</span><span class="us" role="cell">One owner of the whole picture</span></div>
+        <div class="row" role="row"><span class="k" role="cell">When something breaks</span><span class="them" role="cell">Separate helpdesks, you coordinate</span><span class="us" role="cell">One escalation path, we coordinate</span></div>
+        <div class="row" role="row"><span class="k" role="cell">Security</span><span class="them" role="cell">Added vendor by vendor</span><span class="us" role="cell">Every solution vetted by Strikeforce Cyber</span></div>
+        <div class="row" role="row"><span class="k" role="cell">Planning</span><span class="them" role="cell">Separate quotes and timelines</span><span class="us" role="cell">One plan with options and phases</span></div>
+        <div class="row" role="row"><span class="k" role="cell">Adoption</span><span class="them" role="cell">Left to your people</span><span class="us" role="cell">Change management on every engagement</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bg-white" id="discovery" aria-labelledby="disc-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">Executive discovery</span><h2 id="disc-h">Where should your leadership team start?</h2></div>
+        <p>Five quick questions, about a minute. Your brief builds live as you answer: the priority areas for your organisation, the specialists you’d meet and the way to engage that fits.</p>
+      </div>
+      <div id="dlab"></div>
+      <noscript><p>Call 1300 737 562 or email vip@codeblackgroup.com.au and we’ll walk you through it.</p></noscript>
+    </div>
+  </section>
+
+  <section class="sec bg-night" id="engage" aria-labelledby="eng-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">How we engage</span><h2 id="eng-h">Three ways to work with us.</h2></div>
+        <p>Start where it makes sense for your organisation. Many clients begin with an assessment or a single project and move to a managed services retainer.</p>
+      </div>
+      <div class="models">
+        <article class="model rv"><span class="tag">Ongoing</span><h3>Managed services retainer</h3><p>One partner for your day-to-day technology, with monitoring and security built in.</p><ul><li>24/7 support and monitoring</li><li>Security and email protection included</li><li>One account manager and escalation path</li></ul><p class="best"><b>Best for:</b> organisations that want one owner for their technology.</p></article>
+        <article class="model rv"><span class="tag">Defined scope</span><h3>Projects and transformation</h3><p>Planned with options and phases, delivered by one team with change management included.</p><ul><li>Migrations, rollouts and multi-site upgrades</li><li>Legacy modernisation and integration</li><li>Security reviewed before delivery</li></ul><p class="best"><b>Best for:</b> change programs with a clear outcome.</p></article>
+        <article class="model rv"><span class="tag">Clarity first</span><h3>Advisory and assessments</h3><p>A clear picture of where you stand and what to do next, before you commit.</p><ul><li>Cyber security posture review</li><li>A.I. readiness and governance</li><li>Technology roadmap with options and phases</li></ul><p class="best"><b>Best for:</b> leadership teams that need the facts first.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bg-white" aria-labelledby="secm-h">
+    <div class="wrap split rev">
+      <div class="rv">
+        <span class="eyebrow">Our security model</span>
+        <h2 id="secm-h">Security is designed in, not added on.</h2>
+        <p class="lead">Code Black Group is the outer ring around every division. Strikeforce Cyber, our cyber security division, is the inner ring: every solution is reviewed and secured before it reaches you.</p>
+        <ul class="ticks">
+          <li><span><b>Every engagement</b>, not only security projects, includes a security review</span></li>
+          <li><span><b>Monitoring and email security</b> are built into managed services</span></li>
+          <li><span><b>Guardrails and governance</b> surround every A.I. rollout</span></li>
+        </ul>
+      </div>
+      <figure class="rv"><img src="../img/cyber-operator.jpg" alt="Security analyst monitoring systems across several screens" loading="lazy" style="object-position:40% 30%"></figure>
+    </div>
+  </section>
+
+  <section class="sec" id="process" aria-labelledby="app-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">How we work</span><h2 id="app-h">Problem first. Product last.</h2></div>
+        <p>Leading consulting firms don't start with a solution. They define the problem, break it down, prioritise what matters and prove the result. We apply the same discipline to your technology, without the RFP.</p>
+      </div>
+      <ol class="steps s6">
+        <li class="rv"><span class="n">01</span><h3>Listen</h3><p>An executive briefing and interviews with the people closest to the problem. What's happening, what it costs and what success looks like.</p></li>
+        <li class="rv"><span class="n">02</span><h3>Diagnose</h3><p>We break the problem into its parts and test them against the facts: your environment, risk posture, contracts and how work really gets done.</p></li>
+        <li class="rv"><span class="n">03</span><h3>Prioritise</h3><p>Impact against effort and risk. You see which issues matter most, which are quick wins and what can wait.</p></li>
+        <li class="rv"><span class="n">04</span><h3>Design</h3><p>The right specialists from across the group shape one plan, with options, phases and a security review by Strikeforce Cyber built in.</p></li>
+        <li class="rv"><span class="n">05</span><h3>Deliver</h3><p>One team and one point of accountability, starting with quick wins, with change management for the people who use it.</p></li>
+        <li class="rv"><span class="n">06</span><h3>Prove it</h3><p>Agreed measures reported in plain English to your board, then reviewed so the next priority starts from evidence.</p></li>
+      </ol>
+      <div class="steps-note rv"><p>No pitch until we understand the problem.</p><a class="btn" href="#contact">Book an executive briefing</a></div>
+    </div>
+  </section>
+
+  <section class="sec bg-white" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">Selected engagements</span><h2 id="work-h">How organisations use the group.</h2></div>
+        <p>A selection of corporate work delivered across divisions. Out of respect for our clients we don't name them publicly; references are available on request.</p>
+      </div>
+      <div class="work">
+        <article class="case feature rv">
+          <div class="txt">
+            <span class="sector">Financial services</span>
+            <h3>Managed services with an integrated security stack</h3>
+            <p>Day-to-day support moved onto a group retainer, with monitoring and email security built in rather than bolted on, and one point of contact for the whole environment.</p>
+            <div class="tags"><span>Midnight IT</span><span>Strikeforce Cyber</span></div>
+          </div>
+          <div class="flow" aria-hidden="true">
+            <div class="st old"><b>Separate providers</b><small>Support and security split</small></div>
+            <span class="ar"></span>
+            <div class="st new"><b>One group retainer</b><small>Support, monitoring, email security</small></div>
+            <span class="sec-first">◆ One point of contact</span>
+          </div>
+        </article>
+        <article class="case rv"><span class="sector">Trade · two countries</span><h3>Offices in two countries, one agreement</h3><p>Melbourne and overseas offices supported and secured under a single managed services agreement.</p><div class="tags"><span>Midnight IT</span><span>Strikeforce Cyber</span></div></article>
+        <article class="case rv"><span class="sector">Hospitality · multi-site</span><h3>Regional venues under one IT plan</h3><p>IT takeover, managed services, cyber uplift and connectivity upgrades across several sites, run as one phased program.</p><div class="tags"><span>Midnight IT</span><span>Strikeforce Cyber</span><span>Wize</span></div></article>
+        <article class="case rv"><span class="sector">Membership organisation · national</span><h3>Legacy system to modern architecture</h3><p>A single membership platform designed and implemented for branches nationally, integrating a legacy system with security first at every step.</p><div class="tags"><span>Rend'r</span><span>Strikeforce Cyber</span><span>Midnight IT</span></div></article>
+        <article class="case rv"><span class="sector">Government · public safety</span><h3>Body-worn camera evidence, hosted in Australia</h3><p>Cloud evidence management for frontline officers, with the hosting and security handled across the group.</p><div class="tags"><span>3 Eyes</span><span>Strikeforce Cyber</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="leadership" aria-labelledby="lead-h">
+    <div class="wrap">
+      <div class="founder">
+        <figure class="rv"><img src="../img/team/rubesch-thananjeyan-lg.jpg" alt="Rubesch Thananjeyan, Founder and Group CEO" loading="lazy"></figure>
+        <div class="rv">
+          <span class="eyebrow">From our founder</span>
+          <blockquote>Our clients are not just clients. They are part of our extended family, and we take care of them.</blockquote>
+          <div class="who"><b>Rubesch Thananjeyan</b><span>Founder and Group CEO, Code Black Group</span></div>
+          <div class="story">
+            <p>Code Black Group grew from Midnight IT, founded in 2005. As clients asked for trusted specialists in security, websites and surveillance, we built those capabilities ourselves so we could stand behind the quality. Today they operate as one group, accountable as one.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sec-head rv" style="margin-bottom:44px">
+        <div><span class="eyebrow">Your senior team</span><h2 id="lead-h">The people accountable to you.</h2></div>
+        <p>Every corporate client works with senior specialists who own their discipline. <a class="textlink" href="../business/#team">Meet the full leadership team</a></p>
+      </div>
+      <div class="team">
+        <div class="person rv"><div class="ph"><img src="../img/team/jessica-harker.jpg" alt="Jessica Harker" loading="lazy" data-mono="JH"></div><b>Jessica Harker</b><span class="role">Head of Client Services</span><p>Manages every account manager, so each client has one clear point of contact and a consistent standard of service.</p></div>
+        <div class="person rv"><div class="ph"><img src="../img/team/chui-wong.jpg" alt="Chui Wong" loading="lazy" data-mono="CW"></div><b>Chui Wong</b><span class="role">Head of Service Delivery</span><p>Makes sure every engagement is planned, resourced and delivered on time, to scope and to standard.</p></div>
+        <div class="person rv"><div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Daniel-Cocco.png" alt="Daniel Cocco" loading="lazy" referrerpolicy="no-referrer" data-mono="DC"></div><b>Daniel Cocco</b><span class="role">Head of Cyber Security</span><p>Plans, integrates and supports secure systems that protect organisations while enabling controlled innovation.</p></div>
+        <div class="person rv"><div class="ph"><img src="../img/team/chetan-jha.jpg" alt="Chetan Jha" loading="lazy" data-mono="CJ"></div><b>Chetan Jha</b><span class="role">Head of Strategy</span><p>Leads strategy across the group, including A.I. strategy for AI Dome, and heads business development.</p></div>
+        <div class="person rv"><div class="ph"><img src="../img/team/winitha-bonney.jpg" alt="Winitha Bonney OAM" loading="lazy" data-mono="WB"></div><b>Winitha Bonney OAM</b><span class="role">Head of Change Management</span><p>Leads the change management built into every engagement, so new technology lands smoothly with people.</p></div>
+        <div class="person rv"><div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Phonz-Silvany.png" alt="Phonz Silvany" loading="lazy" referrerpolicy="no-referrer" data-mono="PS"></div><b>Phonz Silvany</b><span class="role">Head of Commercial</span><p>Drives commercial strategy while staying hands-on in technology, delivery and solution design.</p></div>
+        <div class="person rv"><div class="ph"><img src="../img/team/rick-scarra.jpg" alt="Rick Scarra" loading="lazy" data-mono="RS"></div><b>Rick Scarra</b><span class="role">Head of Government and Public Safety</span><p>Leads work with councils and agencies, drawing on experience delivering body-worn camera and evidence programs.</p></div>
+        <div class="person rv"><div class="ph"><img src="https://codeblackgroup.com.au/wp-content/uploads/2026/02/Anthony-Fonti.png" alt="Anthony Fonti" loading="lazy" referrerpolicy="no-referrer" data-mono="AF"></div><b>Anthony Fonti</b><span class="role">Head of Support</span><p>Keeps service reliable and responsive, stepping into escalation and delivery when needed.</p></div>
+      </div>
+      <div class="media-card rv">
+        <span class="tag">In the media</span>
+        <div><h3>Why A.I. security has to start at the operating system</h3><p>Group CEO Rubesch Thananjeyan at DATE With Tech 2025, Dubai, on uncontrolled A.I. growth and how Strikeforce Cyber is addressing the risk.</p></div>
+        <a class="btn ghost" href="https://www.youtube.com/watch?v=TgLYnMVFpSE" target="_blank" rel="noopener">Watch the interview</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bg-night contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="rv">
+        <span class="eyebrow">Executive briefing</span>
+        <h2 id="contact-h">Bring us the problem.</h2>
+        <p class="lead">Book a no-obligation briefing. Tell us what you need and what success looks like, and an account manager will come back with a clear plan, options and phases.</p>
+        <div class="details">
+          <a href="tel:1300737562"><span>Phone</span>1300 737 562</a>
+          <a href="mailto:vip@codeblackgroup.com.au"><span>Email</span>vip@codeblackgroup.com.au</a>
+          <div><span>Payment</span>Plans available through grenke</div>
+        </div>
+      </div>
+      <form id="enq" class="rv" data-source="Corporate site" novalidate>
+        <div class="f"><label for="f-first">First name</label><input id="f-first" name="first" autocomplete="given-name" required></div>
+        <div class="f"><label for="f-last">Last name</label><input id="f-last" name="last" autocomplete="family-name"></div>
+        <div class="f"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="f"><label for="f-phone">Phone <i>(optional)</i></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="f"><label for="f-company">Organisation</label><input id="f-company" name="company" autocomplete="organization"></div>
+        <div class="f"><label for="f-topic">Main priority</label><select id="f-topic" name="topic"><option value="">Choose one</option><option>Cyber risk and resilience</option><option>Vendor consolidation</option><option>Secure A.I. adoption</option><option>Multi-site operations</option><option>Legacy modernisation</option><option>Physical security</option><option>Something else</option></select></div>
+        <div class="f full"><label for="f-message">What would success look like?</label><textarea id="f-message" name="message"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="f-hp">Leave this empty</label><input id="f-hp" name="website" tabindex="-1" autocomplete="off"></div>
+        <p class="msg" id="form-msg" role="status" aria-live="polite"></p>
+        <div class="form-foot"><small>We use these details only to respond to your enquiry. No obligation.</small><button class="btn light" id="send" type="submit">Request a briefing</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <span class="logo" role="img" aria-label="Code Black Group"></span>
+        <p class="tagline">One Code. One Strategy. One Outcome.</p>
+        <p>Integrated technology, security and digital solutions. Six specialist divisions, one accountable group.</p>
+      </div>
+      <div><h4>Divisions</h4><ul><li><a href="https://strikeforcecyber.com" target="_blank" rel="noopener">Strikeforce Cyber</a></li><li><a href="https://midnightit.com.au" target="_blank" rel="noopener">Midnight IT</a></li><li><a href="https://rendr.com.au" target="_blank" rel="noopener">Rend'r</a></li><li><a href="https://3eyes.com.au" target="_blank" rel="noopener">3 Eyes Australia</a></li><li><a href="https://wizesolutions.com.au" target="_blank" rel="noopener">Wize Solutions</a></li><li><a href="https://aidome.com.au" target="_blank" rel="noopener">AI Dome</a></li></ul></div>
+      <div><h4>For</h4><ul><li><a href="../startups/">Startups &amp; Sole Traders</a></li><li><a href="../business/">Small &amp; Medium Business</a></li><li><a href="../corporate/">Corporates</a></li><li><a href="../not-for-profit/">Government &amp; Not-for-Profit</a></li><li><a href="../">All client types</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:1300737562">1300 737 562</a></li><li><a href="mailto:vip@codeblackgroup.com.au">vip@codeblackgroup.com.au</a></li><li><a href="#contact">Book a briefing</a></li></ul></div>
+    </div>
+    <div class="aoc-ft"><b>Acknowledgement of Country</b><p>Code Black Group acknowledges the Traditional Custodians of the lands on which we live and work throughout Australia, and their continuing connection to land, waters and community. We pay our respects to Elders past and present, and extend that respect to all Aboriginal and Torres Strait Islander peoples.</p></div>
+    <div class="bottom"><span>© 2026 Code Black Group Global Pty Ltd · ABN 62 315 213 466</span><span class="legal"><a href="../privacy/">Privacy policy</a><a href="#top">Back to top ↑</a></span></div>
+  </div>
+</footer>
+
+<dialog class="film" id="film" aria-label="Film">
+  <button class="x" type="button" aria-label="Close film">×</button>
+  <video controls playsinline preload="none"></video>
+</dialog>
+<script>
+(function(){
+  var v=document.getElementById('lfv'), sec=document.getElementById('watch'); if(!v) return;
+  function fit(){ var top=sec.getBoundingClientRect().top+window.scrollY; sec.style.height=Math.max(480, window.innerHeight-top)+'px'; }
+  fit(); addEventListener('resize',fit);
+  var port = window.innerHeight > window.innerWidth*1.05;
+  v.src = port ? v.dataset.port : v.dataset.land; if(port) v.poster=v.dataset.posterPort;
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sbtn=document.getElementById('lf-sound'), st=document.getElementById('lf-sound-t'), bar=document.getElementById('lf-bar');
+  function tryPlay(){ var p=v.play(); if(p&&p.catch) p.catch(function(){ sec.classList.add('paused'); st.textContent='Play with sound'; }); }
+  v.loop=true;
+  if(!RM){ tryPlay(); } else { sec.querySelector('.hint').textContent='Press play to watch'; }
+  function setLabel(){ st.textContent = v.muted ? (v.paused?'Play with sound':'Play with sound') : (v.paused?'Resume':'Sound on · mute'); }
+  sbtn.addEventListener('click',function(){
+    if(v.muted || v.paused){ if(v.muted){ v.currentTime=0; } v.muted=false; sec.classList.add('sound'); tryPlay(); }
+    else { v.muted=true; sec.classList.remove('sound'); }
+    setLabel();
+  });
+  document.getElementById('lf-fs').addEventListener('click',function(){
+    if(document.fullscreenElement){ document.exitFullscreen(); return; }
+    if(sec.requestFullscreen) sec.requestFullscreen().catch(function(){}); else if(v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+    if(v.muted){ v.currentTime=0; v.muted=false; sec.classList.add('sound'); tryPlay(); setLabel(); }
+  });
+  v.addEventListener('timeupdate',function(){ if(v.duration) bar.style.width=(v.currentTime/v.duration*100)+'%'; });
+  v.addEventListener('play',setLabel); v.addEventListener('pause',setLabel);
+  /* pause when scrolled away, resume when back */
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting){ if(!v.paused){ v.dataset.was='1'; v.pause(); } } else if(v.dataset.was==='1'){ v.dataset.was=''; tryPlay(); } }); },{threshold:.25}).observe(sec); }
+  var rp=document.getElementById('replay');
+  if(rp) rp.addEventListener('click',function(e){ e.preventDefault(); sec.scrollIntoView({behavior:'smooth'}); v.currentTime=0; v.muted=false; sec.classList.add('sound'); tryPlay(); setLabel(); });
+})();
+</script>
+<script src="../assets/editorial.js"></script>
+<script src="../assets/disc/corporate.js"></script>
+<script src="../assets/discovery.js"></script>
+<a class="sos-fab" href="#scam-help" data-scam-help aria-label="SOS: been scammed? Get help now"><i aria-hidden="true"></i>SOS<span> · Scam help</span></a>
+<dialog class="sh" id="sh" aria-labelledby="sh-t">
+  <span class="sh-fr" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <div class="sh-hd">
+    <span class="sh-badge"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <div class="sh-ttl"><span class="sh-k hudt"><b></b>SOS // Golden Shield</span><h2 id="sh-t">Been scammed? We&rsquo;ve got you.</h2></div>
+    <button class="sh-x" id="sh-x" type="button" aria-label="Close scam help"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  </div>
+  <div class="sh-body">
+    <section class="sh-blk">
+      <p class="sh-lab hudt"><span>01</span>Act now</p>
+      <div class="sh-quick">
+        <div class="sh-q urgent"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 10h19" stroke="currentColor" stroke-width="1.6"/></svg></span><div><b>Call your bank or card provider</b><span>Use the number on the back of your card. Ask them to stop payments and freeze cards.</span></div></div>
+        <a class="sh-q" href="tel:1300737562"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span><div><b>Code Black Group</b><span>Lock down devices, email and accounts</span></div><span class="tel">1300 737 562</span></a>
+        <a class="sh-q" href="tel:1800595160"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="11" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5.8 16.5c.6-1.7 1.8-2.5 3.2-2.5s2.6.8 3.2 2.5M14 9.5h4M14 13h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><div><b>IDCARE</b><span>Free help if ID documents were shared</span></div><span class="tel">1800 595 160</span></a>
+        <a class="sh-q" href="https://www.cyber.gov.au/" target="_blank" rel="noopener noreferrer"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><div><b>Report it</b><span>ReportCyber at cyber.gov.au, and Scamwatch</span></div><span class="tel">Open <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" style="display:inline"><path d="M3 1h6v6M9 1L1 9" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></a>
+      </div>
+    </section>
+    <section class="sh-blk">
+      <p class="sh-lab hudt"><span>02</span>Ask Golden Shield AI</p>
+      <p class="sh-intro">Tell us what happened and get clear next steps for your situation.</p>
+      <div class="sh-chips" id="sh-chips">
+        <button type="button">I gave my bank or card details</button>
+        <button type="button">I sent money to someone</button>
+        <button type="button">Someone accessed my computer</button>
+        <button type="button">I clicked a link in a message</button>
+        <button type="button">My email or social account was taken</button>
+      </div>
+      <div class="sh-log" id="sh-log" aria-live="polite"></div>
+      <form class="sh-form" id="sh-form">
+        <label for="sh-in" class="sh-sr">Describe what happened</label>
+        <textarea id="sh-in" rows="2" maxlength="800" placeholder="Describe what happened&hellip;"></textarea>
+        <button class="sh-send" id="sh-send" type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </form>
+      <p class="sh-fine">AI guidance only, not legal or financial advice. Never share card numbers, passwords or codes here. In danger? Call 000.</p>
+    </section>
+    <section class="sh-blk">
+      <p class="sh-lab hudt"><span>03</span>Talk to a person</p>
+      <details class="sh-cb">
+        <summary><span>Request an urgent call back</span><i aria-hidden="true"></i></summary>
+        <form id="sh-cbf" novalidate>
+          <p>Our team is alerted straight away and will call you as soon as possible.</p>
+          <input class="hp" id="sh-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="sh-row">
+            <div><label for="sh-name">Your name</label><input id="sh-name" maxlength="80" autocomplete="name"></div>
+            <div><label for="sh-phone">Phone number</label><input id="sh-phone" type="tel" maxlength="20" autocomplete="tel"></div>
+          </div>
+          <label for="sh-when">Best time to call <em>(optional)</em></label><input id="sh-when" maxlength="60" placeholder="e.g. Now, or after 3pm">
+          <label for="sh-what">What happened? <em>(optional, no card numbers)</em></label><textarea id="sh-what" maxlength="600"></textarea>
+          <button class="sh-btn" type="submit">Call me back</button>
+          <p id="sh-cbmsg" aria-live="polite"></p>
+        </form>
+      </details>
+    </section>
+    <div class="sh-links"><a href="https://www.scamwatch.gov.au/" target="_blank" rel="noopener noreferrer">Scamwatch</a><a href="https://www.cyber.gov.au/" target="_blank" rel="noopener noreferrer">cyber.gov.au</a><a href="https://moneysmart.gov.au/" target="_blank" rel="noopener noreferrer">Moneysmart</a></div>
+  </div>
+</dialog>
+
+<script src="../assets/scam-help.js?v=4" defer></script>
+</body>
+</html>
