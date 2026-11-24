@@ -475,3 +475,5 @@ footer.ft2{padding:clamp(32px,3.6vw,48px) 0 22px}
   .f-snd-sub{flex-basis:100%;font-size:11px}
 }
 @media (max-width:360px){.f-snd-sub{white-space:nowrap;max-width:none}.film .f-snd:not([hidden]){top:34%;padding:9px 14px}}
+/* the film waits inside the sphere until it is projected out (v40) */
+.film.proj-wait{opacity:0}
