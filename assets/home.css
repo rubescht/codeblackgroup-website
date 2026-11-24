@@ -357,3 +357,6 @@ footer.ft{padding:clamp(48px,5vw,72px) 0 28px;margin-top:0;border-top:1px solid 
 .tile .dot{animation:tdot 2.8s ease-in-out infinite}
 .t-smb .dot{animation-delay:-.7s}.t-corp .dot{animation-delay:-1.4s}.t-gov .dot{animation-delay:-2.1s}
 @media (prefers-reduced-motion:reduce){.tile .dot{animation:none}}
+/* spoken welcome: keep the title card up while the sphere introduces the group (v27) */
+.film.playing.intro .f-title{opacity:1;transform:none}
+.film.intro .f-cap{opacity:0}

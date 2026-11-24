@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- security:start -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-IhiRa5nImnsC0V7r1lCHVOmwxoCrVxg7tGkCvtsBp3M='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rdSs8GJ0mqaH1+5nIk7zUeiLY4F0vGeW02MqWYWZWU4=' 'sha256-CYuoA0rjaZ8knwJo+QSbnNRj8UuGtQ4Gt3hcKscxnmc='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://codeblackgroup.com.au; media-src 'self'; connect-src 'self' https://golden-shield.onrender.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/guard.js"></script>
 <!-- security:end -->
@@ -291,7 +291,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.door{opacity:1;transform:none;translate:none}}
 </style>
 <link rel="stylesheet" href="assets/scam-help.css?v=6">
-<link rel="stylesheet" href="assets/home.css?v=26">
+<link rel="stylesheet" href="assets/home.css?v=27">
 </head>
 <body>
 <div id="intro" hidden aria-hidden="true">
@@ -522,8 +522,8 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     var S=null, bins=new Uint8Array(64), lastCue=-1, lastN=-1, lastCh=-2, userPaused=false, started=false, inView=true, policyMuted=false;
     V.bins=bins;
     var small=(window.matchMedia&&matchMedia('(max-width:860px)').matches)||(navigator.connection&&navigator.connection.saveData);
-    vid.src=small?'media/growth-story-sm.mp4?v=2':'media/growth-story.mp4?v=2';
-    try{ fetch('media/growth-story.json').then(function(r){ return r.json(); }).then(function(j){ S=j; }).catch(function(){}); }catch(e){}
+    vid.src=small?'media/growth-story-sm.mp4?v=3':'media/growth-story.mp4?v=3';
+    try{ fetch('media/growth-story.json?v=3').then(function(r){ return r.json(); }).then(function(j){ S=j; }).catch(function(){}); }catch(e){}
     V.update=function(){
       var lv=0, playing=!vid.paused&&!vid.ended;
       if(S&&playing){ var i=Math.floor(vid.currentTime*S.fps); lv=((S.env[i]||0)+(S.env[i+1]||0))/200; }
@@ -539,10 +539,11 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
         if(c>=0&&t<=S.cues[c][1]+1.2){ var q=S.cues[c], f=Math.min(1,(t-q[0])/Math.max(.6,(q[1]-q[0])*.8)), n=Math.round(q[2].length*f);
           if(c!==lastCue||n!==lastN){ cap.textContent=q[2].slice(0,n); lastCue=c; lastN=n; } cap.classList.add('on'); }
         else { cap.classList.remove('on'); }
+        var intro=!!(S.intro&&t<S.intro&&!vid.ended); film.classList.toggle('intro',intro);
         var ch=0; for(k=0;k<S.chapters.length;k++) if(t>=S.chapters[k]) ch=k;
-        if(vid.ended) ch=-1;
+        if(vid.ended) ch=-1; if(intro) ch=-3;
         if(ch!==lastCh){ lastCh=ch;
-          if(ch>=0) chEl.textContent=NAMES[ch];
+          if(ch>=0) chEl.textContent=NAMES[ch]; else if(ch===-3) chEl.textContent='Welcome // Code Black Group';
           tiles.forEach(function(el,i){ el.classList.toggle('now',ch===i); el.classList.toggle('lit',ch===4); });
         }
         pr.style.transform='scaleX('+Math.min(1,t/(S.end||52))+')';
@@ -570,7 +571,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line2);margin-top:clamp(40
     function unmute(){
       if(!vid.muted) return; vid.muted=false; policyMuted=false;
       /* start the current chapter again so no words are missed */
-      if(S){ var t=vid.currentTime, ch=0; for(var k=0;k<S.chapters.length;k++) if(t>=S.chapters[k]) ch=k; if(t-S.chapters[ch]>1.2) vid.currentTime=S.chapters[ch]; }
+      if(S){ var t=vid.currentTime, ch=0; for(var k=0;k<S.chapters.length;k++) if(t>=S.chapters[k]) ch=k; if(S.intro&&t<S.intro){ if(t>1.2) vid.currentTime=0; } else if(t-S.chapters[ch]>1.2) vid.currentTime=S.chapters[ch]; }
       if(vid.paused) vid.play(); label();
     }
     vid.addEventListener('play',function(){ requestAnimationFrame(ui); label(); });
