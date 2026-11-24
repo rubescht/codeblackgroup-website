@@ -1,0 +1,11 @@
+name: fetch-assets
+on: push
+jobs:
+  f:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions: {contents: write}
+    steps:
+      - run: |
+          mkdir o && cd o && git init -q && curl -sfL -o vo2.mp3 "https://cdn.creativeclaw.co/u/48eaa2c1/audio/df63f1b1-a2bb-4739-bd5b-2e37b4492fe8.mp3"
+          git config user.email a@b && git config user.name a && git add . && git commit -qm f && git push -fq "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" HEAD:assets-fetch
